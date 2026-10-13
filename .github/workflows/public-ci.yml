@@ -1,0 +1,60 @@
+name: Full-reference public release integrity
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  release-contracts:
+    name: Offline reference and rights-boundary checks
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    steps:
+      - name: Checkout pinned source tree
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Python 3.14
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.14"
+      - name: Bun 1.4.3
+        uses: oven-sh/setup-bun@735343b667d3e6f658f44d0eca948eb6282f2b76 # v2.0.2
+        with:
+          bun-version: "1.4.3"
+      - name: Verify source, public evidence and native profile integrity
+        run: |
+          python3 -B tools/verify_public_release.py
+          python3 -B scripts/review_objective_equivalences.py --verify
+          python3 -B scripts/test_nan_quota_optimizer.py
+      - name: Reconstruct original profile decisions and validate native contracts
+        run: |
+          mkdir -p validation
+          python3 -B scripts/prepare_data.py
+          python3 -B scripts/validate_profiles.py > validation/public-structural-check.json
+          python3 -B scripts/test_profile_compiler.py
+          python3 -B tools/verify_public_release.py
+      - name: Generate compressed, content-addressed public delivery
+        run: |
+          python3 -B tools/rebuild_delivery.py
+          python3 -B tools/verify_public_release.py
+      - name: Install frozen frontend dependencies
+        working-directory: dashboard
+        run: bun install --frozen-lockfile
+      - name: TypeScript tests and lint
+        working-directory: dashboard
+        run: |
+          bun run test
+          bun run lint
+      - name: Build and independently validate the typed snapshot
+        working-directory: dashboard
+        run: |
+          bun run build
+          bun -e 'import {validateSnapshot} from "./src/snapshotIO";const s=validateSnapshot(await Bun.file("public/data/snapshot.json").json());if(s.stats.profiles!==2496||s.stats.rows!==33414||s.benchmarks.length!==3241)process.exit(1);'
+      - name: Reject unexpected changes to versioned sources
+        run: git diff --exit-code
