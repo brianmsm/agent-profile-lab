@@ -19,6 +19,7 @@ A green public CI checks *this distribution*, not the external providers' scores
 ## Local reproduction
 
     python3 -B tools/verify_public_release.py
+    python3 -B tools/audit_public_distribution.py
     python3 -B scripts/review_objective_equivalences.py --verify
     python3 -B scripts/test_nan_quota_optimizer.py
     cd dashboard
