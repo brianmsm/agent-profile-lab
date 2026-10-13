@@ -1,0 +1,1127 @@
+{
+  "stats": {
+    "rows": 27,
+    "profiles": 2,
+    "portfolios": 1,
+    "models": 4,
+    "groups": 2,
+    "validators": {
+      "passed": 5039,
+      "failed": 0
+    },
+    "session": "contract-baseline-1 (2026-10-10)"
+  },
+  "portfolios": {
+    "plus": {
+      "label": "OpenAI Plus $20",
+      "usd": "20",
+      "eur": "0",
+      "openai": "plus",
+      "gateway": "none",
+      "claude": "none",
+      "nan": "False",
+      "notes": "Precios nominales separados por moneda; no cambio de divisa ni impuestos USD asumidos. Go y CC alternativos, no simultáneos.",
+      "sourceIds": [
+        "OAI"
+      ]
+    }
+  },
+  "catalog": {
+    "oa_astra": {
+      "name": "GPT-6 Astra",
+      "pool": "OAI",
+      "selector": "openai-codex/gpt-6-astra",
+      "efforts": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "vision": true,
+      "evidence": "media-alta",
+      "integration": "alta: registro observado",
+      "notes": "Contexto conservador observado en Pi/OMP sin extensión. No son créditos API en dólares.",
+      "sourceIds": [
+        "OAI",
+        "FC",
+        "PI",
+        "OMP",
+        "OMP1832"
+      ],
+      "sourceUrls": [
+        "https://learn.chatgpt.com/docs/pricing",
+        "https://cognition.com/frontiercode",
+        "https://github.com/earendil-works/pi/tree/v0.87.1",
+        "https://github.com/can1357/oh-my-pi/tree/v18.2.11",
+        "https://github.com/can1357/oh-my-pi/tree/v18.3.2"
+      ],
+      "modelId": "openai:gpt-6-astra",
+      "defaultAccessRouteId": "chatgpt-legacy",
+      "identityRelation": "published-label"
+    },
+    "oa_luna": {
+      "name": "GPT-6 Luna",
+      "pool": "OAI",
+      "selector": "openai-codex/gpt-6-luna",
+      "efforts": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "vision": true,
+      "evidence": "media-alta",
+      "integration": "alta: registro observado",
+      "notes": "Contexto conservador observado en Pi/OMP sin extensión. No son créditos API en dólares.",
+      "sourceIds": [
+        "OAI",
+        "FC",
+        "PI",
+        "OMP",
+        "OMP1832"
+      ],
+      "sourceUrls": [
+        "https://learn.chatgpt.com/docs/pricing",
+        "https://cognition.com/frontiercode",
+        "https://github.com/earendil-works/pi/tree/v0.87.1",
+        "https://github.com/can1357/oh-my-pi/tree/v18.2.11",
+        "https://github.com/can1357/oh-my-pi/tree/v18.3.2"
+      ],
+      "modelId": "openai:gpt-6-luna",
+      "defaultAccessRouteId": "chatgpt-legacy",
+      "identityRelation": "published-label"
+    },
+    "oa_sol": {
+      "name": "GPT-6 Sol",
+      "pool": "OAI",
+      "selector": "openai-codex/gpt-6-sol",
+      "efforts": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "vision": true,
+      "evidence": "media-alta",
+      "integration": "alta: registro observado",
+      "notes": "Contexto conservador observado en Pi/OMP sin extensión. No son créditos API en dólares. | SUPERSEDED por GPT-6.1 Sol (2026-09-29): mismo precio, cache read 95%, external benchmark comparison, consult its original publisher for numeric details.",
+      "sourceIds": [
+        "OAI",
+        "FC",
+        "PI",
+        "OMP",
+        "OMP1832"
+      ],
+      "sourceUrls": [
+        "https://learn.chatgpt.com/docs/pricing",
+        "https://cognition.com/frontiercode",
+        "https://github.com/earendil-works/pi/tree/v0.87.1",
+        "https://github.com/can1357/oh-my-pi/tree/v18.2.11",
+        "https://github.com/can1357/oh-my-pi/tree/v18.3.2"
+      ],
+      "modelId": "openai:gpt-6-sol",
+      "defaultAccessRouteId": "chatgpt-legacy",
+      "identityRelation": "published-label"
+    },
+    "oa_sol61": {
+      "name": "GPT-6.1 Sol",
+      "pool": "OAI",
+      "selector": "openai-codex/gpt-6.1-sol",
+      "efforts": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "vision": true,
+      "evidence": "media",
+      "integration": "condicional: selector observado en Codex; roundtrip en Pi/OMP pendiente",
+      "notes": "Contexto conservador observado en Pi/OMP sin extensión (272k operativo). Supersede a gpt-6-sol (mismo $2/$10, cache read 95%). No en Chat; Work/Codex/API. gpt-6.1 rechaza none/minimal. Aprobado por usuario 2026-09-30 para V5.1.",
+      "sourceIds": [
+        "OAI",
+        "FC",
+        "PI",
+        "OMP",
+        "OMP1832",
+        "OAI61SOL",
+        "AA61SOL"
+      ],
+      "sourceUrls": [
+        "https://learn.chatgpt.com/docs/pricing",
+        "https://cognition.com/frontiercode",
+        "https://github.com/earendil-works/pi/tree/v0.87.1",
+        "https://github.com/can1357/oh-my-pi/tree/v18.2.11",
+        "https://github.com/can1357/oh-my-pi/tree/v18.3.2",
+        "https://openai.com/index/introducing-gpt-6-1-sol/",
+        "https://artificialanalysis.ai/articles/gpt-6-1-sol-replaces-gpt-6-sol-after-just-7-days-with-near-astra-intelligence"
+      ],
+      "modelId": "openai:gpt-6.1-sol",
+      "defaultAccessRouteId": "chatgpt-legacy",
+      "identityRelation": "published-label"
+    }
+  },
+  "coverage": {},
+  "domainContracts": {
+    "data": {
+      "label": "Análisis de datos",
+      "gate": "Verificar grano, unidades, denominadores, missing, joins, estimador, supuestos e interpretación. Oráculo numérico/simulación y trazabilidad; test verde no acredita validez científica.",
+      "critical": "Inferencia estadística, decisiones de medida y semántica de datos",
+      "routine": "Transformaciones y gráficos con especificación y valores esperados",
+      "scope": "R/Python/SQL, psicometría, SEM, procesos analíticos reproducibles"
+    },
+    "research": {
+      "label": "Investigación",
+      "gate": "Lectura de fuentes primarias, citas que soporten cada afirmación, búsqueda de evidencia contraria y distinción dato/inferencia. No inventar bibliografía; comprobar cifras originales.",
+      "critical": "Síntesis, inferencia, diseño del estudio y validez de evidencia",
+      "routine": "Búsqueda, extracción y clasificación con fuente y alcance explícitos",
+      "scope": "Literatura, investigación empírica y síntesis; tráfico compatible con términos del proveedor"
+    },
+    "web": {
+      "label": "Desarrollo web",
+      "gate": "Tests de comportamiento, accesibilidad, responsive, estados de error y revisión visual. Privacidad, autorización y cobros requieren revisión fuerte aunque el UI sea simple.",
+      "critical": "Arquitectura, contratos, permisos, estado y persistencia",
+      "routine": "UI y componentes delimitados con capturas y pruebas",
+      "scope": "Frontend, backend y aplicaciones web; distinto del software nativo/CLI/multiplataforma. Una nota visual alta no demuestra seguridad ni corrección."
+    },
+    "apps": {
+      "label": "Desarrollo de software",
+      "gate": "Ejecutar CI en cada SO objetivo, comprobar rutas/case/encoding, permisos, procesos/IPC, ciclo de vida, instalación/actualización y persistencia. Compilar sólo en Linux no valida Windows/macOS.",
+      "critical": "Interfaz nativa, concurrencia, IPC, empaquetado y ciclo de vida",
+      "routine": "Componentes y módulos portables con contratos y matriz de CI",
+      "scope": "Software nativo, CLI, GUI, servicios y desarrollo multiplataforma para Windows, macOS, Linux y móvil; distinto del frontend/backend web."
+    },
+    "cybersecurity": {
+      "label": "Ciberseguridad",
+      "gate": "Exigir alcance, activos y autorización explícitos antes de actuar; proteger secretos y datos sensibles; reproducir hallazgos en un entorno aislado con evidencia verificable; validar remediación y no regresión; revisión humana del impacto. No ejecutar acciones destructivas, persistentes ni contra sistemas reales fuera de la autorización documentada.",
+      "critical": "Fronteras de confianza, identidad y permisos, explotación e impacto, exposición de secretos, evaluación de vulnerabilidades y decisiones de remediación",
+      "routine": "Tareas defensivas acotadas y autorizadas con activos, límites y oráculo de aceptación explícitos; pruebas reproducibles aisladas, sin acciones sobre objetivos reales no autorizadas",
+      "scope": "Revisión defensiva, modelado de amenazas, endurecimiento y evaluación autorizada en laboratorio o activos expresamente incluidos en alcance; no implica autorización para intrusión ni acredita competencia o eficacia en ciberseguridad",
+      "evidenceNote": "Las rutas de ciberseguridad se derivan de perfiles equivalentes de Apps y reutilizan la revisión crítica existente cuando está justificada. Hay resultados públicos de benchmarks incorporados con fuente y correspondencia explícitas, pero no establecen calibración ni equivalencia de proveedor, selector o harness de nuestras rutas. La validación estructural no demuestra seguridad, calidad ni eficacia.",
+      "evidenceBoundary": {
+        "routingBasis": "Apps-derived",
+        "publishedEvidence": "published-results-present",
+        "routeCalibration": "route-calibration-not-established",
+        "validationMeaning": "structural-validation-not-efficacy"
+      }
+    },
+    "agent-use": {
+      "label": "Agent use (uso de computador)",
+      "gate": "Acción reversible o confirmada; log de acciones con diff de estado; límites de autorización explícitos. Ni escrituras destructivas sin confirmación ni credenciales en captures.",
+      "critical": "Planificación multi-app, autorización, recuperación de errores y juicio de reversibilidad",
+      "routine": "Flujos delimitados con oráculo verificable (OSWorld-style) y capturas",
+      "scope": "Computer use: navegador, SO, apps de escritorio; proxies públicos: OSWorld 2.0, Agents' Last Exam, ScreenSpot-Pro, Arena Agent"
+    }
+  },
+  "meta": {
+    "gentle-shell--plus-apps-balanced": {
+      "portfolio": "plus",
+      "harness": "gentle-shell",
+      "domain": "apps",
+      "objective": "balanced",
+      "targetId": "gentle-shell@4.0.0+pi@1.1.0",
+      "harnessVersion": "4.0.0",
+      "runtime": {
+        "name": "pi",
+        "version": "1.1.0"
+      }
+    },
+    "omp--plus-apps-balanced": {
+      "portfolio": "plus",
+      "harness": "omp",
+      "domain": "apps",
+      "objective": "balanced",
+      "targetId": "omp@18.8.7",
+      "harnessVersion": "18.8.7",
+      "runtime": {
+        "name": "omp",
+        "version": "18.8.7"
+      }
+    }
+  },
+  "routing": {
+    "gentle-shell--plus-apps-balanced": {
+      "orchestrator": [
+        "GPT-6.1 Sol",
+        "medium"
+      ],
+      "gentle-ai-explore": [
+        "GPT-6 Luna",
+        "high"
+      ],
+      "gentle-ai-worker": [
+        "GPT-6.1 Sol",
+        "medium"
+      ],
+      "gentle-ai-verify": [
+        "GPT-6 Luna",
+        "medium"
+      ],
+      "jd-judge-a": [
+        "GPT-6.1 Sol",
+        "high"
+      ],
+      "jd-judge-b": [
+        "GPT-6.1 Sol",
+        "high"
+      ],
+      "jd-fix-agent": [
+        "GPT-6.1 Sol",
+        "medium"
+      ],
+      "review-risk": [
+        "GPT-6.1 Sol",
+        "medium"
+      ],
+      "review-readability": [
+        "GPT-6 Luna",
+        "medium"
+      ],
+      "review-reliability": [
+        "GPT-6.1 Sol",
+        "medium"
+      ],
+      "review-resilience": [
+        "GPT-6.1 Sol",
+        "medium"
+      ],
+      "review-refuter": [
+        "GPT-6.1 Sol",
+        "medium"
+      ],
+      "review-validator": [
+        "GPT-6.1 Sol",
+        "medium"
+      ]
+    },
+    "omp--plus-apps-balanced": {
+      "default": [
+        "GPT-6.1 Sol",
+        "medium"
+      ],
+      "smol": [
+        "GPT-6 Luna",
+        "medium"
+      ],
+      "slow": [
+        "GPT-6.1 Sol",
+        "high"
+      ],
+      "plan": [
+        "GPT-6.1 Sol",
+        "high"
+      ],
+      "task": [
+        "GPT-6.1 Sol",
+        "medium"
+      ],
+      "commit": [
+        "GPT-6 Luna",
+        "medium"
+      ],
+      "vision": [
+        "GPT-6.1 Sol",
+        "medium"
+      ],
+      "tiny": [
+        "GPT-6 Luna",
+        "low"
+      ],
+      "memory": [
+        "GPT-6 Luna",
+        "low"
+      ],
+      "advisor": [
+        "GPT-6 Luna",
+        "medium"
+      ],
+      "advisor_deep": [
+        "GPT-6.1 Sol",
+        "high"
+      ],
+      "designer": [
+        "GPT-6.1 Sol",
+        "medium"
+      ],
+      "data_designer": [
+        "GPT-6.1 Sol",
+        "medium"
+      ],
+      "judge": [
+        "GPT-6 Luna",
+        "low"
+      ]
+    }
+  },
+  "routeDetails": {
+    "gentle-shell--plus-apps-balanced": {
+      "orchestrator": {
+        "modelKey": "oa_sol61",
+        "effort": "medium",
+        "fallback": {
+          "modelKey": "oa_luna",
+          "effort": "high",
+          "origin": {
+            "modelId": "openai:gpt-6-luna",
+            "accessRouteId": "chatgpt-legacy",
+            "resourceId": "chatgpt-main",
+            "credentialRef": "chatgpt-main",
+            "plan": "plus"
+          }
+        },
+        "accelerator": null,
+        "enabled": true,
+        "condition": "Ejecutar CI en cada SO objetivo, comprobar rutas/case/encoding, permisos, procesos/IPC, ciclo de vida, instalación/actualización y persistencia. Compilar sólo en Linux no valida Windows/macOS.",
+        "rationale": "Preserva capacidad de coordinación sin razonar al máximo en cada turno.",
+        "origin": {
+          "modelId": "openai:gpt-6.1-sol",
+          "accessRouteId": "chatgpt-legacy",
+          "resourceId": "chatgpt-main",
+          "credentialRef": "chatgpt-main",
+          "plan": "plus"
+        }
+      },
+      "gentle-ai-explore": {
+        "modelKey": "oa_luna",
+        "effort": "high",
+        "fallback": {
+          "modelKey": "oa_sol",
+          "effort": "high",
+          "origin": {
+            "modelId": "openai:gpt-6-sol",
+            "accessRouteId": "chatgpt-legacy",
+            "resourceId": "chatgpt-main",
+            "credentialRef": "chatgpt-main",
+            "plan": "plus"
+          }
+        },
+        "accelerator": null,
+        "enabled": true,
+        "condition": "Ejecutar CI en cada SO objetivo, comprobar rutas/case/encoding, permisos, procesos/IPC, ciclo de vida, instalación/actualización y persistencia. Compilar sólo en Linux no valida Windows/macOS.",
+        "rationale": "Exploración y compresión de contexto; para rapidez reduce el relevo débil cuando OpenAI está disponible.",
+        "origin": {
+          "modelId": "openai:gpt-6-luna",
+          "accessRouteId": "chatgpt-legacy",
+          "resourceId": "chatgpt-main",
+          "credentialRef": "chatgpt-main",
+          "plan": "plus"
+        }
+      },
+      "gentle-ai-worker": {
+        "modelKey": "oa_sol61",
+        "effort": "medium",
+        "fallback": {
+          "modelKey": "oa_luna",
+          "effort": "high",
+          "origin": {
+            "modelId": "openai:gpt-6-luna",
+            "accessRouteId": "chatgpt-legacy",
+            "resourceId": "chatgpt-main",
+            "credentialRef": "chatgpt-main",
+            "plan": "plus"
+          }
+        },
+        "accelerator": null,
+        "enabled": true,
+        "condition": "Ejecutar CI en cada SO objetivo, comprobar rutas/case/encoding, permisos, procesos/IPC, ciclo de vida, instalación/actualización y persistencia. Compilar sólo en Linux no valida Windows/macOS.",
+        "rationale": "Implementación delimitada: economía descarga volumen; balance y rapidez conservan una ruta fuerte.",
+        "origin": {
+          "modelId": "openai:gpt-6.1-sol",
+          "accessRouteId": "chatgpt-legacy",
+          "resourceId": "chatgpt-main",
+          "credentialRef": "chatgpt-main",
+          "plan": "plus"
+        }
+      },
+      "gentle-ai-verify": {
+        "modelKey": "oa_luna",
+        "effort": "medium",
+        "fallback": {
+          "modelKey": "oa_astra",
+          "effort": "high",
+          "origin": {
+            "modelId": "openai:gpt-6-astra",
+            "accessRouteId": "chatgpt-legacy",
+            "resourceId": "chatgpt-main",
+            "credentialRef": "chatgpt-main",
+            "plan": "plus"
+          }
+        },
+        "accelerator": null,
+        "enabled": true,
+        "condition": "Ejecutar CI en cada SO objetivo, comprobar rutas/case/encoding, permisos, procesos/IPC, ciclo de vida, instalación/actualización y persistencia. Compilar sólo en Linux no valida Windows/macOS. No sustituye la verificación externa ni autoriza aprobar por consenso de modelos.",
+        "rationale": "Verificación del resultado y de evidencia externa, no autoevaluación verbal del escritor.",
+        "origin": {
+          "modelId": "openai:gpt-6-luna",
+          "accessRouteId": "chatgpt-legacy",
+          "resourceId": "chatgpt-main",
+          "credentialRef": "chatgpt-main",
+          "plan": "plus"
+        }
+      },
+      "jd-judge-a": {
+        "modelKey": "oa_sol61",
+        "effort": "high",
+        "fallback": {
+          "modelKey": "oa_astra",
+          "effort": "high",
+          "origin": {
+            "modelId": "openai:gpt-6-astra",
+            "accessRouteId": "chatgpt-legacy",
+            "resourceId": "chatgpt-main",
+            "credentialRef": "chatgpt-main",
+            "plan": "plus"
+          }
+        },
+        "accelerator": null,
+        "enabled": true,
+        "condition": "Ejecutar CI en cada SO objetivo, comprobar rutas/case/encoding, permisos, procesos/IPC, ciclo de vida, instalación/actualización y persistencia. Compilar sólo en Linux no valida Windows/macOS. No sustituye la verificación externa ni autoriza aprobar por consenso de modelos.",
+        "rationale": "Juicio adversarial contra pruebas y requisitos, no un voto de popularidad.",
+        "origin": {
+          "modelId": "openai:gpt-6.1-sol",
+          "accessRouteId": "chatgpt-legacy",
+          "resourceId": "chatgpt-main",
+          "credentialRef": "chatgpt-main",
+          "plan": "plus"
+        }
+      },
+      "jd-judge-b": {
+        "modelKey": "oa_sol61",
+        "effort": "high",
+        "fallback": {
+          "modelKey": "oa_sol",
+          "effort": "high",
+          "origin": {
+            "modelId": "openai:gpt-6-sol",
+            "accessRouteId": "chatgpt-legacy",
+            "resourceId": "chatgpt-main",
+            "credentialRef": "chatgpt-main",
+            "plan": "plus"
+          }
+        },
+        "accelerator": null,
+        "enabled": true,
+        "condition": "Ejecutar CI en cada SO objetivo, comprobar rutas/case/encoding, permisos, procesos/IPC, ciclo de vida, instalación/actualización y persistencia. Compilar sólo en Linux no valida Windows/macOS. No sustituye la verificación externa ni autoriza aprobar por consenso de modelos. Contexto independiente y evidencia contraria; distinta generación/familia no asegura independencia estadística.",
+        "rationale": "Segundo lector para cuestionar el juicio; diversidad selectiva, no garantía de independencia. Exhaustive V5 review: blind prompt independence is preserved without forcing GPT-5.6 Sol; GPT-6 Sol high is the stronger direct default absent a calibrated challenger.",
+        "origin": {
+          "modelId": "openai:gpt-6.1-sol",
+          "accessRouteId": "chatgpt-legacy",
+          "resourceId": "chatgpt-main",
+          "credentialRef": "chatgpt-main",
+          "plan": "plus"
+        }
+      },
+      "jd-fix-agent": {
+        "modelKey": "oa_sol61",
+        "effort": "medium",
+        "fallback": {
+          "modelKey": "oa_astra",
+          "effort": "high",
+          "origin": {
+            "modelId": "openai:gpt-6-astra",
+            "accessRouteId": "chatgpt-legacy",
+            "resourceId": "chatgpt-main",
+            "credentialRef": "chatgpt-main",
+            "plan": "plus"
+          }
+        },
+        "accelerator": null,
+        "enabled": true,
+        "condition": "Ejecutar CI en cada SO objetivo, comprobar rutas/case/encoding, permisos, procesos/IPC, ciclo de vida, instalación/actualización y persistencia. Compilar sólo en Linux no valida Windows/macOS. No sustituye la verificación externa ni autoriza aprobar por consenso de modelos.",
+        "rationale": "Corrección acotada y autorizada; no bajar fiabilidad en el tramo que cierra el defecto.",
+        "origin": {
+          "modelId": "openai:gpt-6.1-sol",
+          "accessRouteId": "chatgpt-legacy",
+          "resourceId": "chatgpt-main",
+          "credentialRef": "chatgpt-main",
+          "plan": "plus"
+        }
+      },
+      "review-risk": {
+        "modelKey": "oa_sol61",
+        "effort": "medium",
+        "fallback": {
+          "modelKey": "oa_astra",
+          "effort": "high",
+          "origin": {
+            "modelId": "openai:gpt-6-astra",
+            "accessRouteId": "chatgpt-legacy",
+            "resourceId": "chatgpt-main",
+            "credentialRef": "chatgpt-main",
+            "plan": "plus"
+          }
+        },
+        "accelerator": null,
+        "enabled": true,
+        "condition": "Ejecutar CI en cada SO objetivo, comprobar rutas/case/encoding, permisos, procesos/IPC, ciclo de vida, instalación/actualización y persistencia. Compilar sólo en Linux no valida Windows/macOS. No sustituye la verificación externa ni autoriza aprobar por consenso de modelos.",
+        "rationale": "Analiza riesgos concretos sobre candidato y evidencia; conserva la reserva crítica. Exhaustive V5 review: native RDD lens uses medium as the static default; high remains a candidate-risk escalation, not a Data/Apps domain default.",
+        "origin": {
+          "modelId": "openai:gpt-6.1-sol",
+          "accessRouteId": "chatgpt-legacy",
+          "resourceId": "chatgpt-main",
+          "credentialRef": "chatgpt-main",
+          "plan": "plus"
+        }
+      },
+      "review-readability": {
+        "modelKey": "oa_luna",
+        "effort": "medium",
+        "fallback": {
+          "modelKey": "oa_sol",
+          "effort": "high",
+          "origin": {
+            "modelId": "openai:gpt-6-sol",
+            "accessRouteId": "chatgpt-legacy",
+            "resourceId": "chatgpt-main",
+            "credentialRef": "chatgpt-main",
+            "plan": "plus"
+          }
+        },
+        "accelerator": null,
+        "enabled": true,
+        "condition": "Ejecutar CI en cada SO objetivo, comprobar rutas/case/encoding, permisos, procesos/IPC, ciclo de vida, instalación/actualización y persistencia. Compilar sólo en Linux no valida Windows/macOS.",
+        "rationale": "Legibilidad y explicación con alcance localizado; no reemplaza confiabilidad ni semántica.",
+        "origin": {
+          "modelId": "openai:gpt-6-luna",
+          "accessRouteId": "chatgpt-legacy",
+          "resourceId": "chatgpt-main",
+          "credentialRef": "chatgpt-main",
+          "plan": "plus"
+        }
+      },
+      "review-reliability": {
+        "modelKey": "oa_sol61",
+        "effort": "medium",
+        "fallback": {
+          "modelKey": "oa_astra",
+          "effort": "high",
+          "origin": {
+            "modelId": "openai:gpt-6-astra",
+            "accessRouteId": "chatgpt-legacy",
+            "resourceId": "chatgpt-main",
+            "credentialRef": "chatgpt-main",
+            "plan": "plus"
+          }
+        },
+        "accelerator": null,
+        "enabled": true,
+        "condition": "Ejecutar CI en cada SO objetivo, comprobar rutas/case/encoding, permisos, procesos/IPC, ciclo de vida, instalación/actualización y persistencia. Compilar sólo en Linux no valida Windows/macOS. No sustituye la verificación externa ni autoriza aprobar por consenso de modelos.",
+        "rationale": "Verificación del resultado y de evidencia externa, no autoevaluación verbal del escritor. Exhaustive V5 review: native RDD lens uses medium as the static default; high remains a candidate-risk escalation, not a Data/Apps domain default.",
+        "origin": {
+          "modelId": "openai:gpt-6.1-sol",
+          "accessRouteId": "chatgpt-legacy",
+          "resourceId": "chatgpt-main",
+          "credentialRef": "chatgpt-main",
+          "plan": "plus"
+        }
+      },
+      "review-resilience": {
+        "modelKey": "oa_sol61",
+        "effort": "medium",
+        "fallback": {
+          "modelKey": "oa_astra",
+          "effort": "high",
+          "origin": {
+            "modelId": "openai:gpt-6-astra",
+            "accessRouteId": "chatgpt-legacy",
+            "resourceId": "chatgpt-main",
+            "credentialRef": "chatgpt-main",
+            "plan": "plus"
+          }
+        },
+        "accelerator": null,
+        "enabled": true,
+        "condition": "Ejecutar CI en cada SO objetivo, comprobar rutas/case/encoding, permisos, procesos/IPC, ciclo de vida, instalación/actualización y persistencia. Compilar sólo en Linux no valida Windows/macOS. No sustituye la verificación externa ni autoriza aprobar por consenso de modelos.",
+        "rationale": "Analiza riesgos concretos sobre candidato y evidencia; conserva la reserva crítica. Exhaustive V5 review: native RDD lens uses medium as the static default; high remains a candidate-risk escalation, not a Data/Apps domain default.",
+        "origin": {
+          "modelId": "openai:gpt-6.1-sol",
+          "accessRouteId": "chatgpt-legacy",
+          "resourceId": "chatgpt-main",
+          "credentialRef": "chatgpt-main",
+          "plan": "plus"
+        }
+      },
+      "review-refuter": {
+        "modelKey": "oa_sol61",
+        "effort": "medium",
+        "fallback": {
+          "modelKey": "oa_astra",
+          "effort": "high",
+          "origin": {
+            "modelId": "openai:gpt-6-astra",
+            "accessRouteId": "chatgpt-legacy",
+            "resourceId": "chatgpt-main",
+            "credentialRef": "chatgpt-main",
+            "plan": "plus"
+          }
+        },
+        "accelerator": null,
+        "enabled": true,
+        "condition": "Ejecutar CI en cada SO objetivo, comprobar rutas/case/encoding, permisos, procesos/IPC, ciclo de vida, instalación/actualización y persistencia. Compilar sólo en Linux no valida Windows/macOS. No sustituye la verificación externa ni autoriza aprobar por consenso de modelos.",
+        "rationale": "Busca contraejemplos a un hallazgo concreto, sin reabrir indefinidamente el alcance.",
+        "origin": {
+          "modelId": "openai:gpt-6.1-sol",
+          "accessRouteId": "chatgpt-legacy",
+          "resourceId": "chatgpt-main",
+          "credentialRef": "chatgpt-main",
+          "plan": "plus"
+        }
+      },
+      "review-validator": {
+        "modelKey": "oa_sol61",
+        "effort": "medium",
+        "fallback": {
+          "modelKey": "oa_astra",
+          "effort": "high",
+          "origin": {
+            "modelId": "openai:gpt-6-astra",
+            "accessRouteId": "chatgpt-legacy",
+            "resourceId": "chatgpt-main",
+            "credentialRef": "chatgpt-main",
+            "plan": "plus"
+          }
+        },
+        "accelerator": null,
+        "enabled": true,
+        "condition": "Ejecutar CI en cada SO objetivo, comprobar rutas/case/encoding, permisos, procesos/IPC, ciclo de vida, instalación/actualización y persistencia. Compilar sólo en Linux no valida Windows/macOS. No sustituye la verificación externa ni autoriza aprobar por consenso de modelos.",
+        "rationale": "Valida correspondencia entre hallazgo, cambio y prueba observada.",
+        "origin": {
+          "modelId": "openai:gpt-6.1-sol",
+          "accessRouteId": "chatgpt-legacy",
+          "resourceId": "chatgpt-main",
+          "credentialRef": "chatgpt-main",
+          "plan": "plus"
+        }
+      }
+    },
+    "omp--plus-apps-balanced": {
+      "default": {
+        "modelKey": "oa_sol61",
+        "effort": "medium",
+        "fallback": {
+          "modelKey": "oa_luna",
+          "effort": "high",
+          "origin": {
+            "modelId": "openai:gpt-6-luna",
+            "accessRouteId": "chatgpt-legacy",
+            "resourceId": "chatgpt-main",
+            "credentialRef": "chatgpt-main",
+            "plan": "plus"
+          }
+        },
+        "accelerator": null,
+        "enabled": true,
+        "condition": "Ejecutar CI en cada SO objetivo, comprobar rutas/case/encoding, permisos, procesos/IPC, ciclo de vida, instalación/actualización y persistencia. Compilar sólo en Linux no valida Windows/macOS.",
+        "rationale": "Preserva capacidad de coordinación sin razonar al máximo en cada turno.",
+        "origin": {
+          "modelId": "openai:gpt-6.1-sol",
+          "accessRouteId": "chatgpt-legacy",
+          "resourceId": "chatgpt-main",
+          "credentialRef": "chatgpt-main",
+          "plan": "plus"
+        }
+      },
+      "smol": {
+        "modelKey": "oa_luna",
+        "effort": "medium",
+        "fallback": {
+          "modelKey": "oa_sol",
+          "effort": "high",
+          "origin": {
+            "modelId": "openai:gpt-6-sol",
+            "accessRouteId": "chatgpt-legacy",
+            "resourceId": "chatgpt-main",
+            "credentialRef": "chatgpt-main",
+            "plan": "plus"
+          }
+        },
+        "accelerator": null,
+        "enabled": true,
+        "condition": "Ejecutar CI en cada SO objetivo, comprobar rutas/case/encoding, permisos, procesos/IPC, ciclo de vida, instalación/actualización y persistencia. Compilar sólo en Linux no valida Windows/macOS.",
+        "rationale": "Exploración y compresión de contexto; para rapidez reduce el relevo débil cuando OpenAI está disponible.",
+        "origin": {
+          "modelId": "openai:gpt-6-luna",
+          "accessRouteId": "chatgpt-legacy",
+          "resourceId": "chatgpt-main",
+          "credentialRef": "chatgpt-main",
+          "plan": "plus"
+        }
+      },
+      "slow": {
+        "modelKey": "oa_sol61",
+        "effort": "high",
+        "fallback": {
+          "modelKey": "oa_astra",
+          "effort": "high",
+          "origin": {
+            "modelId": "openai:gpt-6-astra",
+            "accessRouteId": "chatgpt-legacy",
+            "resourceId": "chatgpt-main",
+            "credentialRef": "chatgpt-main",
+            "plan": "plus"
+          }
+        },
+        "accelerator": null,
+        "enabled": true,
+        "condition": "Ejecutar CI en cada SO objetivo, comprobar rutas/case/encoding, permisos, procesos/IPC, ciclo de vida, instalación/actualización y persistencia. Compilar sólo en Linux no valida Windows/macOS. No sustituye la verificación externa ni autoriza aprobar por consenso de modelos.",
+        "rationale": "El reviewer OMP recupera contexto con herramientas; requiere más autonomía que una lente congelada.",
+        "origin": {
+          "modelId": "openai:gpt-6.1-sol",
+          "accessRouteId": "chatgpt-legacy",
+          "resourceId": "chatgpt-main",
+          "credentialRef": "chatgpt-main",
+          "plan": "plus"
+        }
+      },
+      "plan": {
+        "modelKey": "oa_sol61",
+        "effort": "high",
+        "fallback": {
+          "modelKey": "oa_astra",
+          "effort": "high",
+          "origin": {
+            "modelId": "openai:gpt-6-astra",
+            "accessRouteId": "chatgpt-legacy",
+            "resourceId": "chatgpt-main",
+            "credentialRef": "chatgpt-main",
+            "plan": "plus"
+          }
+        },
+        "accelerator": null,
+        "enabled": true,
+        "condition": "Ejecutar CI en cada SO objetivo, comprobar rutas/case/encoding, permisos, procesos/IPC, ciclo de vida, instalación/actualización y persistencia. Compilar sólo en Linux no valida Windows/macOS. No sustituye la verificación externa ni autoriza aprobar por consenso de modelos.",
+        "rationale": "Arquitectura, invariantes y decisiones que condicionan a todos los workers.",
+        "origin": {
+          "modelId": "openai:gpt-6.1-sol",
+          "accessRouteId": "chatgpt-legacy",
+          "resourceId": "chatgpt-main",
+          "credentialRef": "chatgpt-main",
+          "plan": "plus"
+        }
+      },
+      "task": {
+        "modelKey": "oa_sol61",
+        "effort": "medium",
+        "fallback": {
+          "modelKey": "oa_luna",
+          "effort": "high",
+          "origin": {
+            "modelId": "openai:gpt-6-luna",
+            "accessRouteId": "chatgpt-legacy",
+            "resourceId": "chatgpt-main",
+            "credentialRef": "chatgpt-main",
+            "plan": "plus"
+          }
+        },
+        "accelerator": null,
+        "enabled": true,
+        "condition": "Ejecutar CI en cada SO objetivo, comprobar rutas/case/encoding, permisos, procesos/IPC, ciclo de vida, instalación/actualización y persistencia. Compilar sólo en Linux no valida Windows/macOS.",
+        "rationale": "Implementación delimitada: economía descarga volumen; balance y rapidez conservan una ruta fuerte.",
+        "origin": {
+          "modelId": "openai:gpt-6.1-sol",
+          "accessRouteId": "chatgpt-legacy",
+          "resourceId": "chatgpt-main",
+          "credentialRef": "chatgpt-main",
+          "plan": "plus"
+        }
+      },
+      "commit": {
+        "modelKey": "oa_luna",
+        "effort": "medium",
+        "fallback": {
+          "modelKey": "oa_sol",
+          "effort": "high",
+          "origin": {
+            "modelId": "openai:gpt-6-sol",
+            "accessRouteId": "chatgpt-legacy",
+            "resourceId": "chatgpt-main",
+            "credentialRef": "chatgpt-main",
+            "plan": "plus"
+          }
+        },
+        "accelerator": null,
+        "enabled": true,
+        "condition": "Ejecutar CI en cada SO objetivo, comprobar rutas/case/encoding, permisos, procesos/IPC, ciclo de vida, instalación/actualización y persistencia. Compilar sólo en Linux no valida Windows/macOS.",
+        "rationale": "Estado/archivo mecánico; no reasignar a esta clase diseño o validación sustantiva.",
+        "origin": {
+          "modelId": "openai:gpt-6-luna",
+          "accessRouteId": "chatgpt-legacy",
+          "resourceId": "chatgpt-main",
+          "credentialRef": "chatgpt-main",
+          "plan": "plus"
+        }
+      },
+      "vision": {
+        "modelKey": "oa_sol61",
+        "effort": "medium",
+        "fallback": {
+          "modelKey": "oa_luna",
+          "effort": "high",
+          "origin": {
+            "modelId": "openai:gpt-6-luna",
+            "accessRouteId": "chatgpt-legacy",
+            "resourceId": "chatgpt-main",
+            "credentialRef": "chatgpt-main",
+            "plan": "plus"
+          }
+        },
+        "accelerator": null,
+        "enabled": true,
+        "condition": "Ejecutar CI en cada SO objetivo, comprobar rutas/case/encoding, permisos, procesos/IPC, ciclo de vida, instalación/actualización y persistencia. Compilar sólo en Linux no valida Windows/macOS.",
+        "rationale": "Usa una ruta marcada con imágenes por el descriptor/documentación objetivo.",
+        "origin": {
+          "modelId": "openai:gpt-6.1-sol",
+          "accessRouteId": "chatgpt-legacy",
+          "resourceId": "chatgpt-main",
+          "credentialRef": "chatgpt-main",
+          "plan": "plus"
+        }
+      },
+      "tiny": {
+        "modelKey": "oa_luna",
+        "effort": "low",
+        "fallback": {
+          "modelKey": "oa_sol",
+          "effort": "high",
+          "origin": {
+            "modelId": "openai:gpt-6-sol",
+            "accessRouteId": "chatgpt-legacy",
+            "resourceId": "chatgpt-main",
+            "credentialRef": "chatgpt-main",
+            "plan": "plus"
+          }
+        },
+        "accelerator": null,
+        "enabled": true,
+        "condition": "Ejecutar CI en cada SO objetivo, comprobar rutas/case/encoding, permisos, procesos/IPC, ciclo de vida, instalación/actualización y persistencia. Compilar sólo en Linux no valida Windows/macOS. Utilidad auxiliar; no es verificador científico. No activa un backend.",
+        "rationale": "Salida breve de organización; presupuesto pequeño y sin confundirlo con reasoning complejo.",
+        "origin": {
+          "modelId": "openai:gpt-6-luna",
+          "accessRouteId": "chatgpt-legacy",
+          "resourceId": "chatgpt-main",
+          "credentialRef": "chatgpt-main",
+          "plan": "plus"
+        }
+      },
+      "memory": {
+        "modelKey": "oa_luna",
+        "effort": "low",
+        "fallback": {
+          "modelKey": "oa_sol",
+          "effort": "high",
+          "origin": {
+            "modelId": "openai:gpt-6-sol",
+            "accessRouteId": "chatgpt-legacy",
+            "resourceId": "chatgpt-main",
+            "credentialRef": "chatgpt-main",
+            "plan": "plus"
+          }
+        },
+        "accelerator": null,
+        "enabled": true,
+        "condition": "Ejecutar CI en cada SO objetivo, comprobar rutas/case/encoding, permisos, procesos/IPC, ciclo de vida, instalación/actualización y persistencia. Compilar sólo en Linux no valida Windows/macOS. Utilidad auxiliar; no es verificador científico. No activa un backend.",
+        "rationale": "Resumen o clasificación de memoria si se requiere; conservar Engram como componente de Gentle.",
+        "origin": {
+          "modelId": "openai:gpt-6-luna",
+          "accessRouteId": "chatgpt-legacy",
+          "resourceId": "chatgpt-main",
+          "credentialRef": "chatgpt-main",
+          "plan": "plus"
+        }
+      },
+      "advisor": {
+        "modelKey": "oa_luna",
+        "effort": "medium",
+        "fallback": {
+          "modelKey": "oa_sol",
+          "effort": "high",
+          "origin": {
+            "modelId": "openai:gpt-6-sol",
+            "accessRouteId": "chatgpt-legacy",
+            "resourceId": "chatgpt-main",
+            "credentialRef": "chatgpt-main",
+            "plan": "plus"
+          }
+        },
+        "accelerator": null,
+        "enabled": false,
+        "condition": "Ejecutar CI en cada SO objetivo, comprobar rutas/case/encoding, permisos, procesos/IPC, ciclo de vida, instalación/actualización y persistencia. Compilar sólo en Linux no valida Windows/macOS. Asignación disponible; activar manualmente por riesgo. No activa revisión continua por sí sola.",
+        "rationale": "Vigilancia incremental opcional; evita pagar por un comité permanente sin medir su utilidad.",
+        "origin": {
+          "modelId": "openai:gpt-6-luna",
+          "accessRouteId": "chatgpt-legacy",
+          "resourceId": "chatgpt-main",
+          "credentialRef": "chatgpt-main",
+          "plan": "plus"
+        }
+      },
+      "advisor_deep": {
+        "modelKey": "oa_sol61",
+        "effort": "high",
+        "fallback": {
+          "modelKey": "oa_astra",
+          "effort": "high",
+          "origin": {
+            "modelId": "openai:gpt-6-astra",
+            "accessRouteId": "chatgpt-legacy",
+            "resourceId": "chatgpt-main",
+            "credentialRef": "chatgpt-main",
+            "plan": "plus"
+          }
+        },
+        "accelerator": null,
+        "enabled": false,
+        "condition": "Ejecutar CI en cada SO objetivo, comprobar rutas/case/encoding, permisos, procesos/IPC, ciclo de vida, instalación/actualización y persistencia. Compilar sólo en Linux no valida Windows/macOS. No sustituye la verificación externa ni autoriza aprobar por consenso de modelos.",
+        "rationale": "El reviewer OMP recupera contexto con herramientas; requiere más autonomía que una lente congelada.",
+        "origin": {
+          "modelId": "openai:gpt-6.1-sol",
+          "accessRouteId": "chatgpt-legacy",
+          "resourceId": "chatgpt-main",
+          "credentialRef": "chatgpt-main",
+          "plan": "plus"
+        }
+      },
+      "designer": {
+        "modelKey": "oa_sol61",
+        "effort": "medium",
+        "fallback": {
+          "modelKey": "oa_luna",
+          "effort": "high",
+          "origin": {
+            "modelId": "openai:gpt-6-luna",
+            "accessRouteId": "chatgpt-legacy",
+            "resourceId": "chatgpt-main",
+            "credentialRef": "chatgpt-main",
+            "plan": "plus"
+          }
+        },
+        "accelerator": null,
+        "enabled": true,
+        "condition": "Ejecutar CI en cada SO objetivo, comprobar rutas/case/encoding, permisos, procesos/IPC, ciclo de vida, instalación/actualización y persistencia. Compilar sólo en Linux no valida Windows/macOS.",
+        "rationale": "Diseño visual separado de semántica de datos y de invariantes de aplicación.",
+        "origin": {
+          "modelId": "openai:gpt-6.1-sol",
+          "accessRouteId": "chatgpt-legacy",
+          "resourceId": "chatgpt-main",
+          "credentialRef": "chatgpt-main",
+          "plan": "plus"
+        }
+      },
+      "data_designer": {
+        "modelKey": "oa_sol61",
+        "effort": "medium",
+        "fallback": {
+          "modelKey": "oa_astra",
+          "effort": "high",
+          "origin": {
+            "modelId": "openai:gpt-6-astra",
+            "accessRouteId": "chatgpt-legacy",
+            "resourceId": "chatgpt-main",
+            "credentialRef": "chatgpt-main",
+            "plan": "plus"
+          }
+        },
+        "accelerator": null,
+        "enabled": true,
+        "condition": "Ejecutar CI en cada SO objetivo, comprobar rutas/case/encoding, permisos, procesos/IPC, ciclo de vida, instalación/actualización y persistencia. Compilar sólo en Linux no valida Windows/macOS. No sustituye la verificación externa ni autoriza aprobar por consenso de modelos.",
+        "rationale": "El significado analítico y los denominadores requieren un modelo de revisión fuerte, no sólo habilidad visual.",
+        "origin": {
+          "modelId": "openai:gpt-6.1-sol",
+          "accessRouteId": "chatgpt-legacy",
+          "resourceId": "chatgpt-main",
+          "credentialRef": "chatgpt-main",
+          "plan": "plus"
+        }
+      },
+      "judge": {
+        "modelKey": "oa_luna",
+        "effort": "low",
+        "fallback": {
+          "modelKey": "oa_sol",
+          "effort": "high",
+          "origin": {
+            "modelId": "openai:gpt-6-sol",
+            "accessRouteId": "chatgpt-legacy",
+            "resourceId": "chatgpt-main",
+            "credentialRef": "chatgpt-main",
+            "plan": "plus"
+          }
+        },
+        "accelerator": null,
+        "enabled": true,
+        "condition": "Ejecutar CI en cada SO objetivo, comprobar rutas/case/encoding, permisos, procesos/IPC, ciclo de vida, instalación/actualización y persistencia. Compilar sólo en Linux no valida Windows/macOS. Utilidad auxiliar; no es verificador científico. No activa un backend.",
+        "rationale": "Clasificación tipada auxiliar; no es JD ni una auditoría de corrección del cambio.",
+        "origin": {
+          "modelId": "openai:gpt-6-luna",
+          "accessRouteId": "chatgpt-legacy",
+          "resourceId": "chatgpt-main",
+          "credentialRef": "chatgpt-main",
+          "plan": "plus"
+        }
+      }
+    }
+  },
+  "runtimePolicies": {
+    "gentle-shell--plus-apps-balanced": null,
+    "omp--plus-apps-balanced": {
+      "advisorEnabled": false,
+      "taskMaxConcurrency": 2
+    }
+  },
+  "strategies": {},
+  "access": {
+    "schemaVersion": 1,
+    "evidenceState": "declared-not-runtime-verified",
+    "resourcesByPortfolio": {
+      "plus": [
+        {
+          "id": "chatgpt-main",
+          "accessRouteId": "chatgpt-legacy",
+          "credentialRef": "chatgpt-main",
+          "plan": "plus"
+        }
+      ]
+    },
+    "inputSha256": {
+      "catalog/models.json": "de4f87ec5966b668e0523d102faf31e3fc5ff5ecde38a2e177b5a0e7bf228818",
+      "catalog/offerings.json": "7d5ea57b19e8c724837ae32fd5be433095a5e08c8e157424e5468cba8e23bd71",
+      "catalog/access-routes.json": "ffd051ffaf2c2aa30dae6732514117e6168e2abc4e2e83a2eb0fad1b99e8dc5d",
+      "catalog/resource-plans.json": "030f961ba7e3e1d2fcf045d313bd295c7613894e106d1231de8502a835804de6",
+      "contracts/harnesses.json": "7369d7f582a2afff26c9603c84f3e873ff75a4069f3334bd6134cf79f1940138",
+      "scripts/dashboard_access.py": "d306e5e8461463c06b8fc0cd53a7ce1478e879bf7f1454c34c5df13fcee6cdf5",
+      "scripts/access_catalog.py": "3b80f7a27b2fd04eeecbb47f16de5c141e31a5b4b7a34625739ea560a27731da",
+      "scripts/harness_contracts.py": "b26ff6186d9d2458f8a2a2a27cf98e0028b432c7baefdc67b0d2f6791447c98c",
+      "scripts/profile_compiler.py": "b36b10073890e7a4ef5322c7c57c0685d008056a1fa3ab6da30cee24e0a48c2a",
+      "scripts/profile_semantics.py": "18ccb296a92ce6948962215187ba8a72659c7b43fbf536564acad91950765968",
+      "scripts/dashboard_strategies.py": "cd7524f8d21ad55f5a4fa765c831a7b9cafc59570aaeec2bc38aee9b0157237c",
+      "policies/activity-allocation.json": "e83ded914a479b7f372fb3939bb4a449befdb16c4abc963b75a3fcca77c005fe",
+      "scripts/activity_allocation.py": "0a3eb4de109f37b055050a7dfdfe80cc3d916d19a299d816a3c4a8bdfc7432bc",
+      "data/assignment-shards/manifest.json": "a650de533e2822d8ffffd41bb18fd9154238ec503d8e9301845860ef9e6ae914",
+      "data/portfolios.csv": "dbeece2e0ed53bb3941aa90847efe14f2e1af29e43c0fcd778200e3836c064aa",
+      "data/omp-runtime-policies.csv": "53b76b889ccab97e3a099ef554812196b1290b8e39ddff8ad3e9d6eb45218964",
+      "policies/nan-static-workloads.json": "702785699dceabdf8ef2028b411d2bb98251a749685f295d73a6946bc128ab87",
+      "policies/nan-static-approval.json": "73b5bda9d9b575f587ab9708dc8fbb251ceda41326bb9c4b78c39346a29b5c70",
+      "policies/nan-static-composition.json": "2a0bc6c87008fa3caa7a9d1faaf4543d7191238587d42269fd56e9915a2acbf0",
+      "scripts/nan_static_hybrid.py": "83af4af8051faa63879cbbf6f39b9c96e7daef14588ac2e9adc356c83e1da751",
+      "policies/nan-custom-workload.json": "ef3fea2e91e9cf649eaca0f72f20bdbb4b5adaecc82aaecbaf632b86bfb646af",
+      "scripts/nan_custom_workload.py": "f621404ff9308505062483e95f148b22fae91d4b8f23ac91030f1a3b59754274",
+      "dashboard/src/nanCustomWorkload.ts": "6278a0fbe724a716eea5c5af49eb5a4a02b1d573dd8f0b511f026c94ab7585c9",
+      "dashboard/src/activityProfiles.ts": "7bd6c9ce2e0dc96ff513c95ecd813e3e6cdef50d5073c4531584f20ad64efff1",
+      "policies/functions.json": "2f7ddee3db8081a94a983300ad271043e2ea19e468fef1083499a9990d4c65e3",
+      "scripts/nan_static_profiles.py": "f61b54344e825bca7ca7361b8975f25bcec68c680047cbd8c18f9eba58c94331",
+      "dashboard/src/nanStaticProfiles.ts": "2cbab27ad20e7617e33ac1e77e55f20c6f15c90f59bdb552048fda2731ba1011",
+      "scripts/nan_quota_optimizer.py": "ee3e1f655f0607791d8f02aadf1c4725e7e72a29f1c7e5839684656f164b96a1",
+      "dashboard/src/nanQuotaOptimizer.ts": "33d0b31d6ca49dd140b61d7d03330ed1c126ede97361b5f23565cb53ea06aa54",
+      "policies/nan-quota-balancing.json": "1133d4226ecbc57b053e3990afe39044fc47bc73405af5bc9d579461598473f1",
+      "policies/nan-quota-approval.json": "e78cabe0f6a96ec1cfc5305e641f5d3ef7f9bb6b2f21441e985004f7ed376187",
+      "catalog/account-inventory.json": "1d07cec43121cbc477687fab7a91e17892e197e032604c1cea3ec4ac5fa4fd14",
+      "policies/selection-candidates.json": "1483aba7aacedde2adf31a9b14945d6ba2b9c2a1a7053dd159e59afb39fd2f18",
+      "policies/selection-evidence.json": "3d14da94091ff039eba3f346f0d78f771fd752a484660fc5d2e4f62b67d2856f",
+      "policies/selection-approval.json": "6397fbedeb039e1ad8064e73f5812f067ec600f6a3726401930afb3f6b742aef",
+      "scripts/selection_candidates.py": "4bae0d76d953ec77d036a9ccbab6da9434c8c5886f23744e86772ece796da8bb"
+    }
+  }
+}
