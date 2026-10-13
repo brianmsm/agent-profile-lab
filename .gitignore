@@ -1,0 +1,26 @@
+# Local-only outputs and development dependencies
+/dashboard/node_modules/
+/dashboard/dist/
+/validation/
+/generated/
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+.env
+.env.*
+*.log
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+.DS_Store
+
+# Derived local research transformations, not canonical release source files
+/data/assignments.csv
+/data/assignments.csv.gz
+/data/assignments.json
+/data/profiles.json
+/data/model-catalog.json
+/data/omp-runtime-policies.json
+/policies/functional-precedents.json
+/dashboard/public/data/other-*

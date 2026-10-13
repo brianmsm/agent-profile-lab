@@ -1,0 +1,19 @@
+# Preserve exact bytes of hashed data/capture artifacts across clones.
+# "-text" prevents CRLF normalization that would invalidate manifest SHA-256.
+*.csv -text diff
+*.json -text diff
+*.raw -text
+*.pdf binary
+evidence/** -text
+sources/** -text
+
+# Authored code and prose use normalized LF.
+*.md text eol=lf
+*.py text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+evidence/**/*.md -text diff
+evidence/**/*.py text eol=lf
+
+# Canonical captured CSV bytes may use CRLF; preserve their hashes.
+*.csv whitespace=cr-at-eol
