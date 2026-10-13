@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "baseProfile": "gentle-shell--nan-data-balanced",
+  "targetId": "gentle-shell@4.0.0+pi@1.1.0",
+  "name": "data-nan-mimo26-candidate",
+  "roles": {
+    "gentle-ai-explore": {
+      "modelId": "xiaomi:mimo-v2.6-flash",
+      "accessRouteId": "nan",
+      "effort": "",
+      "reason": "Candidata MiMo 2.6 Flash, distinta de 2.5; modelo Xiaomi accedido a través de NaN. No gradúa reasoning_effort; se preservan resto de roles y reservas."
+    }
+  }
+}

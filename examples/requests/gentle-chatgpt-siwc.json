@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "baseProfile": "gentle-shell--plus-apps-balanced",
+  "targetId": "gentle-shell@4.0.0+pi@1.1.0",
+  "accessRemap": {
+    "chatgpt-legacy": "chatgpt-siwc"
+  }
+}

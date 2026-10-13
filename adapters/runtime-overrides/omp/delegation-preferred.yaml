@@ -1,0 +1,4 @@
+# Optional deliberate delegation nudge for an OMP baseline.
+# Baseline profiles keep task.eager=default to avoid inheriting a global preference.
+task:
+  eager: "preferred"

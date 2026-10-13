@@ -1,0 +1,100 @@
+providers:
+  # Project-approved custom descriptors: data/model-catalog.json (conditional integration).
+  anthropic:
+    baseUrl: "https://api.anthropic.com"
+    auth: "oauth"
+    models:
+      - id: "claude-sonnet-5-5"
+        name: "Claude Sonnet 5.5"
+        api: "anthropic-messages"
+        reasoning: true
+        input: ["text", "image"]
+        contextWindow: 1000000
+        maxTokens: 64000
+        thinking:
+          mode: "anthropic-adaptive"
+          efforts: ["low", "medium", "high", "xhigh", "max"]
+  openai-codex:
+    baseUrl: "https://chatgpt.com/backend-api"
+    auth: "oauth"
+    models:
+      - id: "gpt-6.1-sol"
+        name: "GPT-6.1 Sol"
+        api: "openai-codex-responses"
+        reasoning: true
+        input: ["text", "image"]
+        contextWindow: 272000
+        maxTokens: 128000
+        thinking:
+          mode: "effort"
+          efforts: ["low", "medium", "high", "xhigh", "max"]
+          requiresEffort: true
+  nan:
+    baseUrl: "https://api.nan.builders/v1"
+    api: "openai-completions"
+    apiKey: "NAN_API_KEY"
+    models:
+      -
+        id: "glm5.3-flash"
+        name: "GLM 5.3 Flash (NaN)"
+        api: "openai-completions"
+        reasoning: true
+        input:
+          - "text"
+          - "image"
+        contextWindow: 1000000
+        maxTokens: 32768
+        thinking:
+          mode: "effort"
+          efforts: ["low", "medium", "high", "max"]
+        compat:
+          supportsStore: false
+          supportsDeveloperRole: false
+          supportsReasoningEffort: true
+          supportsUsageInStreaming: true
+          maxTokensField: "max_tokens"
+          requiresToolResultName: false
+          requiresAssistantAfterToolResult: false
+          requiresThinkingAsText: false
+          supportsStrictMode: false
+          thinkingFormat: "openai"
+      -
+        id: "deepseek-v4-flash"
+        name: "DeepSeek V4 Flash alias (NaN)"
+        api: "openai-completions"
+        reasoning: false
+        input:
+          - "text"
+          - "image"
+        contextWindow: 1000000
+        maxTokens: 32768
+        compat:
+          supportsStore: false
+          supportsDeveloperRole: false
+          supportsReasoningEffort: false
+          supportsUsageInStreaming: true
+          maxTokensField: "max_tokens"
+          requiresToolResultName: false
+          requiresAssistantAfterToolResult: false
+          requiresThinkingAsText: false
+          supportsStrictMode: false
+  opencode-go:
+    baseUrl: "https://opencode.ai/zen/go/v1"
+    apiKey: "OPENCODE_API_KEY"
+    models:
+      -
+        id: "gpt-6-luna"
+        name: "GPT-6 Luna (OpenCode Go)"
+        api: "openai-responses"
+        reasoning: true
+        input:
+          - "text"
+          - "image"
+        contextWindow: 1050000
+        maxTokens: 128000
+        thinking:
+          mode: "effort"
+          efforts: ["low", "medium", "high", "xhigh", "max"]
+        compat:
+          supportsDeveloperRole: false
+          supportsStrictMode: false

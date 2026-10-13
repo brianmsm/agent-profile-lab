@@ -1,0 +1,311 @@
+{
+  "providers": {
+    "anthropic": {
+      "baseUrl": "https://api.anthropic.com",
+      "models": [
+        {
+          "id": "claude-sonnet-5-5",
+          "name": "Claude Sonnet 5.5",
+          "api": "anthropic-messages",
+          "reasoning": true,
+          "input": ["text", "image"],
+          "contextWindow": 1000000,
+          "maxTokens": 64000,
+          "thinkingLevelMap": {
+            "off": null,
+            "minimal": null,
+            "low": "low",
+            "medium": "medium",
+            "high": "high",
+            "xhigh": "xhigh",
+            "max": "max"
+          },
+          "compat": {
+            "forceAdaptiveThinking": true
+          }
+        }
+      ]
+    },
+    "openai-codex": {
+      "baseUrl": "https://chatgpt.com/backend-api",
+      "models": [
+        {
+          "id": "gpt-6.1-sol",
+          "name": "GPT-6.1 Sol",
+          "api": "openai-codex-responses",
+          "reasoning": true,
+          "input": ["text", "image"],
+          "contextWindow": 272000,
+          "maxTokens": 128000,
+          "thinkingLevelMap": {
+            "off": null,
+            "minimal": null,
+            "low": "low",
+            "medium": "medium",
+            "high": "high",
+            "xhigh": "xhigh",
+            "max": "max"
+          }
+        }
+      ]
+    },
+    "opencode-go": {
+      "baseUrl": "https://opencode.ai/zen/go/v1",
+      "models": [
+        {
+          "id": "gpt-6-luna",
+          "name": "GPT-6 Luna (OpenCode Go)",
+          "api": "openai-responses",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 1050000,
+          "maxTokens": 128000,
+          "thinkingLevelMap": {
+            "off": "none",
+            "low": "low",
+            "medium": "medium",
+            "high": "high",
+            "xhigh": "xhigh",
+            "max": "max"
+          },
+          "compat": {
+            "supportsDeveloperRole": false,
+            "supportsStrictMode": false
+          }
+        }
+      ]
+    },
+    "commandcode": {
+      "baseUrl": "https://api.commandcode.ai/provider/v1",
+      "api": "openai-completions",
+      "apiKey": "COMMAND_CODE_API_KEY",
+      "models": [
+        {
+          "id": "gpt-5.6-sol",
+          "name": "GPT-5.6 Sol (Command Code)",
+          "api": "openai-completions",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "contextWindow": 1050000,
+          "maxTokens": 65536,
+          "thinkingLevelMap": {
+            "off": "none",
+            "low": "low",
+            "medium": "medium",
+            "high": "high",
+            "xhigh": "xhigh",
+            "max": "max"
+          },
+          "compat": {
+            "supportsStore": false,
+            "supportsDeveloperRole": false,
+            "supportsReasoningEffort": true,
+            "supportsUsageInStreaming": true,
+            "maxTokensField": "max_tokens",
+            "requiresToolResultName": false,
+            "requiresAssistantAfterToolResult": false,
+            "requiresThinkingAsText": false,
+            "supportsStrictMode": false,
+            "thinkingFormat": "openai"
+          }
+        },
+        {
+          "id": "gpt-6-luna",
+          "name": "GPT-6 Luna (Command Code)",
+          "api": "openai-completions",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "contextWindow": 1050000,
+          "maxTokens": 65536,
+          "compat": {
+            "supportsStore": false,
+            "supportsDeveloperRole": false,
+            "supportsReasoningEffort": false,
+            "supportsUsageInStreaming": true,
+            "maxTokensField": "max_tokens",
+            "requiresToolResultName": false,
+            "requiresAssistantAfterToolResult": false,
+            "requiresThinkingAsText": false,
+            "supportsStrictMode": false
+          }
+        },
+        {
+          "id": "xiaomi/mimo-v2.6-flash",
+          "name": "MiMo V2.6 Flash (Command Code)",
+          "api": "openai-completions",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "contextWindow": 1048576,
+          "maxTokens": 65536,
+          "compat": {
+            "supportsStore": false,
+            "supportsDeveloperRole": false,
+            "supportsReasoningEffort": false,
+            "supportsUsageInStreaming": true,
+            "maxTokensField": "max_tokens",
+            "requiresToolResultName": false,
+            "requiresAssistantAfterToolResult": false,
+            "requiresThinkingAsText": false,
+            "supportsStrictMode": false
+          }
+        },
+        {
+          "id": "xiaomi/mimo-v2.6-pro",
+          "name": "MiMo V2.6 Pro (Command Code)",
+          "api": "openai-completions",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "contextWindow": 1048576,
+          "maxTokens": 65536,
+          "compat": {
+            "supportsStore": false,
+            "supportsDeveloperRole": false,
+            "supportsReasoningEffort": false,
+            "supportsUsageInStreaming": true,
+            "maxTokensField": "max_tokens",
+            "requiresToolResultName": false,
+            "requiresAssistantAfterToolResult": false,
+            "requiresThinkingAsText": false,
+            "supportsStrictMode": false
+          }
+        },
+        {
+          "id": "z-ai/glm-5.3-flash",
+          "name": "GLM 5.3 Flash (Command Code)",
+          "api": "openai-completions",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "contextWindow": 1048576,
+          "maxTokens": 131072,
+          "thinkingLevelMap": {
+            "off": "none",
+            "low": "low",
+            "medium": null,
+            "high": "high",
+            "xhigh": null,
+            "max": "max"
+          },
+          "compat": {
+            "supportsStore": false,
+            "supportsDeveloperRole": false,
+            "supportsReasoningEffort": true,
+            "supportsUsageInStreaming": true,
+            "maxTokensField": "max_tokens",
+            "requiresToolResultName": false,
+            "requiresAssistantAfterToolResult": false,
+            "requiresThinkingAsText": false,
+            "supportsStrictMode": false,
+            "thinkingFormat": "openai"
+          }
+        },
+        {
+          "id": "deepseek/deepseek-v4.1-flash",
+          "name": "DeepSeek V4.1 Flash (Command Code)",
+          "api": "openai-completions",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 1000000,
+          "maxTokens": 65536,
+          "thinkingLevelMap": {
+            "off": "none",
+            "low": "low",
+            "medium": null,
+            "high": "high",
+            "xhigh": null,
+            "max": "max"
+          },
+          "compat": {
+            "supportsStore": false,
+            "supportsDeveloperRole": false,
+            "supportsReasoningEffort": true,
+            "supportsUsageInStreaming": true,
+            "maxTokensField": "max_tokens",
+            "requiresToolResultName": false,
+            "requiresAssistantAfterToolResult": false,
+            "requiresThinkingAsText": false,
+            "supportsStrictMode": false,
+            "thinkingFormat": "deepseek"
+          }
+        }
+      ]
+    },
+    "nan": {
+      "baseUrl": "https://api.nan.builders/v1",
+      "api": "openai-completions",
+      "apiKey": "NAN_API_KEY",
+      "models": [
+        {
+          "id": "glm5.3-flash",
+          "name": "GLM 5.3 Flash (NaN)",
+          "api": "openai-completions",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 1000000,
+          "maxTokens": 32768,
+          "thinkingLevelMap": {
+            "off": "none",
+            "low": "low",
+            "medium": "medium",
+            "high": "high",
+            "xhigh": null,
+            "max": "max"
+          },
+          "compat": {
+            "supportsStore": false,
+            "supportsDeveloperRole": false,
+            "supportsReasoningEffort": true,
+            "supportsUsageInStreaming": true,
+            "maxTokensField": "max_tokens",
+            "requiresToolResultName": false,
+            "requiresAssistantAfterToolResult": false,
+            "requiresThinkingAsText": false,
+            "supportsStrictMode": false,
+            "thinkingFormat": "openai"
+          }
+        },
+        {
+          "id": "deepseek-v4-flash",
+          "name": "DeepSeek V4 Flash alias (NaN)",
+          "api": "openai-completions",
+          "reasoning": false,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 1000000,
+          "maxTokens": 32768,
+          "compat": {
+            "supportsStore": false,
+            "supportsDeveloperRole": false,
+            "supportsReasoningEffort": false,
+            "supportsUsageInStreaming": true,
+            "maxTokensField": "max_tokens",
+            "requiresToolResultName": false,
+            "requiresAssistantAfterToolResult": false,
+            "requiresThinkingAsText": false,
+            "supportsStrictMode": false
+          }
+        }
+      ]
+    }
+  }
+}

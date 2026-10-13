@@ -1,0 +1,5 @@
+# Optional deliberate advisor activation for an OMP baseline.
+# Apply only when continuous observation is justified by the concrete task.
+advisor:
+  enabled: true
+  syncBacklog: "off"

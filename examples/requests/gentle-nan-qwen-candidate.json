@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "baseProfile": "gentle-shell--nan-data-balanced",
+  "targetId": "gentle-shell@4.0.0+pi@1.1.0",
+  "name": "data-nan-qwen-candidate",
+  "roles": {
+    "gentle-ai-explore": {
+      "modelId": "qwen:qwen3.8-flash",
+      "accessRouteId": "nan",
+      "effort": "",
+      "reason": "Candidata limitada al inventario aportado por el usuario. No gradúa reasoning_effort y no equipara Flash-Next con la ruta NaN. Requiere calibración de exploración y límites efectivos."
+    }
+  }
+}

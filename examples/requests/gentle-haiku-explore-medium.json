@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "baseProfile": "gentle-shell--claude-pro-data-balanced",
+  "targetId": "gentle-shell@4.0.0+pi@1.1.0",
+  "name": "data-haiku-explore-medium",
+  "roles": {
+    "gentle-ai-explore": {
+      "modelId": "anthropic:claude-haiku-5-5",
+      "accessRouteId": "claude-subscription",
+      "effort": "medium",
+      "reason": "Candidata para exploración delimitada; compara contra la base Sonnet. Evidencia FrontierCode por esfuerzo; no calibración del rol y no herencia automática de resultados de API a suscripción."
+    }
+  }
+}

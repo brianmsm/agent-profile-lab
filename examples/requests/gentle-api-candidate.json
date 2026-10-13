@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "baseProfile": "gentle-shell--plus-apps-balanced",
+  "targetId": "gentle-shell@4.0.0+pi@1.1.0",
+  "name": "apps-api-candidate",
+  "accessRemap": {
+    "chatgpt-legacy": "openai-api"
+  },
+  "resources": [
+    {
+      "id": "api-main",
+      "accessRouteId": "openai-api",
+      "credentialRef": "api-main",
+      "plan": "metered"
+    }
+  ],
+  "meteredAuthorization": {
+    "allowed": true,
+    "maxAmount": 2,
+    "currency": "USD"
+  }
+}
