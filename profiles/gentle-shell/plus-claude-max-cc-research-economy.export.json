@@ -1,0 +1,56 @@
+{
+  "kind": "gentle-pi.agent_model_profile",
+  "version": 1,
+  "name": "plus-claude-max-cc-research-economy",
+  "config": {
+    "orchestrator": {
+      "model": "openai-codex/gpt-6.1-sol",
+      "thinking": "medium"
+    },
+    "gentle-ai-explore": {
+      "model": "commandcode/xiaomi/mimo-v2.6-flash"
+    },
+    "gentle-ai-worker": {
+      "model": "commandcode/gpt-5.6-sol",
+      "thinking": "medium"
+    },
+    "gentle-ai-verify": {
+      "model": "commandcode/xiaomi/mimo-v2.6-flash"
+    },
+    "jd-judge-a": {
+      "model": "openai-codex/gpt-6.1-sol",
+      "thinking": "high"
+    },
+    "jd-judge-b": {
+      "model": "commandcode/xiaomi/mimo-v2.6-pro"
+    },
+    "jd-fix-agent": {
+      "model": "openai-codex/gpt-6.1-sol",
+      "thinking": "medium"
+    },
+    "review-risk": {
+      "model": "openai-codex/gpt-6.1-sol",
+      "thinking": "medium"
+    },
+    "review-readability": {
+      "model": "openai-codex/gpt-6-luna",
+      "thinking": "medium"
+    },
+    "review-reliability": {
+      "model": "openai-codex/gpt-6.1-sol",
+      "thinking": "medium"
+    },
+    "review-resilience": {
+      "model": "openai-codex/gpt-6.1-sol",
+      "thinking": "medium"
+    },
+    "review-refuter": {
+      "model": "openai-codex/gpt-6.1-sol",
+      "thinking": "medium"
+    },
+    "review-validator": {
+      "model": "openai-codex/gpt-6.1-sol",
+      "thinking": "medium"
+    }
+  }
+}

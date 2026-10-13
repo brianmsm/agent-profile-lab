@@ -1,0 +1,53 @@
+{
+  "kind": "gentle-pi.agent_model_profile",
+  "version": 1,
+  "name": "claude-max-cc-nan-cybersecurity-speed",
+  "config": {
+    "orchestrator": {
+      "model": "commandcode/gpt-5.6-sol",
+      "thinking": "medium"
+    },
+    "gentle-ai-explore": {
+      "model": "commandcode/xiaomi/mimo-v2.6-pro"
+    },
+    "gentle-ai-worker": {
+      "model": "commandcode/xiaomi/mimo-v2.6-pro"
+    },
+    "gentle-ai-verify": {
+      "model": "commandcode/xiaomi/mimo-v2.6-flash"
+    },
+    "jd-judge-a": {
+      "model": "commandcode/gpt-5.6-sol",
+      "thinking": "high"
+    },
+    "jd-judge-b": {
+      "model": "commandcode/xiaomi/mimo-v2.6-pro"
+    },
+    "jd-fix-agent": {
+      "model": "commandcode/xiaomi/mimo-v2.6-pro"
+    },
+    "review-risk": {
+      "model": "commandcode/gpt-5.6-sol",
+      "thinking": "medium"
+    },
+    "review-readability": {
+      "model": "commandcode/xiaomi/mimo-v2.6-flash"
+    },
+    "review-reliability": {
+      "model": "commandcode/gpt-5.6-sol",
+      "thinking": "medium"
+    },
+    "review-resilience": {
+      "model": "commandcode/gpt-5.6-sol",
+      "thinking": "medium"
+    },
+    "review-refuter": {
+      "model": "commandcode/gpt-5.6-sol",
+      "thinking": "medium"
+    },
+    "review-validator": {
+      "model": "commandcode/gpt-5.6-sol",
+      "thinking": "medium"
+    }
+  }
+}

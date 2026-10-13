@@ -1,0 +1,59 @@
+{
+  "kind": "gentle-pi.agent_model_profile",
+  "version": 1,
+  "name": "claude-pro-research-best-critical-review",
+  "config": {
+    "orchestrator": {
+      "model": "anthropic/claude-sonnet-5-5",
+      "thinking": "xhigh"
+    },
+    "gentle-ai-explore": {
+      "model": "anthropic/claude-sonnet-5-5",
+      "thinking": "xhigh"
+    },
+    "gentle-ai-worker": {
+      "model": "anthropic/claude-opus-5-5",
+      "thinking": "max"
+    },
+    "gentle-ai-verify": {
+      "model": "anthropic/claude-sonnet-5-5",
+      "thinking": "xhigh"
+    },
+    "jd-judge-a": {
+      "model": "anthropic/claude-sonnet-5-5",
+      "thinking": "xhigh"
+    },
+    "jd-judge-b": {
+      "model": "anthropic/claude-sonnet-5-5",
+      "thinking": "xhigh"
+    },
+    "jd-fix-agent": {
+      "model": "anthropic/claude-sonnet-5-5",
+      "thinking": "xhigh"
+    },
+    "review-risk": {
+      "model": "anthropic/claude-sonnet-5-5",
+      "thinking": "xhigh"
+    },
+    "review-readability": {
+      "model": "anthropic/claude-sonnet-5-5",
+      "thinking": "xhigh"
+    },
+    "review-reliability": {
+      "model": "anthropic/claude-sonnet-5-5",
+      "thinking": "xhigh"
+    },
+    "review-resilience": {
+      "model": "anthropic/claude-sonnet-5-5",
+      "thinking": "xhigh"
+    },
+    "review-refuter": {
+      "model": "anthropic/claude-sonnet-5-5",
+      "thinking": "xhigh"
+    },
+    "review-validator": {
+      "model": "anthropic/claude-sonnet-5-5",
+      "thinking": "xhigh"
+    }
+  }
+}

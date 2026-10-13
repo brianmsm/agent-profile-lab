@@ -1,0 +1,22 @@
+# Primary selectors only; reserves and scope conditions require runtime integration.
+modelRoles:
+  default: "openai-codex/gpt-6.1-sol:medium"
+  smol: "opencode-go/mimo-v2.6-flash:medium"
+  slow: "openai-codex/gpt-6.1-sol:high"
+  plan: "openai-codex/gpt-6.1-sol:high"
+  task: "openai-codex/gpt-6.1-sol:medium"
+  commit: "openai-codex/gpt-6-luna:medium"
+  vision: "openai-codex/gpt-6.1-sol:medium"
+  tiny: "openai-codex/gpt-6-luna:low"
+  memory: "openai-codex/gpt-6-luna:low"
+  advisor: "opencode-go/glm-5.3-flash:high"
+  advisor_deep: "openai-codex/gpt-6.1-sol:high"
+  designer: "opencode-go/mimo-v2.6-flash:medium"
+  data_designer: "openai-codex/gpt-6.1-sol:medium"
+  judge: "openai-codex/gpt-6-luna:low"
+advisor:
+  enabled: false
+  syncBacklog: "off"
+task:
+  eager: "default"
+  maxConcurrency: 4

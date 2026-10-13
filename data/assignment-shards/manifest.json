@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "totalRows": 49638,
+  "shards": {
+    "agent-use/gentle-shell.csv": {
+      "rows": 4606,
+      "sha256": "60898482cef36b05473f197cffce69f41474e8d8d29f3e2bb903094569032948"
+    },
+    "agent-use/omp.csv": {
+      "rows": 2632,
+      "sha256": "f189e30335b349f2f1a47c49c45ce731a924cc0bcfdb39c9e5bd217f84bb541d"
+    },
+    "apps/gentle-shell.csv": {
+      "rows": 5512,
+      "sha256": "97ffbcb8db4995f82cf7b5bc6af9d139c24e1beab711bc07183063b6b042e3a8"
+    },
+    "apps/omp.csv": {
+      "rows": 2968,
+      "sha256": "b8597ec8595f47919d707678286c22d6f91c3faa9a79c98e7bec46f0f5299618"
+    },
+    "cybersecurity/gentle-shell.csv": {
+      "rows": 5512,
+      "sha256": "3e7ce420946deb024d0697b7b3d3286abe1408450b1cc83c33938ca254b3f154"
+    },
+    "cybersecurity/omp.csv": {
+      "rows": 2968,
+      "sha256": "21b97573a7f58971162a82417cbb74aff221a8aea4e21338619e241f3f68219a"
+    },
+    "data/gentle-shell.csv": {
+      "rows": 5512,
+      "sha256": "c1efb24064ee7749b4de538601ee264d06634a0a9a0d4479435b7541ed098d44"
+    },
+    "data/omp.csv": {
+      "rows": 2968,
+      "sha256": "f72ea82b20522b552354b20b6befbe99ffa0cd6a3263177da12b7575d909b184"
+    },
+    "research/gentle-shell.csv": {
+      "rows": 5512,
+      "sha256": "a81125ceff079278524563e9e7e10e4f58e8b6614edc6252e9d61103403ec71a"
+    },
+    "research/omp.csv": {
+      "rows": 2968,
+      "sha256": "44bcc2a2509588443d3b2dd958775e08ee88327fa7eea0c010df5bb1053ce9df"
+    },
+    "web/gentle-shell.csv": {
+      "rows": 5512,
+      "sha256": "7512489098134a055e2267ea5459e81fea44425f548d1dbdb1f064d79941d983"
+    },
+    "web/omp.csv": {
+      "rows": 2968,
+      "sha256": "3f196b844e8d724ffc19a90be464db95dac2f35e8249264ec9188562ba14f46e"
+    }
+  }
+}

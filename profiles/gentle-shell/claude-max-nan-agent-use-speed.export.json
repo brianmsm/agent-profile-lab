@@ -1,0 +1,51 @@
+{
+  "kind": "gentle-pi.agent_model_profile",
+  "version": 1,
+  "name": "claude-max-nan-agent-use-speed",
+  "config": {
+    "orchestrator": {
+      "model": "nan/glm5.3-flash",
+      "thinking": "low"
+    },
+    "gentle-ai-explore": {
+      "model": "nan/glm5.3-flash",
+      "thinking": "low"
+    },
+    "gentle-ai-worker": {
+      "model": "nan/glm5.3-flash",
+      "thinking": "low"
+    },
+    "gentle-ai-verify": {
+      "model": "nan/glm5.3-flash",
+      "thinking": "low"
+    },
+    "jd-fix-agent": {
+      "model": "nan/glm5.3-flash",
+      "thinking": "low"
+    },
+    "review-risk": {
+      "model": "nan/glm5.3-flash",
+      "thinking": "low"
+    },
+    "review-readability": {
+      "model": "nan/glm5.3-flash",
+      "thinking": "low"
+    },
+    "review-reliability": {
+      "model": "nan/glm5.3-flash",
+      "thinking": "low"
+    },
+    "review-resilience": {
+      "model": "nan/glm5.3-flash",
+      "thinking": "low"
+    },
+    "review-refuter": {
+      "model": "nan/glm5.3-flash",
+      "thinking": "low"
+    },
+    "review-validator": {
+      "model": "nan/glm5.3-flash",
+      "thinking": "low"
+    }
+  }
+}

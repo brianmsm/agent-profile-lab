@@ -1,0 +1,22 @@
+# Primary selectors only; reserves and scope conditions require runtime integration.
+modelRoles:
+  default: "opencode-go/gpt-6-luna:xhigh"
+  smol: "opencode-go/gpt-6-luna:xhigh"
+  slow: "opencode-go/gpt-6-luna:xhigh"
+  plan: "opencode-go/gpt-6-luna:xhigh"
+  task: "opencode-go/gpt-6-luna:xhigh"
+  commit: "opencode-go/gpt-6-luna:xhigh"
+  vision: "opencode-go/gpt-6-luna:xhigh"
+  tiny: "opencode-go/gpt-6-luna:xhigh"
+  memory: "opencode-go/gpt-6-luna:xhigh"
+  advisor: "opencode-go/gpt-6-luna:xhigh"
+  advisor_deep: "opencode-go/gpt-6-luna:xhigh"
+  designer: "opencode-go/gpt-6-luna:xhigh"
+  data_designer: "opencode-go/gpt-6-luna:xhigh"
+  judge: "opencode-go/gpt-6-luna:xhigh"
+advisor:
+  enabled: false
+  syncBacklog: "off"
+task:
+  eager: "default"
+  maxConcurrency: 3

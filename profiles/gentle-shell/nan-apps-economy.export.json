@@ -1,0 +1,58 @@
+{
+  "kind": "gentle-pi.agent_model_profile",
+  "version": 1,
+  "name": "nan-apps-economy",
+  "config": {
+    "orchestrator": {
+      "model": "nan/glm5.3-flash",
+      "thinking": "medium"
+    },
+    "gentle-ai-explore": {
+      "model": "nan/deepseek-v4-flash"
+    },
+    "gentle-ai-worker": {
+      "model": "nan/glm5.3-flash",
+      "thinking": "medium"
+    },
+    "gentle-ai-verify": {
+      "model": "nan/glm5.3-flash",
+      "thinking": "low"
+    },
+    "jd-judge-a": {
+      "model": "nan/glm5.3-flash",
+      "thinking": "high"
+    },
+    "jd-judge-b": {
+      "model": "nan/glm5.3-flash",
+      "thinking": "high"
+    },
+    "jd-fix-agent": {
+      "model": "nan/glm5.3-flash",
+      "thinking": "medium"
+    },
+    "review-risk": {
+      "model": "nan/glm5.3-flash",
+      "thinking": "medium"
+    },
+    "review-readability": {
+      "model": "nan/glm5.3-flash",
+      "thinking": "medium"
+    },
+    "review-reliability": {
+      "model": "nan/glm5.3-flash",
+      "thinking": "medium"
+    },
+    "review-resilience": {
+      "model": "nan/glm5.3-flash",
+      "thinking": "medium"
+    },
+    "review-refuter": {
+      "model": "nan/glm5.3-flash",
+      "thinking": "medium"
+    },
+    "review-validator": {
+      "model": "nan/glm5.3-flash",
+      "thinking": "medium"
+    }
+  }
+}

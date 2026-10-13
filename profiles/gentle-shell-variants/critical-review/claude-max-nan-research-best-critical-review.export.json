@@ -1,0 +1,59 @@
+{
+  "kind": "gentle-pi.agent_model_profile",
+  "version": 1,
+  "name": "claude-max-nan-research-best-critical-review",
+  "config": {
+    "orchestrator": {
+      "model": "nan/glm5.3-flash",
+      "thinking": "high"
+    },
+    "gentle-ai-explore": {
+      "model": "nan/glm5.3-flash",
+      "thinking": "high"
+    },
+    "gentle-ai-worker": {
+      "model": "nan/glm5.3-flash",
+      "thinking": "high"
+    },
+    "gentle-ai-verify": {
+      "model": "nan/glm5.3-flash",
+      "thinking": "high"
+    },
+    "jd-judge-a": {
+      "model": "nan/glm5.3-flash",
+      "thinking": "high"
+    },
+    "jd-judge-b": {
+      "model": "nan/glm5.3-flash",
+      "thinking": "high"
+    },
+    "jd-fix-agent": {
+      "model": "nan/glm5.3-flash",
+      "thinking": "high"
+    },
+    "review-risk": {
+      "model": "nan/glm5.3-flash",
+      "thinking": "high"
+    },
+    "review-readability": {
+      "model": "nan/glm5.3-flash",
+      "thinking": "high"
+    },
+    "review-reliability": {
+      "model": "nan/glm5.3-flash",
+      "thinking": "high"
+    },
+    "review-resilience": {
+      "model": "nan/glm5.3-flash",
+      "thinking": "high"
+    },
+    "review-refuter": {
+      "model": "nan/glm5.3-flash",
+      "thinking": "high"
+    },
+    "review-validator": {
+      "model": "nan/glm5.3-flash",
+      "thinking": "high"
+    }
+  }
+}

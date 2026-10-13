@@ -1,0 +1,59 @@
+{
+  "kind": "gentle-pi.agent_model_profile",
+  "version": 1,
+  "name": "cc-cybersecurity-best-critical-review",
+  "config": {
+    "orchestrator": {
+      "model": "commandcode/gpt-5.6-sol",
+      "thinking": "xhigh"
+    },
+    "gentle-ai-explore": {
+      "model": "commandcode/gpt-5.6-sol",
+      "thinking": "xhigh"
+    },
+    "gentle-ai-worker": {
+      "model": "commandcode/gpt-5.6-sol",
+      "thinking": "xhigh"
+    },
+    "gentle-ai-verify": {
+      "model": "commandcode/gpt-5.6-sol",
+      "thinking": "xhigh"
+    },
+    "jd-judge-a": {
+      "model": "commandcode/gpt-5.6-sol",
+      "thinking": "xhigh"
+    },
+    "jd-judge-b": {
+      "model": "commandcode/gpt-5.6-sol",
+      "thinking": "xhigh"
+    },
+    "jd-fix-agent": {
+      "model": "commandcode/gpt-5.6-sol",
+      "thinking": "xhigh"
+    },
+    "review-risk": {
+      "model": "commandcode/gpt-5.6-sol",
+      "thinking": "xhigh"
+    },
+    "review-readability": {
+      "model": "commandcode/gpt-5.6-sol",
+      "thinking": "xhigh"
+    },
+    "review-reliability": {
+      "model": "commandcode/gpt-5.6-sol",
+      "thinking": "xhigh"
+    },
+    "review-resilience": {
+      "model": "commandcode/gpt-5.6-sol",
+      "thinking": "xhigh"
+    },
+    "review-refuter": {
+      "model": "commandcode/gpt-5.6-sol",
+      "thinking": "xhigh"
+    },
+    "review-validator": {
+      "model": "commandcode/gpt-5.6-sol",
+      "thinking": "xhigh"
+    }
+  }
+}

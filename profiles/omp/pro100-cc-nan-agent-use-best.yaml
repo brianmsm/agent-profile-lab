@@ -1,0 +1,22 @@
+# Primary selectors only; reserves and scope conditions require runtime integration.
+modelRoles:
+  default: "openai-codex/gpt-6-astra:high"
+  smol: "openai-codex/gpt-6-astra:high"
+  slow: "openai-codex/gpt-6-astra:high"
+  plan: "openai-codex/gpt-6-astra:high"
+  task: "openai-codex/gpt-6-astra:high"
+  commit: "openai-codex/gpt-6-astra:high"
+  vision: "openai-codex/gpt-6-astra:high"
+  tiny: "openai-codex/gpt-6-astra:high"
+  memory: "openai-codex/gpt-6-astra:high"
+  advisor: "openai-codex/gpt-6-astra:high"
+  advisor_deep: "openai-codex/gpt-6-astra:high"
+  designer: "openai-codex/gpt-6-astra:high"
+  data_designer: "openai-codex/gpt-6-astra:high"
+  judge: "openai-codex/gpt-6-astra:high"
+advisor:
+  enabled: false
+  syncBacklog: "off"
+task:
+  eager: "default"
+  maxConcurrency: 2

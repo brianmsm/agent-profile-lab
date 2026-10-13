@@ -1,0 +1,22 @@
+# Primary selectors only; reserves and scope conditions require runtime integration.
+modelRoles:
+  default: "commandcode/gpt-5.6-sol:xhigh"
+  smol: "commandcode/gpt-5.6-sol:xhigh"
+  slow: "commandcode/gpt-5.6-sol:xhigh"
+  plan: "commandcode/gpt-5.6-sol:xhigh"
+  task: "commandcode/gpt-5.6-sol:xhigh"
+  commit: "commandcode/gpt-5.6-sol:xhigh"
+  vision: "commandcode/deepseek/deepseek-v4.1-flash:high"
+  tiny: "commandcode/gpt-5.6-sol:xhigh"
+  memory: "commandcode/gpt-5.6-sol:xhigh"
+  advisor: "commandcode/gpt-5.6-sol:xhigh"
+  advisor_deep: "commandcode/gpt-5.6-sol:xhigh"
+  designer: "commandcode/gpt-5.6-sol:xhigh"
+  data_designer: "commandcode/gpt-5.6-sol:xhigh"
+  judge: "commandcode/gpt-5.6-sol:xhigh"
+advisor:
+  enabled: false
+  syncBacklog: "off"
+task:
+  eager: "default"
+  maxConcurrency: 2

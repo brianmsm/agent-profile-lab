@@ -1,0 +1,22 @@
+# Primary selectors only; reserves and scope conditions require runtime integration.
+modelRoles:
+  default: "nan/glm5.3-flash:medium"
+  smol: "nan/deepseek-v4-flash"
+  slow: "nan/glm5.3-flash:high"
+  plan: "nan/glm5.3-flash:high"
+  task: "nan/glm5.3-flash:medium"
+  commit: "nan/glm5.3-flash:medium"
+  vision: "nan/glm5.3-flash:high"
+  tiny: "nan/glm5.3-flash:low"
+  memory: "nan/glm5.3-flash:low"
+  advisor: "nan/glm5.3-flash:medium"
+  advisor_deep: "nan/glm5.3-flash:high"
+  designer: "nan/glm5.3-flash:medium"
+  data_designer: "nan/glm5.3-flash:medium"
+  judge: "nan/glm5.3-flash:low"
+advisor:
+  enabled: false
+  syncBacklog: "off"
+task:
+  eager: "default"
+  maxConcurrency: 4

@@ -1,0 +1,22 @@
+# Primary selectors only; reserves and scope conditions require runtime integration.
+modelRoles:
+  default: "nan/glm5.3-flash:medium"
+  smol: "nan/glm5.3-flash:medium"
+  slow: "nan/glm5.3-flash:medium"
+  plan: "nan/glm5.3-flash:medium"
+  task: "nan/glm5.3-flash:medium"
+  commit: "nan/glm5.3-flash:medium"
+  vision: "nan/glm5.3-flash:medium"
+  tiny: "nan/glm5.3-flash:medium"
+  memory: "nan/glm5.3-flash:medium"
+  advisor: "nan/glm5.3-flash:medium"
+  advisor_deep: "nan/glm5.3-flash:medium"
+  designer: "nan/glm5.3-flash:medium"
+  data_designer: "nan/glm5.3-flash:medium"
+  judge: "nan/glm5.3-flash:medium"
+advisor:
+  enabled: false
+  syncBacklog: "off"
+task:
+  eager: "default"
+  maxConcurrency: 2

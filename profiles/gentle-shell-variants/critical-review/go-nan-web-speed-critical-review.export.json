@@ -1,0 +1,59 @@
+{
+  "kind": "gentle-pi.agent_model_profile",
+  "version": 1,
+  "name": "go-nan-web-speed-critical-review",
+  "config": {
+    "orchestrator": {
+      "model": "opencode-go/mimo-v2.6-pro",
+      "thinking": "medium"
+    },
+    "gentle-ai-explore": {
+      "model": "opencode-go/mimo-v2.6-pro",
+      "thinking": "medium"
+    },
+    "gentle-ai-worker": {
+      "model": "opencode-go/mimo-v2.6-pro",
+      "thinking": "medium"
+    },
+    "gentle-ai-verify": {
+      "model": "opencode-go/mimo-v2.6-flash",
+      "thinking": "medium"
+    },
+    "jd-judge-a": {
+      "model": "opencode-go/mimo-v2.6-pro",
+      "thinking": "high"
+    },
+    "jd-judge-b": {
+      "model": "opencode-go/mimo-v2.6-pro",
+      "thinking": "high"
+    },
+    "jd-fix-agent": {
+      "model": "opencode-go/mimo-v2.6-pro",
+      "thinking": "medium"
+    },
+    "review-risk": {
+      "model": "opencode-go/mimo-v2.6-pro",
+      "thinking": "high"
+    },
+    "review-readability": {
+      "model": "opencode-go/mimo-v2.6-flash",
+      "thinking": "medium"
+    },
+    "review-reliability": {
+      "model": "opencode-go/mimo-v2.6-pro",
+      "thinking": "high"
+    },
+    "review-resilience": {
+      "model": "opencode-go/mimo-v2.6-pro",
+      "thinking": "high"
+    },
+    "review-refuter": {
+      "model": "opencode-go/mimo-v2.6-pro",
+      "thinking": "high"
+    },
+    "review-validator": {
+      "model": "opencode-go/mimo-v2.6-pro",
+      "thinking": "high"
+    }
+  }
+}

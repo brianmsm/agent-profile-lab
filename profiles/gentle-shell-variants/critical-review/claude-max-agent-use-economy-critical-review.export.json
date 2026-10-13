@@ -1,0 +1,51 @@
+{
+  "kind": "gentle-pi.agent_model_profile",
+  "version": 1,
+  "name": "claude-max-agent-use-economy-critical-review",
+  "config": {
+    "orchestrator": {
+      "model": "anthropic/claude-sonnet-5-5",
+      "thinking": "medium"
+    },
+    "gentle-ai-explore": {
+      "model": "anthropic/claude-sonnet-5-5",
+      "thinking": "medium"
+    },
+    "gentle-ai-worker": {
+      "model": "anthropic/claude-sonnet-5-5",
+      "thinking": "medium"
+    },
+    "gentle-ai-verify": {
+      "model": "anthropic/claude-sonnet-5-5",
+      "thinking": "medium"
+    },
+    "jd-fix-agent": {
+      "model": "anthropic/claude-sonnet-5-5",
+      "thinking": "medium"
+    },
+    "review-risk": {
+      "model": "anthropic/claude-sonnet-5-5",
+      "thinking": "high"
+    },
+    "review-readability": {
+      "model": "anthropic/claude-sonnet-5-5",
+      "thinking": "medium"
+    },
+    "review-reliability": {
+      "model": "anthropic/claude-sonnet-5-5",
+      "thinking": "high"
+    },
+    "review-resilience": {
+      "model": "anthropic/claude-sonnet-5-5",
+      "thinking": "high"
+    },
+    "review-refuter": {
+      "model": "anthropic/claude-sonnet-5-5",
+      "thinking": "high"
+    },
+    "review-validator": {
+      "model": "anthropic/claude-sonnet-5-5",
+      "thinking": "high"
+    }
+  }
+}

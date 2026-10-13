@@ -1,0 +1,22 @@
+# Primary selectors only; reserves and scope conditions require runtime integration.
+modelRoles:
+  default: "openai-codex/gpt-6.1-sol:medium"
+  smol: "commandcode/xiaomi/mimo-v2.6-flash"
+  slow: "openai-codex/gpt-6.1-sol:high"
+  plan: "openai-codex/gpt-6.1-sol:high"
+  task: "commandcode/xiaomi/mimo-v2.6-pro"
+  commit: "openai-codex/gpt-6-luna:medium"
+  vision: "openai-codex/gpt-6.1-sol:medium"
+  tiny: "openai-codex/gpt-6-luna:low"
+  memory: "openai-codex/gpt-6-luna:low"
+  advisor: "commandcode/z-ai/glm-5.3-flash:low"
+  advisor_deep: "openai-codex/gpt-6.1-sol:high"
+  designer: "openai-codex/gpt-6.1-sol:medium"
+  data_designer: "openai-codex/gpt-6.1-sol:medium"
+  judge: "openai-codex/gpt-6-luna:low"
+advisor:
+  enabled: false
+  syncBacklog: "off"
+task:
+  eager: "default"
+  maxConcurrency: 2

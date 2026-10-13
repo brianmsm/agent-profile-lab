@@ -1,0 +1,51 @@
+{
+  "kind": "gentle-pi.agent_model_profile",
+  "version": 1,
+  "name": "claude-nan-agent-use-speed-critical-review",
+  "config": {
+    "orchestrator": {
+      "model": "nan/glm5.3-flash",
+      "thinking": "low"
+    },
+    "gentle-ai-explore": {
+      "model": "nan/glm5.3-flash",
+      "thinking": "low"
+    },
+    "gentle-ai-worker": {
+      "model": "nan/glm5.3-flash",
+      "thinking": "low"
+    },
+    "gentle-ai-verify": {
+      "model": "nan/glm5.3-flash",
+      "thinking": "low"
+    },
+    "jd-fix-agent": {
+      "model": "nan/glm5.3-flash",
+      "thinking": "low"
+    },
+    "review-risk": {
+      "model": "nan/glm5.3-flash",
+      "thinking": "high"
+    },
+    "review-readability": {
+      "model": "nan/glm5.3-flash",
+      "thinking": "low"
+    },
+    "review-reliability": {
+      "model": "nan/glm5.3-flash",
+      "thinking": "high"
+    },
+    "review-resilience": {
+      "model": "nan/glm5.3-flash",
+      "thinking": "high"
+    },
+    "review-refuter": {
+      "model": "nan/glm5.3-flash",
+      "thinking": "high"
+    },
+    "review-validator": {
+      "model": "nan/glm5.3-flash",
+      "thinking": "high"
+    }
+  }
+}

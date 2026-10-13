@@ -1,0 +1,59 @@
+{
+  "kind": "gentle-pi.agent_model_profile",
+  "version": 1,
+  "name": "claude-max-go-nan-data-best-critical-review",
+  "config": {
+    "orchestrator": {
+      "model": "opencode-go/gpt-6-luna",
+      "thinking": "xhigh"
+    },
+    "gentle-ai-explore": {
+      "model": "opencode-go/gpt-6-luna",
+      "thinking": "xhigh"
+    },
+    "gentle-ai-worker": {
+      "model": "opencode-go/gpt-6-luna",
+      "thinking": "xhigh"
+    },
+    "gentle-ai-verify": {
+      "model": "opencode-go/gpt-6-luna",
+      "thinking": "xhigh"
+    },
+    "jd-judge-a": {
+      "model": "opencode-go/gpt-6-luna",
+      "thinking": "xhigh"
+    },
+    "jd-judge-b": {
+      "model": "opencode-go/gpt-6-luna",
+      "thinking": "xhigh"
+    },
+    "jd-fix-agent": {
+      "model": "opencode-go/gpt-6-luna",
+      "thinking": "xhigh"
+    },
+    "review-risk": {
+      "model": "opencode-go/gpt-6-luna",
+      "thinking": "xhigh"
+    },
+    "review-readability": {
+      "model": "opencode-go/gpt-6-luna",
+      "thinking": "xhigh"
+    },
+    "review-reliability": {
+      "model": "opencode-go/gpt-6-luna",
+      "thinking": "xhigh"
+    },
+    "review-resilience": {
+      "model": "opencode-go/gpt-6-luna",
+      "thinking": "xhigh"
+    },
+    "review-refuter": {
+      "model": "opencode-go/gpt-6-luna",
+      "thinking": "xhigh"
+    },
+    "review-validator": {
+      "model": "opencode-go/gpt-6-luna",
+      "thinking": "xhigh"
+    }
+  }
+}

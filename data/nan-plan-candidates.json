@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "asOf": "2026-10-10",
+  "canonicalInventory": "catalog/account-inventory.json",
+  "note": "Supersedes preliminary candidate list; preserves distinct MiMo versions. Availability is not a routing recommendation.",
+  "candidates": [
+    "nan_qwen",
+    "nan_mf"
+  ],
+  "historicalUnconfirmed": [
+    "nan_mimo"
+  ]
+}

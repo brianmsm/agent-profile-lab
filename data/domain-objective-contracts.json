@@ -1,0 +1,81 @@
+{
+ "domains": {
+  "data": {
+   "label": "Análisis de datos",
+   "gate": "Verificar grano, unidades, denominadores, missing, joins, estimador, supuestos e interpretación. Oráculo numérico/simulación y trazabilidad; test verde no acredita validez científica.",
+   "critical": "Inferencia estadística, decisiones de medida y semántica de datos",
+   "routine": "Transformaciones y gráficos con especificación y valores esperados",
+   "scope": "R/Python/SQL, psicometría, SEM, procesos analíticos reproducibles"
+  },
+  "research": {
+   "label": "Investigación",
+   "gate": "Lectura de fuentes primarias, citas que soporten cada afirmación, búsqueda de evidencia contraria y distinción dato/inferencia. No inventar bibliografía; comprobar cifras originales.",
+   "critical": "Síntesis, inferencia, diseño del estudio y validez de evidencia",
+   "routine": "Búsqueda, extracción y clasificación con fuente y alcance explícitos",
+   "scope": "Literatura, investigación empírica y síntesis; tráfico compatible con términos del proveedor"
+  },
+  "web": {
+   "label": "Programación web",
+   "gate": "Tests de comportamiento, accesibilidad, responsive, estados de error y revisión visual. Privacidad, autorización y cobros requieren revisión fuerte aunque el UI sea simple.",
+   "critical": "Arquitectura, contratos, permisos, estado y persistencia",
+   "routine": "UI y componentes delimitados con capturas y pruebas",
+   "scope": "Frontend, backend y aplicaciones web; no confundir una nota visual alta con seguridad o corrección"
+  },
+  "apps": {
+   "label": "Apps y software multiplataforma",
+   "gate": "Ejecutar CI en cada SO objetivo, comprobar rutas/case/encoding, permisos, procesos/IPC, ciclo de vida, instalación/actualización y persistencia. Compilar sólo en Linux no valida Windows/macOS.",
+   "critical": "Interfaz nativa, concurrencia, IPC, empaquetado y ciclo de vida",
+   "routine": "Componentes y módulos portables con contratos y matriz de CI",
+   "scope": "Windows, macOS, Linux, móvil y desarrollo multiplataforma; CLI, GUI y servicios"
+  },
+  "cybersecurity": {
+   "label": "Ciberseguridad",
+   "gate": "Exigir alcance, activos y autorización explícitos antes de actuar; proteger secretos y datos sensibles; reproducir hallazgos en un entorno aislado con evidencia verificable; validar remediación y no regresión; revisión humana del impacto. No ejecutar acciones destructivas, persistentes ni contra sistemas reales fuera de la autorización documentada.",
+   "critical": "Fronteras de confianza, identidad y permisos, explotación e impacto, exposición de secretos, evaluación de vulnerabilidades y decisiones de remediación",
+   "routine": "Tareas defensivas acotadas y autorizadas con activos, límites y oráculo de aceptación explícitos; pruebas reproducibles aisladas, sin acciones sobre objetivos reales no autorizadas",
+   "scope": "Revisión defensiva, modelado de amenazas, endurecimiento y evaluación autorizada en laboratorio o activos expresamente incluidos en alcance; no implica autorización para intrusión ni acredita competencia o eficacia en ciberseguridad",
+   "evidenceNote": "Las rutas de ciberseguridad se derivan de perfiles equivalentes de Apps y reutilizan la revisión crítica existente cuando está justificada. Hay resultados públicos de benchmarks incorporados con fuente y correspondencia explícitas, pero no establecen calibración ni equivalencia de proveedor, selector o harness de nuestras rutas. La validación estructural no demuestra seguridad, calidad ni eficacia.",
+   "evidenceBoundary": {
+    "routingBasis": "Apps-derived",
+    "publishedEvidence": "published-results-present",
+    "routeCalibration": "route-calibration-not-established",
+    "validationMeaning": "structural-validation-not-efficacy"
+   }
+  },
+  "agent-use": {
+   "label": "Agent use (uso de computador)",
+   "gate": "Acción reversible o confirmada; log de acciones con diff de estado; límites de autorización explícitos. Ni escrituras destructivas sin confirmación ni credenciales en captures.",
+   "critical": "Planificación multi-app, autorización, recuperación de errores y juicio de reversibilidad",
+   "routine": "Flujos delimitados con oráculo verificable (OSWorld-style) y capturas",
+   "scope": "Computer use: navegador, SO, apps de escritorio; proxies públicos: OSWorld 2.0, Agents' Last Exam, ScreenSpot-Pro, Arena Agent"
+  }
+ },
+ "objectives": {
+  "economy": {
+   "label": "Economía",
+   "principle": "Reducir presión sobre la cuota contratada y reservar modelos fuertes para decisiones críticas; abaratar sólo trabajo delimitado.",
+   "speed_proven": false
+  },
+  "balanced": {
+   "label": "Balanceado",
+   "principle": "Modelo fuerte en camino principal, delegación selectiva y reserva para revisión; evita máximos indiscriminados.",
+   "speed_proven": false
+  },
+  "speed": {
+   "label": "Rapidez",
+   "principle": "Reducir relevos, relecturas y razonamiento innecesario en el camino crítico, sin eliminar las verificaciones. Candidato de latencia, no velocidad acreditada.",
+   "speed_proven": false
+  },
+  "best": {
+   "label": "Best (máxima calidad razonable)",
+   "principle": "El mejor resultado alcanzable manteniendo coste y latencia razonables: xhigh como escalón por defecto; max SOLO donde la evidencia muestra que paga (Terminal-Bench 4.0 / terminal largo-horizonte), nunca por defecto ni en roles de calidad (verify/judge/review).",
+   "speed_proven": false,
+   "effort_policy": {
+    "default": "xhigh (Sol 6.1 51 idx / $0.39 por tarea — sweet spot AA)",
+    "max_justified": "research de terminal largo-horizonte y agent-use de planificación larga (TB 4.0 56 vs 54 xhigh)",
+    "max_rejected": "web, data y roles quality — LCR plana (low 84 >= max 83) y GDP.pdf xhigh>max: max no compra nada",
+    "fallback": "Si xhigh falla 2 veces en el mismo rol: escalar a Astra high/medium antes que a max de Sol"
+   }
+  }
+ }
+}

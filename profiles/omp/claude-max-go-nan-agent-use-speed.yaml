@@ -1,0 +1,22 @@
+# Primary selectors only; reserves and scope conditions require runtime integration.
+modelRoles:
+  default: "opencode-go/mimo-v2.6-pro:medium"
+  smol: "opencode-go/mimo-v2.6-pro:medium"
+  slow: "opencode-go/mimo-v2.6-pro:medium"
+  plan: "opencode-go/mimo-v2.6-pro:medium"
+  task: "opencode-go/mimo-v2.6-pro:medium"
+  commit: "opencode-go/mimo-v2.6-pro:medium"
+  vision: "opencode-go/mimo-v2.6-pro:medium"
+  tiny: "opencode-go/mimo-v2.6-pro:medium"
+  memory: "opencode-go/mimo-v2.6-pro:medium"
+  advisor: "opencode-go/mimo-v2.6-pro:medium"
+  advisor_deep: "opencode-go/mimo-v2.6-pro:medium"
+  designer: "opencode-go/mimo-v2.6-pro:medium"
+  data_designer: "opencode-go/mimo-v2.6-pro:medium"
+  judge: "opencode-go/mimo-v2.6-pro:medium"
+advisor:
+  enabled: false
+  syncBacklog: "off"
+task:
+  eager: "default"
+  maxConcurrency: 3

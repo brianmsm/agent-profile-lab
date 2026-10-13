@@ -1,0 +1,51 @@
+{
+  "kind": "gentle-pi.agent_model_profile",
+  "version": 1,
+  "name": "go-agent-use-speed",
+  "config": {
+    "orchestrator": {
+      "model": "opencode-go/mimo-v2.6-pro",
+      "thinking": "medium"
+    },
+    "gentle-ai-explore": {
+      "model": "opencode-go/mimo-v2.6-pro",
+      "thinking": "medium"
+    },
+    "gentle-ai-worker": {
+      "model": "opencode-go/mimo-v2.6-pro",
+      "thinking": "medium"
+    },
+    "gentle-ai-verify": {
+      "model": "opencode-go/mimo-v2.6-pro",
+      "thinking": "medium"
+    },
+    "jd-fix-agent": {
+      "model": "opencode-go/mimo-v2.6-pro",
+      "thinking": "medium"
+    },
+    "review-risk": {
+      "model": "opencode-go/mimo-v2.6-pro",
+      "thinking": "medium"
+    },
+    "review-readability": {
+      "model": "opencode-go/mimo-v2.6-pro",
+      "thinking": "medium"
+    },
+    "review-reliability": {
+      "model": "opencode-go/mimo-v2.6-pro",
+      "thinking": "medium"
+    },
+    "review-resilience": {
+      "model": "opencode-go/mimo-v2.6-pro",
+      "thinking": "medium"
+    },
+    "review-refuter": {
+      "model": "opencode-go/mimo-v2.6-pro",
+      "thinking": "medium"
+    },
+    "review-validator": {
+      "model": "opencode-go/mimo-v2.6-pro",
+      "thinking": "medium"
+    }
+  }
+}

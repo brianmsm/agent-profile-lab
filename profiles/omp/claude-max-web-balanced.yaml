@@ -1,0 +1,22 @@
+# Primary selectors only; reserves and scope conditions require runtime integration.
+modelRoles:
+  default: "anthropic/claude-sonnet-5-5:high"
+  smol: "anthropic/claude-sonnet-5-5:high"
+  slow: "anthropic/claude-sonnet-5-5:high"
+  plan: "anthropic/claude-sonnet-5-5:high"
+  task: "anthropic/claude-sonnet-5-5:high"
+  commit: "anthropic/claude-sonnet-5-5:high"
+  vision: "anthropic/claude-sonnet-5-5:high"
+  tiny: "anthropic/claude-sonnet-5-5:high"
+  memory: "anthropic/claude-sonnet-5-5:high"
+  advisor: "anthropic/claude-sonnet-5-5:high"
+  advisor_deep: "anthropic/claude-sonnet-5-5:high"
+  designer: "anthropic/claude-sonnet-5-5:high"
+  data_designer: "anthropic/claude-sonnet-5-5:high"
+  judge: "anthropic/claude-sonnet-5-5:high"
+advisor:
+  enabled: false
+  syncBacklog: "off"
+task:
+  eager: "default"
+  maxConcurrency: 2
