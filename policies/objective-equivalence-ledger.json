@@ -1,0 +1,3757 @@
+{
+  "schemaVersion": 1,
+  "origin": "audit_profile_semantics.inspect_baselines",
+  "method": "Exact source profile comparison; not a model ranking or experimental test.",
+  "baselineProfiles": 2496,
+  "assignmentSourceSha256": "a650de533e2822d8ffffd41bb18fd9154238ec503d8e9301845860ef9e6ae914",
+  "comparisonFields": [
+    "native-primary-and-effort",
+    "inactive-routes",
+    "reserves-and-accelerators",
+    "access-origin",
+    "role-conditions",
+    "runtime"
+  ],
+  "classes": {
+    "same-effective-configuration": "All executable configuration, reserves, origin and conditions match. Performance and cost have not been compared.",
+    "distinct-auxiliary-routing": "Same active primaries but different reserves, accelerators or disabled routes; do not merge manifests.",
+    "distinct-operational-contract": "Same model selectors and auxiliary routes but different operational conditions; do not merge contracts.",
+    "distinct-resource-origin": "Same selectors but different authorization route or credential origin; no equivalence of account access."
+  },
+  "summary": {
+    "distinct-operational-contract": 8,
+    "same-effective-configuration": 116,
+    "distinct-auxiliary-routing": 88
+  },
+  "completeEqualsByDomain": {
+    "agent-use": 28,
+    "apps": 12,
+    "cybersecurity": 12,
+    "data": 36,
+    "research": 15,
+    "web": 13
+  },
+  "pairs": [
+    {
+      "a": "gentle-shell--cc-apps-economy",
+      "b": "gentle-shell--cc-apps-balanced",
+      "harness": "gentle-shell",
+      "domain": "apps",
+      "portfolio": "cc",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "distinct-operational-contract",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": false,
+      "activeNativeFingerprint": "7febca18e59898ce59b8798e2694917eabae5e119910a2fecf5acca91cb5f855"
+    },
+    {
+      "a": "gentle-shell--cc-cybersecurity-balanced",
+      "b": "gentle-shell--cc-cybersecurity-economy",
+      "harness": "gentle-shell",
+      "domain": "cybersecurity",
+      "portfolio": "cc",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "distinct-operational-contract",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": false,
+      "activeNativeFingerprint": "7febca18e59898ce59b8798e2694917eabae5e119910a2fecf5acca91cb5f855"
+    },
+    {
+      "a": "gentle-shell--cc-data-economy",
+      "b": "gentle-shell--cc-data-balanced",
+      "harness": "gentle-shell",
+      "domain": "data",
+      "portfolio": "cc",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "distinct-operational-contract",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": false,
+      "activeNativeFingerprint": "2b699f06df81dde772362bd002a012c33d6b4179a9bb397b98edba703698c75d"
+    },
+    {
+      "a": "gentle-shell--cc-nan-apps-economy",
+      "b": "gentle-shell--cc-nan-apps-balanced",
+      "harness": "gentle-shell",
+      "domain": "apps",
+      "portfolio": "cc-nan",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "distinct-operational-contract",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": false,
+      "activeNativeFingerprint": "7febca18e59898ce59b8798e2694917eabae5e119910a2fecf5acca91cb5f855"
+    },
+    {
+      "a": "gentle-shell--cc-nan-cybersecurity-balanced",
+      "b": "gentle-shell--cc-nan-cybersecurity-economy",
+      "harness": "gentle-shell",
+      "domain": "cybersecurity",
+      "portfolio": "cc-nan",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "distinct-operational-contract",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": false,
+      "activeNativeFingerprint": "7febca18e59898ce59b8798e2694917eabae5e119910a2fecf5acca91cb5f855"
+    },
+    {
+      "a": "gentle-shell--cc-nan-data-economy",
+      "b": "gentle-shell--cc-nan-data-balanced",
+      "harness": "gentle-shell",
+      "domain": "data",
+      "portfolio": "cc-nan",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "distinct-operational-contract",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": false,
+      "activeNativeFingerprint": "2b699f06df81dde772362bd002a012c33d6b4179a9bb397b98edba703698c75d"
+    },
+    {
+      "a": "gentle-shell--cc-nan-research-economy",
+      "b": "gentle-shell--cc-nan-research-balanced",
+      "harness": "gentle-shell",
+      "domain": "research",
+      "portfolio": "cc-nan",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "distinct-operational-contract",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": false,
+      "activeNativeFingerprint": "2b699f06df81dde772362bd002a012c33d6b4179a9bb397b98edba703698c75d"
+    },
+    {
+      "a": "gentle-shell--cc-research-economy",
+      "b": "gentle-shell--cc-research-balanced",
+      "harness": "gentle-shell",
+      "domain": "research",
+      "portfolio": "cc",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "distinct-operational-contract",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": false,
+      "activeNativeFingerprint": "2b699f06df81dde772362bd002a012c33d6b4179a9bb397b98edba703698c75d"
+    },
+    {
+      "a": "gentle-shell--claude-cc-apps-economy",
+      "b": "gentle-shell--claude-cc-apps-balanced",
+      "harness": "gentle-shell",
+      "domain": "apps",
+      "portfolio": "claude-cc",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "7febca18e59898ce59b8798e2694917eabae5e119910a2fecf5acca91cb5f855",
+      "contractFingerprint": "62ebda391e94eec470822c589f8132b50d9527634e319c61db0dc070fa65ba18"
+    },
+    {
+      "a": "gentle-shell--claude-cc-cybersecurity-balanced",
+      "b": "gentle-shell--claude-cc-cybersecurity-economy",
+      "harness": "gentle-shell",
+      "domain": "cybersecurity",
+      "portfolio": "claude-cc",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "7febca18e59898ce59b8798e2694917eabae5e119910a2fecf5acca91cb5f855",
+      "contractFingerprint": "5b830f019f43af0c64ddf3f5fbcb6051d9f8c221a4ade88a2265d98778fc5dc5"
+    },
+    {
+      "a": "gentle-shell--claude-cc-data-economy",
+      "b": "gentle-shell--claude-cc-data-balanced",
+      "harness": "gentle-shell",
+      "domain": "data",
+      "portfolio": "claude-cc",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "2b699f06df81dde772362bd002a012c33d6b4179a9bb397b98edba703698c75d",
+      "contractFingerprint": "d4209e548d7577e3b44fd03a16b5029c82778f5e86366a96771a507de27303f4"
+    },
+    {
+      "a": "gentle-shell--claude-cc-nan-apps-economy",
+      "b": "gentle-shell--claude-cc-nan-apps-balanced",
+      "harness": "gentle-shell",
+      "domain": "apps",
+      "portfolio": "claude-cc-nan",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "7febca18e59898ce59b8798e2694917eabae5e119910a2fecf5acca91cb5f855",
+      "contractFingerprint": "62ebda391e94eec470822c589f8132b50d9527634e319c61db0dc070fa65ba18"
+    },
+    {
+      "a": "gentle-shell--claude-cc-nan-cybersecurity-balanced",
+      "b": "gentle-shell--claude-cc-nan-cybersecurity-economy",
+      "harness": "gentle-shell",
+      "domain": "cybersecurity",
+      "portfolio": "claude-cc-nan",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "7febca18e59898ce59b8798e2694917eabae5e119910a2fecf5acca91cb5f855",
+      "contractFingerprint": "5b830f019f43af0c64ddf3f5fbcb6051d9f8c221a4ade88a2265d98778fc5dc5"
+    },
+    {
+      "a": "gentle-shell--claude-cc-nan-data-economy",
+      "b": "gentle-shell--claude-cc-nan-data-balanced",
+      "harness": "gentle-shell",
+      "domain": "data",
+      "portfolio": "claude-cc-nan",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "2b699f06df81dde772362bd002a012c33d6b4179a9bb397b98edba703698c75d",
+      "contractFingerprint": "d4209e548d7577e3b44fd03a16b5029c82778f5e86366a96771a507de27303f4"
+    },
+    {
+      "a": "gentle-shell--claude-cc-nan-research-economy",
+      "b": "gentle-shell--claude-cc-nan-research-balanced",
+      "harness": "gentle-shell",
+      "domain": "research",
+      "portfolio": "claude-cc-nan",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "2b699f06df81dde772362bd002a012c33d6b4179a9bb397b98edba703698c75d",
+      "contractFingerprint": "8212bdd5e832e2c2a2e947b422a13b5e5198b749b462df1fa32788a11b16e564"
+    },
+    {
+      "a": "gentle-shell--claude-cc-research-economy",
+      "b": "gentle-shell--claude-cc-research-balanced",
+      "harness": "gentle-shell",
+      "domain": "research",
+      "portfolio": "claude-cc",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "2b699f06df81dde772362bd002a012c33d6b4179a9bb397b98edba703698c75d",
+      "contractFingerprint": "8212bdd5e832e2c2a2e947b422a13b5e5198b749b462df1fa32788a11b16e564"
+    },
+    {
+      "a": "gentle-shell--claude-go-agent-use-economy",
+      "b": "gentle-shell--claude-go-agent-use-balanced",
+      "harness": "gentle-shell",
+      "domain": "agent-use",
+      "portfolio": "claude-go",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "44fac7ee302c66e3ac5c57fc7f793edf20934c06dd3ad658a78b916655da03fc",
+      "contractFingerprint": "6f7b38b52e9574ac7c3ff30929a782368668e49836c335fbd02de08b7c8cbdf7"
+    },
+    {
+      "a": "gentle-shell--claude-go-nan-agent-use-economy",
+      "b": "gentle-shell--claude-go-nan-agent-use-balanced",
+      "harness": "gentle-shell",
+      "domain": "agent-use",
+      "portfolio": "claude-go-nan",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "44fac7ee302c66e3ac5c57fc7f793edf20934c06dd3ad658a78b916655da03fc",
+      "contractFingerprint": "6f7b38b52e9574ac7c3ff30929a782368668e49836c335fbd02de08b7c8cbdf7"
+    },
+    {
+      "a": "gentle-shell--claude-max-agent-use-economy",
+      "b": "gentle-shell--claude-max-agent-use-speed",
+      "harness": "gentle-shell",
+      "domain": "agent-use",
+      "portfolio": "claude-max",
+      "objectives": [
+        "economy",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "7731d7d1688330aa474b76f160a382fbcc407405bc95e909d6f3a94a68d24cf3",
+      "contractFingerprint": "fbf857e93de6d92cf78d78c6482045dc52828d8476ee40b8cd91bc62102f3388"
+    },
+    {
+      "a": "gentle-shell--claude-max-apps-economy",
+      "b": "gentle-shell--claude-max-apps-speed",
+      "harness": "gentle-shell",
+      "domain": "apps",
+      "portfolio": "claude-max",
+      "objectives": [
+        "economy",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "0c0de4eeaf10a01e97e20e3d101a7fdfc6f89e5c5b887262f465412e1fac5ffa",
+      "contractFingerprint": "4e08d4f1536b9d69960915e9f0e6762fd8078d39a2cc5c94d84db0a843aaafb7"
+    },
+    {
+      "a": "gentle-shell--claude-max-cc-apps-economy",
+      "b": "gentle-shell--claude-max-cc-apps-balanced",
+      "harness": "gentle-shell",
+      "domain": "apps",
+      "portfolio": "claude-max-cc",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "7febca18e59898ce59b8798e2694917eabae5e119910a2fecf5acca91cb5f855"
+    },
+    {
+      "a": "gentle-shell--claude-max-cc-cybersecurity-balanced",
+      "b": "gentle-shell--claude-max-cc-cybersecurity-economy",
+      "harness": "gentle-shell",
+      "domain": "cybersecurity",
+      "portfolio": "claude-max-cc",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "7febca18e59898ce59b8798e2694917eabae5e119910a2fecf5acca91cb5f855"
+    },
+    {
+      "a": "gentle-shell--claude-max-cc-data-economy",
+      "b": "gentle-shell--claude-max-cc-data-balanced",
+      "harness": "gentle-shell",
+      "domain": "data",
+      "portfolio": "claude-max-cc",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "2b699f06df81dde772362bd002a012c33d6b4179a9bb397b98edba703698c75d"
+    },
+    {
+      "a": "gentle-shell--claude-max-cc-nan-apps-economy",
+      "b": "gentle-shell--claude-max-cc-nan-apps-balanced",
+      "harness": "gentle-shell",
+      "domain": "apps",
+      "portfolio": "claude-max-cc-nan",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "7febca18e59898ce59b8798e2694917eabae5e119910a2fecf5acca91cb5f855"
+    },
+    {
+      "a": "gentle-shell--claude-max-cc-nan-cybersecurity-balanced",
+      "b": "gentle-shell--claude-max-cc-nan-cybersecurity-economy",
+      "harness": "gentle-shell",
+      "domain": "cybersecurity",
+      "portfolio": "claude-max-cc-nan",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "7febca18e59898ce59b8798e2694917eabae5e119910a2fecf5acca91cb5f855"
+    },
+    {
+      "a": "gentle-shell--claude-max-cc-nan-data-economy",
+      "b": "gentle-shell--claude-max-cc-nan-data-balanced",
+      "harness": "gentle-shell",
+      "domain": "data",
+      "portfolio": "claude-max-cc-nan",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "2b699f06df81dde772362bd002a012c33d6b4179a9bb397b98edba703698c75d"
+    },
+    {
+      "a": "gentle-shell--claude-max-cc-nan-research-economy",
+      "b": "gentle-shell--claude-max-cc-nan-research-balanced",
+      "harness": "gentle-shell",
+      "domain": "research",
+      "portfolio": "claude-max-cc-nan",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "2b699f06df81dde772362bd002a012c33d6b4179a9bb397b98edba703698c75d"
+    },
+    {
+      "a": "gentle-shell--claude-max-cc-research-economy",
+      "b": "gentle-shell--claude-max-cc-research-balanced",
+      "harness": "gentle-shell",
+      "domain": "research",
+      "portfolio": "claude-max-cc",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "2b699f06df81dde772362bd002a012c33d6b4179a9bb397b98edba703698c75d"
+    },
+    {
+      "a": "gentle-shell--claude-max-cybersecurity-economy",
+      "b": "gentle-shell--claude-max-cybersecurity-speed",
+      "harness": "gentle-shell",
+      "domain": "cybersecurity",
+      "portfolio": "claude-max",
+      "objectives": [
+        "economy",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "0c0de4eeaf10a01e97e20e3d101a7fdfc6f89e5c5b887262f465412e1fac5ffa",
+      "contractFingerprint": "b2345414fd7089ed50d1d5d3286ea87285feb23de3f7405bacd6dd99370e6648"
+    },
+    {
+      "a": "gentle-shell--claude-max-data-economy",
+      "b": "gentle-shell--claude-max-data-speed",
+      "harness": "gentle-shell",
+      "domain": "data",
+      "portfolio": "claude-max",
+      "objectives": [
+        "economy",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "0c0de4eeaf10a01e97e20e3d101a7fdfc6f89e5c5b887262f465412e1fac5ffa",
+      "contractFingerprint": "2b9e52b652aa50535f0e4af7f99649f5c366f48a8a1ac101300bf5b10c1b92cb"
+    },
+    {
+      "a": "gentle-shell--claude-max-go-agent-use-economy",
+      "b": "gentle-shell--claude-max-go-agent-use-balanced",
+      "harness": "gentle-shell",
+      "domain": "agent-use",
+      "portfolio": "claude-max-go",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "44fac7ee302c66e3ac5c57fc7f793edf20934c06dd3ad658a78b916655da03fc"
+    },
+    {
+      "a": "gentle-shell--claude-max-go-nan-agent-use-economy",
+      "b": "gentle-shell--claude-max-go-nan-agent-use-balanced",
+      "harness": "gentle-shell",
+      "domain": "agent-use",
+      "portfolio": "claude-max-go-nan",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "44fac7ee302c66e3ac5c57fc7f793edf20934c06dd3ad658a78b916655da03fc"
+    },
+    {
+      "a": "gentle-shell--claude-max-research-economy",
+      "b": "gentle-shell--claude-max-research-speed",
+      "harness": "gentle-shell",
+      "domain": "research",
+      "portfolio": "claude-max",
+      "objectives": [
+        "economy",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "0c0de4eeaf10a01e97e20e3d101a7fdfc6f89e5c5b887262f465412e1fac5ffa",
+      "contractFingerprint": "6c8223d6f2c5b40281030d00c1fcfbe9c6233051223e066014c236b9866b062f"
+    },
+    {
+      "a": "gentle-shell--claude-max-web-economy",
+      "b": "gentle-shell--claude-max-web-speed",
+      "harness": "gentle-shell",
+      "domain": "web",
+      "portfolio": "claude-max",
+      "objectives": [
+        "economy",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "0c0de4eeaf10a01e97e20e3d101a7fdfc6f89e5c5b887262f465412e1fac5ffa",
+      "contractFingerprint": "ee75494f5f0158c67f9900dfb632c464bbd2c95634b2047a390a3d0d7201c512"
+    },
+    {
+      "a": "gentle-shell--claude-pro-agent-use-economy",
+      "b": "gentle-shell--claude-pro-agent-use-speed",
+      "harness": "gentle-shell",
+      "domain": "agent-use",
+      "portfolio": "claude-pro",
+      "objectives": [
+        "economy",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "7731d7d1688330aa474b76f160a382fbcc407405bc95e909d6f3a94a68d24cf3",
+      "contractFingerprint": "d549929dde63b730232493565712794e350651992dc53f0695c2c1859aaf3d79"
+    },
+    {
+      "a": "gentle-shell--claude-pro-apps-economy",
+      "b": "gentle-shell--claude-pro-apps-speed",
+      "harness": "gentle-shell",
+      "domain": "apps",
+      "portfolio": "claude-pro",
+      "objectives": [
+        "economy",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "0c0de4eeaf10a01e97e20e3d101a7fdfc6f89e5c5b887262f465412e1fac5ffa",
+      "contractFingerprint": "38dd628899b3b4d2dfe87003be9e56c430affb1b731b906b3fd7e0be5bce84d4"
+    },
+    {
+      "a": "gentle-shell--claude-pro-cybersecurity-economy",
+      "b": "gentle-shell--claude-pro-cybersecurity-speed",
+      "harness": "gentle-shell",
+      "domain": "cybersecurity",
+      "portfolio": "claude-pro",
+      "objectives": [
+        "economy",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "0c0de4eeaf10a01e97e20e3d101a7fdfc6f89e5c5b887262f465412e1fac5ffa",
+      "contractFingerprint": "acb85402d87e90eceea5f4d19695b37d90869979d7d19319a35675049eea1fc6"
+    },
+    {
+      "a": "gentle-shell--claude-pro-data-economy",
+      "b": "gentle-shell--claude-pro-data-speed",
+      "harness": "gentle-shell",
+      "domain": "data",
+      "portfolio": "claude-pro",
+      "objectives": [
+        "economy",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "0c0de4eeaf10a01e97e20e3d101a7fdfc6f89e5c5b887262f465412e1fac5ffa",
+      "contractFingerprint": "dae73d0ab0ae1eac2e595ca0d1f708f9dc8b8f834e392b6becb490549025573b"
+    },
+    {
+      "a": "gentle-shell--claude-pro-research-economy",
+      "b": "gentle-shell--claude-pro-research-speed",
+      "harness": "gentle-shell",
+      "domain": "research",
+      "portfolio": "claude-pro",
+      "objectives": [
+        "economy",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "0c0de4eeaf10a01e97e20e3d101a7fdfc6f89e5c5b887262f465412e1fac5ffa",
+      "contractFingerprint": "5f3070927923589c0f4d765289b03c98a3e202ee82446c0a1aed65c28314649d"
+    },
+    {
+      "a": "gentle-shell--claude-pro-web-economy",
+      "b": "gentle-shell--claude-pro-web-speed",
+      "harness": "gentle-shell",
+      "domain": "web",
+      "portfolio": "claude-pro",
+      "objectives": [
+        "economy",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "0c0de4eeaf10a01e97e20e3d101a7fdfc6f89e5c5b887262f465412e1fac5ffa",
+      "contractFingerprint": "ef5fe2aa800662dea2d7a8de01843d115f9b9984cad4fddbf77d621af09ee39c"
+    },
+    {
+      "a": "gentle-shell--go-agent-use-economy",
+      "b": "gentle-shell--go-agent-use-balanced",
+      "harness": "gentle-shell",
+      "domain": "agent-use",
+      "portfolio": "go",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "44fac7ee302c66e3ac5c57fc7f793edf20934c06dd3ad658a78b916655da03fc",
+      "contractFingerprint": "622c8039f35100cd559f4db153806f96d40793c24f50268b2eca77c6af03ff23"
+    },
+    {
+      "a": "gentle-shell--go-nan-agent-use-economy",
+      "b": "gentle-shell--go-nan-agent-use-balanced",
+      "harness": "gentle-shell",
+      "domain": "agent-use",
+      "portfolio": "go-nan",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "44fac7ee302c66e3ac5c57fc7f793edf20934c06dd3ad658a78b916655da03fc",
+      "contractFingerprint": "622c8039f35100cd559f4db153806f96d40793c24f50268b2eca77c6af03ff23"
+    },
+    {
+      "a": "gentle-shell--plus-claude-agent-use-balanced",
+      "b": "gentle-shell--plus-claude-agent-use-speed",
+      "harness": "gentle-shell",
+      "domain": "agent-use",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "d5be05ba9dbcf59530409894fbcd664b865d74e2b5d37a6fac9fa267e39aec2d",
+      "contractFingerprint": "5e072ebbaf566f71b413b26c65dd89e268ef468d39a1560dbe6ca1061a011ed8"
+    },
+    {
+      "a": "gentle-shell--plus-claude-agent-use-economy",
+      "b": "gentle-shell--plus-claude-agent-use-balanced",
+      "harness": "gentle-shell",
+      "domain": "agent-use",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "d5be05ba9dbcf59530409894fbcd664b865d74e2b5d37a6fac9fa267e39aec2d",
+      "contractFingerprint": "5e072ebbaf566f71b413b26c65dd89e268ef468d39a1560dbe6ca1061a011ed8"
+    },
+    {
+      "a": "gentle-shell--plus-claude-agent-use-economy",
+      "b": "gentle-shell--plus-claude-agent-use-speed",
+      "harness": "gentle-shell",
+      "domain": "agent-use",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "economy",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "d5be05ba9dbcf59530409894fbcd664b865d74e2b5d37a6fac9fa267e39aec2d",
+      "contractFingerprint": "5e072ebbaf566f71b413b26c65dd89e268ef468d39a1560dbe6ca1061a011ed8"
+    },
+    {
+      "a": "gentle-shell--plus-claude-apps-balanced",
+      "b": "gentle-shell--plus-claude-apps-best",
+      "harness": "gentle-shell",
+      "domain": "apps",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "balanced",
+        "best"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "43c46f637e64b4dac6f98fb175087e3628c7e010ae504df620889a9c417284fb",
+      "contractFingerprint": "caf48490f2a392f31cfa679d3b402cdec86f892397ef139878aa05ea825f4c3c"
+    },
+    {
+      "a": "gentle-shell--plus-claude-apps-balanced",
+      "b": "gentle-shell--plus-claude-apps-speed",
+      "harness": "gentle-shell",
+      "domain": "apps",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "43c46f637e64b4dac6f98fb175087e3628c7e010ae504df620889a9c417284fb",
+      "contractFingerprint": "caf48490f2a392f31cfa679d3b402cdec86f892397ef139878aa05ea825f4c3c"
+    },
+    {
+      "a": "gentle-shell--plus-claude-apps-economy",
+      "b": "gentle-shell--plus-claude-apps-balanced",
+      "harness": "gentle-shell",
+      "domain": "apps",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "43c46f637e64b4dac6f98fb175087e3628c7e010ae504df620889a9c417284fb",
+      "contractFingerprint": "caf48490f2a392f31cfa679d3b402cdec86f892397ef139878aa05ea825f4c3c"
+    },
+    {
+      "a": "gentle-shell--plus-claude-apps-economy",
+      "b": "gentle-shell--plus-claude-apps-best",
+      "harness": "gentle-shell",
+      "domain": "apps",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "best",
+        "economy"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "43c46f637e64b4dac6f98fb175087e3628c7e010ae504df620889a9c417284fb",
+      "contractFingerprint": "caf48490f2a392f31cfa679d3b402cdec86f892397ef139878aa05ea825f4c3c"
+    },
+    {
+      "a": "gentle-shell--plus-claude-apps-economy",
+      "b": "gentle-shell--plus-claude-apps-speed",
+      "harness": "gentle-shell",
+      "domain": "apps",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "economy",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "43c46f637e64b4dac6f98fb175087e3628c7e010ae504df620889a9c417284fb",
+      "contractFingerprint": "caf48490f2a392f31cfa679d3b402cdec86f892397ef139878aa05ea825f4c3c"
+    },
+    {
+      "a": "gentle-shell--plus-claude-apps-speed",
+      "b": "gentle-shell--plus-claude-apps-best",
+      "harness": "gentle-shell",
+      "domain": "apps",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "best",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "43c46f637e64b4dac6f98fb175087e3628c7e010ae504df620889a9c417284fb",
+      "contractFingerprint": "caf48490f2a392f31cfa679d3b402cdec86f892397ef139878aa05ea825f4c3c"
+    },
+    {
+      "a": "gentle-shell--plus-claude-cybersecurity-balanced",
+      "b": "gentle-shell--plus-claude-cybersecurity-best",
+      "harness": "gentle-shell",
+      "domain": "cybersecurity",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "balanced",
+        "best"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "43c46f637e64b4dac6f98fb175087e3628c7e010ae504df620889a9c417284fb",
+      "contractFingerprint": "b16252b05d1eba5bb0304b55c8967c7ab563f250dac41ef3e4e100c2306fa929"
+    },
+    {
+      "a": "gentle-shell--plus-claude-cybersecurity-balanced",
+      "b": "gentle-shell--plus-claude-cybersecurity-economy",
+      "harness": "gentle-shell",
+      "domain": "cybersecurity",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "43c46f637e64b4dac6f98fb175087e3628c7e010ae504df620889a9c417284fb",
+      "contractFingerprint": "b16252b05d1eba5bb0304b55c8967c7ab563f250dac41ef3e4e100c2306fa929"
+    },
+    {
+      "a": "gentle-shell--plus-claude-cybersecurity-balanced",
+      "b": "gentle-shell--plus-claude-cybersecurity-speed",
+      "harness": "gentle-shell",
+      "domain": "cybersecurity",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "43c46f637e64b4dac6f98fb175087e3628c7e010ae504df620889a9c417284fb",
+      "contractFingerprint": "b16252b05d1eba5bb0304b55c8967c7ab563f250dac41ef3e4e100c2306fa929"
+    },
+    {
+      "a": "gentle-shell--plus-claude-cybersecurity-best",
+      "b": "gentle-shell--plus-claude-cybersecurity-economy",
+      "harness": "gentle-shell",
+      "domain": "cybersecurity",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "best",
+        "economy"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "43c46f637e64b4dac6f98fb175087e3628c7e010ae504df620889a9c417284fb",
+      "contractFingerprint": "b16252b05d1eba5bb0304b55c8967c7ab563f250dac41ef3e4e100c2306fa929"
+    },
+    {
+      "a": "gentle-shell--plus-claude-cybersecurity-best",
+      "b": "gentle-shell--plus-claude-cybersecurity-speed",
+      "harness": "gentle-shell",
+      "domain": "cybersecurity",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "best",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "43c46f637e64b4dac6f98fb175087e3628c7e010ae504df620889a9c417284fb",
+      "contractFingerprint": "b16252b05d1eba5bb0304b55c8967c7ab563f250dac41ef3e4e100c2306fa929"
+    },
+    {
+      "a": "gentle-shell--plus-claude-cybersecurity-economy",
+      "b": "gentle-shell--plus-claude-cybersecurity-speed",
+      "harness": "gentle-shell",
+      "domain": "cybersecurity",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "economy",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "43c46f637e64b4dac6f98fb175087e3628c7e010ae504df620889a9c417284fb",
+      "contractFingerprint": "b16252b05d1eba5bb0304b55c8967c7ab563f250dac41ef3e4e100c2306fa929"
+    },
+    {
+      "a": "gentle-shell--plus-claude-data-balanced",
+      "b": "gentle-shell--plus-claude-data-best",
+      "harness": "gentle-shell",
+      "domain": "data",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "balanced",
+        "best"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "43c46f637e64b4dac6f98fb175087e3628c7e010ae504df620889a9c417284fb",
+      "contractFingerprint": "ab1728318f8b3daee82464cfcc0e95870555b3cbbbbb408c98b661a1707edc88"
+    },
+    {
+      "a": "gentle-shell--plus-claude-data-balanced",
+      "b": "gentle-shell--plus-claude-data-speed",
+      "harness": "gentle-shell",
+      "domain": "data",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "43c46f637e64b4dac6f98fb175087e3628c7e010ae504df620889a9c417284fb",
+      "contractFingerprint": "ab1728318f8b3daee82464cfcc0e95870555b3cbbbbb408c98b661a1707edc88"
+    },
+    {
+      "a": "gentle-shell--plus-claude-data-economy",
+      "b": "gentle-shell--plus-claude-data-balanced",
+      "harness": "gentle-shell",
+      "domain": "data",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "43c46f637e64b4dac6f98fb175087e3628c7e010ae504df620889a9c417284fb",
+      "contractFingerprint": "ab1728318f8b3daee82464cfcc0e95870555b3cbbbbb408c98b661a1707edc88"
+    },
+    {
+      "a": "gentle-shell--plus-claude-data-economy",
+      "b": "gentle-shell--plus-claude-data-best",
+      "harness": "gentle-shell",
+      "domain": "data",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "best",
+        "economy"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "43c46f637e64b4dac6f98fb175087e3628c7e010ae504df620889a9c417284fb",
+      "contractFingerprint": "ab1728318f8b3daee82464cfcc0e95870555b3cbbbbb408c98b661a1707edc88"
+    },
+    {
+      "a": "gentle-shell--plus-claude-data-economy",
+      "b": "gentle-shell--plus-claude-data-speed",
+      "harness": "gentle-shell",
+      "domain": "data",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "economy",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "43c46f637e64b4dac6f98fb175087e3628c7e010ae504df620889a9c417284fb",
+      "contractFingerprint": "ab1728318f8b3daee82464cfcc0e95870555b3cbbbbb408c98b661a1707edc88"
+    },
+    {
+      "a": "gentle-shell--plus-claude-data-speed",
+      "b": "gentle-shell--plus-claude-data-best",
+      "harness": "gentle-shell",
+      "domain": "data",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "best",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "43c46f637e64b4dac6f98fb175087e3628c7e010ae504df620889a9c417284fb",
+      "contractFingerprint": "ab1728318f8b3daee82464cfcc0e95870555b3cbbbbb408c98b661a1707edc88"
+    },
+    {
+      "a": "gentle-shell--plus-claude-research-balanced",
+      "b": "gentle-shell--plus-claude-research-best",
+      "harness": "gentle-shell",
+      "domain": "research",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "balanced",
+        "best"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "1d53aaee955bfac9154397284fe22abaf73ffc1e16f5fa5c46866f24e55d64c3",
+      "contractFingerprint": "5b5e4a2f8d736e6bb9ad2c78d78d7a9995ece7ba9f313a05261503a601584539"
+    },
+    {
+      "a": "gentle-shell--plus-claude-research-balanced",
+      "b": "gentle-shell--plus-claude-research-speed",
+      "harness": "gentle-shell",
+      "domain": "research",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "1d53aaee955bfac9154397284fe22abaf73ffc1e16f5fa5c46866f24e55d64c3",
+      "contractFingerprint": "5b5e4a2f8d736e6bb9ad2c78d78d7a9995ece7ba9f313a05261503a601584539"
+    },
+    {
+      "a": "gentle-shell--plus-claude-research-economy",
+      "b": "gentle-shell--plus-claude-research-balanced",
+      "harness": "gentle-shell",
+      "domain": "research",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "1d53aaee955bfac9154397284fe22abaf73ffc1e16f5fa5c46866f24e55d64c3",
+      "contractFingerprint": "5b5e4a2f8d736e6bb9ad2c78d78d7a9995ece7ba9f313a05261503a601584539"
+    },
+    {
+      "a": "gentle-shell--plus-claude-research-economy",
+      "b": "gentle-shell--plus-claude-research-best",
+      "harness": "gentle-shell",
+      "domain": "research",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "best",
+        "economy"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "1d53aaee955bfac9154397284fe22abaf73ffc1e16f5fa5c46866f24e55d64c3",
+      "contractFingerprint": "5b5e4a2f8d736e6bb9ad2c78d78d7a9995ece7ba9f313a05261503a601584539"
+    },
+    {
+      "a": "gentle-shell--plus-claude-research-economy",
+      "b": "gentle-shell--plus-claude-research-speed",
+      "harness": "gentle-shell",
+      "domain": "research",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "economy",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "1d53aaee955bfac9154397284fe22abaf73ffc1e16f5fa5c46866f24e55d64c3",
+      "contractFingerprint": "5b5e4a2f8d736e6bb9ad2c78d78d7a9995ece7ba9f313a05261503a601584539"
+    },
+    {
+      "a": "gentle-shell--plus-claude-research-speed",
+      "b": "gentle-shell--plus-claude-research-best",
+      "harness": "gentle-shell",
+      "domain": "research",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "best",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "1d53aaee955bfac9154397284fe22abaf73ffc1e16f5fa5c46866f24e55d64c3",
+      "contractFingerprint": "5b5e4a2f8d736e6bb9ad2c78d78d7a9995ece7ba9f313a05261503a601584539"
+    },
+    {
+      "a": "gentle-shell--plus-claude-web-balanced",
+      "b": "gentle-shell--plus-claude-web-best",
+      "harness": "gentle-shell",
+      "domain": "web",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "balanced",
+        "best"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "43c46f637e64b4dac6f98fb175087e3628c7e010ae504df620889a9c417284fb",
+      "contractFingerprint": "03db33fd3728689da24a337158960e686cc7bc8580a5ae75959d46680a194a82"
+    },
+    {
+      "a": "gentle-shell--plus-claude-web-balanced",
+      "b": "gentle-shell--plus-claude-web-speed",
+      "harness": "gentle-shell",
+      "domain": "web",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "43c46f637e64b4dac6f98fb175087e3628c7e010ae504df620889a9c417284fb",
+      "contractFingerprint": "03db33fd3728689da24a337158960e686cc7bc8580a5ae75959d46680a194a82"
+    },
+    {
+      "a": "gentle-shell--plus-claude-web-economy",
+      "b": "gentle-shell--plus-claude-web-balanced",
+      "harness": "gentle-shell",
+      "domain": "web",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "43c46f637e64b4dac6f98fb175087e3628c7e010ae504df620889a9c417284fb",
+      "contractFingerprint": "03db33fd3728689da24a337158960e686cc7bc8580a5ae75959d46680a194a82"
+    },
+    {
+      "a": "gentle-shell--plus-claude-web-economy",
+      "b": "gentle-shell--plus-claude-web-best",
+      "harness": "gentle-shell",
+      "domain": "web",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "best",
+        "economy"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "43c46f637e64b4dac6f98fb175087e3628c7e010ae504df620889a9c417284fb",
+      "contractFingerprint": "03db33fd3728689da24a337158960e686cc7bc8580a5ae75959d46680a194a82"
+    },
+    {
+      "a": "gentle-shell--plus-claude-web-economy",
+      "b": "gentle-shell--plus-claude-web-speed",
+      "harness": "gentle-shell",
+      "domain": "web",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "economy",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "43c46f637e64b4dac6f98fb175087e3628c7e010ae504df620889a9c417284fb",
+      "contractFingerprint": "03db33fd3728689da24a337158960e686cc7bc8580a5ae75959d46680a194a82"
+    },
+    {
+      "a": "gentle-shell--plus-claude-web-speed",
+      "b": "gentle-shell--plus-claude-web-best",
+      "harness": "gentle-shell",
+      "domain": "web",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "best",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "43c46f637e64b4dac6f98fb175087e3628c7e010ae504df620889a9c417284fb",
+      "contractFingerprint": "03db33fd3728689da24a337158960e686cc7bc8580a5ae75959d46680a194a82"
+    },
+    {
+      "a": "omp--cc-apps-economy",
+      "b": "omp--cc-apps-balanced",
+      "harness": "omp",
+      "domain": "apps",
+      "portfolio": "cc",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "522f18acd2abfa84c1794f94b2de30a7ea7b7748e38d7755fcbf06e5615eb2b2"
+    },
+    {
+      "a": "omp--cc-cybersecurity-balanced",
+      "b": "omp--cc-cybersecurity-economy",
+      "harness": "omp",
+      "domain": "cybersecurity",
+      "portfolio": "cc",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "522f18acd2abfa84c1794f94b2de30a7ea7b7748e38d7755fcbf06e5615eb2b2"
+    },
+    {
+      "a": "omp--cc-data-balanced",
+      "b": "omp--cc-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "cc",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "d53ab6c1fd5aa8515c068fded44bf30a56d772812657748fac6dddfe6d67b833",
+      "contractFingerprint": "8f2d0db63d153242d483616caccd18b312e90d88c7340f7cdda5adb5eaf1bd70"
+    },
+    {
+      "a": "omp--cc-nan-data-balanced",
+      "b": "omp--cc-nan-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "cc-nan",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "d53ab6c1fd5aa8515c068fded44bf30a56d772812657748fac6dddfe6d67b833",
+      "contractFingerprint": "8f2d0db63d153242d483616caccd18b312e90d88c7340f7cdda5adb5eaf1bd70"
+    },
+    {
+      "a": "omp--claude-cc-apps-economy",
+      "b": "omp--claude-cc-apps-balanced",
+      "harness": "omp",
+      "domain": "apps",
+      "portfolio": "claude-cc",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "522f18acd2abfa84c1794f94b2de30a7ea7b7748e38d7755fcbf06e5615eb2b2"
+    },
+    {
+      "a": "omp--claude-cc-cybersecurity-balanced",
+      "b": "omp--claude-cc-cybersecurity-economy",
+      "harness": "omp",
+      "domain": "cybersecurity",
+      "portfolio": "claude-cc",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "522f18acd2abfa84c1794f94b2de30a7ea7b7748e38d7755fcbf06e5615eb2b2"
+    },
+    {
+      "a": "omp--claude-cc-data-balanced",
+      "b": "omp--claude-cc-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "claude-cc",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "d53ab6c1fd5aa8515c068fded44bf30a56d772812657748fac6dddfe6d67b833",
+      "contractFingerprint": "c18342f3c168bb4727bbed104acd7423b196ac8304503f90dae1eba40a7dbf07"
+    },
+    {
+      "a": "omp--claude-cc-nan-data-balanced",
+      "b": "omp--claude-cc-nan-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "claude-cc-nan",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "d53ab6c1fd5aa8515c068fded44bf30a56d772812657748fac6dddfe6d67b833",
+      "contractFingerprint": "c18342f3c168bb4727bbed104acd7423b196ac8304503f90dae1eba40a7dbf07"
+    },
+    {
+      "a": "omp--claude-go-agent-use-balanced",
+      "b": "omp--claude-go-agent-use-best",
+      "harness": "omp",
+      "domain": "agent-use",
+      "portfolio": "claude-go",
+      "objectives": [
+        "balanced",
+        "best"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "d05ec5d88ca8f14521345236c5d8f68f99a06dc97444ddc24174eb934c544cd5",
+      "contractFingerprint": "d28a743afb0b668266bf5c1202919e95acd5c7f8e85154cb9b25f3d76376c29e"
+    },
+    {
+      "a": "omp--claude-go-agent-use-economy",
+      "b": "omp--claude-go-agent-use-balanced",
+      "harness": "omp",
+      "domain": "agent-use",
+      "portfolio": "claude-go",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "d05ec5d88ca8f14521345236c5d8f68f99a06dc97444ddc24174eb934c544cd5",
+      "contractFingerprint": "d28a743afb0b668266bf5c1202919e95acd5c7f8e85154cb9b25f3d76376c29e"
+    },
+    {
+      "a": "omp--claude-go-agent-use-economy",
+      "b": "omp--claude-go-agent-use-best",
+      "harness": "omp",
+      "domain": "agent-use",
+      "portfolio": "claude-go",
+      "objectives": [
+        "best",
+        "economy"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "d05ec5d88ca8f14521345236c5d8f68f99a06dc97444ddc24174eb934c544cd5",
+      "contractFingerprint": "d28a743afb0b668266bf5c1202919e95acd5c7f8e85154cb9b25f3d76376c29e"
+    },
+    {
+      "a": "omp--claude-go-data-balanced",
+      "b": "omp--claude-go-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "claude-go",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "59e45da7355c1268697912467f2aac7d55c7d8623a66edff7cd2fb1e0b039031",
+      "contractFingerprint": "142fb776d61ff076c115a11d57540f9833ff215c5f879601515b0b321d5758cc"
+    },
+    {
+      "a": "omp--claude-go-nan-agent-use-balanced",
+      "b": "omp--claude-go-nan-agent-use-best",
+      "harness": "omp",
+      "domain": "agent-use",
+      "portfolio": "claude-go-nan",
+      "objectives": [
+        "balanced",
+        "best"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "d05ec5d88ca8f14521345236c5d8f68f99a06dc97444ddc24174eb934c544cd5",
+      "contractFingerprint": "d28a743afb0b668266bf5c1202919e95acd5c7f8e85154cb9b25f3d76376c29e"
+    },
+    {
+      "a": "omp--claude-go-nan-agent-use-economy",
+      "b": "omp--claude-go-nan-agent-use-balanced",
+      "harness": "omp",
+      "domain": "agent-use",
+      "portfolio": "claude-go-nan",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "d05ec5d88ca8f14521345236c5d8f68f99a06dc97444ddc24174eb934c544cd5",
+      "contractFingerprint": "d28a743afb0b668266bf5c1202919e95acd5c7f8e85154cb9b25f3d76376c29e"
+    },
+    {
+      "a": "omp--claude-go-nan-agent-use-economy",
+      "b": "omp--claude-go-nan-agent-use-best",
+      "harness": "omp",
+      "domain": "agent-use",
+      "portfolio": "claude-go-nan",
+      "objectives": [
+        "best",
+        "economy"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "d05ec5d88ca8f14521345236c5d8f68f99a06dc97444ddc24174eb934c544cd5",
+      "contractFingerprint": "d28a743afb0b668266bf5c1202919e95acd5c7f8e85154cb9b25f3d76376c29e"
+    },
+    {
+      "a": "omp--claude-go-nan-data-balanced",
+      "b": "omp--claude-go-nan-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "claude-go-nan",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "59e45da7355c1268697912467f2aac7d55c7d8623a66edff7cd2fb1e0b039031",
+      "contractFingerprint": "142fb776d61ff076c115a11d57540f9833ff215c5f879601515b0b321d5758cc"
+    },
+    {
+      "a": "omp--claude-max-agent-use-economy",
+      "b": "omp--claude-max-agent-use-speed",
+      "harness": "omp",
+      "domain": "agent-use",
+      "portfolio": "claude-max",
+      "objectives": [
+        "economy",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "923c2d1483b16acaad95de69cbabd93eef7db2df642c412af766d6ad8a28684d",
+      "contractFingerprint": "048c2c6f0cbee5798edcbe95c0dd0311b666ed4d011ca72af00697a4858b75e0"
+    },
+    {
+      "a": "omp--claude-max-cc-apps-economy",
+      "b": "omp--claude-max-cc-apps-balanced",
+      "harness": "omp",
+      "domain": "apps",
+      "portfolio": "claude-max-cc",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "522f18acd2abfa84c1794f94b2de30a7ea7b7748e38d7755fcbf06e5615eb2b2"
+    },
+    {
+      "a": "omp--claude-max-cc-cybersecurity-balanced",
+      "b": "omp--claude-max-cc-cybersecurity-economy",
+      "harness": "omp",
+      "domain": "cybersecurity",
+      "portfolio": "claude-max-cc",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "522f18acd2abfa84c1794f94b2de30a7ea7b7748e38d7755fcbf06e5615eb2b2"
+    },
+    {
+      "a": "omp--claude-max-cc-data-balanced",
+      "b": "omp--claude-max-cc-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "claude-max-cc",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "d53ab6c1fd5aa8515c068fded44bf30a56d772812657748fac6dddfe6d67b833"
+    },
+    {
+      "a": "omp--claude-max-cc-nan-data-balanced",
+      "b": "omp--claude-max-cc-nan-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "claude-max-cc-nan",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "d53ab6c1fd5aa8515c068fded44bf30a56d772812657748fac6dddfe6d67b833"
+    },
+    {
+      "a": "omp--claude-max-data-economy",
+      "b": "omp--claude-max-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "claude-max",
+      "objectives": [
+        "economy",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "923c2d1483b16acaad95de69cbabd93eef7db2df642c412af766d6ad8a28684d",
+      "contractFingerprint": "aeeeb2fac21a8e057dcbc3ef32e066733dafac08fc23ca8edf97db7757393b1b"
+    },
+    {
+      "a": "omp--claude-max-go-agent-use-balanced",
+      "b": "omp--claude-max-go-agent-use-best",
+      "harness": "omp",
+      "domain": "agent-use",
+      "portfolio": "claude-max-go",
+      "objectives": [
+        "balanced",
+        "best"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "d05ec5d88ca8f14521345236c5d8f68f99a06dc97444ddc24174eb934c544cd5"
+    },
+    {
+      "a": "omp--claude-max-go-agent-use-economy",
+      "b": "omp--claude-max-go-agent-use-balanced",
+      "harness": "omp",
+      "domain": "agent-use",
+      "portfolio": "claude-max-go",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "d05ec5d88ca8f14521345236c5d8f68f99a06dc97444ddc24174eb934c544cd5"
+    },
+    {
+      "a": "omp--claude-max-go-agent-use-economy",
+      "b": "omp--claude-max-go-agent-use-best",
+      "harness": "omp",
+      "domain": "agent-use",
+      "portfolio": "claude-max-go",
+      "objectives": [
+        "best",
+        "economy"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "d05ec5d88ca8f14521345236c5d8f68f99a06dc97444ddc24174eb934c544cd5"
+    },
+    {
+      "a": "omp--claude-max-go-data-balanced",
+      "b": "omp--claude-max-go-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "claude-max-go",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "59e45da7355c1268697912467f2aac7d55c7d8623a66edff7cd2fb1e0b039031"
+    },
+    {
+      "a": "omp--claude-max-go-nan-agent-use-balanced",
+      "b": "omp--claude-max-go-nan-agent-use-best",
+      "harness": "omp",
+      "domain": "agent-use",
+      "portfolio": "claude-max-go-nan",
+      "objectives": [
+        "balanced",
+        "best"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "d05ec5d88ca8f14521345236c5d8f68f99a06dc97444ddc24174eb934c544cd5"
+    },
+    {
+      "a": "omp--claude-max-go-nan-agent-use-economy",
+      "b": "omp--claude-max-go-nan-agent-use-balanced",
+      "harness": "omp",
+      "domain": "agent-use",
+      "portfolio": "claude-max-go-nan",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "d05ec5d88ca8f14521345236c5d8f68f99a06dc97444ddc24174eb934c544cd5"
+    },
+    {
+      "a": "omp--claude-max-go-nan-agent-use-economy",
+      "b": "omp--claude-max-go-nan-agent-use-best",
+      "harness": "omp",
+      "domain": "agent-use",
+      "portfolio": "claude-max-go-nan",
+      "objectives": [
+        "best",
+        "economy"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "d05ec5d88ca8f14521345236c5d8f68f99a06dc97444ddc24174eb934c544cd5"
+    },
+    {
+      "a": "omp--claude-max-go-nan-data-balanced",
+      "b": "omp--claude-max-go-nan-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "claude-max-go-nan",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "59e45da7355c1268697912467f2aac7d55c7d8623a66edff7cd2fb1e0b039031"
+    },
+    {
+      "a": "omp--claude-max-nan-agent-use-balanced",
+      "b": "omp--claude-max-nan-agent-use-best",
+      "harness": "omp",
+      "domain": "agent-use",
+      "portfolio": "claude-max-nan",
+      "objectives": [
+        "balanced",
+        "best"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "f42f3ca5ef63bebcbfa68add7409ca09fc4fdb8a28d5597d4f003fe4102d45e9"
+    },
+    {
+      "a": "omp--claude-max-nan-data-balanced",
+      "b": "omp--claude-max-nan-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "claude-max-nan",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "75a6aa59c166c0a25a46759ab1fac2e58b14e3e363f390c432ec5cb85313562f"
+    },
+    {
+      "a": "omp--claude-max-research-economy",
+      "b": "omp--claude-max-research-speed",
+      "harness": "omp",
+      "domain": "research",
+      "portfolio": "claude-max",
+      "objectives": [
+        "economy",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "923c2d1483b16acaad95de69cbabd93eef7db2df642c412af766d6ad8a28684d",
+      "contractFingerprint": "80d0499fd41a3449e33f3c904657463f9f8ea1095aa3536eab16fcd378736440"
+    },
+    {
+      "a": "omp--claude-max-web-economy",
+      "b": "omp--claude-max-web-speed",
+      "harness": "omp",
+      "domain": "web",
+      "portfolio": "claude-max",
+      "objectives": [
+        "economy",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "923c2d1483b16acaad95de69cbabd93eef7db2df642c412af766d6ad8a28684d",
+      "contractFingerprint": "6bf6de050e467bdd0c0499f5a28e8dcb52b911e093d8ba8dbe9d71947898f603"
+    },
+    {
+      "a": "omp--claude-nan-agent-use-balanced",
+      "b": "omp--claude-nan-agent-use-best",
+      "harness": "omp",
+      "domain": "agent-use",
+      "portfolio": "claude-nan",
+      "objectives": [
+        "balanced",
+        "best"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "f42f3ca5ef63bebcbfa68add7409ca09fc4fdb8a28d5597d4f003fe4102d45e9",
+      "contractFingerprint": "63903e66ce6640e38900b8e16da8fabbc76bedd64d997f538a6363580ccb9331"
+    },
+    {
+      "a": "omp--claude-nan-data-balanced",
+      "b": "omp--claude-nan-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "claude-nan",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "75a6aa59c166c0a25a46759ab1fac2e58b14e3e363f390c432ec5cb85313562f",
+      "contractFingerprint": "a6f66065954b68cfee2457212fd9a4689feae67c11aa4027fb747fd7684d26c0"
+    },
+    {
+      "a": "omp--claude-pro-agent-use-economy",
+      "b": "omp--claude-pro-agent-use-speed",
+      "harness": "omp",
+      "domain": "agent-use",
+      "portfolio": "claude-pro",
+      "objectives": [
+        "economy",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "923c2d1483b16acaad95de69cbabd93eef7db2df642c412af766d6ad8a28684d",
+      "contractFingerprint": "dc50f3a238f4a0f4ebdda4246dd73bce9a7a453731466f4c3821bcd3a961408a"
+    },
+    {
+      "a": "omp--claude-pro-data-economy",
+      "b": "omp--claude-pro-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "claude-pro",
+      "objectives": [
+        "economy",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "923c2d1483b16acaad95de69cbabd93eef7db2df642c412af766d6ad8a28684d",
+      "contractFingerprint": "8374c238490e619cdc41043e7425795a1b1cd4636065d6415402413921693ccd"
+    },
+    {
+      "a": "omp--claude-pro-research-economy",
+      "b": "omp--claude-pro-research-speed",
+      "harness": "omp",
+      "domain": "research",
+      "portfolio": "claude-pro",
+      "objectives": [
+        "economy",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "923c2d1483b16acaad95de69cbabd93eef7db2df642c412af766d6ad8a28684d",
+      "contractFingerprint": "016646fea4b628abfffed44b4911ed19cbb3e44cb9e5be9bc18427ec792e8663"
+    },
+    {
+      "a": "omp--claude-pro-web-economy",
+      "b": "omp--claude-pro-web-speed",
+      "harness": "omp",
+      "domain": "web",
+      "portfolio": "claude-pro",
+      "objectives": [
+        "economy",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "923c2d1483b16acaad95de69cbabd93eef7db2df642c412af766d6ad8a28684d",
+      "contractFingerprint": "7c12cabddfa95a22f0d1c4d86e3a7533b7226d596fab9ac6e0c99397f2a941a0"
+    },
+    {
+      "a": "omp--go-agent-use-balanced",
+      "b": "omp--go-agent-use-best",
+      "harness": "omp",
+      "domain": "agent-use",
+      "portfolio": "go",
+      "objectives": [
+        "balanced",
+        "best"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "d05ec5d88ca8f14521345236c5d8f68f99a06dc97444ddc24174eb934c544cd5",
+      "contractFingerprint": "676c590c8865b96ed6fa553478f3a2e61b7e6f226d3b99a4a323f369755de1df"
+    },
+    {
+      "a": "omp--go-agent-use-economy",
+      "b": "omp--go-agent-use-balanced",
+      "harness": "omp",
+      "domain": "agent-use",
+      "portfolio": "go",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "d05ec5d88ca8f14521345236c5d8f68f99a06dc97444ddc24174eb934c544cd5",
+      "contractFingerprint": "676c590c8865b96ed6fa553478f3a2e61b7e6f226d3b99a4a323f369755de1df"
+    },
+    {
+      "a": "omp--go-agent-use-economy",
+      "b": "omp--go-agent-use-best",
+      "harness": "omp",
+      "domain": "agent-use",
+      "portfolio": "go",
+      "objectives": [
+        "best",
+        "economy"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "d05ec5d88ca8f14521345236c5d8f68f99a06dc97444ddc24174eb934c544cd5",
+      "contractFingerprint": "676c590c8865b96ed6fa553478f3a2e61b7e6f226d3b99a4a323f369755de1df"
+    },
+    {
+      "a": "omp--go-data-balanced",
+      "b": "omp--go-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "go",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "59e45da7355c1268697912467f2aac7d55c7d8623a66edff7cd2fb1e0b039031",
+      "contractFingerprint": "c100c6bd3316ac251e1877030df52af1cb91be61fc0cb085aa51f3421a662144"
+    },
+    {
+      "a": "omp--go-nan-agent-use-balanced",
+      "b": "omp--go-nan-agent-use-best",
+      "harness": "omp",
+      "domain": "agent-use",
+      "portfolio": "go-nan",
+      "objectives": [
+        "balanced",
+        "best"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "d05ec5d88ca8f14521345236c5d8f68f99a06dc97444ddc24174eb934c544cd5",
+      "contractFingerprint": "676c590c8865b96ed6fa553478f3a2e61b7e6f226d3b99a4a323f369755de1df"
+    },
+    {
+      "a": "omp--go-nan-agent-use-economy",
+      "b": "omp--go-nan-agent-use-balanced",
+      "harness": "omp",
+      "domain": "agent-use",
+      "portfolio": "go-nan",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "d05ec5d88ca8f14521345236c5d8f68f99a06dc97444ddc24174eb934c544cd5",
+      "contractFingerprint": "676c590c8865b96ed6fa553478f3a2e61b7e6f226d3b99a4a323f369755de1df"
+    },
+    {
+      "a": "omp--go-nan-agent-use-economy",
+      "b": "omp--go-nan-agent-use-best",
+      "harness": "omp",
+      "domain": "agent-use",
+      "portfolio": "go-nan",
+      "objectives": [
+        "best",
+        "economy"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "d05ec5d88ca8f14521345236c5d8f68f99a06dc97444ddc24174eb934c544cd5",
+      "contractFingerprint": "676c590c8865b96ed6fa553478f3a2e61b7e6f226d3b99a4a323f369755de1df"
+    },
+    {
+      "a": "omp--go-nan-data-balanced",
+      "b": "omp--go-nan-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "go-nan",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "59e45da7355c1268697912467f2aac7d55c7d8623a66edff7cd2fb1e0b039031",
+      "contractFingerprint": "c100c6bd3316ac251e1877030df52af1cb91be61fc0cb085aa51f3421a662144"
+    },
+    {
+      "a": "omp--nan-agent-use-balanced",
+      "b": "omp--nan-agent-use-best",
+      "harness": "omp",
+      "domain": "agent-use",
+      "portfolio": "nan",
+      "objectives": [
+        "balanced",
+        "best"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "f42f3ca5ef63bebcbfa68add7409ca09fc4fdb8a28d5597d4f003fe4102d45e9",
+      "contractFingerprint": "06b6f8e49eef5ae67683435452e2d167d769a28200afba552cca22932732fa5c"
+    },
+    {
+      "a": "omp--nan-data-balanced",
+      "b": "omp--nan-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "nan",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "75a6aa59c166c0a25a46759ab1fac2e58b14e3e363f390c432ec5cb85313562f",
+      "contractFingerprint": "8fe6a9b81e063164081d15e0ee79bc0533a303ebafcf8c3991868461aa875b35"
+    },
+    {
+      "a": "omp--plus-apps-economy",
+      "b": "omp--plus-apps-balanced",
+      "harness": "omp",
+      "domain": "apps",
+      "portfolio": "plus",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "c026c7617ce804330c694b4d44dc66f04365500f0a6f377382d707d0a5ec504d"
+    },
+    {
+      "a": "omp--plus-cc-apps-economy",
+      "b": "omp--plus-cc-apps-balanced",
+      "harness": "omp",
+      "domain": "apps",
+      "portfolio": "plus-cc",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "eb3c891849cf6df74e31f0bbf4ae049dd82f953861c91c8efac9f16c9f732db3"
+    },
+    {
+      "a": "omp--plus-cc-cybersecurity-balanced",
+      "b": "omp--plus-cc-cybersecurity-economy",
+      "harness": "omp",
+      "domain": "cybersecurity",
+      "portfolio": "plus-cc",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "eb3c891849cf6df74e31f0bbf4ae049dd82f953861c91c8efac9f16c9f732db3"
+    },
+    {
+      "a": "omp--plus-cc-data-balanced",
+      "b": "omp--plus-cc-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "plus-cc",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "6516a0c65b0131a6d44f718e11706c597e6e8911570b8eee3a84d4fad05663e0"
+    },
+    {
+      "a": "omp--plus-cc-nan-data-balanced",
+      "b": "omp--plus-cc-nan-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "plus-cc-nan",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "6516a0c65b0131a6d44f718e11706c597e6e8911570b8eee3a84d4fad05663e0"
+    },
+    {
+      "a": "omp--plus-claude-agent-use-balanced",
+      "b": "omp--plus-claude-agent-use-best",
+      "harness": "omp",
+      "domain": "agent-use",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "balanced",
+        "best"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "e9755db921453ba0ef095752239f544892b6eb75ad7b84a0ff1575581135c225"
+    },
+    {
+      "a": "omp--plus-claude-agent-use-balanced",
+      "b": "omp--plus-claude-agent-use-speed",
+      "harness": "omp",
+      "domain": "agent-use",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "e9755db921453ba0ef095752239f544892b6eb75ad7b84a0ff1575581135c225",
+      "contractFingerprint": "edc7bb716c055c9305897f1351cb7fde90a19dbaa2ef0647157a5719c51313bb"
+    },
+    {
+      "a": "omp--plus-claude-agent-use-economy",
+      "b": "omp--plus-claude-agent-use-balanced",
+      "harness": "omp",
+      "domain": "agent-use",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "e9755db921453ba0ef095752239f544892b6eb75ad7b84a0ff1575581135c225",
+      "contractFingerprint": "edc7bb716c055c9305897f1351cb7fde90a19dbaa2ef0647157a5719c51313bb"
+    },
+    {
+      "a": "omp--plus-claude-agent-use-economy",
+      "b": "omp--plus-claude-agent-use-best",
+      "harness": "omp",
+      "domain": "agent-use",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "best",
+        "economy"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "e9755db921453ba0ef095752239f544892b6eb75ad7b84a0ff1575581135c225"
+    },
+    {
+      "a": "omp--plus-claude-agent-use-economy",
+      "b": "omp--plus-claude-agent-use-speed",
+      "harness": "omp",
+      "domain": "agent-use",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "economy",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "e9755db921453ba0ef095752239f544892b6eb75ad7b84a0ff1575581135c225",
+      "contractFingerprint": "edc7bb716c055c9305897f1351cb7fde90a19dbaa2ef0647157a5719c51313bb"
+    },
+    {
+      "a": "omp--plus-claude-agent-use-speed",
+      "b": "omp--plus-claude-agent-use-best",
+      "harness": "omp",
+      "domain": "agent-use",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "best",
+        "speed"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "e9755db921453ba0ef095752239f544892b6eb75ad7b84a0ff1575581135c225"
+    },
+    {
+      "a": "omp--plus-claude-apps-balanced",
+      "b": "omp--plus-claude-apps-best",
+      "harness": "omp",
+      "domain": "apps",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "balanced",
+        "best"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "e9755db921453ba0ef095752239f544892b6eb75ad7b84a0ff1575581135c225"
+    },
+    {
+      "a": "omp--plus-claude-apps-balanced",
+      "b": "omp--plus-claude-apps-speed",
+      "harness": "omp",
+      "domain": "apps",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "e9755db921453ba0ef095752239f544892b6eb75ad7b84a0ff1575581135c225",
+      "contractFingerprint": "ceb27fa952b99b7ca07cb8526d9112e31c03624bffab9813f12cbf187e2ea7ce"
+    },
+    {
+      "a": "omp--plus-claude-apps-speed",
+      "b": "omp--plus-claude-apps-best",
+      "harness": "omp",
+      "domain": "apps",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "best",
+        "speed"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "e9755db921453ba0ef095752239f544892b6eb75ad7b84a0ff1575581135c225"
+    },
+    {
+      "a": "omp--plus-claude-cc-apps-economy",
+      "b": "omp--plus-claude-cc-apps-balanced",
+      "harness": "omp",
+      "domain": "apps",
+      "portfolio": "plus-claude-cc",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "eb3c891849cf6df74e31f0bbf4ae049dd82f953861c91c8efac9f16c9f732db3"
+    },
+    {
+      "a": "omp--plus-claude-cc-cybersecurity-balanced",
+      "b": "omp--plus-claude-cc-cybersecurity-economy",
+      "harness": "omp",
+      "domain": "cybersecurity",
+      "portfolio": "plus-claude-cc",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "eb3c891849cf6df74e31f0bbf4ae049dd82f953861c91c8efac9f16c9f732db3"
+    },
+    {
+      "a": "omp--plus-claude-cc-data-balanced",
+      "b": "omp--plus-claude-cc-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "plus-claude-cc",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "6516a0c65b0131a6d44f718e11706c597e6e8911570b8eee3a84d4fad05663e0",
+      "contractFingerprint": "a3b920fff3083c07caf20c542d4d9301ddad3e530ef10289a5fe774ddacece6d"
+    },
+    {
+      "a": "omp--plus-claude-cc-nan-data-balanced",
+      "b": "omp--plus-claude-cc-nan-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "plus-claude-cc-nan",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "6516a0c65b0131a6d44f718e11706c597e6e8911570b8eee3a84d4fad05663e0",
+      "contractFingerprint": "a3b920fff3083c07caf20c542d4d9301ddad3e530ef10289a5fe774ddacece6d"
+    },
+    {
+      "a": "omp--plus-claude-cybersecurity-balanced",
+      "b": "omp--plus-claude-cybersecurity-best",
+      "harness": "omp",
+      "domain": "cybersecurity",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "balanced",
+        "best"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "e9755db921453ba0ef095752239f544892b6eb75ad7b84a0ff1575581135c225"
+    },
+    {
+      "a": "omp--plus-claude-cybersecurity-balanced",
+      "b": "omp--plus-claude-cybersecurity-speed",
+      "harness": "omp",
+      "domain": "cybersecurity",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "e9755db921453ba0ef095752239f544892b6eb75ad7b84a0ff1575581135c225",
+      "contractFingerprint": "ea5dd8c283d9aa9e9c539a918e5a55906ea70341ea6dc4d090c6f03bc81f07a2"
+    },
+    {
+      "a": "omp--plus-claude-cybersecurity-best",
+      "b": "omp--plus-claude-cybersecurity-speed",
+      "harness": "omp",
+      "domain": "cybersecurity",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "best",
+        "speed"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "e9755db921453ba0ef095752239f544892b6eb75ad7b84a0ff1575581135c225"
+    },
+    {
+      "a": "omp--plus-claude-data-balanced",
+      "b": "omp--plus-claude-data-best",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "balanced",
+        "best"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "e9755db921453ba0ef095752239f544892b6eb75ad7b84a0ff1575581135c225"
+    },
+    {
+      "a": "omp--plus-claude-data-balanced",
+      "b": "omp--plus-claude-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "e9755db921453ba0ef095752239f544892b6eb75ad7b84a0ff1575581135c225",
+      "contractFingerprint": "80bd19922173893bc899a6df253f100974e1abc5d092336c1f51c6830851743f"
+    },
+    {
+      "a": "omp--plus-claude-data-economy",
+      "b": "omp--plus-claude-data-balanced",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "e9755db921453ba0ef095752239f544892b6eb75ad7b84a0ff1575581135c225",
+      "contractFingerprint": "80bd19922173893bc899a6df253f100974e1abc5d092336c1f51c6830851743f"
+    },
+    {
+      "a": "omp--plus-claude-data-economy",
+      "b": "omp--plus-claude-data-best",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "best",
+        "economy"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "e9755db921453ba0ef095752239f544892b6eb75ad7b84a0ff1575581135c225"
+    },
+    {
+      "a": "omp--plus-claude-data-economy",
+      "b": "omp--plus-claude-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "economy",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "e9755db921453ba0ef095752239f544892b6eb75ad7b84a0ff1575581135c225",
+      "contractFingerprint": "80bd19922173893bc899a6df253f100974e1abc5d092336c1f51c6830851743f"
+    },
+    {
+      "a": "omp--plus-claude-data-speed",
+      "b": "omp--plus-claude-data-best",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "best",
+        "speed"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "e9755db921453ba0ef095752239f544892b6eb75ad7b84a0ff1575581135c225"
+    },
+    {
+      "a": "omp--plus-claude-go-apps-economy",
+      "b": "omp--plus-claude-go-apps-balanced",
+      "harness": "omp",
+      "domain": "apps",
+      "portfolio": "plus-claude-go",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "4183c1dbca4d8172ef2da94811762e2fe36bceb2cf3d598a9dbc69284cf224ea"
+    },
+    {
+      "a": "omp--plus-claude-go-cybersecurity-balanced",
+      "b": "omp--plus-claude-go-cybersecurity-economy",
+      "harness": "omp",
+      "domain": "cybersecurity",
+      "portfolio": "plus-claude-go",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "4183c1dbca4d8172ef2da94811762e2fe36bceb2cf3d598a9dbc69284cf224ea"
+    },
+    {
+      "a": "omp--plus-claude-go-data-balanced",
+      "b": "omp--plus-claude-go-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "plus-claude-go",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "e4d3e262625ae685cd9e776cab5685e56b22b8450e7057d60a698171b5ee4222",
+      "contractFingerprint": "a8d4bf4c1b5cee5a4aa91d749a98a76af3ecb424a1afabc57a327020983b0ef7"
+    },
+    {
+      "a": "omp--plus-claude-go-nan-data-balanced",
+      "b": "omp--plus-claude-go-nan-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "plus-claude-go-nan",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "e4d3e262625ae685cd9e776cab5685e56b22b8450e7057d60a698171b5ee4222",
+      "contractFingerprint": "a8d4bf4c1b5cee5a4aa91d749a98a76af3ecb424a1afabc57a327020983b0ef7"
+    },
+    {
+      "a": "omp--plus-claude-max-apps-economy",
+      "b": "omp--plus-claude-max-apps-balanced",
+      "harness": "omp",
+      "domain": "apps",
+      "portfolio": "plus-claude-max",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "c026c7617ce804330c694b4d44dc66f04365500f0a6f377382d707d0a5ec504d"
+    },
+    {
+      "a": "omp--plus-claude-max-cc-apps-economy",
+      "b": "omp--plus-claude-max-cc-apps-balanced",
+      "harness": "omp",
+      "domain": "apps",
+      "portfolio": "plus-claude-max-cc",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "eb3c891849cf6df74e31f0bbf4ae049dd82f953861c91c8efac9f16c9f732db3"
+    },
+    {
+      "a": "omp--plus-claude-max-cc-cybersecurity-balanced",
+      "b": "omp--plus-claude-max-cc-cybersecurity-economy",
+      "harness": "omp",
+      "domain": "cybersecurity",
+      "portfolio": "plus-claude-max-cc",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "eb3c891849cf6df74e31f0bbf4ae049dd82f953861c91c8efac9f16c9f732db3"
+    },
+    {
+      "a": "omp--plus-claude-max-cc-data-balanced",
+      "b": "omp--plus-claude-max-cc-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "plus-claude-max-cc",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "6516a0c65b0131a6d44f718e11706c597e6e8911570b8eee3a84d4fad05663e0"
+    },
+    {
+      "a": "omp--plus-claude-max-cc-nan-data-balanced",
+      "b": "omp--plus-claude-max-cc-nan-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "plus-claude-max-cc-nan",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "6516a0c65b0131a6d44f718e11706c597e6e8911570b8eee3a84d4fad05663e0"
+    },
+    {
+      "a": "omp--plus-claude-max-cybersecurity-balanced",
+      "b": "omp--plus-claude-max-cybersecurity-economy",
+      "harness": "omp",
+      "domain": "cybersecurity",
+      "portfolio": "plus-claude-max",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "c026c7617ce804330c694b4d44dc66f04365500f0a6f377382d707d0a5ec504d"
+    },
+    {
+      "a": "omp--plus-claude-max-data-balanced",
+      "b": "omp--plus-claude-max-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "plus-claude-max",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "05ee35ba09ffc2cdc68e8100ca842464c3791e166a0182d32173c2d61c8a6c5e"
+    },
+    {
+      "a": "omp--plus-claude-max-go-apps-economy",
+      "b": "omp--plus-claude-max-go-apps-balanced",
+      "harness": "omp",
+      "domain": "apps",
+      "portfolio": "plus-claude-max-go",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "4183c1dbca4d8172ef2da94811762e2fe36bceb2cf3d598a9dbc69284cf224ea"
+    },
+    {
+      "a": "omp--plus-claude-max-go-cybersecurity-balanced",
+      "b": "omp--plus-claude-max-go-cybersecurity-economy",
+      "harness": "omp",
+      "domain": "cybersecurity",
+      "portfolio": "plus-claude-max-go",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "4183c1dbca4d8172ef2da94811762e2fe36bceb2cf3d598a9dbc69284cf224ea"
+    },
+    {
+      "a": "omp--plus-claude-max-go-data-balanced",
+      "b": "omp--plus-claude-max-go-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "plus-claude-max-go",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "e4d3e262625ae685cd9e776cab5685e56b22b8450e7057d60a698171b5ee4222"
+    },
+    {
+      "a": "omp--plus-claude-max-go-nan-data-balanced",
+      "b": "omp--plus-claude-max-go-nan-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "plus-claude-max-go-nan",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "e4d3e262625ae685cd9e776cab5685e56b22b8450e7057d60a698171b5ee4222"
+    },
+    {
+      "a": "omp--plus-claude-max-nan-data-balanced",
+      "b": "omp--plus-claude-max-nan-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "plus-claude-max-nan",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "cea230cd5515a5f32dbdbba1f87a8c2b79d5098f6eea6c6e58fb1306444fa829"
+    },
+    {
+      "a": "omp--plus-claude-nan-data-balanced",
+      "b": "omp--plus-claude-nan-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "plus-claude-nan",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "cea230cd5515a5f32dbdbba1f87a8c2b79d5098f6eea6c6e58fb1306444fa829",
+      "contractFingerprint": "0f369b08f0353218add90b9c0404657f0c9593ce661a070860d91bfa37091511"
+    },
+    {
+      "a": "omp--plus-claude-research-balanced",
+      "b": "omp--plus-claude-research-best",
+      "harness": "omp",
+      "domain": "research",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "balanced",
+        "best"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "e9755db921453ba0ef095752239f544892b6eb75ad7b84a0ff1575581135c225"
+    },
+    {
+      "a": "omp--plus-claude-research-balanced",
+      "b": "omp--plus-claude-research-speed",
+      "harness": "omp",
+      "domain": "research",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "e9755db921453ba0ef095752239f544892b6eb75ad7b84a0ff1575581135c225",
+      "contractFingerprint": "db425eb724dab9a9cc79ec472ec7901cc0e3d805dc9b34d0ab1cf3b0a13abcff"
+    },
+    {
+      "a": "omp--plus-claude-research-economy",
+      "b": "omp--plus-claude-research-balanced",
+      "harness": "omp",
+      "domain": "research",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "e9755db921453ba0ef095752239f544892b6eb75ad7b84a0ff1575581135c225",
+      "contractFingerprint": "db425eb724dab9a9cc79ec472ec7901cc0e3d805dc9b34d0ab1cf3b0a13abcff"
+    },
+    {
+      "a": "omp--plus-claude-research-economy",
+      "b": "omp--plus-claude-research-best",
+      "harness": "omp",
+      "domain": "research",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "best",
+        "economy"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "e9755db921453ba0ef095752239f544892b6eb75ad7b84a0ff1575581135c225"
+    },
+    {
+      "a": "omp--plus-claude-research-economy",
+      "b": "omp--plus-claude-research-speed",
+      "harness": "omp",
+      "domain": "research",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "economy",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "e9755db921453ba0ef095752239f544892b6eb75ad7b84a0ff1575581135c225",
+      "contractFingerprint": "db425eb724dab9a9cc79ec472ec7901cc0e3d805dc9b34d0ab1cf3b0a13abcff"
+    },
+    {
+      "a": "omp--plus-claude-research-speed",
+      "b": "omp--plus-claude-research-best",
+      "harness": "omp",
+      "domain": "research",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "best",
+        "speed"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "e9755db921453ba0ef095752239f544892b6eb75ad7b84a0ff1575581135c225"
+    },
+    {
+      "a": "omp--plus-claude-web-balanced",
+      "b": "omp--plus-claude-web-best",
+      "harness": "omp",
+      "domain": "web",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "balanced",
+        "best"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "e9755db921453ba0ef095752239f544892b6eb75ad7b84a0ff1575581135c225"
+    },
+    {
+      "a": "omp--plus-claude-web-balanced",
+      "b": "omp--plus-claude-web-speed",
+      "harness": "omp",
+      "domain": "web",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "e9755db921453ba0ef095752239f544892b6eb75ad7b84a0ff1575581135c225",
+      "contractFingerprint": "6f59275633a80d161126ba7594d95a10d6174ab6dcdad146de04c45cc22bfd78"
+    },
+    {
+      "a": "omp--plus-claude-web-economy",
+      "b": "omp--plus-claude-web-balanced",
+      "harness": "omp",
+      "domain": "web",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "e9755db921453ba0ef095752239f544892b6eb75ad7b84a0ff1575581135c225",
+      "contractFingerprint": "6f59275633a80d161126ba7594d95a10d6174ab6dcdad146de04c45cc22bfd78"
+    },
+    {
+      "a": "omp--plus-claude-web-economy",
+      "b": "omp--plus-claude-web-best",
+      "harness": "omp",
+      "domain": "web",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "best",
+        "economy"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "e9755db921453ba0ef095752239f544892b6eb75ad7b84a0ff1575581135c225"
+    },
+    {
+      "a": "omp--plus-claude-web-economy",
+      "b": "omp--plus-claude-web-speed",
+      "harness": "omp",
+      "domain": "web",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "economy",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "e9755db921453ba0ef095752239f544892b6eb75ad7b84a0ff1575581135c225",
+      "contractFingerprint": "6f59275633a80d161126ba7594d95a10d6174ab6dcdad146de04c45cc22bfd78"
+    },
+    {
+      "a": "omp--plus-claude-web-speed",
+      "b": "omp--plus-claude-web-best",
+      "harness": "omp",
+      "domain": "web",
+      "portfolio": "plus-claude",
+      "objectives": [
+        "best",
+        "speed"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "e9755db921453ba0ef095752239f544892b6eb75ad7b84a0ff1575581135c225"
+    },
+    {
+      "a": "omp--plus-cybersecurity-balanced",
+      "b": "omp--plus-cybersecurity-economy",
+      "harness": "omp",
+      "domain": "cybersecurity",
+      "portfolio": "plus",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "c026c7617ce804330c694b4d44dc66f04365500f0a6f377382d707d0a5ec504d"
+    },
+    {
+      "a": "omp--plus-data-balanced",
+      "b": "omp--plus-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "plus",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "05ee35ba09ffc2cdc68e8100ca842464c3791e166a0182d32173c2d61c8a6c5e"
+    },
+    {
+      "a": "omp--plus-go-apps-economy",
+      "b": "omp--plus-go-apps-balanced",
+      "harness": "omp",
+      "domain": "apps",
+      "portfolio": "plus-go",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "4183c1dbca4d8172ef2da94811762e2fe36bceb2cf3d598a9dbc69284cf224ea"
+    },
+    {
+      "a": "omp--plus-go-cybersecurity-balanced",
+      "b": "omp--plus-go-cybersecurity-economy",
+      "harness": "omp",
+      "domain": "cybersecurity",
+      "portfolio": "plus-go",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "4183c1dbca4d8172ef2da94811762e2fe36bceb2cf3d598a9dbc69284cf224ea"
+    },
+    {
+      "a": "omp--plus-go-data-balanced",
+      "b": "omp--plus-go-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "plus-go",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "e4d3e262625ae685cd9e776cab5685e56b22b8450e7057d60a698171b5ee4222"
+    },
+    {
+      "a": "omp--plus-go-nan-data-balanced",
+      "b": "omp--plus-go-nan-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "plus-go-nan",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "e4d3e262625ae685cd9e776cab5685e56b22b8450e7057d60a698171b5ee4222"
+    },
+    {
+      "a": "omp--plus-nan-data-balanced",
+      "b": "omp--plus-nan-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "plus-nan",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "cea230cd5515a5f32dbdbba1f87a8c2b79d5098f6eea6c6e58fb1306444fa829"
+    },
+    {
+      "a": "omp--pro100-apps-economy",
+      "b": "omp--pro100-apps-balanced",
+      "harness": "omp",
+      "domain": "apps",
+      "portfolio": "pro100",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "c026c7617ce804330c694b4d44dc66f04365500f0a6f377382d707d0a5ec504d"
+    },
+    {
+      "a": "omp--pro100-cc-data-balanced",
+      "b": "omp--pro100-cc-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "pro100-cc",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "6516a0c65b0131a6d44f718e11706c597e6e8911570b8eee3a84d4fad05663e0"
+    },
+    {
+      "a": "omp--pro100-cc-nan-data-balanced",
+      "b": "omp--pro100-cc-nan-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "pro100-cc-nan",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "6516a0c65b0131a6d44f718e11706c597e6e8911570b8eee3a84d4fad05663e0"
+    },
+    {
+      "a": "omp--pro100-claude-apps-economy",
+      "b": "omp--pro100-claude-apps-balanced",
+      "harness": "omp",
+      "domain": "apps",
+      "portfolio": "pro100-claude",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "c026c7617ce804330c694b4d44dc66f04365500f0a6f377382d707d0a5ec504d",
+      "contractFingerprint": "bc4fe8ed1e5215a68d3e8c282ef300057ecfc499015c4ed7b8e986c5f8ac7957"
+    },
+    {
+      "a": "omp--pro100-claude-cc-data-balanced",
+      "b": "omp--pro100-claude-cc-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "pro100-claude-cc",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "6516a0c65b0131a6d44f718e11706c597e6e8911570b8eee3a84d4fad05663e0",
+      "contractFingerprint": "e771853f6f3a3a91d4a98d924ed2fdd716a5fff4c872334348853ab642977535"
+    },
+    {
+      "a": "omp--pro100-claude-cc-nan-data-balanced",
+      "b": "omp--pro100-claude-cc-nan-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "pro100-claude-cc-nan",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "6516a0c65b0131a6d44f718e11706c597e6e8911570b8eee3a84d4fad05663e0",
+      "contractFingerprint": "e771853f6f3a3a91d4a98d924ed2fdd716a5fff4c872334348853ab642977535"
+    },
+    {
+      "a": "omp--pro100-claude-cybersecurity-balanced",
+      "b": "omp--pro100-claude-cybersecurity-economy",
+      "harness": "omp",
+      "domain": "cybersecurity",
+      "portfolio": "pro100-claude",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "c026c7617ce804330c694b4d44dc66f04365500f0a6f377382d707d0a5ec504d",
+      "contractFingerprint": "b36d9eb71177753a7ec970f3935862c6d0b4d4c66a2bb5a943b839079d1f90f7"
+    },
+    {
+      "a": "omp--pro100-claude-data-balanced",
+      "b": "omp--pro100-claude-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "pro100-claude",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "05ee35ba09ffc2cdc68e8100ca842464c3791e166a0182d32173c2d61c8a6c5e",
+      "contractFingerprint": "39900a964932a6761fb3007662bef5b25fd22926c90333a6a63303d7b24a64cb"
+    },
+    {
+      "a": "omp--pro100-claude-go-data-balanced",
+      "b": "omp--pro100-claude-go-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "pro100-claude-go",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "e4d3e262625ae685cd9e776cab5685e56b22b8450e7057d60a698171b5ee4222",
+      "contractFingerprint": "2ec79636ab5c57e2016f47424a8f9761274afe0a75eff90a03010bab998a91d5"
+    },
+    {
+      "a": "omp--pro100-claude-go-nan-data-balanced",
+      "b": "omp--pro100-claude-go-nan-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "pro100-claude-go-nan",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "e4d3e262625ae685cd9e776cab5685e56b22b8450e7057d60a698171b5ee4222",
+      "contractFingerprint": "2ec79636ab5c57e2016f47424a8f9761274afe0a75eff90a03010bab998a91d5"
+    },
+    {
+      "a": "omp--pro100-claude-max-apps-economy",
+      "b": "omp--pro100-claude-max-apps-balanced",
+      "harness": "omp",
+      "domain": "apps",
+      "portfolio": "pro100-claude-max",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "c026c7617ce804330c694b4d44dc66f04365500f0a6f377382d707d0a5ec504d"
+    },
+    {
+      "a": "omp--pro100-claude-max-cc-data-balanced",
+      "b": "omp--pro100-claude-max-cc-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "pro100-claude-max-cc",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "6516a0c65b0131a6d44f718e11706c597e6e8911570b8eee3a84d4fad05663e0"
+    },
+    {
+      "a": "omp--pro100-claude-max-cc-nan-data-balanced",
+      "b": "omp--pro100-claude-max-cc-nan-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "pro100-claude-max-cc-nan",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "6516a0c65b0131a6d44f718e11706c597e6e8911570b8eee3a84d4fad05663e0"
+    },
+    {
+      "a": "omp--pro100-claude-max-cybersecurity-balanced",
+      "b": "omp--pro100-claude-max-cybersecurity-economy",
+      "harness": "omp",
+      "domain": "cybersecurity",
+      "portfolio": "pro100-claude-max",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "c026c7617ce804330c694b4d44dc66f04365500f0a6f377382d707d0a5ec504d"
+    },
+    {
+      "a": "omp--pro100-claude-max-data-balanced",
+      "b": "omp--pro100-claude-max-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "pro100-claude-max",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "05ee35ba09ffc2cdc68e8100ca842464c3791e166a0182d32173c2d61c8a6c5e"
+    },
+    {
+      "a": "omp--pro100-claude-max-go-data-balanced",
+      "b": "omp--pro100-claude-max-go-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "pro100-claude-max-go",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "e4d3e262625ae685cd9e776cab5685e56b22b8450e7057d60a698171b5ee4222"
+    },
+    {
+      "a": "omp--pro100-claude-max-go-nan-data-balanced",
+      "b": "omp--pro100-claude-max-go-nan-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "pro100-claude-max-go-nan",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "e4d3e262625ae685cd9e776cab5685e56b22b8450e7057d60a698171b5ee4222"
+    },
+    {
+      "a": "omp--pro100-claude-max-nan-data-balanced",
+      "b": "omp--pro100-claude-max-nan-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "pro100-claude-max-nan",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "cea230cd5515a5f32dbdbba1f87a8c2b79d5098f6eea6c6e58fb1306444fa829"
+    },
+    {
+      "a": "omp--pro100-claude-nan-data-balanced",
+      "b": "omp--pro100-claude-nan-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "pro100-claude-nan",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "same-effective-configuration",
+      "sameActiveMain": true,
+      "sameAllRoutes": true,
+      "sameResourceOrigins": true,
+      "sameConditions": true,
+      "activeNativeFingerprint": "cea230cd5515a5f32dbdbba1f87a8c2b79d5098f6eea6c6e58fb1306444fa829",
+      "contractFingerprint": "e95b9e33f00f5d9a401e0bc2bb1b7a85dd7277198f88fe98347d81d5770bec3b"
+    },
+    {
+      "a": "omp--pro100-cybersecurity-balanced",
+      "b": "omp--pro100-cybersecurity-economy",
+      "harness": "omp",
+      "domain": "cybersecurity",
+      "portfolio": "pro100",
+      "objectives": [
+        "balanced",
+        "economy"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "c026c7617ce804330c694b4d44dc66f04365500f0a6f377382d707d0a5ec504d"
+    },
+    {
+      "a": "omp--pro100-data-balanced",
+      "b": "omp--pro100-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "pro100",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "05ee35ba09ffc2cdc68e8100ca842464c3791e166a0182d32173c2d61c8a6c5e"
+    },
+    {
+      "a": "omp--pro100-go-data-balanced",
+      "b": "omp--pro100-go-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "pro100-go",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "e4d3e262625ae685cd9e776cab5685e56b22b8450e7057d60a698171b5ee4222"
+    },
+    {
+      "a": "omp--pro100-go-nan-data-balanced",
+      "b": "omp--pro100-go-nan-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "pro100-go-nan",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "e4d3e262625ae685cd9e776cab5685e56b22b8450e7057d60a698171b5ee4222"
+    },
+    {
+      "a": "omp--pro100-nan-data-balanced",
+      "b": "omp--pro100-nan-data-speed",
+      "harness": "omp",
+      "domain": "data",
+      "portfolio": "pro100-nan",
+      "objectives": [
+        "balanced",
+        "speed"
+      ],
+      "classification": "distinct-auxiliary-routing",
+      "sameActiveMain": true,
+      "sameAllRoutes": false,
+      "sameResourceOrigins": false,
+      "sameConditions": false,
+      "activeNativeFingerprint": "cea230cd5515a5f32dbdbba1f87a8c2b79d5098f6eea6c6e58fb1306444fa829"
+    }
+  ],
+  "policy": "Do not invent objective differences or claim improvement when the native configuration is identical."
+}

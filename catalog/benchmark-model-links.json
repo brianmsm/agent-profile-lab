@@ -1,0 +1,1103 @@
+{
+  "schemaVersion": 1,
+  "policy": "Exact source label or publisher slug only; no punctuation stripping, prefix/fuzzy matching, or variant inheritance.",
+  "labels": {
+    "GPT-6 Sol": {
+      "modelId": "openai:gpt-6-sol",
+      "relation": "published-label"
+    },
+    "GPT-6 Luna": {
+      "modelId": "openai:gpt-6-luna",
+      "relation": "published-label"
+    },
+    "GPT-6 Astra": {
+      "modelId": "openai:gpt-6-astra",
+      "relation": "published-label"
+    },
+    "GPT-5.6 Sol": {
+      "modelId": "openai:gpt-5.6-sol",
+      "relation": "published-label"
+    },
+    "GPT-6.1 Sol": {
+      "modelId": "openai:gpt-6.1-sol",
+      "relation": "published-label"
+    },
+    "MiMo V2.6 Flash": {
+      "modelId": "xiaomi:mimo-v2.6-flash",
+      "relation": "published-label"
+    },
+    "MiMo V2.6 Pro": {
+      "modelId": "xiaomi:mimo-v2.6-pro",
+      "relation": "published-label"
+    },
+    "MiMo V2.6 Pro UltraSpeed": {
+      "modelId": "xiaomi:mimo-v2.6-pro-ultraspeed",
+      "relation": "published-label"
+    },
+    "MiMo V2.5": {
+      "modelId": "xiaomi:mimo-v2.5",
+      "relation": "published-label"
+    },
+    "GLM 5.3 Flash": {
+      "modelId": "zai:glm-5.3-flash",
+      "relation": "published-label"
+    },
+    "GLM 5.3": {
+      "modelId": "zai:glm-5.3",
+      "relation": "published-label"
+    },
+    "DeepSeek V4.1 Flash": {
+      "modelId": "deepseek:deepseek-v4.1-flash",
+      "relation": "published-label"
+    },
+    "Kimi K3": {
+      "modelId": "moonshot:kimi-k3",
+      "relation": "published-label"
+    },
+    "Claude Fable 5.1": {
+      "modelId": "anthropic:claude-fable-5-1",
+      "relation": "published-label"
+    },
+    "Claude Opus 5.5": {
+      "modelId": "anthropic:claude-opus-5-5",
+      "relation": "published-label"
+    },
+    "Claude Sonnet 5.5": {
+      "modelId": "anthropic:claude-sonnet-5-5",
+      "relation": "published-label"
+    },
+    "Claude Haiku 5.5": {
+      "modelId": "anthropic:claude-haiku-5-5",
+      "relation": "published-label"
+    },
+    "Qwen 3.8 Flash": {
+      "modelId": "qwen:qwen3.8-flash",
+      "relation": "published-label"
+    },
+    "GPT-6 Sol (Low)": {
+      "modelId": "openai:gpt-6-sol",
+      "relation": "published-label"
+    },
+    "GPT-6 Sol (Low, Default Fallback)": {
+      "modelId": "openai:gpt-6-sol",
+      "relation": "published-label"
+    },
+    "GPT-6 Sol (Adaptive Reasoning, Low Effort, Default Fallback)": {
+      "modelId": "openai:gpt-6-sol",
+      "relation": "published-label"
+    },
+    "GPT-6 Sol (Medium)": {
+      "modelId": "openai:gpt-6-sol",
+      "relation": "published-label"
+    },
+    "GPT-6 Sol (Medium, Default Fallback)": {
+      "modelId": "openai:gpt-6-sol",
+      "relation": "published-label"
+    },
+    "GPT-6 Sol (Adaptive Reasoning, Medium Effort, Default Fallback)": {
+      "modelId": "openai:gpt-6-sol",
+      "relation": "published-label"
+    },
+    "GPT-6 Sol (High)": {
+      "modelId": "openai:gpt-6-sol",
+      "relation": "published-label"
+    },
+    "GPT-6 Sol (High, Default Fallback)": {
+      "modelId": "openai:gpt-6-sol",
+      "relation": "published-label"
+    },
+    "GPT-6 Sol (Adaptive Reasoning, High Effort, Default Fallback)": {
+      "modelId": "openai:gpt-6-sol",
+      "relation": "published-label"
+    },
+    "GPT-6 Sol (Xhigh)": {
+      "modelId": "openai:gpt-6-sol",
+      "relation": "published-label"
+    },
+    "GPT-6 Sol (Xhigh, Default Fallback)": {
+      "modelId": "openai:gpt-6-sol",
+      "relation": "published-label"
+    },
+    "GPT-6 Sol (Adaptive Reasoning, Xhigh Effort, Default Fallback)": {
+      "modelId": "openai:gpt-6-sol",
+      "relation": "published-label"
+    },
+    "GPT-6 Sol (Max)": {
+      "modelId": "openai:gpt-6-sol",
+      "relation": "published-label"
+    },
+    "GPT-6 Sol (Max, Default Fallback)": {
+      "modelId": "openai:gpt-6-sol",
+      "relation": "published-label"
+    },
+    "GPT-6 Sol (Adaptive Reasoning, Max Effort, Default Fallback)": {
+      "modelId": "openai:gpt-6-sol",
+      "relation": "published-label"
+    },
+    "GPT-6 Sol (Non-reasoning)": {
+      "modelId": "openai:gpt-6-sol",
+      "relation": "published-label"
+    },
+    "GPT-6 Sol (Non-reasoning, Default Fallback)": {
+      "modelId": "openai:gpt-6-sol",
+      "relation": "published-label"
+    },
+    "GPT-6 Sol (Adaptive Reasoning, Non-reasoning Effort, Default Fallback)": {
+      "modelId": "openai:gpt-6-sol",
+      "relation": "published-label"
+    },
+    "GPT-6 Luna (Low)": {
+      "modelId": "openai:gpt-6-luna",
+      "relation": "published-label"
+    },
+    "GPT-6 Luna (Low, Default Fallback)": {
+      "modelId": "openai:gpt-6-luna",
+      "relation": "published-label"
+    },
+    "GPT-6 Luna (Adaptive Reasoning, Low Effort, Default Fallback)": {
+      "modelId": "openai:gpt-6-luna",
+      "relation": "published-label"
+    },
+    "GPT-6 Luna (Medium)": {
+      "modelId": "openai:gpt-6-luna",
+      "relation": "published-label"
+    },
+    "GPT-6 Luna (Medium, Default Fallback)": {
+      "modelId": "openai:gpt-6-luna",
+      "relation": "published-label"
+    },
+    "GPT-6 Luna (Adaptive Reasoning, Medium Effort, Default Fallback)": {
+      "modelId": "openai:gpt-6-luna",
+      "relation": "published-label"
+    },
+    "GPT-6 Luna (High)": {
+      "modelId": "openai:gpt-6-luna",
+      "relation": "published-label"
+    },
+    "GPT-6 Luna (High, Default Fallback)": {
+      "modelId": "openai:gpt-6-luna",
+      "relation": "published-label"
+    },
+    "GPT-6 Luna (Adaptive Reasoning, High Effort, Default Fallback)": {
+      "modelId": "openai:gpt-6-luna",
+      "relation": "published-label"
+    },
+    "GPT-6 Luna (Xhigh)": {
+      "modelId": "openai:gpt-6-luna",
+      "relation": "published-label"
+    },
+    "GPT-6 Luna (Xhigh, Default Fallback)": {
+      "modelId": "openai:gpt-6-luna",
+      "relation": "published-label"
+    },
+    "GPT-6 Luna (Adaptive Reasoning, Xhigh Effort, Default Fallback)": {
+      "modelId": "openai:gpt-6-luna",
+      "relation": "published-label"
+    },
+    "GPT-6 Luna (Max)": {
+      "modelId": "openai:gpt-6-luna",
+      "relation": "published-label"
+    },
+    "GPT-6 Luna (Max, Default Fallback)": {
+      "modelId": "openai:gpt-6-luna",
+      "relation": "published-label"
+    },
+    "GPT-6 Luna (Adaptive Reasoning, Max Effort, Default Fallback)": {
+      "modelId": "openai:gpt-6-luna",
+      "relation": "published-label"
+    },
+    "GPT-6 Luna (Non-reasoning)": {
+      "modelId": "openai:gpt-6-luna",
+      "relation": "published-label"
+    },
+    "GPT-6 Luna (Non-reasoning, Default Fallback)": {
+      "modelId": "openai:gpt-6-luna",
+      "relation": "published-label"
+    },
+    "GPT-6 Luna (Adaptive Reasoning, Non-reasoning Effort, Default Fallback)": {
+      "modelId": "openai:gpt-6-luna",
+      "relation": "published-label"
+    },
+    "GPT-6 Astra (Low)": {
+      "modelId": "openai:gpt-6-astra",
+      "relation": "published-label"
+    },
+    "GPT-6 Astra (Low, Default Fallback)": {
+      "modelId": "openai:gpt-6-astra",
+      "relation": "published-label"
+    },
+    "GPT-6 Astra (Adaptive Reasoning, Low Effort, Default Fallback)": {
+      "modelId": "openai:gpt-6-astra",
+      "relation": "published-label"
+    },
+    "GPT-6 Astra (Medium)": {
+      "modelId": "openai:gpt-6-astra",
+      "relation": "published-label"
+    },
+    "GPT-6 Astra (Medium, Default Fallback)": {
+      "modelId": "openai:gpt-6-astra",
+      "relation": "published-label"
+    },
+    "GPT-6 Astra (Adaptive Reasoning, Medium Effort, Default Fallback)": {
+      "modelId": "openai:gpt-6-astra",
+      "relation": "published-label"
+    },
+    "GPT-6 Astra (High)": {
+      "modelId": "openai:gpt-6-astra",
+      "relation": "published-label"
+    },
+    "GPT-6 Astra (High, Default Fallback)": {
+      "modelId": "openai:gpt-6-astra",
+      "relation": "published-label"
+    },
+    "GPT-6 Astra (Adaptive Reasoning, High Effort, Default Fallback)": {
+      "modelId": "openai:gpt-6-astra",
+      "relation": "published-label"
+    },
+    "GPT-6 Astra (Xhigh)": {
+      "modelId": "openai:gpt-6-astra",
+      "relation": "published-label"
+    },
+    "GPT-6 Astra (Xhigh, Default Fallback)": {
+      "modelId": "openai:gpt-6-astra",
+      "relation": "published-label"
+    },
+    "GPT-6 Astra (Adaptive Reasoning, Xhigh Effort, Default Fallback)": {
+      "modelId": "openai:gpt-6-astra",
+      "relation": "published-label"
+    },
+    "GPT-6 Astra (Max)": {
+      "modelId": "openai:gpt-6-astra",
+      "relation": "published-label"
+    },
+    "GPT-6 Astra (Max, Default Fallback)": {
+      "modelId": "openai:gpt-6-astra",
+      "relation": "published-label"
+    },
+    "GPT-6 Astra (Adaptive Reasoning, Max Effort, Default Fallback)": {
+      "modelId": "openai:gpt-6-astra",
+      "relation": "published-label"
+    },
+    "GPT-6 Astra (Non-reasoning)": {
+      "modelId": "openai:gpt-6-astra",
+      "relation": "published-label"
+    },
+    "GPT-6 Astra (Non-reasoning, Default Fallback)": {
+      "modelId": "openai:gpt-6-astra",
+      "relation": "published-label"
+    },
+    "GPT-6 Astra (Adaptive Reasoning, Non-reasoning Effort, Default Fallback)": {
+      "modelId": "openai:gpt-6-astra",
+      "relation": "published-label"
+    },
+    "GPT-5.6 Sol (Low)": {
+      "modelId": "openai:gpt-5.6-sol",
+      "relation": "published-label"
+    },
+    "GPT-5.6 Sol (Low, Default Fallback)": {
+      "modelId": "openai:gpt-5.6-sol",
+      "relation": "published-label"
+    },
+    "GPT-5.6 Sol (Adaptive Reasoning, Low Effort, Default Fallback)": {
+      "modelId": "openai:gpt-5.6-sol",
+      "relation": "published-label"
+    },
+    "GPT-5.6 Sol (Medium)": {
+      "modelId": "openai:gpt-5.6-sol",
+      "relation": "published-label"
+    },
+    "GPT-5.6 Sol (Medium, Default Fallback)": {
+      "modelId": "openai:gpt-5.6-sol",
+      "relation": "published-label"
+    },
+    "GPT-5.6 Sol (Adaptive Reasoning, Medium Effort, Default Fallback)": {
+      "modelId": "openai:gpt-5.6-sol",
+      "relation": "published-label"
+    },
+    "GPT-5.6 Sol (High)": {
+      "modelId": "openai:gpt-5.6-sol",
+      "relation": "published-label"
+    },
+    "GPT-5.6 Sol (High, Default Fallback)": {
+      "modelId": "openai:gpt-5.6-sol",
+      "relation": "published-label"
+    },
+    "GPT-5.6 Sol (Adaptive Reasoning, High Effort, Default Fallback)": {
+      "modelId": "openai:gpt-5.6-sol",
+      "relation": "published-label"
+    },
+    "GPT-5.6 Sol (Xhigh)": {
+      "modelId": "openai:gpt-5.6-sol",
+      "relation": "published-label"
+    },
+    "GPT-5.6 Sol (Xhigh, Default Fallback)": {
+      "modelId": "openai:gpt-5.6-sol",
+      "relation": "published-label"
+    },
+    "GPT-5.6 Sol (Adaptive Reasoning, Xhigh Effort, Default Fallback)": {
+      "modelId": "openai:gpt-5.6-sol",
+      "relation": "published-label"
+    },
+    "GPT-5.6 Sol (Max)": {
+      "modelId": "openai:gpt-5.6-sol",
+      "relation": "published-label"
+    },
+    "GPT-5.6 Sol (Max, Default Fallback)": {
+      "modelId": "openai:gpt-5.6-sol",
+      "relation": "published-label"
+    },
+    "GPT-5.6 Sol (Adaptive Reasoning, Max Effort, Default Fallback)": {
+      "modelId": "openai:gpt-5.6-sol",
+      "relation": "published-label"
+    },
+    "GPT-5.6 Sol (Non-reasoning)": {
+      "modelId": "openai:gpt-5.6-sol",
+      "relation": "published-label"
+    },
+    "GPT-5.6 Sol (Non-reasoning, Default Fallback)": {
+      "modelId": "openai:gpt-5.6-sol",
+      "relation": "published-label"
+    },
+    "GPT-5.6 Sol (Adaptive Reasoning, Non-reasoning Effort, Default Fallback)": {
+      "modelId": "openai:gpt-5.6-sol",
+      "relation": "published-label"
+    },
+    "GPT-6.1 Sol (Low)": {
+      "modelId": "openai:gpt-6.1-sol",
+      "relation": "published-label"
+    },
+    "GPT-6.1 Sol (Low, Default Fallback)": {
+      "modelId": "openai:gpt-6.1-sol",
+      "relation": "published-label"
+    },
+    "GPT-6.1 Sol (Adaptive Reasoning, Low Effort, Default Fallback)": {
+      "modelId": "openai:gpt-6.1-sol",
+      "relation": "published-label"
+    },
+    "GPT-6.1 Sol (Medium)": {
+      "modelId": "openai:gpt-6.1-sol",
+      "relation": "published-label"
+    },
+    "GPT-6.1 Sol (Medium, Default Fallback)": {
+      "modelId": "openai:gpt-6.1-sol",
+      "relation": "published-label"
+    },
+    "GPT-6.1 Sol (Adaptive Reasoning, Medium Effort, Default Fallback)": {
+      "modelId": "openai:gpt-6.1-sol",
+      "relation": "published-label"
+    },
+    "GPT-6.1 Sol (High)": {
+      "modelId": "openai:gpt-6.1-sol",
+      "relation": "published-label"
+    },
+    "GPT-6.1 Sol (High, Default Fallback)": {
+      "modelId": "openai:gpt-6.1-sol",
+      "relation": "published-label"
+    },
+    "GPT-6.1 Sol (Adaptive Reasoning, High Effort, Default Fallback)": {
+      "modelId": "openai:gpt-6.1-sol",
+      "relation": "published-label"
+    },
+    "GPT-6.1 Sol (Xhigh)": {
+      "modelId": "openai:gpt-6.1-sol",
+      "relation": "published-label"
+    },
+    "GPT-6.1 Sol (Xhigh, Default Fallback)": {
+      "modelId": "openai:gpt-6.1-sol",
+      "relation": "published-label"
+    },
+    "GPT-6.1 Sol (Adaptive Reasoning, Xhigh Effort, Default Fallback)": {
+      "modelId": "openai:gpt-6.1-sol",
+      "relation": "published-label"
+    },
+    "GPT-6.1 Sol (Max)": {
+      "modelId": "openai:gpt-6.1-sol",
+      "relation": "published-label"
+    },
+    "GPT-6.1 Sol (Max, Default Fallback)": {
+      "modelId": "openai:gpt-6.1-sol",
+      "relation": "published-label"
+    },
+    "GPT-6.1 Sol (Adaptive Reasoning, Max Effort, Default Fallback)": {
+      "modelId": "openai:gpt-6.1-sol",
+      "relation": "published-label"
+    },
+    "GPT-6.1 Sol (Non-reasoning)": {
+      "modelId": "openai:gpt-6.1-sol",
+      "relation": "published-label"
+    },
+    "GPT-6.1 Sol (Non-reasoning, Default Fallback)": {
+      "modelId": "openai:gpt-6.1-sol",
+      "relation": "published-label"
+    },
+    "GPT-6.1 Sol (Adaptive Reasoning, Non-reasoning Effort, Default Fallback)": {
+      "modelId": "openai:gpt-6.1-sol",
+      "relation": "published-label"
+    },
+    "Claude Fable 5.1 (Low)": {
+      "modelId": "anthropic:claude-fable-5-1",
+      "relation": "published-label"
+    },
+    "Claude Fable 5.1 (Low, Default Fallback)": {
+      "modelId": "anthropic:claude-fable-5-1",
+      "relation": "published-label"
+    },
+    "Claude Fable 5.1 (Adaptive Reasoning, Low Effort, Default Fallback)": {
+      "modelId": "anthropic:claude-fable-5-1",
+      "relation": "published-label"
+    },
+    "Claude Fable 5.1 (Medium)": {
+      "modelId": "anthropic:claude-fable-5-1",
+      "relation": "published-label"
+    },
+    "Claude Fable 5.1 (Medium, Default Fallback)": {
+      "modelId": "anthropic:claude-fable-5-1",
+      "relation": "published-label"
+    },
+    "Claude Fable 5.1 (Adaptive Reasoning, Medium Effort, Default Fallback)": {
+      "modelId": "anthropic:claude-fable-5-1",
+      "relation": "published-label"
+    },
+    "Claude Fable 5.1 (High)": {
+      "modelId": "anthropic:claude-fable-5-1",
+      "relation": "published-label"
+    },
+    "Claude Fable 5.1 (High, Default Fallback)": {
+      "modelId": "anthropic:claude-fable-5-1",
+      "relation": "published-label"
+    },
+    "Claude Fable 5.1 (Adaptive Reasoning, High Effort, Default Fallback)": {
+      "modelId": "anthropic:claude-fable-5-1",
+      "relation": "published-label"
+    },
+    "Claude Fable 5.1 (Xhigh)": {
+      "modelId": "anthropic:claude-fable-5-1",
+      "relation": "published-label"
+    },
+    "Claude Fable 5.1 (Xhigh, Default Fallback)": {
+      "modelId": "anthropic:claude-fable-5-1",
+      "relation": "published-label"
+    },
+    "Claude Fable 5.1 (Adaptive Reasoning, Xhigh Effort, Default Fallback)": {
+      "modelId": "anthropic:claude-fable-5-1",
+      "relation": "published-label"
+    },
+    "Claude Fable 5.1 (Max)": {
+      "modelId": "anthropic:claude-fable-5-1",
+      "relation": "published-label"
+    },
+    "Claude Fable 5.1 (Max, Default Fallback)": {
+      "modelId": "anthropic:claude-fable-5-1",
+      "relation": "published-label"
+    },
+    "Claude Fable 5.1 (Adaptive Reasoning, Max Effort, Default Fallback)": {
+      "modelId": "anthropic:claude-fable-5-1",
+      "relation": "published-label"
+    },
+    "Claude Fable 5.1 (Non-reasoning)": {
+      "modelId": "anthropic:claude-fable-5-1",
+      "relation": "published-label"
+    },
+    "Claude Fable 5.1 (Non-reasoning, Default Fallback)": {
+      "modelId": "anthropic:claude-fable-5-1",
+      "relation": "published-label"
+    },
+    "Claude Fable 5.1 (Adaptive Reasoning, Non-reasoning Effort, Default Fallback)": {
+      "modelId": "anthropic:claude-fable-5-1",
+      "relation": "published-label"
+    },
+    "Claude Opus 5.5 (Low)": {
+      "modelId": "anthropic:claude-opus-5-5",
+      "relation": "published-label"
+    },
+    "Claude Opus 5.5 (Low, Default Fallback)": {
+      "modelId": "anthropic:claude-opus-5-5",
+      "relation": "published-label"
+    },
+    "Claude Opus 5.5 (Adaptive Reasoning, Low Effort, Default Fallback)": {
+      "modelId": "anthropic:claude-opus-5-5",
+      "relation": "published-label"
+    },
+    "Claude Opus 5.5 (Medium)": {
+      "modelId": "anthropic:claude-opus-5-5",
+      "relation": "published-label"
+    },
+    "Claude Opus 5.5 (Medium, Default Fallback)": {
+      "modelId": "anthropic:claude-opus-5-5",
+      "relation": "published-label"
+    },
+    "Claude Opus 5.5 (Adaptive Reasoning, Medium Effort, Default Fallback)": {
+      "modelId": "anthropic:claude-opus-5-5",
+      "relation": "published-label"
+    },
+    "Claude Opus 5.5 (High)": {
+      "modelId": "anthropic:claude-opus-5-5",
+      "relation": "published-label"
+    },
+    "Claude Opus 5.5 (High, Default Fallback)": {
+      "modelId": "anthropic:claude-opus-5-5",
+      "relation": "published-label"
+    },
+    "Claude Opus 5.5 (Adaptive Reasoning, High Effort, Default Fallback)": {
+      "modelId": "anthropic:claude-opus-5-5",
+      "relation": "published-label"
+    },
+    "Claude Opus 5.5 (Xhigh)": {
+      "modelId": "anthropic:claude-opus-5-5",
+      "relation": "published-label"
+    },
+    "Claude Opus 5.5 (Xhigh, Default Fallback)": {
+      "modelId": "anthropic:claude-opus-5-5",
+      "relation": "published-label"
+    },
+    "Claude Opus 5.5 (Adaptive Reasoning, Xhigh Effort, Default Fallback)": {
+      "modelId": "anthropic:claude-opus-5-5",
+      "relation": "published-label"
+    },
+    "Claude Opus 5.5 (Max)": {
+      "modelId": "anthropic:claude-opus-5-5",
+      "relation": "published-label"
+    },
+    "Claude Opus 5.5 (Max, Default Fallback)": {
+      "modelId": "anthropic:claude-opus-5-5",
+      "relation": "published-label"
+    },
+    "Claude Opus 5.5 (Adaptive Reasoning, Max Effort, Default Fallback)": {
+      "modelId": "anthropic:claude-opus-5-5",
+      "relation": "published-label"
+    },
+    "Claude Opus 5.5 (Non-reasoning)": {
+      "modelId": "anthropic:claude-opus-5-5",
+      "relation": "published-label"
+    },
+    "Claude Opus 5.5 (Non-reasoning, Default Fallback)": {
+      "modelId": "anthropic:claude-opus-5-5",
+      "relation": "published-label"
+    },
+    "Claude Opus 5.5 (Adaptive Reasoning, Non-reasoning Effort, Default Fallback)": {
+      "modelId": "anthropic:claude-opus-5-5",
+      "relation": "published-label"
+    },
+    "Claude Sonnet 5.5 (Low)": {
+      "modelId": "anthropic:claude-sonnet-5-5",
+      "relation": "published-label"
+    },
+    "Claude Sonnet 5.5 (Low, Default Fallback)": {
+      "modelId": "anthropic:claude-sonnet-5-5",
+      "relation": "published-label"
+    },
+    "Claude Sonnet 5.5 (Adaptive Reasoning, Low Effort, Default Fallback)": {
+      "modelId": "anthropic:claude-sonnet-5-5",
+      "relation": "published-label"
+    },
+    "Claude Sonnet 5.5 (Medium)": {
+      "modelId": "anthropic:claude-sonnet-5-5",
+      "relation": "published-label"
+    },
+    "Claude Sonnet 5.5 (Medium, Default Fallback)": {
+      "modelId": "anthropic:claude-sonnet-5-5",
+      "relation": "published-label"
+    },
+    "Claude Sonnet 5.5 (Adaptive Reasoning, Medium Effort, Default Fallback)": {
+      "modelId": "anthropic:claude-sonnet-5-5",
+      "relation": "published-label"
+    },
+    "Claude Sonnet 5.5 (High)": {
+      "modelId": "anthropic:claude-sonnet-5-5",
+      "relation": "published-label"
+    },
+    "Claude Sonnet 5.5 (High, Default Fallback)": {
+      "modelId": "anthropic:claude-sonnet-5-5",
+      "relation": "published-label"
+    },
+    "Claude Sonnet 5.5 (Adaptive Reasoning, High Effort, Default Fallback)": {
+      "modelId": "anthropic:claude-sonnet-5-5",
+      "relation": "published-label"
+    },
+    "Claude Sonnet 5.5 (Xhigh)": {
+      "modelId": "anthropic:claude-sonnet-5-5",
+      "relation": "published-label"
+    },
+    "Claude Sonnet 5.5 (Xhigh, Default Fallback)": {
+      "modelId": "anthropic:claude-sonnet-5-5",
+      "relation": "published-label"
+    },
+    "Claude Sonnet 5.5 (Adaptive Reasoning, Xhigh Effort, Default Fallback)": {
+      "modelId": "anthropic:claude-sonnet-5-5",
+      "relation": "published-label"
+    },
+    "Claude Sonnet 5.5 (Max)": {
+      "modelId": "anthropic:claude-sonnet-5-5",
+      "relation": "published-label"
+    },
+    "Claude Sonnet 5.5 (Max, Default Fallback)": {
+      "modelId": "anthropic:claude-sonnet-5-5",
+      "relation": "published-label"
+    },
+    "Claude Sonnet 5.5 (Adaptive Reasoning, Max Effort, Default Fallback)": {
+      "modelId": "anthropic:claude-sonnet-5-5",
+      "relation": "published-label"
+    },
+    "Claude Sonnet 5.5 (Non-reasoning)": {
+      "modelId": "anthropic:claude-sonnet-5-5",
+      "relation": "published-label"
+    },
+    "Claude Sonnet 5.5 (Non-reasoning, Default Fallback)": {
+      "modelId": "anthropic:claude-sonnet-5-5",
+      "relation": "published-label"
+    },
+    "Claude Sonnet 5.5 (Adaptive Reasoning, Non-reasoning Effort, Default Fallback)": {
+      "modelId": "anthropic:claude-sonnet-5-5",
+      "relation": "published-label"
+    },
+    "Claude Haiku 5.5 (Low)": {
+      "modelId": "anthropic:claude-haiku-5-5",
+      "relation": "published-label"
+    },
+    "Claude Haiku 5.5 (Low, Default Fallback)": {
+      "modelId": "anthropic:claude-haiku-5-5",
+      "relation": "published-label"
+    },
+    "Claude Haiku 5.5 (Adaptive Reasoning, Low Effort, Default Fallback)": {
+      "modelId": "anthropic:claude-haiku-5-5",
+      "relation": "published-label"
+    },
+    "Claude Haiku 5.5 (Medium)": {
+      "modelId": "anthropic:claude-haiku-5-5",
+      "relation": "published-label"
+    },
+    "Claude Haiku 5.5 (Medium, Default Fallback)": {
+      "modelId": "anthropic:claude-haiku-5-5",
+      "relation": "published-label"
+    },
+    "Claude Haiku 5.5 (Adaptive Reasoning, Medium Effort, Default Fallback)": {
+      "modelId": "anthropic:claude-haiku-5-5",
+      "relation": "published-label"
+    },
+    "Claude Haiku 5.5 (High)": {
+      "modelId": "anthropic:claude-haiku-5-5",
+      "relation": "published-label"
+    },
+    "Claude Haiku 5.5 (High, Default Fallback)": {
+      "modelId": "anthropic:claude-haiku-5-5",
+      "relation": "published-label"
+    },
+    "Claude Haiku 5.5 (Adaptive Reasoning, High Effort, Default Fallback)": {
+      "modelId": "anthropic:claude-haiku-5-5",
+      "relation": "published-label"
+    },
+    "Claude Haiku 5.5 (Xhigh)": {
+      "modelId": "anthropic:claude-haiku-5-5",
+      "relation": "published-label"
+    },
+    "Claude Haiku 5.5 (Xhigh, Default Fallback)": {
+      "modelId": "anthropic:claude-haiku-5-5",
+      "relation": "published-label"
+    },
+    "Claude Haiku 5.5 (Adaptive Reasoning, Xhigh Effort, Default Fallback)": {
+      "modelId": "anthropic:claude-haiku-5-5",
+      "relation": "published-label"
+    },
+    "Claude Haiku 5.5 (Max)": {
+      "modelId": "anthropic:claude-haiku-5-5",
+      "relation": "published-label"
+    },
+    "Claude Haiku 5.5 (Max, Default Fallback)": {
+      "modelId": "anthropic:claude-haiku-5-5",
+      "relation": "published-label"
+    },
+    "Claude Haiku 5.5 (Adaptive Reasoning, Max Effort, Default Fallback)": {
+      "modelId": "anthropic:claude-haiku-5-5",
+      "relation": "published-label"
+    },
+    "Claude Haiku 5.5 (Non-reasoning)": {
+      "modelId": "anthropic:claude-haiku-5-5",
+      "relation": "published-label"
+    },
+    "Claude Haiku 5.5 (Non-reasoning, Default Fallback)": {
+      "modelId": "anthropic:claude-haiku-5-5",
+      "relation": "published-label"
+    },
+    "Claude Haiku 5.5 (Adaptive Reasoning, Non-reasoning Effort, Default Fallback)": {
+      "modelId": "anthropic:claude-haiku-5-5",
+      "relation": "published-label"
+    },
+    "MiMo-V2.6-Flash": {
+      "modelId": "xiaomi:mimo-v2.6-flash",
+      "relation": "published-label"
+    },
+    "MiMo-V2.6 Flash": {
+      "modelId": "xiaomi:mimo-v2.6-flash",
+      "relation": "published-label"
+    },
+    "Xiaomi MiMo V2.6 Flash": {
+      "modelId": "xiaomi:mimo-v2.6-flash",
+      "relation": "published-label"
+    },
+    "MiMo-V2.6-Pro": {
+      "modelId": "xiaomi:mimo-v2.6-pro",
+      "relation": "published-label"
+    },
+    "MiMo-V2.6 Pro": {
+      "modelId": "xiaomi:mimo-v2.6-pro",
+      "relation": "published-label"
+    },
+    "MiMo-V2.5": {
+      "modelId": "xiaomi:mimo-v2.5",
+      "relation": "published-label"
+    },
+    "GLM-5.3-Flash": {
+      "modelId": "zai:glm-5.3-flash",
+      "relation": "published-label"
+    },
+    "GLM-5.3 Flash": {
+      "modelId": "zai:glm-5.3-flash",
+      "relation": "published-label"
+    },
+    "GLM-5.3": {
+      "modelId": "zai:glm-5.3",
+      "relation": "published-label"
+    },
+    "GLM-5.3 (Max)": {
+      "modelId": "zai:glm-5.3",
+      "relation": "published-label"
+    },
+    "GLM-5.3 (max)": {
+      "modelId": "zai:glm-5.3",
+      "relation": "published-label"
+    },
+    "GLM-5.3 (Low)": {
+      "modelId": "zai:glm-5.3",
+      "relation": "published-label"
+    },
+    "deepseek-v4.1-flash": {
+      "modelId": "deepseek:deepseek-v4.1-flash",
+      "relation": "published-label"
+    },
+    "DeepSeek V4.1 Flash (Max)": {
+      "modelId": "deepseek:deepseek-v4.1-flash",
+      "relation": "published-label"
+    },
+    "DeepSeek V4.1 Flash (Reasoning, Max Effort)": {
+      "modelId": "deepseek:deepseek-v4.1-flash",
+      "relation": "published-label"
+    },
+    "DeepSeek V4.1 Flash (Non-reasoning)": {
+      "modelId": "deepseek:deepseek-v4.1-flash",
+      "relation": "published-label"
+    },
+    "Kimi-K3": {
+      "modelId": "moonshot:kimi-k3",
+      "relation": "published-label"
+    },
+    "Kimi K3 (Max)": {
+      "modelId": "moonshot:kimi-k3",
+      "relation": "published-label"
+    },
+    "Kimi K3 (Low)": {
+      "modelId": "moonshot:kimi-k3",
+      "relation": "published-label"
+    }
+  },
+  "aaSlugs": {
+    "gpt-6-sol": {
+      "modelId": "openai:gpt-6-sol",
+      "relation": "published-label"
+    },
+    "gpt-6-sol-low": {
+      "modelId": "openai:gpt-6-sol",
+      "relation": "published-label"
+    },
+    "gpt-6-sol-medium": {
+      "modelId": "openai:gpt-6-sol",
+      "relation": "published-label"
+    },
+    "gpt-6-sol-high": {
+      "modelId": "openai:gpt-6-sol",
+      "relation": "published-label"
+    },
+    "gpt-6-sol-xhigh": {
+      "modelId": "openai:gpt-6-sol",
+      "relation": "published-label"
+    },
+    "gpt-6-sol-non-reasoning": {
+      "modelId": "openai:gpt-6-sol",
+      "relation": "published-label"
+    },
+    "gpt-6-luna": {
+      "modelId": "openai:gpt-6-luna",
+      "relation": "published-label"
+    },
+    "gpt-6-luna-low": {
+      "modelId": "openai:gpt-6-luna",
+      "relation": "published-label"
+    },
+    "gpt-6-luna-medium": {
+      "modelId": "openai:gpt-6-luna",
+      "relation": "published-label"
+    },
+    "gpt-6-luna-high": {
+      "modelId": "openai:gpt-6-luna",
+      "relation": "published-label"
+    },
+    "gpt-6-luna-xhigh": {
+      "modelId": "openai:gpt-6-luna",
+      "relation": "published-label"
+    },
+    "gpt-6-luna-non-reasoning": {
+      "modelId": "openai:gpt-6-luna",
+      "relation": "published-label"
+    },
+    "gpt-6-astra": {
+      "modelId": "openai:gpt-6-astra",
+      "relation": "published-label"
+    },
+    "gpt-6-astra-low": {
+      "modelId": "openai:gpt-6-astra",
+      "relation": "published-label"
+    },
+    "gpt-6-astra-medium": {
+      "modelId": "openai:gpt-6-astra",
+      "relation": "published-label"
+    },
+    "gpt-6-astra-high": {
+      "modelId": "openai:gpt-6-astra",
+      "relation": "published-label"
+    },
+    "gpt-6-astra-xhigh": {
+      "modelId": "openai:gpt-6-astra",
+      "relation": "published-label"
+    },
+    "gpt-6-astra-non-reasoning": {
+      "modelId": "openai:gpt-6-astra",
+      "relation": "published-label"
+    },
+    "gpt-5-6-sol": {
+      "modelId": "openai:gpt-5.6-sol",
+      "relation": "published-label"
+    },
+    "gpt-5-6-sol-low": {
+      "modelId": "openai:gpt-5.6-sol",
+      "relation": "published-label"
+    },
+    "gpt-5-6-sol-medium": {
+      "modelId": "openai:gpt-5.6-sol",
+      "relation": "published-label"
+    },
+    "gpt-5-6-sol-high": {
+      "modelId": "openai:gpt-5.6-sol",
+      "relation": "published-label"
+    },
+    "gpt-5-6-sol-xhigh": {
+      "modelId": "openai:gpt-5.6-sol",
+      "relation": "published-label"
+    },
+    "gpt-5-6-sol-non-reasoning": {
+      "modelId": "openai:gpt-5.6-sol",
+      "relation": "published-label"
+    },
+    "gpt-6-1-sol": {
+      "modelId": "openai:gpt-6.1-sol",
+      "relation": "published-label"
+    },
+    "gpt-6-1-sol-low": {
+      "modelId": "openai:gpt-6.1-sol",
+      "relation": "published-label"
+    },
+    "gpt-6-1-sol-medium": {
+      "modelId": "openai:gpt-6.1-sol",
+      "relation": "published-label"
+    },
+    "gpt-6-1-sol-high": {
+      "modelId": "openai:gpt-6.1-sol",
+      "relation": "published-label"
+    },
+    "gpt-6-1-sol-xhigh": {
+      "modelId": "openai:gpt-6.1-sol",
+      "relation": "published-label"
+    },
+    "gpt-6-1-sol-non-reasoning": {
+      "modelId": "openai:gpt-6.1-sol",
+      "relation": "published-label"
+    },
+    "claude-fable-5-1": {
+      "modelId": "anthropic:claude-fable-5-1",
+      "relation": "published-label"
+    },
+    "claude-fable-5-1-low": {
+      "modelId": "anthropic:claude-fable-5-1",
+      "relation": "published-label"
+    },
+    "claude-fable-5-1-medium": {
+      "modelId": "anthropic:claude-fable-5-1",
+      "relation": "published-label"
+    },
+    "claude-fable-5-1-high": {
+      "modelId": "anthropic:claude-fable-5-1",
+      "relation": "published-label"
+    },
+    "claude-fable-5-1-xhigh": {
+      "modelId": "anthropic:claude-fable-5-1",
+      "relation": "published-label"
+    },
+    "claude-fable-5-1-non-reasoning": {
+      "modelId": "anthropic:claude-fable-5-1",
+      "relation": "published-label"
+    },
+    "claude-opus-5-5": {
+      "modelId": "anthropic:claude-opus-5-5",
+      "relation": "published-label"
+    },
+    "claude-opus-5-5-low": {
+      "modelId": "anthropic:claude-opus-5-5",
+      "relation": "published-label"
+    },
+    "claude-opus-5-5-medium": {
+      "modelId": "anthropic:claude-opus-5-5",
+      "relation": "published-label"
+    },
+    "claude-opus-5-5-high": {
+      "modelId": "anthropic:claude-opus-5-5",
+      "relation": "published-label"
+    },
+    "claude-opus-5-5-xhigh": {
+      "modelId": "anthropic:claude-opus-5-5",
+      "relation": "published-label"
+    },
+    "claude-opus-5-5-non-reasoning": {
+      "modelId": "anthropic:claude-opus-5-5",
+      "relation": "published-label"
+    },
+    "claude-sonnet-5-5": {
+      "modelId": "anthropic:claude-sonnet-5-5",
+      "relation": "published-label"
+    },
+    "claude-sonnet-5-5-low": {
+      "modelId": "anthropic:claude-sonnet-5-5",
+      "relation": "published-label"
+    },
+    "claude-sonnet-5-5-medium": {
+      "modelId": "anthropic:claude-sonnet-5-5",
+      "relation": "published-label"
+    },
+    "claude-sonnet-5-5-high": {
+      "modelId": "anthropic:claude-sonnet-5-5",
+      "relation": "published-label"
+    },
+    "claude-sonnet-5-5-xhigh": {
+      "modelId": "anthropic:claude-sonnet-5-5",
+      "relation": "published-label"
+    },
+    "claude-sonnet-5-5-non-reasoning": {
+      "modelId": "anthropic:claude-sonnet-5-5",
+      "relation": "published-label"
+    },
+    "claude-haiku-5-5": {
+      "modelId": "anthropic:claude-haiku-5-5",
+      "relation": "published-label"
+    },
+    "claude-haiku-5-5-low": {
+      "modelId": "anthropic:claude-haiku-5-5",
+      "relation": "published-label"
+    },
+    "claude-haiku-5-5-medium": {
+      "modelId": "anthropic:claude-haiku-5-5",
+      "relation": "published-label"
+    },
+    "claude-haiku-5-5-high": {
+      "modelId": "anthropic:claude-haiku-5-5",
+      "relation": "published-label"
+    },
+    "claude-haiku-5-5-xhigh": {
+      "modelId": "anthropic:claude-haiku-5-5",
+      "relation": "published-label"
+    },
+    "claude-haiku-5-5-non-reasoning": {
+      "modelId": "anthropic:claude-haiku-5-5",
+      "relation": "published-label"
+    },
+    "mimo-v2-6-flash": {
+      "modelId": "xiaomi:mimo-v2.6-flash",
+      "relation": "published-label"
+    },
+    "mimo-v2-6-pro": {
+      "modelId": "xiaomi:mimo-v2.6-pro",
+      "relation": "published-label"
+    },
+    "mimo-v2-5-0424": {
+      "modelId": "xiaomi:mimo-v2.5",
+      "relation": "published-label"
+    },
+    "glm-5-3-flash": {
+      "modelId": "zai:glm-5.3-flash",
+      "relation": "published-label"
+    },
+    "glm-5-3": {
+      "modelId": "zai:glm-5.3",
+      "relation": "published-label"
+    },
+    "glm-5-3-low": {
+      "modelId": "zai:glm-5.3",
+      "relation": "published-label"
+    },
+    "deepseek-v4-1-flash": {
+      "modelId": "deepseek:deepseek-v4.1-flash",
+      "relation": "published-label"
+    },
+    "deepseek-v4-1-flash-non-reasoning": {
+      "modelId": "deepseek:deepseek-v4.1-flash",
+      "relation": "published-label"
+    },
+    "kimi-k3": {
+      "modelId": "moonshot:kimi-k3",
+      "relation": "published-label"
+    },
+    "kimi-k3-low": {
+      "modelId": "moonshot:kimi-k3",
+      "relation": "published-label"
+    }
+  },
+  "candidateRelations": [
+    {
+      "observedLabel": "Qwen3.8-Flash-Next",
+      "observedSlug": "qwen3-8-flash-next",
+      "candidateModelId": "qwen:qwen3.8-flash",
+      "relation": "unverified-variant",
+      "sourceCaptureId": "qwen-card",
+      "reason": "Service label and open checkpoint may differ; do not use as exact-model evidence."
+    }
+  ],
+  "excludedVariantQualifiers": [
+    "Daybreak",
+    "CVP",
+    "trusted-access",
+    "Vision-Exp",
+    "UltraSpeed"
+  ],
+  "sourceLabels": {
+    "BR-CODEREVIEW": {
+      "DeepSeek V4.1 Flash DeepSeek": {
+        "modelId": "deepseek:deepseek-v4.1-flash",
+        "relation": "published-label"
+      },
+      "GLM-5.3 Flash Zhipu": {
+        "modelId": "zai:glm-5.3-flash",
+        "relation": "published-label"
+      },
+      "Kimi K3 Moonshot": {
+        "modelId": "moonshot:kimi-k3",
+        "relation": "published-label"
+      }
+    },
+    "BR-MCPMARK-VERIFIED": {
+      "MoonshotAI kimi-k3-max kimi-k3": {
+        "modelId": "moonshot:kimi-k3",
+        "relation": "published-label"
+      },
+      "OpenAI gpt-5-6-sol-max gpt-5.6-sol": {
+        "modelId": "openai:gpt-5.6-sol",
+        "relation": "published-label"
+      }
+    }
+  }
+}

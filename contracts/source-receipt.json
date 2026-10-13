@@ -1,0 +1,16 @@
+{
+  "scope": "Gentle Shell 4.0.0 parser files verified against upstream Git blob identities; OMP config structure inspected at v18.8.7, not runtime calibration.",
+  "sources": {
+    "agent-profiles.ts": {
+      "ref": "v4.0.0",
+      "gitBlob": "f4c953460160b7198dd8d6293f9cb43050826ea6",
+      "sha256": "6541e3da65f7f5576eec6edbabda6756ab3caafaae0d6560ceb3b2c5f08827f4"
+    },
+    "model-routing-authority.ts": {
+      "ref": "v4.0.0",
+      "gitBlob": "ee2a30c021e622853338e293506e5875b1a11be7",
+      "sha256": "831db959b54c8a660da3adfba2a57ad7cc869abc2254ce9e981ff29f15435faf"
+    }
+  },
+  "noInference": true
+}

@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "scope": "Harness-independent responsibility criteria. These are selection policies and precedents, not measurements of quality.",
+  "functions": {
+    "coordination": {"definition": "Own scope, decisions, delegation, integration and final verification."},
+    "bounded-exploration": {"retiredNativeRole": "sdd-explore", "definition": "Locate producers, consumers and evidence in bounded sources; provide an exact handoff without taking open critical decisions."},
+    "source-research": {"retiredNativeRole": "sdd-research", "definition": "Contrast primary sources, preserve citations and communicate missing or conflicting evidence."},
+    "proposal": {"retiredNativeRole": "sdd-proposal", "definition": "Formalize confirmed decisions; surface genuinely new questions rather than repeat the requirements interview."},
+    "requirements": {"retiredNativeRole": "sdd-spec", "definition": "Preserve scenarios, invariants and semantics. Select effort by residual ambiguity and consequences, not a generic domain label."},
+    "architecture": {"retiredNativeRole": "sdd-design", "definition": "Resolve interfaces, integration, testing, migration and rollback while respecting established decisions."},
+    "task-planning": {"retiredNativeRole": "sdd-tasks", "definition": "Turn a complete design into scoped dependencies and slices. Planning tasks is not implementing them."},
+    "bounded-implementation": {"retiredNativeRole": "sdd-apply", "definition": "Implement a closed contract. If design or diagnosis remains, do not assume a cheap worker is protected by a review that may not run."},
+    "semantic-verification": {"retiredNativeRole": "sdd-verify", "definition": "Determine whether tests actually establish requirements and invariants; detect tautologies and omissions. Distinct from running frozen commands."},
+    "mechanical-verification": {"definition": "Execute approved exact commands and return faithful evidence; do not redesign tests or approve scientific validity."},
+    "bounded-remediation": {"retiredNativeRole": "sdd-remediate", "definition": "Correct localized findings and re-verify; impact severity and intellectual complexity are separate dimensions."},
+    "semantic-integration": {"retiredNativeRole": "sdd-archive", "definition": "Reconcile semantic deltas, preserved content and concurrent conflicts. A canonical merge is not a cheap administrative status update."},
+    "workspace-initialization": {"retiredNativeRole": "sdd-init", "definition": "Bounded setup with explicit expected state; not open-ended architecture or scientific validation."},
+    "workspace-orientation": {"retiredNativeRole": "sdd-onboard", "definition": "Map the existing workspace and entry points; does not replace researching the specific change."},
+    "status-reporting": {"retiredNativeRole": "sdd-status", "definition": "Report verifiable artifact state; do not infer correctness from completion labels."},
+    "independent-review": {"definition": "Investigate findings independently from the writer within the native tools, context and review protocol."},
+    "critical-review": {"definition": "Evaluate risk, reliability, resilience and refutation under explicit evidence and human-authorization boundaries."},
+    "visual-inspection": {"definition": "Understand visual inputs using declared multimodal support; a text-only route requires an explicit, separately evaluated vision fallback."},
+    "commit-preparation": {"definition": "Prepare an accurate bounded change summary; selection of this role grants no permission to commit."},
+    "memory-maintenance": {"definition": "Maintain scoped memory with privacy constraints and exact provenance; memory is not automatically inherited by child agents."}
+  }
+}

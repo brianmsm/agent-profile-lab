@@ -1,0 +1,1185 @@
+{
+  "schemaVersion": 1,
+  "offerings": {
+    "oa_sol": {
+      "modelId": "openai:gpt-6-sol",
+      "defaultAccessRouteId": "chatgpt-legacy",
+      "identityRelation": "published-label",
+      "backendEquivalence": "not-established",
+      "compatibility": {
+        "key": "oa_sol",
+        "name": "GPT-6 Sol",
+        "pool": "OAI",
+        "provider": "openai-codex",
+        "id": "gpt-6-sol",
+        "selector": "openai-codex/gpt-6-sol",
+        "allowed_efforts": [
+          "low",
+          "medium",
+          "high",
+          "xhigh",
+          "max"
+        ],
+        "vision": true,
+        "operational_context": 272000,
+        "max_output": 128000,
+        "evidence_confidence": "media-alta",
+        "integration_confidence": "alta: registro observado",
+        "notes": "Contexto conservador observado en Pi/OMP sin extensión. No son créditos API en dólares. | SUPERSEDED por GPT-6.1 Sol (2026-09-29): mismo precio, cache read 95%, external benchmark comparison, consult its original publisher for numeric details.",
+        "source_ids": [
+          "OAI",
+          "FC",
+          "PI",
+          "OMP",
+          "OMP1832"
+        ],
+        "source_urls": [
+          "https://learn.chatgpt.com/docs/pricing",
+          "https://cognition.com/frontiercode",
+          "https://github.com/earendil-works/pi/tree/v0.87.1",
+          "https://github.com/can1357/oh-my-pi/tree/v18.2.11",
+          "https://github.com/can1357/oh-my-pi/tree/v18.3.2"
+        ],
+        "superseded_by": "oa_sol61"
+      }
+    },
+    "oa_luna": {
+      "modelId": "openai:gpt-6-luna",
+      "defaultAccessRouteId": "chatgpt-legacy",
+      "identityRelation": "published-label",
+      "backendEquivalence": "not-established",
+      "compatibility": {
+        "key": "oa_luna",
+        "name": "GPT-6 Luna",
+        "pool": "OAI",
+        "provider": "openai-codex",
+        "id": "gpt-6-luna",
+        "selector": "openai-codex/gpt-6-luna",
+        "allowed_efforts": [
+          "low",
+          "medium",
+          "high",
+          "xhigh",
+          "max"
+        ],
+        "vision": true,
+        "operational_context": 272000,
+        "max_output": 128000,
+        "evidence_confidence": "media-alta",
+        "integration_confidence": "alta: registro observado",
+        "notes": "Contexto conservador observado en Pi/OMP sin extensión. No son créditos API en dólares.",
+        "source_ids": [
+          "OAI",
+          "FC",
+          "PI",
+          "OMP",
+          "OMP1832"
+        ],
+        "source_urls": [
+          "https://learn.chatgpt.com/docs/pricing",
+          "https://cognition.com/frontiercode",
+          "https://github.com/earendil-works/pi/tree/v0.87.1",
+          "https://github.com/can1357/oh-my-pi/tree/v18.2.11",
+          "https://github.com/can1357/oh-my-pi/tree/v18.3.2"
+        ]
+      }
+    },
+    "oa_astra": {
+      "modelId": "openai:gpt-6-astra",
+      "defaultAccessRouteId": "chatgpt-legacy",
+      "identityRelation": "published-label",
+      "backendEquivalence": "not-established",
+      "compatibility": {
+        "key": "oa_astra",
+        "name": "GPT-6 Astra",
+        "pool": "OAI",
+        "provider": "openai-codex",
+        "id": "gpt-6-astra",
+        "selector": "openai-codex/gpt-6-astra",
+        "allowed_efforts": [
+          "low",
+          "medium",
+          "high",
+          "xhigh",
+          "max"
+        ],
+        "vision": true,
+        "operational_context": 272000,
+        "max_output": 128000,
+        "evidence_confidence": "media-alta",
+        "integration_confidence": "alta: registro observado",
+        "notes": "Contexto conservador observado en Pi/OMP sin extensión. No son créditos API en dólares.",
+        "source_ids": [
+          "OAI",
+          "FC",
+          "PI",
+          "OMP",
+          "OMP1832"
+        ],
+        "source_urls": [
+          "https://learn.chatgpt.com/docs/pricing",
+          "https://cognition.com/frontiercode",
+          "https://github.com/earendil-works/pi/tree/v0.87.1",
+          "https://github.com/can1357/oh-my-pi/tree/v18.2.11",
+          "https://github.com/can1357/oh-my-pi/tree/v18.3.2"
+        ]
+      }
+    },
+    "oa_oldsol": {
+      "modelId": "openai:gpt-5.6-sol",
+      "defaultAccessRouteId": "chatgpt-legacy",
+      "identityRelation": "published-label",
+      "backendEquivalence": "not-established",
+      "compatibility": {
+        "key": "oa_oldsol",
+        "name": "GPT-5.6 Sol",
+        "pool": "OAI",
+        "provider": "openai-codex",
+        "id": "gpt-5.6-sol",
+        "selector": "openai-codex/gpt-5.6-sol",
+        "allowed_efforts": [
+          "low",
+          "medium",
+          "high",
+          "xhigh",
+          "max"
+        ],
+        "vision": true,
+        "operational_context": 272000,
+        "max_output": 128000,
+        "evidence_confidence": "media-alta",
+        "integration_confidence": "alta: registro observado",
+        "notes": "Contexto conservador observado en Pi/OMP sin extensión. No son créditos API en dólares.",
+        "source_ids": [
+          "OAI",
+          "FC",
+          "PI",
+          "OMP",
+          "OMP1832"
+        ],
+        "source_urls": [
+          "https://learn.chatgpt.com/docs/pricing",
+          "https://cognition.com/frontiercode",
+          "https://github.com/earendil-works/pi/tree/v0.87.1",
+          "https://github.com/can1357/oh-my-pi/tree/v18.2.11",
+          "https://github.com/can1357/oh-my-pi/tree/v18.3.2"
+        ]
+      }
+    },
+    "go_mf": {
+      "modelId": "xiaomi:mimo-v2.6-flash",
+      "defaultAccessRouteId": "opencode-go",
+      "identityRelation": "published-label",
+      "backendEquivalence": "not-established",
+      "compatibility": {
+        "key": "go_mf",
+        "name": "MiMo V2.6 Flash",
+        "pool": "GO",
+        "provider": "opencode-go",
+        "id": "mimo-v2.6-flash",
+        "selector": "opencode-go/mimo-v2.6-flash",
+        "allowed_efforts": [
+          "low",
+          "medium",
+          "high"
+        ],
+        "vision": true,
+        "operational_context": 1000000,
+        "max_output": 131072,
+        "evidence_confidence": "media",
+        "integration_confidence": "condicional: alta/roundtrip pendiente",
+        "notes": "Registro observado; comprobar semántica y multivuelta del gateway antes de producción. MiMo: dial del adaptador Go ≠ profundidad nativa verificada; Xiaomi usa thinking.type y replay de reasoning_content.",
+        "source_ids": [
+          "GO",
+          "MIMO",
+          "OMP",
+          "PI",
+          "OMP1832"
+        ],
+        "source_urls": [
+          "https://opencode.ai/v2/docs/console/go/",
+          "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL",
+          "https://github.com/can1357/oh-my-pi/tree/v18.2.11",
+          "https://github.com/earendil-works/pi/tree/v0.87.1",
+          "https://github.com/can1357/oh-my-pi/tree/v18.3.2"
+        ]
+      }
+    },
+    "go_mp": {
+      "modelId": "xiaomi:mimo-v2.6-pro",
+      "defaultAccessRouteId": "opencode-go",
+      "identityRelation": "published-label",
+      "backendEquivalence": "not-established",
+      "compatibility": {
+        "key": "go_mp",
+        "name": "MiMo V2.6 Pro",
+        "pool": "GO",
+        "provider": "opencode-go",
+        "id": "mimo-v2.6-pro",
+        "selector": "opencode-go/mimo-v2.6-pro",
+        "allowed_efforts": [
+          "low",
+          "medium",
+          "high"
+        ],
+        "vision": true,
+        "operational_context": 1000000,
+        "max_output": 131072,
+        "evidence_confidence": "media",
+        "integration_confidence": "condicional: alta/roundtrip pendiente",
+        "notes": "Registro observado; comprobar semántica y multivuelta del gateway antes de producción. MiMo: dial del adaptador Go ≠ profundidad nativa verificada; Xiaomi usa thinking.type y replay de reasoning_content.",
+        "source_ids": [
+          "GO",
+          "MIMO",
+          "OMP",
+          "PI",
+          "OMP1832"
+        ],
+        "source_urls": [
+          "https://opencode.ai/v2/docs/console/go/",
+          "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL",
+          "https://github.com/can1357/oh-my-pi/tree/v18.2.11",
+          "https://github.com/earendil-works/pi/tree/v0.87.1",
+          "https://github.com/can1357/oh-my-pi/tree/v18.3.2"
+        ]
+      }
+    },
+    "go_glm": {
+      "modelId": "zai:glm-5.3-flash",
+      "defaultAccessRouteId": "opencode-go",
+      "identityRelation": "published-label",
+      "backendEquivalence": "not-established",
+      "compatibility": {
+        "key": "go_glm",
+        "name": "GLM 5.3 Flash",
+        "pool": "GO",
+        "provider": "opencode-go",
+        "id": "glm-5.3-flash",
+        "selector": "opencode-go/glm-5.3-flash",
+        "allowed_efforts": [
+          "low",
+          "high",
+          "max"
+        ],
+        "vision": true,
+        "operational_context": 1000000,
+        "max_output": 131072,
+        "evidence_confidence": "media",
+        "integration_confidence": "media: descriptor observado",
+        "notes": "Registro observado; comprobar semántica y multivuelta del gateway antes de producción.",
+        "source_ids": [
+          "GO",
+          "FC",
+          "OMP",
+          "PI",
+          "OMP1832"
+        ],
+        "source_urls": [
+          "https://opencode.ai/v2/docs/console/go/",
+          "https://cognition.com/frontiercode",
+          "https://github.com/can1357/oh-my-pi/tree/v18.2.11",
+          "https://github.com/earendil-works/pi/tree/v0.87.1",
+          "https://github.com/can1357/oh-my-pi/tree/v18.3.2"
+        ]
+      }
+    },
+    "go_glmf": {
+      "modelId": "zai:glm-5.3",
+      "defaultAccessRouteId": "opencode-go",
+      "identityRelation": "published-label",
+      "backendEquivalence": "not-established",
+      "compatibility": {
+        "key": "go_glmf",
+        "name": "GLM 5.3",
+        "pool": "GO",
+        "provider": "opencode-go",
+        "id": "glm-5.3",
+        "selector": "opencode-go/glm-5.3",
+        "allowed_efforts": [
+          "low",
+          "high",
+          "max"
+        ],
+        "vision": true,
+        "operational_context": 1000000,
+        "max_output": 131072,
+        "evidence_confidence": "media",
+        "integration_confidence": "media: descriptor observado",
+        "notes": "Registro observado; comprobar semántica y multivuelta del gateway antes de producción.",
+        "source_ids": [
+          "GO",
+          "FC",
+          "OMP",
+          "PI",
+          "OMP1832"
+        ],
+        "source_urls": [
+          "https://opencode.ai/v2/docs/console/go/",
+          "https://cognition.com/frontiercode",
+          "https://github.com/can1357/oh-my-pi/tree/v18.2.11",
+          "https://github.com/earendil-works/pi/tree/v0.87.1",
+          "https://github.com/can1357/oh-my-pi/tree/v18.3.2"
+        ]
+      }
+    },
+    "go_ds": {
+      "modelId": "deepseek:deepseek-v4.1-flash",
+      "defaultAccessRouteId": "opencode-go",
+      "identityRelation": "published-label",
+      "backendEquivalence": "not-established",
+      "compatibility": {
+        "key": "go_ds",
+        "name": "DeepSeek V4.1 Flash",
+        "pool": "GO",
+        "provider": "opencode-go",
+        "id": "deepseek-v4.1-flash",
+        "selector": "opencode-go/deepseek-v4.1-flash",
+        "allowed_efforts": [
+          "low",
+          "high",
+          "max"
+        ],
+        "vision": true,
+        "operational_context": 1000000,
+        "max_output": 131072,
+        "evidence_confidence": "media",
+        "integration_confidence": "media: descriptor observado",
+        "notes": "Registro observado; comprobar semántica y multivuelta del gateway antes de producción.",
+        "source_ids": [
+          "GO",
+          "SPECPI",
+          "OMP",
+          "PI",
+          "OMP1832"
+        ],
+        "source_urls": [
+          "https://opencode.ai/v2/docs/console/go/",
+          "https://tannermidd.github.io/SpecPi/evaluations/",
+          "https://github.com/can1357/oh-my-pi/tree/v18.2.11",
+          "https://github.com/earendil-works/pi/tree/v0.87.1",
+          "https://github.com/can1357/oh-my-pi/tree/v18.3.2"
+        ]
+      }
+    },
+    "go_kimi": {
+      "modelId": "moonshot:kimi-k3",
+      "defaultAccessRouteId": "opencode-go",
+      "identityRelation": "published-label",
+      "backendEquivalence": "not-established",
+      "compatibility": {
+        "key": "go_kimi",
+        "name": "Kimi K3",
+        "pool": "GO",
+        "provider": "opencode-go",
+        "id": "kimi-k3",
+        "selector": "opencode-go/kimi-k3",
+        "allowed_efforts": [
+          "low",
+          "high",
+          "max"
+        ],
+        "vision": true,
+        "operational_context": 1000000,
+        "max_output": 131072,
+        "evidence_confidence": "media",
+        "integration_confidence": "media: descriptor observado",
+        "notes": "Registro observado; comprobar semántica y multivuelta del gateway antes de producción.",
+        "source_ids": [
+          "GO",
+          "FC",
+          "OMP",
+          "PI",
+          "OMP1832"
+        ],
+        "source_urls": [
+          "https://opencode.ai/v2/docs/console/go/",
+          "https://cognition.com/frontiercode",
+          "https://github.com/can1357/oh-my-pi/tree/v18.2.11",
+          "https://github.com/earendil-works/pi/tree/v0.87.1",
+          "https://github.com/can1357/oh-my-pi/tree/v18.3.2"
+        ]
+      }
+    },
+    "go_luna": {
+      "modelId": "openai:gpt-6-luna",
+      "defaultAccessRouteId": "opencode-go",
+      "identityRelation": "published-label",
+      "backendEquivalence": "not-established",
+      "compatibility": {
+        "key": "go_luna",
+        "name": "GPT-6 Luna",
+        "pool": "GO",
+        "provider": "opencode-go",
+        "id": "gpt-6-luna",
+        "selector": "opencode-go/gpt-6-luna",
+        "allowed_efforts": [
+          "low",
+          "medium",
+          "high",
+          "xhigh",
+          "max"
+        ],
+        "vision": true,
+        "operational_context": 1050000,
+        "max_output": 128000,
+        "evidence_confidence": "media-alta",
+        "integration_confidence": "mixta: OMP 18.3.2 nativo; Pi 0.87.1 requiere alta/configuración observada",
+        "notes": "OpenCode Go GPT-6 Luna. OMP 18.3.2 lo registra nativamente con 1.05M de contexto y entrada imagen; en Pi 0.87.1 de Gentle la instalación auditada requiere alta/configuración.",
+        "source_ids": [
+          "GO",
+          "FC",
+          "OMP",
+          "PI",
+          "OMP1832"
+        ],
+        "source_urls": [
+          "https://opencode.ai/v2/docs/console/go/",
+          "https://cognition.com/frontiercode",
+          "https://github.com/can1357/oh-my-pi/tree/v18.2.11",
+          "https://github.com/earendil-works/pi/tree/v0.87.1",
+          "https://github.com/can1357/oh-my-pi/tree/v18.3.2"
+        ]
+      }
+    },
+    "cc_mf": {
+      "modelId": "xiaomi:mimo-v2.6-flash",
+      "defaultAccessRouteId": "command-goat",
+      "identityRelation": "published-label",
+      "backendEquivalence": "not-established",
+      "compatibility": {
+        "key": "cc_mf",
+        "name": "MiMo V2.6 Flash",
+        "pool": "CC",
+        "provider": "commandcode",
+        "id": "xiaomi/mimo-v2.6-flash",
+        "selector": "commandcode/xiaomi/mimo-v2.6-flash",
+        "allowed_efforts": [],
+        "vision": false,
+        "operational_context": 1048576,
+        "max_output": 65536,
+        "evidence_confidence": "media",
+        "integration_confidence": "condicional: alta/roundtrip pendiente",
+        "notes": "Sin dial explícito en OMP18.2.11. Omitir thinking no significa desactivar el razonamiento. Pi necesita registro de proveedor. MiMo: dial del adaptador Go ≠ profundidad nativa verificada; Xiaomi usa thinking.type y replay de reasoning_content.",
+        "source_ids": [
+          "CC",
+          "MIMO",
+          "OMP",
+          "PI",
+          "OMP1832"
+        ],
+        "source_urls": [
+          "https://commandcode.ai/docs/plans/goat",
+          "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL",
+          "https://github.com/can1357/oh-my-pi/tree/v18.2.11",
+          "https://github.com/earendil-works/pi/tree/v0.87.1",
+          "https://github.com/can1357/oh-my-pi/tree/v18.3.2"
+        ]
+      }
+    },
+    "cc_mp": {
+      "modelId": "xiaomi:mimo-v2.6-pro",
+      "defaultAccessRouteId": "command-goat",
+      "identityRelation": "published-label",
+      "backendEquivalence": "not-established",
+      "compatibility": {
+        "key": "cc_mp",
+        "name": "MiMo V2.6 Pro",
+        "pool": "CC",
+        "provider": "commandcode",
+        "id": "xiaomi/mimo-v2.6-pro",
+        "selector": "commandcode/xiaomi/mimo-v2.6-pro",
+        "allowed_efforts": [],
+        "vision": false,
+        "operational_context": 1048576,
+        "max_output": 65536,
+        "evidence_confidence": "media",
+        "integration_confidence": "condicional: alta/roundtrip pendiente",
+        "notes": "Sin dial explícito en OMP18.2.11. Omitir thinking no significa desactivar el razonamiento. Pi necesita registro de proveedor. MiMo: dial del adaptador Go ≠ profundidad nativa verificada; Xiaomi usa thinking.type y replay de reasoning_content.",
+        "source_ids": [
+          "CC",
+          "MIMO",
+          "OMP",
+          "PI",
+          "OMP1832"
+        ],
+        "source_urls": [
+          "https://commandcode.ai/docs/plans/goat",
+          "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL",
+          "https://github.com/can1357/oh-my-pi/tree/v18.2.11",
+          "https://github.com/earendil-works/pi/tree/v0.87.1",
+          "https://github.com/can1357/oh-my-pi/tree/v18.3.2"
+        ]
+      }
+    },
+    "cc_glm": {
+      "modelId": "zai:glm-5.3-flash",
+      "defaultAccessRouteId": "command-goat",
+      "identityRelation": "published-label",
+      "backendEquivalence": "not-established",
+      "compatibility": {
+        "key": "cc_glm",
+        "name": "GLM 5.3 Flash",
+        "pool": "CC",
+        "provider": "commandcode",
+        "id": "z-ai/glm-5.3-flash",
+        "selector": "commandcode/z-ai/glm-5.3-flash",
+        "allowed_efforts": [
+          "low",
+          "high",
+          "max"
+        ],
+        "vision": false,
+        "operational_context": 1048576,
+        "max_output": 131072,
+        "evidence_confidence": "media",
+        "integration_confidence": "condicional: alta/roundtrip pendiente",
+        "notes": "Pi necesita registro de Command Code; OMP tiene descriptor. Verificar llamada multivuelta.",
+        "source_ids": [
+          "CC",
+          "FC",
+          "OMP",
+          "PI",
+          "OMP1832"
+        ],
+        "source_urls": [
+          "https://commandcode.ai/docs/plans/goat",
+          "https://cognition.com/frontiercode",
+          "https://github.com/can1357/oh-my-pi/tree/v18.2.11",
+          "https://github.com/earendil-works/pi/tree/v0.87.1",
+          "https://github.com/can1357/oh-my-pi/tree/v18.3.2"
+        ]
+      }
+    },
+    "cc_glmf": {
+      "modelId": "zai:glm-5.3",
+      "defaultAccessRouteId": "command-goat",
+      "identityRelation": "published-label",
+      "backendEquivalence": "not-established",
+      "compatibility": {
+        "key": "cc_glmf",
+        "name": "GLM 5.3",
+        "pool": "CC",
+        "provider": "commandcode",
+        "id": "zai-org/GLM-5.3",
+        "selector": "commandcode/zai-org/GLM-5.3",
+        "allowed_efforts": [
+          "low",
+          "high",
+          "max"
+        ],
+        "vision": false,
+        "operational_context": 1000000,
+        "max_output": 65536,
+        "evidence_confidence": "media",
+        "integration_confidence": "condicional: alta/roundtrip pendiente",
+        "notes": "Pi necesita registro de Command Code; OMP tiene descriptor. Verificar llamada multivuelta.",
+        "source_ids": [
+          "CC",
+          "FC",
+          "OMP",
+          "PI",
+          "OMP1832"
+        ],
+        "source_urls": [
+          "https://commandcode.ai/docs/plans/goat",
+          "https://cognition.com/frontiercode",
+          "https://github.com/can1357/oh-my-pi/tree/v18.2.11",
+          "https://github.com/earendil-works/pi/tree/v0.87.1",
+          "https://github.com/can1357/oh-my-pi/tree/v18.3.2"
+        ]
+      }
+    },
+    "cc_ds": {
+      "modelId": "deepseek:deepseek-v4.1-flash",
+      "defaultAccessRouteId": "command-goat",
+      "identityRelation": "published-label",
+      "backendEquivalence": "not-established",
+      "compatibility": {
+        "key": "cc_ds",
+        "name": "DeepSeek V4.1 Flash",
+        "pool": "CC",
+        "provider": "commandcode",
+        "id": "deepseek/deepseek-v4.1-flash",
+        "selector": "commandcode/deepseek/deepseek-v4.1-flash",
+        "allowed_efforts": [
+          "low",
+          "high",
+          "max"
+        ],
+        "vision": true,
+        "operational_context": 1000000,
+        "max_output": 65536,
+        "evidence_confidence": "media",
+        "integration_confidence": "condicional: alta/roundtrip pendiente",
+        "notes": "Pi necesita registro de Command Code; OMP tiene descriptor. Verificar llamada multivuelta.",
+        "source_ids": [
+          "CC",
+          "SPECPI",
+          "OMP",
+          "PI",
+          "OMP1832"
+        ],
+        "source_urls": [
+          "https://commandcode.ai/docs/plans/goat",
+          "https://tannermidd.github.io/SpecPi/evaluations/",
+          "https://github.com/can1357/oh-my-pi/tree/v18.2.11",
+          "https://github.com/earendil-works/pi/tree/v0.87.1",
+          "https://github.com/can1357/oh-my-pi/tree/v18.3.2"
+        ]
+      }
+    },
+    "cc_kimi": {
+      "modelId": "moonshot:kimi-k3",
+      "defaultAccessRouteId": "command-goat",
+      "identityRelation": "published-label",
+      "backendEquivalence": "not-established",
+      "compatibility": {
+        "key": "cc_kimi",
+        "name": "Kimi K3",
+        "pool": "CC",
+        "provider": "commandcode",
+        "id": "moonshotai/Kimi-K3",
+        "selector": "commandcode/moonshotai/Kimi-K3",
+        "allowed_efforts": [
+          "low",
+          "high",
+          "max"
+        ],
+        "vision": false,
+        "operational_context": 1000000,
+        "max_output": 65536,
+        "evidence_confidence": "media",
+        "integration_confidence": "condicional: alta/roundtrip pendiente",
+        "notes": "Pi necesita registro de Command Code; OMP tiene descriptor. Verificar llamada multivuelta.",
+        "source_ids": [
+          "CC",
+          "FC",
+          "OMP",
+          "PI",
+          "OMP1832"
+        ],
+        "source_urls": [
+          "https://commandcode.ai/docs/plans/goat",
+          "https://cognition.com/frontiercode",
+          "https://github.com/can1357/oh-my-pi/tree/v18.2.11",
+          "https://github.com/earendil-works/pi/tree/v0.87.1",
+          "https://github.com/can1357/oh-my-pi/tree/v18.3.2"
+        ]
+      }
+    },
+    "cc_luna": {
+      "modelId": "openai:gpt-6-luna",
+      "defaultAccessRouteId": "command-goat",
+      "identityRelation": "published-label",
+      "backendEquivalence": "not-established",
+      "compatibility": {
+        "key": "cc_luna",
+        "name": "GPT-6 Luna",
+        "pool": "CC",
+        "provider": "commandcode",
+        "id": "gpt-6-luna",
+        "selector": "commandcode/gpt-6-luna",
+        "allowed_efforts": [],
+        "vision": false,
+        "operational_context": 1050000,
+        "max_output": 65536,
+        "evidence_confidence": "media-alta",
+        "integration_confidence": "condicional: alta/roundtrip pendiente",
+        "notes": "Sin dial explícito en OMP18.2.11. Omitir thinking no significa desactivar el razonamiento. Pi necesita registro de proveedor.",
+        "source_ids": [
+          "CC",
+          "FC",
+          "OMP",
+          "PI",
+          "OMP1832"
+        ],
+        "source_urls": [
+          "https://commandcode.ai/docs/plans/goat",
+          "https://cognition.com/frontiercode",
+          "https://github.com/can1357/oh-my-pi/tree/v18.2.11",
+          "https://github.com/earendil-works/pi/tree/v0.87.1",
+          "https://github.com/can1357/oh-my-pi/tree/v18.3.2"
+        ]
+      }
+    },
+    "cc_oldsol": {
+      "modelId": "openai:gpt-5.6-sol",
+      "defaultAccessRouteId": "command-goat",
+      "identityRelation": "published-label",
+      "backendEquivalence": "not-established",
+      "compatibility": {
+        "key": "cc_oldsol",
+        "name": "GPT-5.6 Sol",
+        "pool": "CC",
+        "provider": "commandcode",
+        "id": "gpt-5.6-sol",
+        "selector": "commandcode/gpt-5.6-sol",
+        "allowed_efforts": [
+          "low",
+          "medium",
+          "high",
+          "xhigh",
+          "max"
+        ],
+        "vision": false,
+        "operational_context": 1050000,
+        "max_output": 65536,
+        "evidence_confidence": "media-alta",
+        "integration_confidence": "condicional: Pi necesita alta; OMP observado",
+        "notes": "Usar cuota GOAT para revisión crítica, no asumir API sin tope. Contexto de trabajo conservador.",
+        "source_ids": [
+          "CC",
+          "CCAPI",
+          "FC",
+          "OMP",
+          "OMP1832"
+        ],
+        "source_urls": [
+          "https://commandcode.ai/docs/plans/goat",
+          "https://commandcode.ai/docs/provider",
+          "https://cognition.com/frontiercode",
+          "https://github.com/can1357/oh-my-pi/tree/v18.2.11",
+          "https://github.com/can1357/oh-my-pi/tree/v18.3.2"
+        ]
+      }
+    },
+    "cc_ultra": {
+      "modelId": "xiaomi:mimo-v2.6-pro-ultraspeed",
+      "defaultAccessRouteId": "command-goat",
+      "identityRelation": "published-label",
+      "backendEquivalence": "not-established",
+      "compatibility": {
+        "key": "cc_ultra",
+        "name": "MiMo V2.6 Pro UltraSpeed",
+        "pool": "CC",
+        "provider": "commandcode",
+        "id": "xiaomi/mimo-v2.6-pro-ultraspeed",
+        "selector": "commandcode/xiaomi/mimo-v2.6-pro-ultraspeed",
+        "allowed_efforts": [],
+        "vision": false,
+        "operational_context": 1048576,
+        "max_output": 65536,
+        "evidence_confidence": "media-baja",
+        "integration_confidence": "condicional: sin dial / sin roundtrip",
+        "notes": "Acelerador opcional: no primario; precio y tope hacen 20x fracción mensual por misma secuencia que Pro.",
+        "source_ids": [
+          "CC",
+          "ULTRA",
+          "OMP",
+          "OMP1832"
+        ],
+        "source_urls": [
+          "https://commandcode.ai/docs/plans/goat",
+          "https://mimo.mi.com/models/en-US/mimo-v2.6-pro-ultraspeed",
+          "https://github.com/can1357/oh-my-pi/tree/v18.2.11",
+          "https://github.com/can1357/oh-my-pi/tree/v18.3.2"
+        ]
+      }
+    },
+    "nan_glm": {
+      "modelId": "zai:glm-5.3-flash",
+      "defaultAccessRouteId": "nan",
+      "identityRelation": "published-label",
+      "backendEquivalence": "not-established",
+      "compatibility": {
+        "key": "nan_glm",
+        "name": "GLM 5.3 Flash",
+        "pool": "NAN",
+        "provider": "nan",
+        "id": "glm5.3-flash",
+        "selector": "nan/glm5.3-flash",
+        "allowed_efforts": [
+          "low",
+          "medium",
+          "high",
+          "max"
+        ],
+        "vision": true,
+        "operational_context": 1000000,
+        "max_output": 32768,
+        "evidence_confidence": "media-alta",
+        "integration_confidence": "condicional: plan/features observados; sin roundtrip NaN",
+        "notes": "2B tokens/mes in the user's NaN tier. User-supplied dashboard confirms GLM 5.3 Flash is multimodal, reasoning, 1M context. Full GLM 5.3 is premium/not in this plan.",
+        "source_ids": [
+          "NAN",
+          "NANPI",
+          "FC",
+          "NANUSER",
+          "NANUSER20261010"
+        ],
+        "source_urls": [
+          "https://nan.builders/docs/models",
+          "https://nan.builders/docs/pi",
+          "https://cognition.com/frontiercode",
+          "evidence/nan/USER_SUPPLIED_PLAN_EVIDENCE_2026-09-26.md"
+        ]
+      },
+      "accountInventoryRef": "nan-standard",
+      "reportedMonthlyTokens": 2000000000
+    },
+    "nan_ds": {
+      "modelId": "deepseek:deepseek-v4.1-flash",
+      "defaultAccessRouteId": "nan",
+      "identityRelation": "candidate-alias",
+      "backendEquivalence": "not-established",
+      "compatibility": {
+        "key": "nan_ds",
+        "name": "DeepSeek V4 Flash (4.1 version, NaN)",
+        "pool": "NAN",
+        "provider": "nan",
+        "id": "deepseek-v4-flash",
+        "selector": "nan/deepseek-v4-flash",
+        "allowed_efforts": [],
+        "vision": true,
+        "operational_context": 1000000,
+        "max_output": 32768,
+        "evidence_confidence": "media",
+        "integration_confidence": "condicional: identidad/plan observados; sin roundtrip NaN",
+        "notes": "3B tokens/mes in the user's NaN tier. User-supplied NaN dashboard explicitly labels DeepSeek V4-Flash as '(4.1 version)', 1M context, vision. No graduated reasoning dial is assumed.",
+        "source_ids": [
+          "NAN",
+          "NANPI",
+          "SPECPI",
+          "NANUSER",
+          "NANUSER20261010"
+        ],
+        "source_urls": [
+          "https://nan.builders/docs/models",
+          "https://nan.builders/docs/pi",
+          "https://tannermidd.github.io/SpecPi/evaluations/",
+          "evidence/nan/USER_SUPPLIED_PLAN_EVIDENCE_2026-09-26.md"
+        ]
+      },
+      "accountInventoryRef": "nan-standard",
+      "reportedMonthlyTokens": 3000000000
+    },
+    "nan_mimo": {
+      "modelId": "xiaomi:mimo-v2.5",
+      "defaultAccessRouteId": "nan",
+      "identityRelation": "published-label",
+      "backendEquivalence": "not-established",
+      "compatibility": {
+        "key": "nan_mimo",
+        "name": "MiMo V2.5",
+        "pool": "NAN",
+        "provider": "nan",
+        "id": "mimo-v2.5",
+        "selector": "nan/mimo-v2.5",
+        "allowed_efforts": [],
+        "vision": true,
+        "operational_context": 1000000,
+        "max_output": 32768,
+        "evidence_confidence": "media-baja",
+        "integration_confidence": "condicional: requiere alta NaN",
+        "notes": "1B tokens/mes; NO es 2.6. Campo reasoning_effort aceptado sin graduar profundidad. Historical account observation only; not among the four models confirmed by the user on 2026-10-10. Not selectable for nan-standard.",
+        "source_ids": [
+          "NAN",
+          "NANPI"
+        ],
+        "source_urls": [
+          "https://nan.builders/docs/models",
+          "https://nan.builders/docs/pi"
+        ]
+      },
+      "status": "historical-unconfirmed-account"
+    },
+    "oa_sol61": {
+      "modelId": "openai:gpt-6.1-sol",
+      "defaultAccessRouteId": "chatgpt-legacy",
+      "identityRelation": "published-label",
+      "backendEquivalence": "not-established",
+      "compatibility": {
+        "key": "oa_sol61",
+        "name": "GPT-6.1 Sol",
+        "pool": "OAI",
+        "provider": "openai-codex",
+        "id": "gpt-6.1-sol",
+        "selector": "openai-codex/gpt-6.1-sol",
+        "allowed_efforts": [
+          "low",
+          "medium",
+          "high",
+          "xhigh",
+          "max"
+        ],
+        "vision": true,
+        "operational_context": 272000,
+        "max_output": 128000,
+        "evidence_confidence": "media",
+        "integration_confidence": "condicional: selector observado en Codex; roundtrip en Pi/OMP pendiente",
+        "notes": "Contexto conservador observado en Pi/OMP sin extensión (272k operativo). Supersede a gpt-6-sol (mismo $2/$10, cache read 95%). No en Chat; Work/Codex/API. gpt-6.1 rechaza none/minimal. Aprobado por usuario 2026-09-30 para V5.1.",
+        "source_ids": [
+          "OAI",
+          "FC",
+          "PI",
+          "OMP",
+          "OMP1832",
+          "OAI61SOL",
+          "AA61SOL"
+        ],
+        "source_urls": [
+          "https://learn.chatgpt.com/docs/pricing",
+          "https://cognition.com/frontiercode",
+          "https://github.com/earendil-works/pi/tree/v0.87.1",
+          "https://github.com/can1357/oh-my-pi/tree/v18.2.11",
+          "https://github.com/can1357/oh-my-pi/tree/v18.3.2",
+          "https://openai.com/index/introducing-gpt-6-1-sol/",
+          "https://artificialanalysis.ai/articles/gpt-6-1-sol-replaces-gpt-6-sol-after-just-7-days-with-near-astra-intelligence"
+        ]
+      }
+    },
+    "cl_fable": {
+      "modelId": "anthropic:claude-fable-5-1",
+      "defaultAccessRouteId": "claude-subscription",
+      "identityRelation": "published-label",
+      "backendEquivalence": "not-established",
+      "compatibility": {
+        "key": "cl_fable",
+        "name": "Claude Fable 5.1",
+        "pool": "ANTHROPIC",
+        "provider": "anthropic",
+        "id": "claude-fable-5-1",
+        "selector": "anthropic/claude-fable-5-1",
+        "allowed_efforts": [
+          "low",
+          "medium",
+          "high",
+          "xhigh",
+          "max"
+        ],
+        "vision": true,
+        "operational_context": 1000000,
+        "max_output": 128000,
+        "evidence_confidence": "published multi-source evidence; compare typed protocols, not literal model names",
+        "integration_confidence": "condicional: selector por confirmar en Pi/OMP",
+        "notes": "Historical benchmark selections are retained in the decision matrix. Consult typed observations and dated pricing for current comparisons; results depend on suite, effort, subset, fallback and harness. No route calibration.",
+        "source_ids": [
+          "ANTHROPIC",
+          "AA",
+          "BRIDGE"
+        ],
+        "source_urls": [
+          "https://docs.anthropic.com/en/docs/about-claude/models",
+          "https://www.anthropic.com/news/claude-fable-5-1"
+        ]
+      },
+      "reportedOutputLimit": "128K tokens",
+      "limitsSource": "https://platform.claude.com/docs/en/about-claude/models/overview",
+      "limitsState": "published API contract; not verified for each account/runtime"
+    },
+    "cl_opus": {
+      "modelId": "anthropic:claude-opus-5-5",
+      "defaultAccessRouteId": "claude-subscription",
+      "identityRelation": "published-label",
+      "backendEquivalence": "not-established",
+      "compatibility": {
+        "key": "cl_opus",
+        "name": "Claude Opus 5.5",
+        "pool": "ANTHROPIC",
+        "provider": "anthropic",
+        "id": "claude-opus-5-5",
+        "selector": "anthropic/claude-opus-5-5",
+        "allowed_efforts": [
+          "low",
+          "medium",
+          "high",
+          "xhigh",
+          "max"
+        ],
+        "vision": true,
+        "operational_context": 1000000,
+        "max_output": 128000,
+        "evidence_confidence": "published multi-source evidence; compare typed protocols, not literal model names",
+        "integration_confidence": "condicional: selector por confirmar en Pi/OMP",
+        "notes": "Historical benchmark selections are retained in the decision matrix. Consult typed observations and dated pricing for current comparisons; results depend on suite, effort, subset, fallback and harness. No route calibration.",
+        "source_ids": [
+          "ANTHROPIC",
+          "AA",
+          "VALS"
+        ],
+        "source_urls": [
+          "https://docs.anthropic.com/en/docs/about-claude/models",
+          "https://www.vals.ai/models/anthropic_claude-opus-5-5"
+        ]
+      },
+      "reportedOutputLimit": "128K tokens",
+      "limitsSource": "https://platform.claude.com/docs/en/about-claude/models/overview",
+      "limitsState": "published API contract; not verified for each account/runtime"
+    },
+    "cl_sonnet": {
+      "modelId": "anthropic:claude-sonnet-5-5",
+      "defaultAccessRouteId": "claude-subscription",
+      "identityRelation": "published-label",
+      "backendEquivalence": "not-established",
+      "compatibility": {
+        "key": "cl_sonnet",
+        "name": "Claude Sonnet 5.5",
+        "pool": "ANTHROPIC",
+        "provider": "anthropic",
+        "id": "claude-sonnet-5-5",
+        "selector": "anthropic/claude-sonnet-5-5",
+        "allowed_efforts": [
+          "low",
+          "medium",
+          "high",
+          "xhigh",
+          "max"
+        ],
+        "vision": true,
+        "operational_context": 1000000,
+        "max_output": 128000,
+        "evidence_confidence": "published multi-source evidence; compare typed protocols, not literal model names",
+        "integration_confidence": "condicional: selector por confirmar en Pi/OMP",
+        "notes": "Historical benchmark selections are retained in the decision matrix. Consult typed observations and dated pricing for current comparisons; results depend on suite, effort, subset, fallback and harness. No route calibration.",
+        "source_ids": [
+          "ANTHROPIC",
+          "AA",
+          "VALS"
+        ],
+        "source_urls": [
+          "https://docs.anthropic.com/en/docs/about-claude/models",
+          "https://www.vals.ai/models/anthropic_claude-sonnet-5-5"
+        ]
+      },
+      "reportedOutputLimit": "128K tokens",
+      "limitsSource": "https://platform.claude.com/docs/en/about-claude/models/overview",
+      "limitsState": "published API contract; not verified for each account/runtime"
+    },
+    "cl_haiku": {
+      "modelId": "anthropic:claude-haiku-5-5",
+      "defaultAccessRouteId": "claude-subscription",
+      "identityRelation": "published-label",
+      "backendEquivalence": "not-established",
+      "status": "candidate",
+      "compatibility": {
+        "key": "cl_haiku",
+        "name": "Claude Haiku 5.5",
+        "pool": "ANTHROPIC",
+        "provider": "anthropic",
+        "id": "claude-haiku-5-5",
+        "selector": "anthropic/claude-haiku-5-5",
+        "allowed_efforts": [
+          "low",
+          "medium",
+          "high",
+          "xhigh",
+          "max"
+        ],
+        "vision": true,
+        "operational_context": 1000000,
+        "max_output": 128000,
+        "evidence_confidence": "published evidence; not route-calibrated",
+        "integration_confidence": "Fuente versionada revisada: OMP 18.8.7 incluye descriptor Haiku; Pi 1.1.0 incluye generación y mapeo adaptativo. Sin inferencias ni comprobación del catálogo instalado.",
+        "notes": "Candidate only. Adaptive thinking; no server-side fallback. Larger-model thinking blocks may not transfer. Account entitlement is not inferred. API costs are tiered at >100K input tokens; early AA cost estimates are provisional. Static runtime review: preserve explicit effort and textual handoff; OMP 18.8.7 direct descriptor has supportsComputerUse=false and a separate Haiku 4.5 web-search helper. See docs/HAIKU_RUNTIME_REVIEW.json. No installed runtime is changed.",
+        "source_ids": [
+          "ANTH-HAIKU55",
+          "ANTH-HAIKU55-CARD"
+        ],
+        "source_urls": [
+          "https://www.anthropic.com/claude-haiku-5-5",
+          "https://platform.claude.com/docs/en/models/haiku-5-5/migration-guide"
+        ]
+      },
+      "reportedOutputLimit": "128K tokens",
+      "limitsSource": "https://platform.claude.com/docs/en/about-claude/models/overview",
+      "limitsState": "published API contract; not verified for each account/runtime",
+      "runtimeEvidenceRef": "docs/HAIKU_RUNTIME_REVIEW.json"
+    },
+    "nan_mf": {
+      "modelId": "xiaomi:mimo-v2.6-flash",
+      "defaultAccessRouteId": "nan",
+      "identityRelation": "candidate-alias",
+      "backendEquivalence": "not-established",
+      "status": "candidate",
+      "compatibility": {
+        "key": "nan_mf",
+        "name": "MiMo V2.6 Flash",
+        "pool": "NAN",
+        "provider": "nan",
+        "id": "mimo-v2.6-flash",
+        "selector": "nan/mimo-v2.6-flash",
+        "allowed_efforts": [],
+        "vision": true,
+        "operational_context": 1000000,
+        "max_output": 32768,
+        "evidence_confidence": "published evidence; not route-calibrated",
+        "integration_confidence": "descriptor only; remote model and effort acceptance not verified",
+        "notes": "User account card: 1B tokens/month; external provider Xiaomi; no adjustable reasoning depth on NaN. Advertised limits, not measured. Distinct from MiMo V2.5.",
+        "source_ids": [
+          "NAN",
+          "NANUSER20261010"
+        ],
+        "source_urls": [
+          "https://nan.builders/docs/models",
+          "evidence/nan/account-observation-2026-10-10.json"
+        ]
+      },
+      "accountInventoryRef": "nan-standard",
+      "reportedMonthlyTokens": 1000000000
+    },
+    "nan_qwen": {
+      "modelId": "qwen:qwen3.8-flash",
+      "defaultAccessRouteId": "nan",
+      "identityRelation": "candidate-alias",
+      "backendEquivalence": "not-established",
+      "status": "candidate",
+      "compatibility": {
+        "key": "nan_qwen",
+        "name": "Qwen 3.8 Flash",
+        "pool": "NAN",
+        "provider": "nan",
+        "id": "qwen3.8-flash",
+        "selector": "nan/qwen3.8-flash",
+        "allowed_efforts": [],
+        "vision": true,
+        "operational_context": 262000,
+        "max_output": 32768,
+        "evidence_confidence": "published evidence; not route-calibrated",
+        "integration_confidence": "descriptor only; remote model and effort acceptance not verified",
+        "notes": "User card: 500M tokens/month and 262K context. Public docs advertise 1M; effective limit unresolved. No adjustable effort. Flash-Next public checkpoint relation remains a candidate, not proven.",
+        "source_ids": [
+          "NAN",
+          "NANUSER20261010"
+        ],
+        "source_urls": [
+          "https://nan.builders/docs/models",
+          "evidence/nan/account-observation-2026-10-10.json"
+        ]
+      },
+      "accountInventoryRef": "nan-standard",
+      "reportedMonthlyTokens": 500000000
+    }
+  },
+  "compatibilityOrder": [
+    "oa_sol",
+    "oa_luna",
+    "oa_astra",
+    "oa_oldsol",
+    "go_mf",
+    "go_mp",
+    "go_glm",
+    "go_glmf",
+    "go_ds",
+    "go_kimi",
+    "go_luna",
+    "cc_mf",
+    "cc_mp",
+    "cc_glm",
+    "cc_glmf",
+    "cc_ds",
+    "cc_kimi",
+    "cc_luna",
+    "cc_oldsol",
+    "cc_ultra",
+    "nan_glm",
+    "nan_ds",
+    "nan_mimo",
+    "oa_sol61",
+    "cl_fable",
+    "cl_opus",
+    "cl_sonnet",
+    "cl_haiku",
+    "nan_mf",
+    "nan_qwen"
+  ]
+}

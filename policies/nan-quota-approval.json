@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "policyId": "nan-2026-10-quality-gated-progress",
+  "sources": {
+    "policies/nan-quota-balancing.json": "1133d4226ecbc57b053e3990afe39044fc47bc73405af5bc9d579461598473f1",
+    "catalog/account-inventory.json": "1d07cec43121cbc477687fab7a91e17892e197e032604c1cea3ec4ac5fa4fd14"
+  },
+  "scope": "Baseline account inventory and user-reviewed NaN eligibility. No runtime quality calibration, entitlement or automatic dispatcher installation."
+}

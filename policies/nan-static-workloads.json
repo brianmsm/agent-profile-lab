@@ -1,0 +1,281 @@
+{
+  "schemaVersion": 1,
+  "id": "nan-static-workload-v1",
+  "updateMode": "manual",
+  "sourceQuotaPolicy": "policies/nan-quota-balancing.json",
+  "sourceInventory": "catalog/account-inventory.json",
+  "defaultScenario": "mixed",
+  "optimization": "minimize-total-variation-from-four-quota-capacity-shares-with-hard-quality-gates",
+  "baseline": "all-four-quotas-at-100-percent; current usage is NOT read",
+  "risk": "closed-bounded-subtasks-only",
+  "estimatedUnit": "hypothetical expected total tokens per enabled role per calendar month",
+  "qualityGates": [
+    "Preservar todos los modelos principales de otros proveedores: este perfil sólo reequilibra roles que ya usan NaN.",
+    "Preserve original coordinator, reviewers, architectural decisions, inactive roles and runtime policy.",
+    "No mandatory use of all four models. Qwen and MiMo require explicit trial opt-in and acceptance oracle.",
+    "Allow only roles with a function admitted in the NaN quality policy; no forced high-impact or security role changes.",
+    "Preserve old primary as fallback on a changed role, but the native export does not implement that fallback.",
+    "Statically assigned shares cannot guarantee monthly quota consumption; use task/workload observations for calibration.",
+    "Si no existe una carga NaN susceptible de reasignación, no inventar un perfil mixto distinto: ofrecer el subconjunto NaN cuando sea compatible."
+  ],
+  "scenarios": {
+    "routine": {
+      "label": "Auxiliares y tareas pequeñas",
+      "description": "Hipótesis de muchas consultas, verificaciones y tareas pequeñas, menos implementación.",
+      "functionWorkload": {
+        "coordination": {
+          "callsPerMonth": 110,
+          "totalTokensPerCall": 6500
+        },
+        "bounded-exploration": {
+          "callsPerMonth": 360,
+          "totalTokensPerCall": 11000
+        },
+        "source-research": {
+          "callsPerMonth": 36,
+          "totalTokensPerCall": 22000
+        },
+        "proposal": {
+          "callsPerMonth": 36,
+          "totalTokensPerCall": 12000
+        },
+        "requirements": {
+          "callsPerMonth": 40,
+          "totalTokensPerCall": 16000
+        },
+        "architecture": {
+          "callsPerMonth": 55,
+          "totalTokensPerCall": 24000
+        },
+        "task-planning": {
+          "callsPerMonth": 75,
+          "totalTokensPerCall": 10000
+        },
+        "bounded-implementation": {
+          "callsPerMonth": 90,
+          "totalTokensPerCall": 25000
+        },
+        "semantic-verification": {
+          "callsPerMonth": 65,
+          "totalTokensPerCall": 18000
+        },
+        "mechanical-verification": {
+          "callsPerMonth": 290,
+          "totalTokensPerCall": 5000
+        },
+        "bounded-remediation": {
+          "callsPerMonth": 75,
+          "totalTokensPerCall": 18000
+        },
+        "semantic-integration": {
+          "callsPerMonth": 40,
+          "totalTokensPerCall": 20000
+        },
+        "workspace-initialization": {
+          "callsPerMonth": 28,
+          "totalTokensPerCall": 8000
+        },
+        "workspace-orientation": {
+          "callsPerMonth": 70,
+          "totalTokensPerCall": 7000
+        },
+        "status-reporting": {
+          "callsPerMonth": 290,
+          "totalTokensPerCall": 1500
+        },
+        "independent-review": {
+          "callsPerMonth": 15,
+          "totalTokensPerCall": 16000
+        },
+        "critical-review": {
+          "callsPerMonth": 10,
+          "totalTokensPerCall": 21000
+        },
+        "visual-inspection": {
+          "callsPerMonth": 40,
+          "totalTokensPerCall": 14000
+        },
+        "commit-preparation": {
+          "callsPerMonth": 220,
+          "totalTokensPerCall": 3000
+        },
+        "memory-maintenance": {
+          "callsPerMonth": 60,
+          "totalTokensPerCall": 5000
+        }
+      }
+    },
+    "mixed": {
+      "label": "Trabajo mixto",
+      "description": "Hipótesis equilibrada entre exploración, cambios de código, revisión y tareas auxiliares.",
+      "functionWorkload": {
+        "coordination": {
+          "callsPerMonth": 100,
+          "totalTokensPerCall": 9000
+        },
+        "bounded-exploration": {
+          "callsPerMonth": 240,
+          "totalTokensPerCall": 15000
+        },
+        "source-research": {
+          "callsPerMonth": 36,
+          "totalTokensPerCall": 22000
+        },
+        "proposal": {
+          "callsPerMonth": 36,
+          "totalTokensPerCall": 12000
+        },
+        "requirements": {
+          "callsPerMonth": 40,
+          "totalTokensPerCall": 16000
+        },
+        "architecture": {
+          "callsPerMonth": 55,
+          "totalTokensPerCall": 24000
+        },
+        "task-planning": {
+          "callsPerMonth": 75,
+          "totalTokensPerCall": 10000
+        },
+        "bounded-implementation": {
+          "callsPerMonth": 220,
+          "totalTokensPerCall": 40000
+        },
+        "semantic-verification": {
+          "callsPerMonth": 65,
+          "totalTokensPerCall": 18000
+        },
+        "mechanical-verification": {
+          "callsPerMonth": 160,
+          "totalTokensPerCall": 7000
+        },
+        "bounded-remediation": {
+          "callsPerMonth": 115,
+          "totalTokensPerCall": 26000
+        },
+        "semantic-integration": {
+          "callsPerMonth": 40,
+          "totalTokensPerCall": 20000
+        },
+        "workspace-initialization": {
+          "callsPerMonth": 28,
+          "totalTokensPerCall": 8000
+        },
+        "workspace-orientation": {
+          "callsPerMonth": 70,
+          "totalTokensPerCall": 7000
+        },
+        "status-reporting": {
+          "callsPerMonth": 140,
+          "totalTokensPerCall": 2500
+        },
+        "independent-review": {
+          "callsPerMonth": 24,
+          "totalTokensPerCall": 20000
+        },
+        "critical-review": {
+          "callsPerMonth": 15,
+          "totalTokensPerCall": 25000
+        },
+        "visual-inspection": {
+          "callsPerMonth": 70,
+          "totalTokensPerCall": 16000
+        },
+        "commit-preparation": {
+          "callsPerMonth": 90,
+          "totalTokensPerCall": 4000
+        },
+        "memory-maintenance": {
+          "callsPerMonth": 60,
+          "totalTokensPerCall": 5000
+        }
+      }
+    },
+    "implementation": {
+      "label": "Implementación frecuente",
+      "description": "Hipótesis de mayor trabajo de implementación y remediación; la revisión protegida también consume.",
+      "functionWorkload": {
+        "coordination": {
+          "callsPerMonth": 140,
+          "totalTokensPerCall": 12000
+        },
+        "bounded-exploration": {
+          "callsPerMonth": 160,
+          "totalTokensPerCall": 24000
+        },
+        "source-research": {
+          "callsPerMonth": 36,
+          "totalTokensPerCall": 22000
+        },
+        "proposal": {
+          "callsPerMonth": 36,
+          "totalTokensPerCall": 12000
+        },
+        "requirements": {
+          "callsPerMonth": 40,
+          "totalTokensPerCall": 16000
+        },
+        "architecture": {
+          "callsPerMonth": 78,
+          "totalTokensPerCall": 28000
+        },
+        "task-planning": {
+          "callsPerMonth": 75,
+          "totalTokensPerCall": 10000
+        },
+        "bounded-implementation": {
+          "callsPerMonth": 340,
+          "totalTokensPerCall": 56000
+        },
+        "semantic-verification": {
+          "callsPerMonth": 65,
+          "totalTokensPerCall": 18000
+        },
+        "mechanical-verification": {
+          "callsPerMonth": 210,
+          "totalTokensPerCall": 8500
+        },
+        "bounded-remediation": {
+          "callsPerMonth": 190,
+          "totalTokensPerCall": 32000
+        },
+        "semantic-integration": {
+          "callsPerMonth": 40,
+          "totalTokensPerCall": 20000
+        },
+        "workspace-initialization": {
+          "callsPerMonth": 28,
+          "totalTokensPerCall": 8000
+        },
+        "workspace-orientation": {
+          "callsPerMonth": 70,
+          "totalTokensPerCall": 7000
+        },
+        "status-reporting": {
+          "callsPerMonth": 90,
+          "totalTokensPerCall": 2800
+        },
+        "independent-review": {
+          "callsPerMonth": 35,
+          "totalTokensPerCall": 23500
+        },
+        "critical-review": {
+          "callsPerMonth": 22,
+          "totalTokensPerCall": 29000
+        },
+        "visual-inspection": {
+          "callsPerMonth": 70,
+          "totalTokensPerCall": 16000
+        },
+        "commit-preparation": {
+          "callsPerMonth": 120,
+          "totalTokensPerCall": 4500
+        },
+        "memory-maintenance": {
+          "callsPerMonth": 60,
+          "totalTokensPerCall": 5000
+        }
+      }
+    }
+  }
+}

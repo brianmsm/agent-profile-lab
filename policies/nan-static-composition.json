@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "id": "nan-static-hybrid-quality-v1",
+  "sourceAllocationPolicy": "policies/activity-allocation.json",
+  "sourceStaticPolicy": "policies/nan-static-workloads.json",
+  "qualityFirst": "Only roles admitted by existing NaN function contracts; optional newly delegated helper roles require exact matching NaN-only donor references and explicit consent.",
+  "compositionModes": {
+    "nan-only": {
+      "label": "Solo NaN",
+      "helperOffloads": 0,
+      "maxShareOfTotal": 0
+    },
+    "hybrid-preserve": {
+      "label": "Híbrido · mantener delegación",
+      "helperOffloads": 0,
+      "maxShareOfTotal": 0
+    },
+    "hybrid-assist": {
+      "label": "Híbrido · auxiliares NaN",
+      "helperOffloads": 2,
+      "maxShareOfTotal": 0.3
+    },
+    "hybrid-worker": {
+      "label": "Híbrido · worker delimitado",
+      "helperOffloads": 2,
+      "maxShareOfTotal": 0.65,
+      "requiresComplexity": "bounded",
+      "additionalFunctions": [
+        "bounded-implementation",
+        "bounded-remediation"
+      ],
+      "notes": "Explicit opt-in; may reassign a coding worker only when acceptance is verifiable. Not a quality guarantee."
+    }
+  },
+  "helperFunctionsInPriorityOrder": [
+    "status-reporting",
+    "commit-preparation",
+    "mechanical-verification",
+    "workspace-orientation",
+    "bounded-exploration"
+  ],
+  "notAutomaticallyDelegable": [
+    "bounded-implementation",
+    "bounded-remediation",
+    "coordination",
+    "independent-review",
+    "critical-review",
+    "architecture",
+    "memory-maintenance",
+    "semantic-integration",
+    "visual-inspection"
+  ],
+  "trialShareCapByObjective": {
+    "economy": 0.35,
+    "balanced": 0.3,
+    "speed": 0.3,
+    "best": 0.15
+  },
+  "selectionPriorities": [
+    "1. Guardar coordinación, revisión, roles inactivos, dominio, acceso, herramientas y presupuesto de calidad.",
+    "2. Admitir sólo subtareas delimitadas con aceptación independiente; Qwen/MiMo requieren opt-in.",
+    "3. Limitar la proporción hipotética de trabajo NaN que se asigna a modelos trial según el objetivo.",
+    "4. Minimizar la distancia de proporciones de tokens entre modelos admisibles.",
+    "5. En empate, minimizar carga trial y cantidad de cambios."
+  ],
+  "uncertainty": {
+    "lowerTokenFactor": 0.75,
+    "upperTokenFactor": 1.25,
+    "interpretation": "Análisis de sensibilidad de +/-25% sobre el volumen por modelo; no son intervalos de confianza ni un resultado medido."
+  },
+  "limitations": [
+    "El perfil sigue teniendo selectores fijos; no existe una cuota garantizada en tiempo de ejecución.",
+    "Los cupos empiezan hipotéticamente completos, sin consultar NaN.",
+    "El reparto no demuestra que un modelo trial tenga calidad equivalente.",
+    "El compositor nunca cambia un rol de OpenAI/Go/Claude fuera del conjunto explícito de auxiliares admitidos.",
+    "La delegación y el fallback del manifiesto no se imponen automáticamente mediante el perfil nativo.",
+    "Una llamada de bajo impacto puede consumir mucho contexto, y el contexto transferido afecta al trabajo del modelo."
+  ]
+}

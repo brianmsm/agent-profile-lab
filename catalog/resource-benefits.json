@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "asOf": "2026-10-10",
+  "source": "https://support.claude.com/en/articles/17154008-monthly-api-credits-for-max-and-team-plans",
+  "benefits": {
+    "claude-max5x-api-credit": {
+      "service": "anthropic-platform",
+      "eligiblePlan": "max5x",
+      "monthlyAmount": 100,
+      "currency": "USD",
+      "fundingKind": "included-credit"
+    },
+    "claude-max20x-api-credit": {
+      "service": "anthropic-platform",
+      "eligiblePlan": "max20x",
+      "monthlyAmount": 200,
+      "currency": "USD",
+      "fundingKind": "included-credit"
+    },
+    "claude-team-api-credit": {
+      "service": "anthropic-platform",
+      "eligiblePlan": "team",
+      "monthlyAmount": 500,
+      "standardSeatAmount": 20,
+      "premiumSeatAmount": 100,
+      "currency": "USD",
+      "fundingKind": "included-credit",
+      "formula": "min(500, 20*standardSeats+100*premiumSeats) at grant; no assumed seat count"
+    }
+  },
+  "excludedPlans": [
+    "pro"
+  ],
+  "conditions": [
+    "Claim and Console organization association required; no automatic entitlement.",
+    "Credits expire and are shared by the linked organization; not OAuth subscription quota.",
+    "Actual remaining balance and expiration must be supplied explicitly.",
+    "No rollover, no enforced spending cap, no implicit permission for overage.",
+    "Team offers depend on seat composition; not inferred from Max benefits.",
+    "Seven days on an active eligible plan and appropriate organization/plan roles are required; not verified by the compiler.",
+    "Only one linked organization/plan; credits refresh on billing-cycle dates, not assumed calendar-month dates.",
+    "Provider auto-reload/purchased balances can continue usage; this program never enables them."
+  ],
+  "enforcement": "declarative-only",
+  "updateMode": "manual"
+}

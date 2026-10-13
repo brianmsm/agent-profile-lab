@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "issues": {
+    "haiku-aa-cost-provisional": {
+      "label": "Haiku AA cost excludes long-input tier in the captured evaluation",
+      "sourceCaptureId": "aa-haiku-notes",
+      "status": "open",
+      "blocks": [
+        "economic-ranking"
+      ],
+      "note": "Do not assume per-request input tier from aggregate output tokens; require an identifiable updated evaluation/cost reconstruction."
+    },
+    "haiku-aa-automation-prerelease": {
+      "label": "Haiku prerelease over-refusal affected AutomationBench",
+      "sourceCaptureId": "aa-haiku-notes",
+      "status": "open",
+      "blocks": [
+        "capability-ranking"
+      ],
+      "note": "A promised rerun is not a completed reevaluation."
+    },
+    "nan-variant-unverified": {
+      "label": "NaN endpoint/checkpoint correspondence remains conditional",
+      "sourceCaptureId": "nan-models-current",
+      "status": "open",
+      "blocks": [
+        "route-calibration"
+      ],
+      "note": "Model evidence may be shown as candidate context, not measured NaN quality."
+    },
+    "opaque-protocol": {
+      "label": "Protocol not fully structured in the old observation",
+      "status": "open",
+      "blocks": [
+        "automatic-ranking"
+      ],
+      "note": "Inspect original source before causal or cross-source comparison."
+    },
+    "unknown-metric": {
+      "label": "Metric semantics unresolved",
+      "status": "open",
+      "blocks": [
+        "performance-ranking"
+      ],
+      "note": "A numeric observation is not necessarily a capability score."
+    },
+    "local-summary-unverified": {
+      "label": "Local summary not directly reconciled to an exact primary cell",
+      "status": "open",
+      "blocks": [
+        "automatic-ranking"
+      ],
+      "note": "Keep as secondary context; do not silently promote a prose estimate."
+    },
+    "legacy-osworld-version-disputed": {
+      "label": "Versión OSWorld de un resumen anterior requiere reconciliación",
+      "status": "open",
+      "blocks": [
+        "automatic-ranking"
+      ],
+      "note": "La cifra estricta de Opus 48.7 en la system card Sonnet corresponde a 2.1 full. No usar la etiqueta secundaria 2.0 como protocolo confirmado; el resultado primario se incorpora separado.",
+      "sourceCaptureId": "sonnet-system-card"
+    },
+    "aa-benchmark-under-review": {
+      "label": "AA señala SciCode y CritPt como Under review",
+      "status": "open",
+      "blocks": [
+        "capability-ranking"
+      ],
+      "note": "Estado observado en la página primaria de AA el 2026-10-10. Conservar las celdas históricas; no utilizarlas para admitir candidatas ni inferir validez científica.",
+      "sourceUrl": "https://artificialanalysis.ai/models/claude-haiku-5-5"
+    },
+    "harnessrank-historical-harness": {
+      "label": "HarnessRank report evaluates historical harness versions, not the current Agent Profile Lab targets",
+      "sourceCaptureId": "harnessrank-aggregates-20261012",
+      "status": "open",
+      "blocks": [
+        "current-harness-ranking",
+        "route-calibration"
+      ],
+      "note": "Aggregates for GPT-5.5 medium, Pi v0.79.6, OMP v16.1.15, OpenCode v1.17.9 and Codex v0.130.0. Valid source-local historical comparison, never a direct comparison of the user’s current installed harnesses."
+    }
+  }
+}

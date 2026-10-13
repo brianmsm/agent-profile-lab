@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "asOf": "2026-10-10",
+  "scope": "Illustrative static NaN budget assumptions; NOT a user account record or provider entitlement claim.",
+  "updateMode": "manual public example; cannot verify endpoint or active subscription",
+  "source": "republication/source-inventory-assumptions-only",
+  "models": [
+    {
+      "offeringKey": "nan_qwen",
+      "modelId": "qwen:qwen3.8-flash",
+      "monthlyTokens": 500000000,
+      "resetCadence": "monthly",
+      "reportedContext": 262000,
+      "effectiveContext": null,
+      "effortControl": "not-adjustable",
+      "upstreamProvider": null
+    },
+    {
+      "offeringKey": "nan_ds",
+      "modelId": "deepseek:deepseek-v4.1-flash",
+      "monthlyTokens": 3000000000,
+      "resetCadence": "monthly",
+      "reportedContext": 1000000,
+      "effectiveContext": null,
+      "effortControl": "not-adjustable",
+      "upstreamProvider": null
+    },
+    {
+      "offeringKey": "nan_mf",
+      "modelId": "xiaomi:mimo-v2.6-flash",
+      "monthlyTokens": 1000000000,
+      "resetCadence": "monthly",
+      "reportedContext": 1000000,
+      "effectiveContext": null,
+      "effortControl": "not-adjustable",
+      "upstreamProvider": "xiaomi"
+    },
+    {
+      "offeringKey": "nan_glm",
+      "modelId": "zai:glm-5.3-flash",
+      "monthlyTokens": 2000000000,
+      "resetCadence": "monthly",
+      "reportedContext": 1000000,
+      "effectiveContext": null,
+      "effortControl": "graduated",
+      "upstreamProvider": null
+    }
+  ],
+  "unresolvedClaims": [
+    {
+      "offeringKey": "nan_qwen",
+      "field": "context",
+      "account": "262K",
+      "publicDocs": "1M",
+      "resolution": "unknown; conservative declared context 262K"
+    },
+    {
+      "offeringKey": "nan_ds",
+      "field": "variant/parameters",
+      "account": "4.1 version / 284B",
+      "publicDocs": "Vision-Exp / 305B",
+      "resolution": "candidate identity only; no proven checkpoint equivalence"
+    }
+  ],
+  "excludedFromCurrentAccount": [
+    "nan_mimo"
+  ],
+  "accountCountersAreNotBenchmarks": true
+}

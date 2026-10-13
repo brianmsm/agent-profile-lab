@@ -1,0 +1,551 @@
+{
+  "schemaVersion": 1,
+  "id": "selection-review-2026-10-10",
+  "updateMode": "manual",
+  "evidenceFile": "policies/selection-evidence.json",
+  "evidenceSha256": "3d14da94091ff039eba3f346f0d78f771fd752a484660fc5d2e4f62b67d2856f",
+  "excludedDomains": [
+    "agent-use",
+    "cybersecurity"
+  ],
+  "protectedFunctions": [
+    "coordination",
+    "architecture",
+    "requirements",
+    "independent-review",
+    "critical-review",
+    "visual-inspection",
+    "memory-maintenance"
+  ],
+  "limitations": [
+    "Candidatas revisadas con evidencia externa; no ganadoras calibradas en el harness.",
+    "Se conserva coordinación, revisión, estado de roles y concurrencia; nunca se fuerza un porcentaje de proveedores.",
+    "Los manifiestos declaran las restricciones; el perfil nativo no las impone.",
+    "No se hereda contexto ni caché entre modelos. Pasar fuentes, objetivos, límites y prueba de aceptación explícitos.",
+    "No se añade acceso API ni gasto autorizado a partir de una suscripción."
+  ],
+  "recipes": [
+    {
+      "id": "haiku-small",
+      "label": "Haiku · auxiliares low",
+      "offeringKeys": [
+        "cl_haiku"
+      ],
+      "selections": {
+        "bounded-exploration": "low",
+        "status-reporting": "low",
+        "commit-preparation": "low"
+      },
+      "evidenceRefs": [
+        "observation-5f378b116c7c62f059c5e9a4",
+        "observation-fe2c6308aafeb7554b96fe6a",
+        "observation-2d3cf42225410791290f8698",
+        "observation-b72da6eb0747169f96dacc89"
+      ],
+      "rationale": "Primera candidata para extracción, clasificación y resúmenes con respuesta verificable. Se explicita low; no se hereda max de un leaderboard.",
+      "tradeoffs": [
+        "La clasificación y los resúmenes tienen apoyo de uso declarado y tareas agregadas, no un ensayo de este rol exacto.",
+        "Luna low usa menos tokens en la evaluación de código; no se afirma que Haiku sea siempre más económico o rápido."
+      ],
+      "objectives": [
+        "economy",
+        "speed",
+        "balanced"
+      ],
+      "complexities": [
+        "bounded",
+        "standard",
+        "complex"
+      ],
+      "domains": [
+        "apps",
+        "web",
+        "data",
+        "research"
+      ],
+      "admission": "reviewed-external-evidence",
+      "workload": "closed-subtasks",
+      "maxInputTokensForEconomicArgument": 100000
+    },
+    {
+      "id": "haiku-worker",
+      "label": "Haiku · ejecución medium",
+      "offeringKeys": [
+        "cl_haiku"
+      ],
+      "selections": {
+        "bounded-exploration": "medium",
+        "bounded-implementation": "medium",
+        "bounded-remediation": "medium",
+        "mechanical-verification": "low",
+        "status-reporting": "low",
+        "commit-preparation": "low"
+      },
+      "evidenceRefs": [
+        "observation-23edc00e2efd81a0c93ef4c4",
+        "observation-17e64ec1a59de7f4fc270b09",
+        "observation-5a377a45c2fae06d0a07b331",
+        "observation-2bd933e6da2529986d08e825",
+        "observation-01df812e336c20754e134a59",
+        "observation-65639e2ec12fcf4440870fed",
+        "observation-a0652eb281328385cfa2f348"
+      ],
+      "rationale": "Candidata general para worker/task delimitado: medium obtiene casi el mismo promedio de mergeability que high en FrontierCode con menor trabajo de salida. Luna sigue como comparador, no como perdedor global.",
+      "tradeoffs": [
+        "FrontierCode compara Claude Code y Codex, no el mismo harness; es evidencia descriptiva.",
+        "Sonnet high tarda menos por tarea en esta captura que Haiku medium: modelo pequeño no garantiza menor latencia total.",
+        "No trasladar a Haiku razonamiento oculto de Sonnet/Opus; usar instrucciones y fuentes explícitas."
+      ],
+      "objectives": [
+        "economy",
+        "balanced",
+        "speed",
+        "best"
+      ],
+      "complexities": [
+        "bounded",
+        "standard"
+      ],
+      "domains": [
+        "apps",
+        "web",
+        "data",
+        "research"
+      ],
+      "admission": "reviewed-external-evidence",
+      "workload": "closed-subtasks",
+      "maxInputTokensForEconomicArgument": 100000
+    },
+    {
+      "id": "haiku-worker-high",
+      "label": "Haiku · contraste high",
+      "offeringKeys": [
+        "cl_haiku"
+      ],
+      "selections": {
+        "bounded-implementation": "high"
+      },
+      "evidenceRefs": [
+        "observation-17e64ec1a59de7f4fc270b09",
+        "observation-23edc00e2efd81a0c93ef4c4",
+        "observation-3e67e884349c0d35df3dd1e9",
+        "observation-01df812e336c20754e134a59"
+      ],
+      "rationale": "Variante para contrastar si más esfuerzo ayuda en la subtarea concreta; AA mejora, pero FrontierCode medium y high están muy próximos.",
+      "tradeoffs": [
+        "No es una promoción automática de medium ni prueba de significación estadística.",
+        "No se ofrece max por defecto para trabajos pequeños."
+      ],
+      "objectives": [
+        "balanced",
+        "best"
+      ],
+      "complexities": [
+        "bounded",
+        "standard"
+      ],
+      "domains": [
+        "apps",
+        "web",
+        "data",
+        "research"
+      ],
+      "admission": "reviewed-external-evidence",
+      "workload": "closed-subtasks",
+      "maxInputTokensForEconomicArgument": 100000
+    },
+    {
+      "id": "luna-small",
+      "label": "Luna · auxiliares low",
+      "offeringKeys": [
+        "oa_luna"
+      ],
+      "selections": {
+        "bounded-exploration": "low",
+        "status-reporting": "low",
+        "commit-preparation": "low"
+      },
+      "evidenceRefs": [
+        "observation-b72da6eb0747169f96dacc89",
+        "observation-c64a0dd5c1fed0412c6958ad",
+        "observation-6e02a3bc232e38513464b74c",
+        "observation-5f378b116c7c62f059c5e9a4"
+      ],
+      "rationale": "Comparador de bajo trabajo de salida para transformaciones muy cerradas, con aceptación determinista.",
+      "tradeoffs": [
+        "Sus resultados de tareas abiertas son menores que los de esfuerzos superiores.",
+        "Su menor consumo publicado no acredita menor gasto de la suscripción ni del perfil compuesto."
+      ],
+      "objectives": [
+        "economy",
+        "speed",
+        "balanced"
+      ],
+      "complexities": [
+        "bounded",
+        "standard",
+        "complex"
+      ],
+      "domains": [
+        "apps",
+        "web",
+        "data",
+        "research"
+      ],
+      "admission": "reviewed-external-evidence",
+      "workload": "closed-subtasks",
+      "maxInputTokensForEconomicArgument": null
+    },
+    {
+      "id": "luna-worker",
+      "label": "Luna · contraste worker max",
+      "offeringKeys": [
+        "oa_luna"
+      ],
+      "selections": {
+        "bounded-implementation": "max"
+      },
+      "evidenceRefs": [
+        "observation-a0652eb281328385cfa2f348",
+        "observation-23edc00e2efd81a0c93ef4c4",
+        "observation-1e106bfe30ddc29f74c06adf",
+        "observation-3e67e884349c0d35df3dd1e9"
+      ],
+      "rationale": "Comparador de Luna en ejecución, con su esfuerzo fuerte registrado. Permite evaluar la hipótesis Haiku worker frente a Luna en lugar de imponer una cuota igual.",
+      "tradeoffs": [
+        "max aquí pertenece al comparador y no a tareas pequeñas.",
+        "Las diferencias frente a Haiku incluyen el harness de evaluación."
+      ],
+      "objectives": [
+        "balanced",
+        "best"
+      ],
+      "complexities": [
+        "bounded",
+        "standard"
+      ],
+      "domains": [
+        "apps",
+        "web",
+        "data",
+        "research"
+      ],
+      "admission": "reviewed-external-evidence",
+      "workload": "closed-subtasks",
+      "maxInputTokensForEconomicArgument": null
+    },
+    {
+      "id": "opus-worker",
+      "label": "Opus · ejecución medium",
+      "offeringKeys": [
+        "cl_opus"
+      ],
+      "selections": {
+        "bounded-implementation": "medium",
+        "bounded-remediation": "medium"
+      },
+      "evidenceRefs": [
+        "observation-adce85ee567d85eef1651099",
+        "observation-abf9590fcea66ac9699685ca",
+        "observation-0dac19e5f63038b712222178",
+        "observation-bd1f54e0b52fb4e71509102a",
+        "observation-6186dc7d425a495cc206e3fd",
+        "observation-fa4cc7d0e7f17aac7d4dd70c"
+      ],
+      "rationale": "Reabre Opus como worker: en el mismo harness publicado, medium no queda por debajo de max en mergeability media y evita asumir que máxima calidad exige esfuerzo máximo.",
+      "tradeoffs": [
+        "La corrección funcional media y mergeability no son la misma métrica.",
+        "No se demuestra que medium domine en cada tarea ni que sustituya a un revisor independiente."
+      ],
+      "objectives": [
+        "balanced",
+        "speed",
+        "best"
+      ],
+      "complexities": [
+        "bounded",
+        "standard"
+      ],
+      "domains": [
+        "apps",
+        "web",
+        "data",
+        "research"
+      ],
+      "admission": "reviewed-external-evidence",
+      "workload": "closed-subtasks",
+      "maxInputTokensForEconomicArgument": null
+    },
+    {
+      "id": "opus-scientific-worker",
+      "label": "Opus · worker high con oráculo",
+      "offeringKeys": [
+        "cl_opus"
+      ],
+      "selections": {
+        "bounded-implementation": "high"
+      },
+      "evidenceRefs": [
+        "observation-b47a267415e4f65e210a8097",
+        "observation-8189c476834bf6c0b0338d69",
+        "observation-137bbaeb41ee6e22c835c20b",
+        "observation-abf9590fcea66ac9699685ca"
+      ],
+      "rationale": "Candidata de ejecución analítica compleja pero especificada, respaldada por Terminal-Bench Science; no se usa SciCode ni CritPt bajo revisión.",
+      "tradeoffs": [
+        "La validez de un estimador o una conclusión científica permanece bajo revisión separada.",
+        "Los resultados agregados no acreditan psicometría, R, SEM o cada especialidad."
+      ],
+      "objectives": [
+        "balanced",
+        "best"
+      ],
+      "complexities": [
+        "bounded",
+        "standard"
+      ],
+      "domains": [
+        "research",
+        "data"
+      ],
+      "admission": "reviewed-external-evidence",
+      "workload": "closed-subtasks",
+      "maxInputTokensForEconomicArgument": null
+    },
+    {
+      "id": "sonnet-worker",
+      "label": "Sonnet · ejecución high",
+      "offeringKeys": [
+        "cl_sonnet"
+      ],
+      "selections": {
+        "bounded-implementation": "high",
+        "bounded-remediation": "high"
+      },
+      "evidenceRefs": [
+        "observation-9a558f89b505bea3a02498ab",
+        "observation-300c155fe03a35114fae73ac",
+        "observation-2bd933e6da2529986d08e825",
+        "observation-537592ce27866b444f539a4f"
+      ],
+      "rationale": "Mantiene Sonnet como alternativa fuerte sin imponer max: la captura actual de FrontierCode muestra peores promedios y más tiempo al máximo.",
+      "tradeoffs": [
+        "No se infiere causalidad ni se cambia la referencia archivada; los ensayos por tarea decidirán.",
+        "Esta alternativa puede coincidir con la base y entonces no se emite una copia con otro nombre."
+      ],
+      "objectives": [
+        "balanced",
+        "speed",
+        "best"
+      ],
+      "complexities": [
+        "bounded",
+        "standard"
+      ],
+      "domains": [
+        "apps",
+        "web",
+        "data",
+        "research"
+      ],
+      "admission": "reviewed-external-evidence",
+      "workload": "closed-subtasks",
+      "maxInputTokensForEconomicArgument": null
+    },
+    {
+      "id": "glm-full-worker",
+      "label": "GLM 5.3 completo · worker",
+      "offeringKeys": [
+        "go_glmf",
+        "cc_glmf"
+      ],
+      "selections": {
+        "bounded-implementation": "max"
+      },
+      "evidenceRefs": [
+        "observation-f6618b50fb7d5bd87fd81154",
+        "observation-b48b35fb8972a06c0df06e11",
+        "observation-a6838967402b8fd5a74e7c29",
+        "observation-97fbe3d48c19bff068cbc146"
+      ],
+      "rationale": "GLM completo, antes nunca usado, merece compararse en implementación. La selección distingue explícitamente GLM 5.3 de GLM 5.3 Flash.",
+      "tradeoffs": [
+        "Las métricas provienen de la identidad publicada, no de una medición de OpenCode Go o Command Code.",
+        "El mayor coste observado en Chisel no se traslada a cuotas de suscripción. Command no acredita visión en esta oferta."
+      ],
+      "objectives": [
+        "balanced",
+        "best"
+      ],
+      "complexities": [
+        "bounded",
+        "standard"
+      ],
+      "domains": [
+        "apps",
+        "web",
+        "data",
+        "research"
+      ],
+      "admission": "conditional-access-route",
+      "workload": "closed-subtasks",
+      "maxInputTokensForEconomicArgument": null
+    },
+    {
+      "id": "kimi-context",
+      "label": "Kimi K3 · lectura delimitada",
+      "offeringKeys": [
+        "go_kimi",
+        "cc_kimi"
+      ],
+      "selections": {
+        "bounded-exploration": "max"
+      },
+      "evidenceRefs": [
+        "observation-de54c8fca71eb51e381d3fc0",
+        "observation-5c3a3b04d39d3ec118dacd90",
+        "observation-d12b9179330588532af4505a"
+      ],
+      "rationale": "Rescata Kimi para buscar y extraer en documentación extensa: se considera contexto largo, no un ranking global de código.",
+      "tradeoffs": [
+        "Exigir citas, fechas y fragmentos de respaldo; LCR no garantiza recuperación exacta en tu corpus.",
+        "No se aumenta automáticamente el contexto del endpoint; verificar límite y formato de entrada."
+      ],
+      "objectives": [
+        "economy",
+        "balanced",
+        "speed",
+        "best"
+      ],
+      "complexities": [
+        "bounded",
+        "standard",
+        "complex"
+      ],
+      "domains": [
+        "apps",
+        "web",
+        "data",
+        "research"
+      ],
+      "admission": "conditional-access-route",
+      "workload": "long-context-source-extraction",
+      "maxInputTokensForEconomicArgument": null
+    },
+    {
+      "id": "deepseek-worker",
+      "label": "DeepSeek · implementación cerrada",
+      "offeringKeys": [
+        "go_ds"
+      ],
+      "selections": {
+        "bounded-implementation": "max"
+      },
+      "evidenceRefs": [
+        "observation-2218f85919e8320bd72e06ed",
+        "observation-5f468aa4921697d4d58df4d8",
+        "observation-50abdf0b7ec1333b87b4f3c9"
+      ],
+      "rationale": "Candidata para cambios de código verificables por pruebas, no para resolver hechos o bibliografía sin fuente.",
+      "tradeoffs": [
+        "La tasa de alucinación publicada es condicional a ese test de conocimiento, no a todas las respuestas.",
+        "NaN no tiene el mismo control de esfuerzo: esta receta no se copia a nan_ds."
+      ],
+      "objectives": [
+        "economy",
+        "balanced"
+      ],
+      "complexities": [
+        "bounded",
+        "standard"
+      ],
+      "domains": [
+        "apps",
+        "web",
+        "data",
+        "research"
+      ],
+      "admission": "conditional-access-route",
+      "workload": "closed-subtasks",
+      "maxInputTokensForEconomicArgument": null
+    },
+    {
+      "id": "mimo-nan-worker",
+      "label": "MiMo Flash / NaN · trabajo delimitado",
+      "offeringKeys": [
+        "nan_mf"
+      ],
+      "selections": {
+        "bounded-exploration": "",
+        "bounded-implementation": ""
+      },
+      "evidenceRefs": [
+        "observation-e9760c35c57161a175c68a09",
+        "observation-ba09687cdc2c57bb4743dc51"
+      ],
+      "rationale": "El inventario confirma MiMo 2.6 Flash. Se habilita una candidata de prueba acotada, sin inventar esfuerzos ni usar cifras de MiMo Pro.",
+      "tradeoffs": [
+        "La equivalencia del endpoint con el modelo público sigue sin demostrarse.",
+        "El resultado del proveedor no valida esta vía NaN; comprobar identidad, tool use multivuelta y truncamiento antes de usarla."
+      ],
+      "objectives": [
+        "economy",
+        "balanced",
+        "speed"
+      ],
+      "complexities": [
+        "bounded",
+        "standard"
+      ],
+      "domains": [
+        "apps",
+        "web",
+        "data",
+        "research"
+      ],
+      "admission": "conditional-access-route",
+      "workload": "closed-subtasks",
+      "maxInputTokensForEconomicArgument": null
+    },
+    {
+      "id": "glm-flash-worker",
+      "label": "GLM 5.3 Flash · ejecución acotada",
+      "offeringKeys": [
+        "go_glm",
+        "cc_glm"
+      ],
+      "selections": {
+        "bounded-implementation": "max"
+      },
+      "evidenceRefs": [
+        "observation-f6618b50fb7d5bd87fd81154",
+        "observation-b48b35fb8972a06c0df06e11",
+        "observation-a6838967402b8fd5a74e7c29",
+        "observation-97fbe3d48c19bff068cbc146"
+      ],
+      "rationale": "Flash no queda relegado sólo a roles inactivos: se ofrece un contraste de implementación delimitada, separado de GLM completo.",
+      "tradeoffs": [
+        "La evidencia fuerte disponible es a max; no se inventa una victoria a low para llamarlo tarea pequeña.",
+        "El coste observado por el evaluador no es cuota ni precio marginal del gateway. No se declara eficacia de revisión independiente."
+      ],
+      "objectives": [
+        "economy",
+        "balanced"
+      ],
+      "complexities": [
+        "bounded",
+        "standard"
+      ],
+      "domains": [
+        "apps",
+        "web",
+        "data",
+        "research"
+      ],
+      "admission": "conditional-access-route",
+      "workload": "closed-subtasks",
+      "maxInputTokensForEconomicArgument": null
+    }
+  ],
+  "handoffContract": "closed-subtask-with-explicit-handoff-and-acceptance"
+}

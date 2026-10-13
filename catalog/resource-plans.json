@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "scope": "Logical resource contracts of the baseline corpus, not current price or entitlement verification. New plans must be added explicitly.",
+  "plans": {
+    "chatgpt|plus": {
+      "service": "chatgpt",
+      "plan": "plus",
+      "billing": "subscription",
+      "priceSource": "data/portfolios.csv"
+    },
+    "chatgpt|pro100": {
+      "service": "chatgpt",
+      "plan": "pro100",
+      "billing": "subscription",
+      "priceSource": "data/portfolios.csv"
+    },
+    "claude|pro": {
+      "service": "claude",
+      "plan": "pro",
+      "billing": "subscription",
+      "priceSource": "data/portfolios.csv"
+    },
+    "claude|max": {
+      "service": "claude",
+      "plan": "max",
+      "billing": "subscription",
+      "priceSource": "data/portfolios.csv"
+    },
+    "opencode-go|opencode-go": {
+      "service": "opencode-go",
+      "plan": "opencode-go",
+      "billing": "subscription",
+      "priceSource": "data/portfolios.csv"
+    },
+    "commandcode|command-goat": {
+      "service": "commandcode",
+      "plan": "command-goat",
+      "billing": "subscription",
+      "priceSource": "data/portfolios.csv"
+    },
+    "nan|nan-standard": {
+      "service": "nan",
+      "plan": "nan-standard",
+      "billing": "subscription",
+      "priceSource": "data/portfolios.csv",
+      "allowedModelIds": [
+        "qwen:qwen3.8-flash",
+        "deepseek:deepseek-v4.1-flash",
+        "xiaomi:mimo-v2.6-flash",
+        "zai:glm-5.3-flash"
+      ],
+      "inventoryEvidence": "evidence/nan/account-observation-2026-10-10.json"
+    },
+    "openai-platform|metered": {
+      "service": "openai-platform",
+      "plan": "metered",
+      "billing": "metered",
+      "priceSource": null,
+      "requiresExplicitAuthorization": true
+    },
+    "anthropic-platform|metered": {
+      "service": "anthropic-platform",
+      "plan": "metered",
+      "billing": "metered",
+      "priceSource": "catalog/pricing.json",
+      "requiresExplicitAuthorization": true
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "selection-review-2026-10-10",
+  "policySha256": "1483aba7aacedde2adf31a9b14945d6ba2b9c2a1a7053dd159e59afb39fd2f18",
+  "evidenceSha256": "3d14da94091ff039eba3f346f0d78f771fd752a484660fc5d2e4f62b67d2856f",
+  "approvalMeaning": "Manual selection-policy review, not route calibration or paid-use permission.",
+  "inputSha256": {
+    "catalog/offerings.json": "7d5ea57b19e8c724837ae32fd5be433095a5e08c8e157424e5468cba8e23bd71",
+    "catalog/access-routes.json": "ffd051ffaf2c2aa30dae6732514117e6168e2abc4e2e83a2eb0fad1b99e8dc5d",
+    "catalog/resource-plans.json": "030f961ba7e3e1d2fcf045d313bd295c7613894e106d1231de8502a835804de6",
+    "contracts/harnesses.json": "7369d7f582a2afff26c9603c84f3e873ff75a4069f3334bd6134cf79f1940138",
+    "policies/activity-allocation.json": "e83ded914a479b7f372fb3939bb4a449befdb16c4abc963b75a3fcca77c005fe"
+  }
+}

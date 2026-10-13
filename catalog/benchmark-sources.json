@@ -1,0 +1,204 @@
+{
+  "schemaVersion": 1,
+  "mode": "manual",
+  "sources": [
+    {
+      "id": "aa-haiku-notes",
+      "sourceId": "BR-AA-HAIKU",
+      "url": "https://artificialanalysis.ai/articles/claude-haiku-5-5",
+      "kind": "benchmark"
+    },
+    {
+      "id": "haiku-migration",
+      "sourceId": "BR-HAIKU-MIGRATION",
+      "url": "https://platform.claude.com/docs/en/models/haiku-5-5/migration-guide",
+      "kind": "contract"
+    },
+    {
+      "id": "claude-credits",
+      "sourceId": "BR-CLAUDE-CREDITS",
+      "url": "https://support.claude.com/en/articles/17154008-monthly-api-credits-for-max-and-team-plans",
+      "kind": "contract"
+    },
+    {
+      "id": "claude-pricing",
+      "sourceId": "BR-CLAUDE-PRICING",
+      "url": "https://platform.claude.com/docs/en/about-claude/pricing",
+      "kind": "contract"
+    },
+    {
+      "id": "harnessrank",
+      "sourceId": "BR-HARNESSRANK",
+      "url": "https://harnessrank.net/",
+      "kind": "benchmark"
+    },
+    {
+      "id": "databricks",
+      "sourceId": "BR-DATABRICKS",
+      "url": "https://www.databricks.com/blog/benchmarking-coding-agents-databricks-multi-million-line-codebase",
+      "kind": "benchmark"
+    },
+    {
+      "id": "scaffold-effect",
+      "sourceId": "BR-SCAFFOLD",
+      "url": "https://arxiv.org/html/2607.22585",
+      "kind": "benchmark"
+    },
+    {
+      "id": "minimal-mle",
+      "sourceId": "BR-MINIMAL-MLE",
+      "url": "https://arxiv.org/html/2609.40303",
+      "kind": "benchmark"
+    },
+    {
+      "id": "hashline",
+      "sourceId": "BR-HASHLINE",
+      "url": "https://blog.can.ac/2026/02/12/the-harness-problem/",
+      "kind": "benchmark"
+    },
+    {
+      "id": "aider",
+      "sourceId": "BR-AIDER",
+      "url": "https://aider.chat/docs/leaderboards/",
+      "kind": "benchmark"
+    },
+    {
+      "id": "bfcl",
+      "sourceId": "BR-BFCL",
+      "url": "https://gorilla.cs.berkeley.edu/leaderboard.html",
+      "kind": "benchmark"
+    },
+    {
+      "id": "mcpmark",
+      "sourceId": "BR-MCPMARK",
+      "url": "https://mcpmark.ai/",
+      "kind": "benchmark"
+    },
+    {
+      "id": "webarena",
+      "sourceId": "BR-WEBARENA",
+      "url": "https://servicenow.github.io/webarena-verified/",
+      "kind": "benchmark"
+    },
+    {
+      "id": "workarena",
+      "sourceId": "BR-WORKARENA",
+      "url": "https://arxiv.org/html/2403.07718",
+      "kind": "benchmark"
+    },
+    {
+      "id": "datascibench",
+      "sourceId": "BR-DATASCI",
+      "url": "https://arxiv.org/html/2502.13897",
+      "kind": "benchmark"
+    },
+    {
+      "id": "scienceagentbench",
+      "sourceId": "BR-SCIENCEAGENT",
+      "url": "https://arxiv.org/html/2410.05080",
+      "kind": "benchmark"
+    },
+    {
+      "id": "bixbench",
+      "sourceId": "BR-BIXBENCH",
+      "url": "https://arxiv.org/html/2503.00096",
+      "kind": "benchmark"
+    },
+    {
+      "id": "bird-interact",
+      "sourceId": "BR-BIRD",
+      "url": "https://bird-interact.github.io/",
+      "kind": "benchmark"
+    },
+    {
+      "id": "livesqlbench",
+      "sourceId": "BR-LIVESQL",
+      "url": "https://livesqlbench.ai/",
+      "kind": "benchmark"
+    },
+    {
+      "id": "deepscholar",
+      "sourceId": "BR-DEEPSCHOLAR",
+      "url": "https://arxiv.org/html/2508.20033",
+      "kind": "benchmark"
+    },
+    {
+      "id": "deepresearch2",
+      "sourceId": "BR-DEEPRESEARCH",
+      "url": "https://arxiv.org/html/2601.08536",
+      "kind": "benchmark"
+    },
+    {
+      "id": "swe-prbench",
+      "sourceId": "BR-SWE-PR",
+      "url": "https://arxiv.org/html/2603.26130",
+      "kind": "benchmark"
+    },
+    {
+      "id": "codereview",
+      "sourceId": "BR-CODEREVIEW",
+      "url": "https://www.codereviewbench.com/leaderboard",
+      "kind": "benchmark"
+    },
+    {
+      "id": "longmemeval",
+      "sourceId": "BR-LONGMEM",
+      "url": "https://arxiv.org/html/2410.10813",
+      "kind": "benchmark"
+    },
+    {
+      "id": "skillsbench",
+      "sourceId": "BR-SKILLS",
+      "url": "https://www.skillsbench.ai/blogs/skillsbench-1-1",
+      "kind": "benchmark"
+    },
+    {
+      "id": "hal-reliability",
+      "sourceId": "BR-HAL",
+      "url": "https://hal.cs.princeton.edu/reliability/",
+      "kind": "benchmark"
+    },
+    {
+      "id": "agentdojo",
+      "sourceId": "BR-AGENTDOJO",
+      "url": "https://arxiv.org/html/2406.13352",
+      "kind": "benchmark"
+    },
+    {
+      "id": "qwen-card",
+      "sourceId": "BR-QWEN",
+      "url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next/raw/main/README.md",
+      "kind": "benchmark"
+    },
+    {
+      "id": "webarena-latest",
+      "sourceId": "BR-WEBARENA-LATEST",
+      "url": "https://servicenow.github.io/webarena-verified/latest/",
+      "kind": "benchmark"
+    },
+    {
+      "id": "bfcl-loader",
+      "sourceId": "BR-BFCL-LOADER",
+      "url": "https://gorilla.cs.berkeley.edu/index_main.js",
+      "kind": "code"
+    },
+    {
+      "id": "mcpmark-verified",
+      "sourceId": "BR-MCPMARK-VERIFIED",
+      "url": "https://mcpmark.ai/leaderboard/verified",
+      "kind": "benchmark"
+    },
+    {
+      "id": "bfcl-overall",
+      "sourceId": "BR-BFCL-DATA",
+      "url": "https://gorilla.cs.berkeley.edu/data_overall.csv",
+      "kind": "benchmark"
+    },
+    {
+      "id": "claude-model-limits",
+      "sourceId": "BR-CLAUDE-LIMITS",
+      "url": "https://platform.claude.com/docs/en/about-claude/models/overview",
+      "kind": "contract"
+    }
+  ]
+}

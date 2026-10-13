@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "models": {
+    "openai:gpt-6-sol": {
+      "name": "GPT-6 Sol",
+      "publisher": "openai",
+      "publishedId": "gpt-6-sol",
+      "identityScope": "Published label/version. Does not prove checkpoint or transport equivalence."
+    },
+    "openai:gpt-6-luna": {
+      "name": "GPT-6 Luna",
+      "publisher": "openai",
+      "publishedId": "gpt-6-luna",
+      "identityScope": "Published label/version. Does not prove checkpoint or transport equivalence."
+    },
+    "openai:gpt-6-astra": {
+      "name": "GPT-6 Astra",
+      "publisher": "openai",
+      "publishedId": "gpt-6-astra",
+      "identityScope": "Published label/version. Does not prove checkpoint or transport equivalence."
+    },
+    "openai:gpt-5.6-sol": {
+      "name": "GPT-5.6 Sol",
+      "publisher": "openai",
+      "publishedId": "gpt-5.6-sol",
+      "identityScope": "Published label/version. Does not prove checkpoint or transport equivalence."
+    },
+    "openai:gpt-6.1-sol": {
+      "name": "GPT-6.1 Sol",
+      "publisher": "openai",
+      "publishedId": "gpt-6.1-sol",
+      "identityScope": "Published label/version. Does not prove checkpoint or transport equivalence."
+    },
+    "xiaomi:mimo-v2.6-flash": {
+      "name": "MiMo V2.6 Flash",
+      "publisher": "xiaomi",
+      "publishedId": "mimo-v2.6-flash",
+      "identityScope": "Published label/version. Does not prove checkpoint or transport equivalence."
+    },
+    "xiaomi:mimo-v2.6-pro": {
+      "name": "MiMo V2.6 Pro",
+      "publisher": "xiaomi",
+      "publishedId": "mimo-v2.6-pro",
+      "identityScope": "Published label/version. Does not prove checkpoint or transport equivalence."
+    },
+    "xiaomi:mimo-v2.6-pro-ultraspeed": {
+      "name": "MiMo V2.6 Pro UltraSpeed",
+      "publisher": "xiaomi",
+      "publishedId": "mimo-v2.6-pro-ultraspeed",
+      "identityScope": "Published label/version. Does not prove checkpoint or transport equivalence."
+    },
+    "xiaomi:mimo-v2.5": {
+      "name": "MiMo V2.5",
+      "publisher": "xiaomi",
+      "publishedId": "mimo-v2.5",
+      "identityScope": "Published label/version. Does not prove checkpoint or transport equivalence."
+    },
+    "zai:glm-5.3-flash": {
+      "name": "GLM 5.3 Flash",
+      "publisher": "zai",
+      "publishedId": "glm-5.3-flash",
+      "identityScope": "Published label/version. Does not prove checkpoint or transport equivalence."
+    },
+    "zai:glm-5.3": {
+      "name": "GLM 5.3",
+      "publisher": "zai",
+      "publishedId": "glm-5.3",
+      "identityScope": "Published label/version. Does not prove checkpoint or transport equivalence."
+    },
+    "deepseek:deepseek-v4.1-flash": {
+      "name": "DeepSeek V4.1 Flash",
+      "publisher": "deepseek",
+      "publishedId": "deepseek-v4.1-flash",
+      "identityScope": "Published label/version. Does not prove checkpoint or transport equivalence."
+    },
+    "moonshot:kimi-k3": {
+      "name": "Kimi K3",
+      "publisher": "moonshot",
+      "publishedId": "kimi-k3",
+      "identityScope": "Published label/version. Does not prove checkpoint or transport equivalence."
+    },
+    "anthropic:claude-fable-5-1": {
+      "name": "Claude Fable 5.1",
+      "publisher": "anthropic",
+      "publishedId": "claude-fable-5-1",
+      "identityScope": "Published label/version. Does not prove checkpoint or transport equivalence."
+    },
+    "anthropic:claude-opus-5-5": {
+      "name": "Claude Opus 5.5",
+      "publisher": "anthropic",
+      "publishedId": "claude-opus-5-5",
+      "identityScope": "Published label/version. Does not prove checkpoint or transport equivalence."
+    },
+    "anthropic:claude-sonnet-5-5": {
+      "name": "Claude Sonnet 5.5",
+      "publisher": "anthropic",
+      "publishedId": "claude-sonnet-5-5",
+      "identityScope": "Published label/version. Does not prove checkpoint or transport equivalence."
+    },
+    "anthropic:claude-haiku-5-5": {
+      "name": "Claude Haiku 5.5",
+      "publisher": "anthropic",
+      "publishedId": "claude-haiku-5-5",
+      "releasedAt": "2026-10-07",
+      "identityScope": "Published fixed label; access, checkpoint and harness acceptance must be verified separately and were not tested here."
+    },
+    "qwen:qwen3.8-flash": {
+      "name": "Qwen 3.8 Flash",
+      "publisher": "qwen",
+      "publishedId": "qwen3.8-flash",
+      "identityScope": "NaN service label, not established as the Flash-Next open checkpoint. No fuzzy version inheritance."
+    }
+  }
+}

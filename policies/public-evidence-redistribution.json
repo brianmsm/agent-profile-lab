@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "numericSourceIds": [
+    "BR-BFCL-DATA"
+  ],
+  "meaning": "Explicit reviewed numeric publication allowlist, not a universal conclusion about all other publishers.",
+  "reviewedSource": {
+    "BR-BFCL-DATA": {
+      "publisher": "Berkeley Function Calling Leaderboard / Gorilla",
+      "sourceUrl": "https://gorilla.cs.berkeley.edu/data_overall.csv",
+      "repository": "https://github.com/ShishirPatil/gorilla",
+      "license": "Apache-2.0",
+      "licenseUrl": "https://github.com/ShishirPatil/gorilla/blob/main/LICENSE",
+      "scope": "Source-local leaderboard aggregate values; do not assume the license of evaluated third-party models.",
+      "mustRetainAttribution": true,
+      "scoreRedistributionBasis": "Publisher expressly licenses all BFCL leaderboard statistics under Apache-2.0; official score-generation documentation identifies data_overall.csv as the overall-score CSV used to update the leaderboard.",
+      "scoreRedistributionEvidence": [
+        {
+          "url": "https://github.com/ShishirPatil/gorilla/blob/main/berkeley-function-call-leaderboard/README.md",
+          "locator": "README, Contributing: all leaderboard statistics Apache 2.0; Output Structure: data_overall.csv used for updating the leaderboard",
+          "interpretation": "The explicit coverage extends beyond code and evaluation questions to publisher leaderboard statistics, including the official summary file."
+        },
+        {
+          "url": "https://huggingface.co/datasets/gorilla-llm/Berkeley-Function-Calling-Leaderboard",
+          "locator": "Publisher dataset card; license: apache-2.0",
+          "interpretation": "Corroborates an explicit open dataset license; the score-table scope is grounded primarily in the official BFCL README."
+        }
+      ],
+      "releaseDecision": "cleared-with-attribution-and-original-source-metadata",
+      "reproducedMaterial": "normalized score measurements from the official BFCL leaderboard CSV, not upstream article text, model weights or evaluation logs"
+    }
+  },
+  "linkedOnlyRules": [
+    "All Artificial Analysis numerical results and historical duplicates",
+    "All Slopalytics Artificial Analysis mirror observations",
+    "Other third-party observation sources not yet covered by a reviewed public data redistribution license"
+  ],
+  "sourceOnlyNotes": "Original agent profiles, historical human-authored rationales and routing assumptions remain unchanged; no computed reranking."
+}

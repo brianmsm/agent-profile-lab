@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "reviewDate": "2026-10-12",
+  "purpose": "Explicit bounded disposition of the four formerly open numerical-source gaps; no fictional scores, no automatic harvesting.",
+  "sources": {
+    "harnessrank": {
+      "sourceId": "BR-HARNESSRANK-DATA",
+      "officialURL": "https://harnessrank.net/data/runs.js",
+      "captureId": "harnessrank-aggregates-20261012",
+      "status": "bounded-numerical-coverage-established",
+      "numericObservations": 44,
+      "denominator": "89 tasks; three or five runs per historical harness",
+      "reason": "Four original aggregates for Pi, OMP, OpenCode and Codex are retained with cost/token/score fields. The models/harness versions are historical and excluded from direct current routing selection."
+    },
+    "databricks": {
+      "sourceId": "BR-DATABRICKS",
+      "officialURL": "https://www.databricks.com/blog/benchmarking-coding-agents-databricks-multi-million-line-codebase",
+      "captureId": "databricks",
+      "status": "not-numerically-closed",
+      "numericObservations": 0,
+      "reason": "Public article gives qualitative conclusions and graphical comparisons; verified complete model-harness numeric records, task denominators and uncertainty are not available in the frozen text capture. Do not digitize figures as exact measurements or infer privately held task scores.",
+      "requiredToClose": "Verifiable author-published machine-readable model-by-harness results, or exact table with denominators and conditions."
+    },
+    "webarena": {
+      "sourceId": "BR-WEBARENA",
+      "officialURL": "https://github.com/ServiceNow/webarena-verified",
+      "captureId": "webarena",
+      "status": "dataset-available-not-model-performance",
+      "numericObservations": 0,
+      "reason": "Publisher documents a benchmark with 812 verified tasks and a 258-task hard subset. Dataset size and task counts are benchmark metadata, not a model success rate. No current model-by-harness run scores are present in the frozen captured source.",
+      "requiredToClose": "Publisher result artifact with harness/model/effort/version and evaluated successes; never normalize dataset cardinality as model capability."
+    },
+    "bixbench": {
+      "sourceId": "BR-BIXBENCH",
+      "officialURL": "https://github.com/Future-House/BixBench",
+      "captureId": "bixbench",
+      "status": "large-results-artifact-needs-bounded-approved-adapter",
+      "numericObservations": 0,
+      "reason": "Publisher links raw trajectory and evaluation tables. The evaluation CSV advertised a 1,075,070,319-byte response during the 2026-10-12 review; the download was intentionally aborted by an explicit size bound. Captured paper HTML contains a dataset-comparison table, not verified model scores. Code license does not automatically settle redistribution rights for the evaluation table.",
+      "requiredToClose": "Publisher-approved, size-bounded, versioned aggregate extraction or smaller authoritative numerical table with task/sample denominator, output hashes, and rights review."
+    }
+  },
+  "generalRule": "A source can be discovered and captured but not normalized; unknown metric kind, source identity or benchmark protocol does not become zero or a ranked model score."
+}

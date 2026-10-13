@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "currency": "USD",
+  "unit": "per-million-tokens",
+  "asOf": "2026-10-10",
+  "sources": [
+    "https://www.anthropic.com/claude-haiku-5-5"
+  ],
+  "rates": [
+    {
+      "modelId": "anthropic:claude-haiku-5-5",
+      "service": "anthropic-platform",
+      "validFrom": "2026-10-07",
+      "validUntil": null,
+      "inputThreshold": 100000,
+      "thresholdCounts": [
+        "input",
+        "cacheRead",
+        "cacheWrite"
+      ],
+      "tiers": [
+        {
+          "maxInputInclusive": 100000,
+          "input": 0.1,
+          "output": 0.5,
+          "cacheRead": 0.01,
+          "cacheWrite": 0.125
+        },
+        {
+          "maxInputInclusive": null,
+          "input": 0.5,
+          "output": 2.5,
+          "cacheRead": 0.05,
+          "cacheWrite": 0.625
+        }
+      ],
+      "cacheWriteTtl": "5-min",
+      "note": "Select price tier per request total input, not total output tokens per task. No tier inference from aggregates."
+    },
+    {
+      "modelId": "anthropic:claude-sonnet-5-5",
+      "service": "anthropic-platform",
+      "validFrom": "2026-10-07",
+      "validUntil": null,
+      "inputThreshold": null,
+      "tiers": [
+        {
+          "maxInputInclusive": null,
+          "input": 2.0,
+          "output": 10.0,
+          "cacheRead": 0.1,
+          "cacheWrite": 2.5
+        }
+      ],
+      "cacheWriteTtl": "5-min",
+      "note": "Cache read reduced from 0.20. Repricing is not re-evaluation of capability."
+    }
+  ],
+  "historicalPrices": [
+    {
+      "modelId": "anthropic:claude-sonnet-5-5",
+      "field": "cacheRead",
+      "value": 0.2,
+      "validUntil": "2026-10-06"
+    }
+  ],
+  "accountBalance": "not-read",
+  "execution": "none"
+}

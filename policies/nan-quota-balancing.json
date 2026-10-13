@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": "nan-2026-10-quality-gated-progress",
+  "updateMode": "manual",
+  "inventory": "catalog/account-inventory.json",
+  "evidence": "evidence/nan/account-observation-2026-10-10.json",
+  "mode": "advisory-and-optional-per-task-dispatch",
+  "qualityPolicy": "Select only function-capable offers; trial routes must be explicitly opted in and verified separately. Never assign a critical or open-ended decision to meet a quota target.",
+  "quotaPolicy": "Balance the fractions of independent monthly quotas that have been used, not raw tokens, number of turns or model headcount.",
+  "excludedFunctions": ["coordination", "independent-review", "critical-review", "semantic-verification", "architecture", "requirements", "memory-maintenance", "visual-inspection", "semantic-integration", "task-planning", "proposal", "source-research"],
+  "excludedDomains": ["agent-use", "cybersecurity"],
+  "maximumInputFractionOfReportedContext": 0.75,
+  "defaultHeadroomFraction": 0.02,
+  "maximumUsageAgeHoursForDispatch": 24,
+  "concurrency": {"totalByApiKey": 7, "byOffering": {"nan_qwen": 7, "nan_ds": 7, "nan_mf": 5, "nan_glm": 7}},
+  "functions": {
+    "status-reporting": {"nan_qwen": "trial", "nan_ds": "eligible", "nan_mf": "trial", "nan_glm": "eligible"},
+    "commit-preparation": {"nan_qwen": "trial", "nan_ds": "eligible", "nan_mf": "trial", "nan_glm": "eligible"},
+    "workspace-orientation": {"nan_qwen": "trial", "nan_ds": "eligible", "nan_mf": "trial", "nan_glm": "eligible"},
+    "workspace-initialization": {"nan_qwen": "trial", "nan_ds": "eligible", "nan_mf": "trial", "nan_glm": "eligible"},
+    "bounded-exploration": {"nan_qwen": "trial", "nan_ds": "eligible", "nan_mf": "trial", "nan_glm": "eligible"},
+    "bounded-implementation": {"nan_ds": "eligible", "nan_mf": "trial", "nan_glm": "eligible"},
+    "bounded-remediation": {"nan_ds": "eligible", "nan_mf": "trial", "nan_glm": "eligible"},
+    "mechanical-verification": {"nan_qwen": "trial", "nan_ds": "eligible", "nan_mf": "trial", "nan_glm": "eligible"}
+  },
+  "trialReasons": {
+    "nan_qwen": "La relación entre Qwen 3.8 Flash de NaN y Flash-Next está sin resolver; validar salida, herramientas y calidad en tareas cerradas.",
+    "nan_mf": "MiMo V2.6 Flash aparece en la cuenta; identidad exacta, tool calling y rendimiento de esta ruta no calibrados."
+  },
+  "requirements": {
+    "image": ["nan_qwen", "nan_ds", "nan_mf", "nan_glm"],
+    "audio": ["nan_mf"],
+    "text": ["nan_qwen", "nan_ds", "nan_mf", "nan_glm"]
+  },
+  "labels": {
+    "nan_qwen": "Qwen 3.8 Flash",
+    "nan_ds": "DeepSeek V4-Flash 4.1",
+    "nan_mf": "MiMo V2.6 Flash",
+    "nan_glm": "GLM 5.3 Flash"
+  },
+  "limitations": [
+    "La cuota es por modelo y miembro; no es una puntuación de calidad ni un objetivo de consumo obligatorio.",
+    "La evidencia externa no demuestra equivalencia de checkpoints ni calidad en el endpoint NaN.",
+    "No cambiar modelos a mitad de un turno; usar el planificador al crear una nueva subtarea cerrada.",
+    "Sin integración del despachador, los perfiles nativos continúan utilizando selectores fijos.",
+    "El dashboard y el planificador no consultan una cuenta ni monitorizan consumo automáticamente.",
+    "No reintentar ante 402 por cuota agotada. Los 429 pueden deberse a concurrencia o límites y requieren diagnóstico."
+  ]
+}

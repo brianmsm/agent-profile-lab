@@ -1,0 +1,1105 @@
+{
+  "schemaVersion": 1,
+  "updateMode": "manual",
+  "scope": "Declared evaluation constructs and missing evidence; neither a universal ranking nor an exhaustive census of publications.",
+  "suites": {
+    "frontiercode": {
+      "id": "frontiercode",
+      "label": "FrontierCode",
+      "domains": [
+        "coding"
+      ],
+      "functions": [
+        "implementation",
+        "semantic-verification"
+      ],
+      "captureIds": [
+        "cognition-current"
+      ],
+      "legacyPattern": "^FrontierCode",
+      "priority": "P0",
+      "limitations": [
+        "Main and Extended overlap. Mergeability and functional correctness are separate. Source harness and effort remain explicit."
+      ],
+      "updateMode": "manual",
+      "decisionUse": "screening-only; profile calibration not established",
+      "policyFunctionIds": [
+        "bounded-implementation",
+        "bounded-remediation",
+        "semantic-verification"
+      ]
+    },
+    "aa-index": {
+      "id": "aa-index",
+      "label": "Artificial Analysis Intelligence Index",
+      "domains": [
+        "research",
+        "data"
+      ],
+      "functions": [
+        "coordination"
+      ],
+      "captureIds": [
+        "aa-same-page-current"
+      ],
+      "legacyPattern": "^AA (intelligenceIndex|Intelligence Index|capability)",
+      "priority": "P0",
+      "limitations": [
+        "Composite index and components are not independent evaluations; weighted costs are distinct from per-task suite costs."
+      ],
+      "updateMode": "manual",
+      "decisionUse": "screening-only; profile calibration not established",
+      "policyFunctionIds": [
+        "coordination",
+        "task-planning"
+      ]
+    },
+    "terminalbench": {
+      "id": "terminalbench",
+      "label": "Terminal-Bench",
+      "domains": [
+        "coding",
+        "agent-use"
+      ],
+      "functions": [
+        "implementation",
+        "execution-verification"
+      ],
+      "captureIds": [
+        "aa-same-page-current"
+      ],
+      "legacyPattern": "(?i)terminal.?bench(?!.*science)",
+      "priority": "P1",
+      "limitations": [
+        "Keep 2.0/2.1/4.0, tasks, repeats, sandbox, effort and fallback separate."
+      ],
+      "updateMode": "manual",
+      "decisionUse": "screening-only; profile calibration not established",
+      "policyFunctionIds": [
+        "bounded-implementation",
+        "bounded-remediation",
+        "mechanical-verification"
+      ]
+    },
+    "terminal-science": {
+      "id": "terminal-science",
+      "label": "Terminal-Bench Science",
+      "domains": [
+        "research",
+        "data"
+      ],
+      "functions": [
+        "research",
+        "execution-verification"
+      ],
+      "captureIds": [
+        "haiku-system-card",
+        "sonnet-system-card"
+      ],
+      "legacyPattern": "(?i)terminal.*science",
+      "priority": "P1",
+      "limitations": [
+        "Scientific terminal workflows, not all research or statistical validity."
+      ],
+      "updateMode": "manual",
+      "decisionUse": "screening-only; profile calibration not established",
+      "policyFunctionIds": [
+        "mechanical-verification",
+        "source-research"
+      ]
+    },
+    "osworld": {
+      "id": "osworld",
+      "label": "OSWorld",
+      "domains": [
+        "agent-use"
+      ],
+      "functions": [
+        "computer-use"
+      ],
+      "captureIds": [
+        "haiku-system-card",
+        "sonnet-system-card"
+      ],
+      "legacyPattern": "(?i)^OSWorld",
+      "priority": "P0",
+      "limitations": [
+        "Partial credit differs from strict task success; 82-task offline subset differs from full 108-task suite."
+      ],
+      "updateMode": "manual",
+      "decisionUse": "screening-only; profile calibration not established",
+      "policyFunctionIds": [
+        "visual-inspection"
+      ]
+    },
+    "swe-pro": {
+      "id": "swe-pro",
+      "label": "SWE-bench Pro / variants",
+      "domains": [
+        "coding"
+      ],
+      "functions": [
+        "implementation"
+      ],
+      "captureIds": [
+        "haiku-system-card",
+        "sonnet-system-card"
+      ],
+      "legacyPattern": "(?i)^SWE.?bench",
+      "priority": "P1",
+      "limitations": [
+        "Pro, Verified, Multilingual and Multimodal are separate protocols; never inherit across editions."
+      ],
+      "updateMode": "manual",
+      "decisionUse": "screening-only; profile calibration not established",
+      "policyFunctionIds": [
+        "bounded-implementation",
+        "bounded-remediation"
+      ]
+    },
+    "automationbench": {
+      "id": "automationbench",
+      "label": "AutomationBench",
+      "domains": [
+        "agent-use"
+      ],
+      "functions": [
+        "tool-use"
+      ],
+      "captureIds": [
+        "aa-same-page-current"
+      ],
+      "legacyPattern": "(?i)automationbench",
+      "priority": "P1",
+      "limitations": [
+        "Service-side safeguards and fallback must be recorded; prerelease Haiku issue is unresolved."
+      ],
+      "updateMode": "manual",
+      "decisionUse": "screening-only; profile calibration not established",
+      "policyFunctionIds": [
+        "bounded-exploration",
+        "bounded-implementation"
+      ]
+    },
+    "gdpval": {
+      "id": "gdpval",
+      "label": "GDPval-AA",
+      "domains": [
+        "data",
+        "research"
+      ],
+      "functions": [
+        "analysis"
+      ],
+      "captureIds": [
+        "aa-same-page-current"
+      ],
+      "legacyPattern": "(?i)gdpval",
+      "priority": "P1",
+      "limitations": [
+        "Relative Elo and normalized scores depend on comparison pool/date; not interchangeable with success rates."
+      ],
+      "updateMode": "manual",
+      "decisionUse": "screening-only; profile calibration not established",
+      "policyFunctionIds": [
+        "mechanical-verification",
+        "source-research"
+      ]
+    },
+    "briefcase": {
+      "id": "briefcase",
+      "label": "AA-Briefcase",
+      "domains": [
+        "data"
+      ],
+      "functions": [
+        "analysis"
+      ],
+      "captureIds": [
+        "aa-same-page-current"
+      ],
+      "legacyPattern": "(?i)briefcase",
+      "priority": "P1",
+      "limitations": [
+        "Work product evaluation; no proof of correctness for an arbitrary analytic workflow."
+      ],
+      "updateMode": "manual",
+      "decisionUse": "screening-only; profile calibration not established",
+      "policyFunctionIds": [
+        "mechanical-verification",
+        "source-research"
+      ]
+    },
+    "scicode": {
+      "id": "scicode",
+      "label": "SciCode",
+      "domains": [
+        "data",
+        "research"
+      ],
+      "functions": [
+        "implementation",
+        "analysis"
+      ],
+      "captureIds": [
+        "aa-same-page-current"
+      ],
+      "legacyPattern": "(?i)scicode",
+      "priority": "P1",
+      "limitations": [
+        "Code generation in scientific problems; not full research reliability."
+      ],
+      "updateMode": "manual",
+      "decisionUse": "screening-only; profile calibration not established",
+      "policyFunctionIds": [
+        "bounded-implementation",
+        "bounded-remediation",
+        "mechanical-verification",
+        "source-research"
+      ]
+    },
+    "reasoning": {
+      "id": "reasoning",
+      "label": "Reasoning and factuality evaluations",
+      "domains": [
+        "research"
+      ],
+      "functions": [
+        "reasoning"
+      ],
+      "captureIds": [
+        "aa-same-page-current"
+      ],
+      "legacyPattern": "(?i)(^AA (hle|gpqa|critpt|omniscience|lcr|ifbench|mlcr)|Humanity|CritPt|AA-LCR|GPQA|AA-Omniscience)",
+      "priority": "P1",
+      "limitations": [
+        "Separate knowledge, hallucination, instruction compliance and context reasoning. No single ranking from unrelated scales."
+      ],
+      "updateMode": "manual",
+      "decisionUse": "screening-only; profile calibration not established",
+      "policyFunctionIds": [
+        "architecture",
+        "requirements"
+      ]
+    },
+    "tau-tools": {
+      "id": "tau-tools",
+      "label": "Tau / Toolathlon",
+      "domains": [
+        "agent-use"
+      ],
+      "functions": [
+        "tool-use"
+      ],
+      "captureIds": [
+        "aa-same-page-current"
+      ],
+      "legacyPattern": "(?i)(tau2|tauBanking|Toolathlon)",
+      "priority": "P1",
+      "limitations": [
+        "Task definitions, tool API and success oracle differ; not a generic MCP score."
+      ],
+      "updateMode": "manual",
+      "decisionUse": "screening-only; profile calibration not established",
+      "policyFunctionIds": [
+        "bounded-exploration",
+        "bounded-implementation"
+      ]
+    },
+    "specpi": {
+      "id": "specpi",
+      "label": "SpecPi controlled harness study",
+      "domains": [
+        "coding"
+      ],
+      "functions": [
+        "coordination",
+        "implementation"
+      ],
+      "captureIds": [
+        "specpi-current"
+      ],
+      "legacyPattern": "(?i)(SpecPi|Terminal-Bench 2.0.*(pooled|widened|sitting)|SWE-bench Verified (pi|omp|specpi))",
+      "priority": "P0",
+      "limitations": [
+        "Overlapping pooled/sitting summaries, small nonrandom slices and historical versions; no current-harness winner."
+      ],
+      "updateMode": "manual",
+      "decisionUse": "screening-only; profile calibration not established",
+      "policyFunctionIds": [
+        "bounded-implementation",
+        "bounded-remediation",
+        "coordination",
+        "task-planning"
+      ]
+    },
+    "frontierharness": {
+      "id": "frontierharness",
+      "label": "FrontierHarness",
+      "domains": [
+        "coding"
+      ],
+      "functions": [
+        "coordination",
+        "implementation"
+      ],
+      "captureIds": [],
+      "legacyPattern": "^FrontierHarness",
+      "priority": "P1",
+      "limitations": [
+        "Frozen Kimi K3 study; one trial/task, historical harness versions. Recent hash check does not refresh trial date."
+      ],
+      "updateMode": "manual",
+      "decisionUse": "screening-only; profile calibration not established",
+      "policyFunctionIds": [
+        "bounded-implementation",
+        "bounded-remediation",
+        "coordination",
+        "task-planning"
+      ]
+    },
+    "composio": {
+      "id": "composio",
+      "label": "Composio SaaS harness study",
+      "domains": [
+        "agent-use"
+      ],
+      "functions": [
+        "tool-use",
+        "coordination"
+      ],
+      "captureIds": [],
+      "legacyPattern": "^Composio",
+      "priority": "P1",
+      "limitations": [
+        "Different study from terminal benchmark; denominator of cost slice differs from final-state success."
+      ],
+      "updateMode": "manual",
+      "decisionUse": "screening-only; profile calibration not established",
+      "policyFunctionIds": [
+        "bounded-exploration",
+        "bounded-implementation",
+        "coordination",
+        "task-planning"
+      ]
+    },
+    "cybersecurity": {
+      "id": "cybersecurity",
+      "label": "Existing cybersecurity publications",
+      "domains": [
+        "cybersecurity"
+      ],
+      "functions": [
+        "safety",
+        "semantic-verification"
+      ],
+      "captureIds": [],
+      "legacyPattern": "(?i)(cyber|exploit|sandbox|vulcan|SRE.Bench|SEC.Bench|CTF|FrontierCyber)",
+      "priority": "P1",
+      "limitations": [
+        "Capability, safeguards, safety-monitor recall and attack success are separate metrics. No inference of authorization."
+      ],
+      "updateMode": "manual",
+      "decisionUse": "screening-only; profile calibration not established",
+      "policyFunctionIds": [
+        "critical-review",
+        "semantic-verification"
+      ]
+    },
+    "harnessrank": {
+      "id": "harnessrank",
+      "label": "HarnessRank",
+      "domains": [
+        "coding"
+      ],
+      "functions": [
+        "coordination",
+        "implementation"
+      ],
+      "captureIds": [
+        "harnessrank",
+        "harnessrank-aggregates-20261012"
+      ],
+      "legacyPattern": "",
+      "priority": "P1",
+      "limitations": [
+        "Four published 2026-06 aggregates use historical harness versions Pi 0.79.6 / OMP 16.1.15 / OpenCode 1.17.9 / Codex 0.130.0 and GPT-5.5 medium; not current selected runtime versions.",
+        "Task denominator is 89, runs are 5 or 3; source intervals are not assumed SE or CI. Source-local result/cost relationships only; no deployed endpoint or current role equivalence."
+      ],
+      "updateMode": "manual",
+      "decisionUse": "screening-only; profile calibration not established",
+      "policyFunctionIds": [
+        "bounded-implementation",
+        "bounded-remediation",
+        "coordination",
+        "task-planning"
+      ]
+    },
+    "databricks": {
+      "id": "databricks",
+      "label": "Databricks coding-agent study",
+      "domains": [
+        "coding"
+      ],
+      "functions": [
+        "coordination",
+        "implementation"
+      ],
+      "captureIds": [
+        "databricks"
+      ],
+      "legacyPattern": "",
+      "priority": "P1",
+      "limitations": [
+        "Internal tasks: useful context but full public task-level replication unavailable; preserve exact comparisons only."
+      ],
+      "updateMode": "manual",
+      "decisionUse": "screening-only; profile calibration not established",
+      "policyFunctionIds": [
+        "bounded-implementation",
+        "bounded-remediation",
+        "coordination",
+        "task-planning"
+      ]
+    },
+    "scaffold-effect": {
+      "id": "scaffold-effect",
+      "label": "The Scaffold Effect",
+      "domains": [
+        "coding"
+      ],
+      "functions": [
+        "coordination",
+        "implementation"
+      ],
+      "captureIds": [
+        "scaffold-effect"
+      ],
+      "legacyPattern": "",
+      "priority": "P1",
+      "limitations": [
+        "50-task matched model/harness study. Models are historical and confidence intervals must retain source interpretation."
+      ],
+      "updateMode": "manual",
+      "decisionUse": "screening-only; profile calibration not established",
+      "policyFunctionIds": [
+        "bounded-implementation",
+        "bounded-remediation",
+        "coordination",
+        "task-planning"
+      ]
+    },
+    "minimal-mle": {
+      "id": "minimal-mle",
+      "label": "Minimal-harness MLE ablations",
+      "domains": [
+        "data",
+        "research"
+      ],
+      "functions": [
+        "coordination",
+        "analysis"
+      ],
+      "captureIds": [
+        "minimal-mle"
+      ],
+      "legacyPattern": "",
+      "priority": "P1",
+      "limitations": [
+        "Self-selection and oracle selection differ. Findings are bounded to the tested ML benchmarks and budgets."
+      ],
+      "updateMode": "manual",
+      "decisionUse": "screening-only; profile calibration not established",
+      "policyFunctionIds": [
+        "coordination",
+        "mechanical-verification",
+        "source-research",
+        "task-planning"
+      ]
+    },
+    "edit-format": {
+      "id": "edit-format",
+      "label": "Edit-format / Hashline",
+      "domains": [
+        "coding"
+      ],
+      "functions": [
+        "implementation"
+      ],
+      "captureIds": [
+        "hashline",
+        "aider"
+      ],
+      "legacyPattern": "",
+      "priority": "P1",
+      "limitations": [
+        "Tool-format interventions and edit validity are not universal harness quality; author evaluation is not independent replication."
+      ],
+      "updateMode": "manual",
+      "decisionUse": "screening-only; profile calibration not established",
+      "policyFunctionIds": [
+        "bounded-implementation",
+        "bounded-remediation"
+      ]
+    },
+    "bfcl": {
+      "id": "bfcl",
+      "label": "Berkeley Function Calling Leaderboard V4",
+      "domains": [
+        "agent-use"
+      ],
+      "functions": [
+        "tool-use"
+      ],
+      "captureIds": [
+        "bfcl",
+        "bfcl-overall"
+      ],
+      "legacyPattern": "",
+      "priority": "P1",
+      "limitations": [
+        "V4 overall CSV linked by the primary loader; current capture contains historical models. Missing current 5.5 models is not a zero score. FC vs prompt modes and subtests are distinct."
+      ],
+      "updateMode": "manual",
+      "decisionUse": "screening-only; profile calibration not established",
+      "policyFunctionIds": [
+        "bounded-exploration",
+        "bounded-implementation"
+      ]
+    },
+    "mcpmark": {
+      "id": "mcpmark",
+      "label": "MCPMark Verified",
+      "domains": [
+        "agent-use"
+      ],
+      "functions": [
+        "tool-use"
+      ],
+      "captureIds": [
+        "mcpmark",
+        "mcpmark-verified"
+      ],
+      "legacyPattern": "",
+      "priority": "P0",
+      "limitations": [
+        "Track version, MCP service, resets and number of repeats. Dynamic empty table is not zero model capability."
+      ],
+      "updateMode": "manual",
+      "decisionUse": "screening-only; profile calibration not established",
+      "policyFunctionIds": [
+        "bounded-exploration",
+        "bounded-implementation"
+      ]
+    },
+    "webarena": {
+      "id": "webarena",
+      "label": "WebArena Verified",
+      "domains": [
+        "web",
+        "agent-use"
+      ],
+      "functions": [
+        "browser-use"
+      ],
+      "captureIds": [
+        "webarena-latest"
+      ],
+      "legacyPattern": "",
+      "priority": "P1",
+      "limitations": [
+        "Website state and strict task completion; distinct from GUI partial score."
+      ],
+      "updateMode": "manual",
+      "decisionUse": "screening-only; profile calibration not established",
+      "policyFunctionIds": [
+        "bounded-exploration",
+        "visual-inspection"
+      ]
+    },
+    "workarena": {
+      "id": "workarena",
+      "label": "WorkArena / BrowserGym",
+      "domains": [
+        "web",
+        "agent-use"
+      ],
+      "functions": [
+        "browser-use"
+      ],
+      "captureIds": [
+        "workarena"
+      ],
+      "legacyPattern": "",
+      "priority": "P1",
+      "limitations": [
+        "Controlled service workflows and task types; not equivalent to browsing arbitrary job portals."
+      ],
+      "updateMode": "manual",
+      "decisionUse": "screening-only; profile calibration not established",
+      "policyFunctionIds": [
+        "bounded-exploration",
+        "visual-inspection"
+      ]
+    },
+    "datascibench": {
+      "id": "datascibench",
+      "label": "DataSciBench",
+      "domains": [
+        "data",
+        "research"
+      ],
+      "functions": [
+        "analysis"
+      ],
+      "captureIds": [
+        "datascibench"
+      ],
+      "legacyPattern": "",
+      "priority": "P0",
+      "limitations": [
+        "Completion, success, visualization judge and weighted composite have distinct units and weights; old versions stay old."
+      ],
+      "updateMode": "manual",
+      "decisionUse": "screening-only; profile calibration not established",
+      "policyFunctionIds": [
+        "mechanical-verification",
+        "source-research"
+      ]
+    },
+    "scienceagentbench": {
+      "id": "scienceagentbench",
+      "label": "ScienceAgentBench",
+      "domains": [
+        "data",
+        "research"
+      ],
+      "functions": [
+        "analysis"
+      ],
+      "captureIds": [
+        "scienceagentbench"
+      ],
+      "legacyPattern": "",
+      "priority": "P1",
+      "limitations": [
+        "With/without expert knowledge and agent scaffolds differ; 102 data-driven scientific tasks."
+      ],
+      "updateMode": "manual",
+      "decisionUse": "screening-only; profile calibration not established",
+      "policyFunctionIds": [
+        "mechanical-verification",
+        "source-research"
+      ]
+    },
+    "bixbench": {
+      "id": "bixbench",
+      "label": "BixBench",
+      "domains": [
+        "data",
+        "research"
+      ],
+      "functions": [
+        "analysis"
+      ],
+      "captureIds": [
+        "bixbench"
+      ],
+      "legacyPattern": "",
+      "priority": "P1",
+      "limitations": [
+        "Computational-biology scope; comparative table of dataset properties is not a model performance table."
+      ],
+      "updateMode": "manual",
+      "decisionUse": "screening-only; profile calibration not established",
+      "policyFunctionIds": [
+        "mechanical-verification",
+        "source-research"
+      ]
+    },
+    "bird-interact": {
+      "id": "bird-interact",
+      "label": "BIRD-Interact",
+      "domains": [
+        "data",
+        "agent-use"
+      ],
+      "functions": [
+        "analysis",
+        "tool-use"
+      ],
+      "captureIds": [
+        "bird-interact"
+      ],
+      "legacyPattern": "",
+      "priority": "P1",
+      "limitations": [
+        "Interactive database state, user simulator and efficiency; distinguish full and lite conditions."
+      ],
+      "updateMode": "manual",
+      "decisionUse": "screening-only; profile calibration not established",
+      "policyFunctionIds": [
+        "bounded-exploration",
+        "bounded-implementation",
+        "mechanical-verification",
+        "source-research"
+      ]
+    },
+    "livesqlbench": {
+      "id": "livesqlbench",
+      "label": "LiveSQLBench",
+      "domains": [
+        "data"
+      ],
+      "functions": [
+        "analysis"
+      ],
+      "captureIds": [
+        "livesqlbench"
+      ],
+      "legacyPattern": "",
+      "priority": "P1",
+      "limitations": [
+        "Date/version and category splits may differ. Cost is recorded only with its source denominator."
+      ],
+      "updateMode": "manual",
+      "decisionUse": "screening-only; profile calibration not established",
+      "policyFunctionIds": [
+        "mechanical-verification",
+        "source-research"
+      ]
+    },
+    "deepscholar": {
+      "id": "deepscholar",
+      "label": "DeepScholar-Bench",
+      "domains": [
+        "research"
+      ],
+      "functions": [
+        "research",
+        "verification"
+      ],
+      "captureIds": [
+        "deepscholar"
+      ],
+      "legacyPattern": "",
+      "priority": "P1",
+      "limitations": [
+        "Retrieval, synthesis, citation precision and claim coverage are independent constructs; report generation systems are not bare models."
+      ],
+      "updateMode": "manual",
+      "decisionUse": "screening-only; profile calibration not established",
+      "policyFunctionIds": [
+        "mechanical-verification",
+        "semantic-verification",
+        "source-research"
+      ]
+    },
+    "deepresearch2": {
+      "id": "deepresearch2",
+      "label": "DeepResearch Bench II",
+      "domains": [
+        "research"
+      ],
+      "functions": [
+        "research",
+        "verification"
+      ],
+      "captureIds": [
+        "deepresearch2"
+      ],
+      "legacyPattern": "",
+      "priority": "P1",
+      "limitations": [
+        "Expert rubrics; information recall, analysis and presentation distinct. Historical agent configurations stay historical."
+      ],
+      "updateMode": "manual",
+      "decisionUse": "screening-only; profile calibration not established",
+      "policyFunctionIds": [
+        "mechanical-verification",
+        "semantic-verification",
+        "source-research"
+      ]
+    },
+    "swe-prbench": {
+      "id": "swe-prbench",
+      "label": "SWE-PRBench",
+      "domains": [
+        "coding"
+      ],
+      "functions": [
+        "code-review",
+        "semantic-verification"
+      ],
+      "captureIds": [
+        "swe-prbench"
+      ],
+      "legacyPattern": "",
+      "priority": "P1",
+      "limitations": [
+        "Frozen A/B/C context configurations; detection and false positives are not implementation success."
+      ],
+      "updateMode": "manual",
+      "decisionUse": "screening-only; profile calibration not established",
+      "policyFunctionIds": [
+        "critical-review",
+        "independent-review",
+        "semantic-verification"
+      ]
+    },
+    "codereview": {
+      "id": "codereview",
+      "label": "CodeReviewBench",
+      "domains": [
+        "coding"
+      ],
+      "functions": [
+        "code-review"
+      ],
+      "captureIds": [
+        "codereview"
+      ],
+      "legacyPattern": "",
+      "priority": "P0",
+      "limitations": [
+        "F1, precision, recall and cost per PR/bug must remain separate; do not guess which metric a displayed CI belongs to."
+      ],
+      "updateMode": "manual",
+      "decisionUse": "screening-only; profile calibration not established",
+      "policyFunctionIds": [
+        "critical-review",
+        "independent-review"
+      ]
+    },
+    "longmemeval": {
+      "id": "longmemeval",
+      "label": "LongMemEval",
+      "domains": [
+        "research",
+        "agent-use"
+      ],
+      "functions": [
+        "memory"
+      ],
+      "captureIds": [
+        "longmemeval"
+      ],
+      "legacyPattern": "",
+      "priority": "P1",
+      "limitations": [
+        "Oracle/short/medium memory scope and retrieval/reading setup are distinct. No equivalence with nominal context capacity."
+      ],
+      "updateMode": "manual",
+      "decisionUse": "screening-only; profile calibration not established",
+      "policyFunctionIds": [
+        "memory-maintenance"
+      ]
+    },
+    "skillsbench": {
+      "id": "skillsbench",
+      "label": "SkillsBench 1.1",
+      "domains": [
+        "coding",
+        "data",
+        "agent-use"
+      ],
+      "functions": [
+        "coordination",
+        "implementation",
+        "analysis"
+      ],
+      "captureIds": [
+        "skillsbench"
+      ],
+      "legacyPattern": "",
+      "priority": "P1",
+      "limitations": [
+        "Paired with/without-skills comparisons only; cross-model comparisons are not causal skill effects."
+      ],
+      "updateMode": "manual",
+      "decisionUse": "screening-only; profile calibration not established",
+      "policyFunctionIds": [
+        "bounded-implementation",
+        "bounded-remediation",
+        "coordination",
+        "mechanical-verification",
+        "source-research",
+        "task-planning"
+      ]
+    },
+    "hal-reliability": {
+      "id": "hal-reliability",
+      "label": "HAL Reliability",
+      "domains": [
+        "agent-use"
+      ],
+      "functions": [
+        "verification",
+        "coordination"
+      ],
+      "captureIds": [
+        "hal-reliability"
+      ],
+      "legacyPattern": "",
+      "priority": "P1",
+      "limitations": [
+        "Accuracy, consistency, predictability, robustness and safety distinct; means are not reliability distributions."
+      ],
+      "updateMode": "manual",
+      "decisionUse": "screening-only; profile calibration not established",
+      "policyFunctionIds": [
+        "coordination",
+        "mechanical-verification",
+        "semantic-verification",
+        "task-planning"
+      ]
+    },
+    "agentdojo": {
+      "id": "agentdojo",
+      "label": "AgentDojo",
+      "domains": [
+        "agent-use",
+        "cybersecurity"
+      ],
+      "functions": [
+        "safety"
+      ],
+      "captureIds": [
+        "agentdojo"
+      ],
+      "legacyPattern": "",
+      "priority": "P1",
+      "limitations": [
+        "Benign utility, utility under attack and adversarial success separate. No executable attack payloads are emitted by this lab."
+      ],
+      "updateMode": "manual",
+      "decisionUse": "screening-only; profile calibration not established",
+      "policyFunctionIds": [
+        "critical-review"
+      ]
+    },
+    "qwen-public": {
+      "id": "qwen-public",
+      "label": "Qwen Flash-Next model card",
+      "domains": [
+        "coding",
+        "agent-use"
+      ],
+      "functions": [
+        "implementation"
+      ],
+      "captureIds": [
+        "qwen-card"
+      ],
+      "legacyPattern": "",
+      "priority": "P1",
+      "limitations": [
+        "Publisher source, not a NaN deployment evaluation; no automatic equality between Flash-Next checkpoint and NaN Flash label."
+      ],
+      "updateMode": "manual",
+      "decisionUse": "screening-only; profile calibration not established",
+      "policyFunctionIds": [
+        "bounded-implementation",
+        "bounded-remediation"
+      ]
+    },
+    "uncatalogued": {
+      "id": "uncatalogued",
+      "label": "Other captured metrics — classification pending",
+      "domains": [
+        "other"
+      ],
+      "functions": [
+        "unmapped"
+      ],
+      "captureIds": [],
+      "legacyPattern": "",
+      "priority": "P1",
+      "limitations": [
+        "Explicit unresolved suite. Do not infer coverage from substring counts or consider unknown metrics performance."
+      ],
+      "updateMode": "manual",
+      "decisionUse": "screening-only; profile calibration not established",
+      "policyFunctionIds": []
+    },
+    "vals-professional": {
+      "id": "vals-professional",
+      "label": "Vals professional-task evaluations",
+      "domains": [
+        "data",
+        "research",
+        "coding"
+      ],
+      "functions": [
+        "analysis",
+        "implementation"
+      ],
+      "captureIds": [
+        "vals-haiku-current",
+        "vals-sonnet-current",
+        "vals-opus-current"
+      ],
+      "legacyPattern": "^Vals",
+      "priority": "P0",
+      "limitations": [
+        "Benchmarks/version/effort and sample sizes differ; ranks are not denominators."
+      ],
+      "updateMode": "manual",
+      "decisionUse": "screening only",
+      "policyFunctionIds": [
+        "bounded-implementation",
+        "bounded-remediation",
+        "mechanical-verification",
+        "source-research"
+      ]
+    },
+    "document-work": {
+      "id": "document-work",
+      "label": "Document work products",
+      "domains": [
+        "data"
+      ],
+      "functions": [
+        "analysis"
+      ],
+      "captureIds": [
+        "aa-same-page-current"
+      ],
+      "legacyPattern": "(?i)(gdp.pdf|document)",
+      "priority": "P1",
+      "limitations": [
+        "Source-local task and score definitions retained."
+      ],
+      "updateMode": "manual",
+      "decisionUse": "screening-only",
+      "policyFunctionIds": [
+        "mechanical-verification",
+        "source-research"
+      ]
+    },
+    "data-engineering": {
+      "id": "data-engineering",
+      "label": "Data / SRE tasks",
+      "domains": [
+        "data"
+      ],
+      "functions": [
+        "analysis"
+      ],
+      "captureIds": [
+        "aa-same-page-current"
+      ],
+      "legacyPattern": "(?i)itbench",
+      "priority": "P1",
+      "limitations": [
+        "Source-local task and score definitions retained."
+      ],
+      "updateMode": "manual",
+      "decisionUse": "screening-only",
+      "policyFunctionIds": [
+        "mechanical-verification",
+        "source-research"
+      ]
+    }
+  }
+}

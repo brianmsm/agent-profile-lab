@@ -1,0 +1,779 @@
+{
+  "schemaVersion": 1,
+  "routes": {
+    "chatgpt-legacy": {
+      "label": "ChatGPT · OAuth legacy",
+      "service": "chatgpt",
+      "authentication": "oauth-legacy",
+      "billing": "subscription",
+      "pool": "OAI",
+      "credentialSelection": "external-reference-only",
+      "entitlement": "not-verified"
+    },
+    "chatgpt-siwc": {
+      "label": "ChatGPT · Sign in with ChatGPT",
+      "service": "chatgpt",
+      "authentication": "siwc-oauth",
+      "billing": "subscription",
+      "pool": "OAI",
+      "credentialSelection": "external-reference-only",
+      "entitlement": "not-verified"
+    },
+    "openai-api": {
+      "label": "OpenAI API · pago por uso",
+      "service": "openai-platform",
+      "authentication": "api-key",
+      "billing": "metered",
+      "pool": "API",
+      "credentialSelection": "external-reference-only",
+      "entitlement": "not-verified"
+    },
+    "claude-subscription": {
+      "label": "Claude · suscripción",
+      "service": "claude",
+      "authentication": "oauth",
+      "billing": "subscription",
+      "pool": "ANTHROPIC",
+      "credentialSelection": "external-reference-only",
+      "entitlement": "not-verified"
+    },
+    "opencode-go": {
+      "label": "OpenCode Go",
+      "service": "opencode-go",
+      "authentication": "api-key",
+      "billing": "subscription",
+      "pool": "GO",
+      "credentialSelection": "external-reference-only",
+      "entitlement": "not-verified"
+    },
+    "command-goat": {
+      "label": "Command Code GOAT",
+      "service": "commandcode",
+      "authentication": "api-key",
+      "billing": "subscription",
+      "pool": "CC",
+      "credentialSelection": "external-reference-only",
+      "entitlement": "not-verified"
+    },
+    "nan": {
+      "label": "NaN",
+      "service": "nan",
+      "authentication": "api-key",
+      "billing": "subscription",
+      "pool": "NAN",
+      "credentialSelection": "external-reference-only",
+      "entitlement": "not-verified"
+    },
+    "anthropic-api": {
+      "label": "Claude API · uso medido",
+      "service": "anthropic-platform",
+      "authentication": "api-key",
+      "billing": "metered",
+      "pool": "ANTHROPIC_API",
+      "credentialSelection": "external-reference-only",
+      "entitlement": "not-verified"
+    }
+  },
+  "modelBindings": {
+    "openai:gpt-6-sol|chatgpt-legacy": {
+      "modelId": "openai:gpt-6-sol",
+      "accessRouteId": "chatgpt-legacy",
+      "nativeModelId": "gpt-6-sol",
+      "efforts": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "offeringKey": "oa_sol",
+      "identityRelation": "published-label",
+      "routeCalibration": "not-established",
+      "availability": "descriptor-only"
+    },
+    "openai:gpt-6-sol|chatgpt-siwc": {
+      "modelId": "openai:gpt-6-sol",
+      "accessRouteId": "chatgpt-siwc",
+      "nativeModelId": "gpt-6-sol",
+      "efforts": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "offeringKey": "oa_sol",
+      "identityRelation": "published-label",
+      "routeCalibration": "not-established",
+      "availability": "requires-account-model-discovery",
+      "note": "Namespace binding only; legacy catalog metadata does not verify model availability or effort acceptance on this transport."
+    },
+    "openai:gpt-6-sol|openai-api": {
+      "modelId": "openai:gpt-6-sol",
+      "accessRouteId": "openai-api",
+      "nativeModelId": "gpt-6-sol",
+      "efforts": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "offeringKey": "oa_sol",
+      "identityRelation": "published-label",
+      "routeCalibration": "not-established",
+      "availability": "requires-account-model-discovery",
+      "note": "Namespace binding only; legacy catalog metadata does not verify model availability or effort acceptance on this transport."
+    },
+    "openai:gpt-6-luna|chatgpt-legacy": {
+      "modelId": "openai:gpt-6-luna",
+      "accessRouteId": "chatgpt-legacy",
+      "nativeModelId": "gpt-6-luna",
+      "efforts": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "offeringKey": "oa_luna",
+      "identityRelation": "published-label",
+      "routeCalibration": "not-established",
+      "availability": "descriptor-only"
+    },
+    "openai:gpt-6-luna|chatgpt-siwc": {
+      "modelId": "openai:gpt-6-luna",
+      "accessRouteId": "chatgpt-siwc",
+      "nativeModelId": "gpt-6-luna",
+      "efforts": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "offeringKey": "oa_luna",
+      "identityRelation": "published-label",
+      "routeCalibration": "not-established",
+      "availability": "requires-account-model-discovery",
+      "note": "Namespace binding only; legacy catalog metadata does not verify model availability or effort acceptance on this transport."
+    },
+    "openai:gpt-6-luna|openai-api": {
+      "modelId": "openai:gpt-6-luna",
+      "accessRouteId": "openai-api",
+      "nativeModelId": "gpt-6-luna",
+      "efforts": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "offeringKey": "oa_luna",
+      "identityRelation": "published-label",
+      "routeCalibration": "not-established",
+      "availability": "requires-account-model-discovery",
+      "note": "Namespace binding only; legacy catalog metadata does not verify model availability or effort acceptance on this transport."
+    },
+    "openai:gpt-6-astra|chatgpt-legacy": {
+      "modelId": "openai:gpt-6-astra",
+      "accessRouteId": "chatgpt-legacy",
+      "nativeModelId": "gpt-6-astra",
+      "efforts": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "offeringKey": "oa_astra",
+      "identityRelation": "published-label",
+      "routeCalibration": "not-established",
+      "availability": "descriptor-only"
+    },
+    "openai:gpt-6-astra|chatgpt-siwc": {
+      "modelId": "openai:gpt-6-astra",
+      "accessRouteId": "chatgpt-siwc",
+      "nativeModelId": "gpt-6-astra",
+      "efforts": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "offeringKey": "oa_astra",
+      "identityRelation": "published-label",
+      "routeCalibration": "not-established",
+      "availability": "requires-account-model-discovery",
+      "note": "Namespace binding only; legacy catalog metadata does not verify model availability or effort acceptance on this transport."
+    },
+    "openai:gpt-6-astra|openai-api": {
+      "modelId": "openai:gpt-6-astra",
+      "accessRouteId": "openai-api",
+      "nativeModelId": "gpt-6-astra",
+      "efforts": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "offeringKey": "oa_astra",
+      "identityRelation": "published-label",
+      "routeCalibration": "not-established",
+      "availability": "requires-account-model-discovery",
+      "note": "Namespace binding only; legacy catalog metadata does not verify model availability or effort acceptance on this transport."
+    },
+    "openai:gpt-5.6-sol|chatgpt-legacy": {
+      "modelId": "openai:gpt-5.6-sol",
+      "accessRouteId": "chatgpt-legacy",
+      "nativeModelId": "gpt-5.6-sol",
+      "efforts": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "offeringKey": "oa_oldsol",
+      "identityRelation": "published-label",
+      "routeCalibration": "not-established",
+      "availability": "descriptor-only"
+    },
+    "openai:gpt-5.6-sol|chatgpt-siwc": {
+      "modelId": "openai:gpt-5.6-sol",
+      "accessRouteId": "chatgpt-siwc",
+      "nativeModelId": "gpt-5.6-sol",
+      "efforts": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "offeringKey": "oa_oldsol",
+      "identityRelation": "published-label",
+      "routeCalibration": "not-established",
+      "availability": "requires-account-model-discovery",
+      "note": "Namespace binding only; legacy catalog metadata does not verify model availability or effort acceptance on this transport."
+    },
+    "openai:gpt-5.6-sol|openai-api": {
+      "modelId": "openai:gpt-5.6-sol",
+      "accessRouteId": "openai-api",
+      "nativeModelId": "gpt-5.6-sol",
+      "efforts": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "offeringKey": "oa_oldsol",
+      "identityRelation": "published-label",
+      "routeCalibration": "not-established",
+      "availability": "requires-account-model-discovery",
+      "note": "Namespace binding only; legacy catalog metadata does not verify model availability or effort acceptance on this transport."
+    },
+    "xiaomi:mimo-v2.6-flash|opencode-go": {
+      "modelId": "xiaomi:mimo-v2.6-flash",
+      "accessRouteId": "opencode-go",
+      "nativeModelId": "mimo-v2.6-flash",
+      "efforts": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "offeringKey": "go_mf",
+      "identityRelation": "published-label",
+      "routeCalibration": "not-established",
+      "availability": "descriptor-only"
+    },
+    "xiaomi:mimo-v2.6-pro|opencode-go": {
+      "modelId": "xiaomi:mimo-v2.6-pro",
+      "accessRouteId": "opencode-go",
+      "nativeModelId": "mimo-v2.6-pro",
+      "efforts": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "offeringKey": "go_mp",
+      "identityRelation": "published-label",
+      "routeCalibration": "not-established",
+      "availability": "descriptor-only"
+    },
+    "zai:glm-5.3-flash|opencode-go": {
+      "modelId": "zai:glm-5.3-flash",
+      "accessRouteId": "opencode-go",
+      "nativeModelId": "glm-5.3-flash",
+      "efforts": [
+        "low",
+        "high",
+        "max"
+      ],
+      "offeringKey": "go_glm",
+      "identityRelation": "published-label",
+      "routeCalibration": "not-established",
+      "availability": "descriptor-only"
+    },
+    "zai:glm-5.3|opencode-go": {
+      "modelId": "zai:glm-5.3",
+      "accessRouteId": "opencode-go",
+      "nativeModelId": "glm-5.3",
+      "efforts": [
+        "low",
+        "high",
+        "max"
+      ],
+      "offeringKey": "go_glmf",
+      "identityRelation": "published-label",
+      "routeCalibration": "not-established",
+      "availability": "descriptor-only"
+    },
+    "deepseek:deepseek-v4.1-flash|opencode-go": {
+      "modelId": "deepseek:deepseek-v4.1-flash",
+      "accessRouteId": "opencode-go",
+      "nativeModelId": "deepseek-v4.1-flash",
+      "efforts": [
+        "low",
+        "high",
+        "max"
+      ],
+      "offeringKey": "go_ds",
+      "identityRelation": "published-label",
+      "routeCalibration": "not-established",
+      "availability": "descriptor-only"
+    },
+    "moonshot:kimi-k3|opencode-go": {
+      "modelId": "moonshot:kimi-k3",
+      "accessRouteId": "opencode-go",
+      "nativeModelId": "kimi-k3",
+      "efforts": [
+        "low",
+        "high",
+        "max"
+      ],
+      "offeringKey": "go_kimi",
+      "identityRelation": "published-label",
+      "routeCalibration": "not-established",
+      "availability": "descriptor-only"
+    },
+    "openai:gpt-6-luna|opencode-go": {
+      "modelId": "openai:gpt-6-luna",
+      "accessRouteId": "opencode-go",
+      "nativeModelId": "gpt-6-luna",
+      "efforts": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "offeringKey": "go_luna",
+      "identityRelation": "published-label",
+      "routeCalibration": "not-established",
+      "availability": "descriptor-only"
+    },
+    "xiaomi:mimo-v2.6-flash|command-goat": {
+      "modelId": "xiaomi:mimo-v2.6-flash",
+      "accessRouteId": "command-goat",
+      "nativeModelId": "xiaomi/mimo-v2.6-flash",
+      "efforts": [],
+      "offeringKey": "cc_mf",
+      "identityRelation": "published-label",
+      "routeCalibration": "not-established",
+      "availability": "descriptor-only"
+    },
+    "xiaomi:mimo-v2.6-pro|command-goat": {
+      "modelId": "xiaomi:mimo-v2.6-pro",
+      "accessRouteId": "command-goat",
+      "nativeModelId": "xiaomi/mimo-v2.6-pro",
+      "efforts": [],
+      "offeringKey": "cc_mp",
+      "identityRelation": "published-label",
+      "routeCalibration": "not-established",
+      "availability": "descriptor-only"
+    },
+    "zai:glm-5.3-flash|command-goat": {
+      "modelId": "zai:glm-5.3-flash",
+      "accessRouteId": "command-goat",
+      "nativeModelId": "z-ai/glm-5.3-flash",
+      "efforts": [
+        "low",
+        "high",
+        "max"
+      ],
+      "offeringKey": "cc_glm",
+      "identityRelation": "published-label",
+      "routeCalibration": "not-established",
+      "availability": "descriptor-only"
+    },
+    "zai:glm-5.3|command-goat": {
+      "modelId": "zai:glm-5.3",
+      "accessRouteId": "command-goat",
+      "nativeModelId": "zai-org/GLM-5.3",
+      "efforts": [
+        "low",
+        "high",
+        "max"
+      ],
+      "offeringKey": "cc_glmf",
+      "identityRelation": "published-label",
+      "routeCalibration": "not-established",
+      "availability": "descriptor-only"
+    },
+    "deepseek:deepseek-v4.1-flash|command-goat": {
+      "modelId": "deepseek:deepseek-v4.1-flash",
+      "accessRouteId": "command-goat",
+      "nativeModelId": "deepseek/deepseek-v4.1-flash",
+      "efforts": [
+        "low",
+        "high",
+        "max"
+      ],
+      "offeringKey": "cc_ds",
+      "identityRelation": "published-label",
+      "routeCalibration": "not-established",
+      "availability": "descriptor-only"
+    },
+    "moonshot:kimi-k3|command-goat": {
+      "modelId": "moonshot:kimi-k3",
+      "accessRouteId": "command-goat",
+      "nativeModelId": "moonshotai/Kimi-K3",
+      "efforts": [
+        "low",
+        "high",
+        "max"
+      ],
+      "offeringKey": "cc_kimi",
+      "identityRelation": "published-label",
+      "routeCalibration": "not-established",
+      "availability": "descriptor-only"
+    },
+    "openai:gpt-6-luna|command-goat": {
+      "modelId": "openai:gpt-6-luna",
+      "accessRouteId": "command-goat",
+      "nativeModelId": "gpt-6-luna",
+      "efforts": [],
+      "offeringKey": "cc_luna",
+      "identityRelation": "published-label",
+      "routeCalibration": "not-established",
+      "availability": "descriptor-only"
+    },
+    "openai:gpt-5.6-sol|command-goat": {
+      "modelId": "openai:gpt-5.6-sol",
+      "accessRouteId": "command-goat",
+      "nativeModelId": "gpt-5.6-sol",
+      "efforts": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "offeringKey": "cc_oldsol",
+      "identityRelation": "published-label",
+      "routeCalibration": "not-established",
+      "availability": "descriptor-only"
+    },
+    "xiaomi:mimo-v2.6-pro-ultraspeed|command-goat": {
+      "modelId": "xiaomi:mimo-v2.6-pro-ultraspeed",
+      "accessRouteId": "command-goat",
+      "nativeModelId": "xiaomi/mimo-v2.6-pro-ultraspeed",
+      "efforts": [],
+      "offeringKey": "cc_ultra",
+      "identityRelation": "published-label",
+      "routeCalibration": "not-established",
+      "availability": "descriptor-only"
+    },
+    "zai:glm-5.3-flash|nan": {
+      "modelId": "zai:glm-5.3-flash",
+      "accessRouteId": "nan",
+      "nativeModelId": "glm5.3-flash",
+      "efforts": [
+        "low",
+        "medium",
+        "high",
+        "max"
+      ],
+      "offeringKey": "nan_glm",
+      "identityRelation": "published-label",
+      "routeCalibration": "not-established",
+      "availability": "descriptor-only"
+    },
+    "deepseek:deepseek-v4.1-flash|nan": {
+      "modelId": "deepseek:deepseek-v4.1-flash",
+      "accessRouteId": "nan",
+      "nativeModelId": "deepseek-v4-flash",
+      "efforts": [],
+      "offeringKey": "nan_ds",
+      "identityRelation": "candidate-alias",
+      "routeCalibration": "not-established",
+      "availability": "descriptor-only"
+    },
+    "xiaomi:mimo-v2.5|nan": {
+      "modelId": "xiaomi:mimo-v2.5",
+      "accessRouteId": "nan",
+      "nativeModelId": "mimo-v2.5",
+      "efforts": [],
+      "offeringKey": "nan_mimo",
+      "identityRelation": "published-label",
+      "routeCalibration": "not-established",
+      "availability": "historical-not-in-current-inventory"
+    },
+    "openai:gpt-6.1-sol|chatgpt-legacy": {
+      "modelId": "openai:gpt-6.1-sol",
+      "accessRouteId": "chatgpt-legacy",
+      "nativeModelId": "gpt-6.1-sol",
+      "efforts": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "offeringKey": "oa_sol61",
+      "identityRelation": "published-label",
+      "routeCalibration": "not-established",
+      "availability": "descriptor-only"
+    },
+    "openai:gpt-6.1-sol|chatgpt-siwc": {
+      "modelId": "openai:gpt-6.1-sol",
+      "accessRouteId": "chatgpt-siwc",
+      "nativeModelId": "gpt-6.1-sol",
+      "efforts": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "offeringKey": "oa_sol61",
+      "identityRelation": "published-label",
+      "routeCalibration": "not-established",
+      "availability": "requires-account-model-discovery",
+      "note": "Namespace binding only; legacy catalog metadata does not verify model availability or effort acceptance on this transport."
+    },
+    "openai:gpt-6.1-sol|openai-api": {
+      "modelId": "openai:gpt-6.1-sol",
+      "accessRouteId": "openai-api",
+      "nativeModelId": "gpt-6.1-sol",
+      "efforts": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "offeringKey": "oa_sol61",
+      "identityRelation": "published-label",
+      "routeCalibration": "not-established",
+      "availability": "requires-account-model-discovery",
+      "note": "Namespace binding only; legacy catalog metadata does not verify model availability or effort acceptance on this transport."
+    },
+    "anthropic:claude-fable-5-1|claude-subscription": {
+      "modelId": "anthropic:claude-fable-5-1",
+      "accessRouteId": "claude-subscription",
+      "nativeModelId": "claude-fable-5-1",
+      "efforts": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "offeringKey": "cl_fable",
+      "identityRelation": "published-label",
+      "routeCalibration": "not-established",
+      "availability": "descriptor-only"
+    },
+    "anthropic:claude-opus-5-5|claude-subscription": {
+      "modelId": "anthropic:claude-opus-5-5",
+      "accessRouteId": "claude-subscription",
+      "nativeModelId": "claude-opus-5-5",
+      "efforts": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "offeringKey": "cl_opus",
+      "identityRelation": "published-label",
+      "routeCalibration": "not-established",
+      "availability": "descriptor-only"
+    },
+    "anthropic:claude-sonnet-5-5|claude-subscription": {
+      "modelId": "anthropic:claude-sonnet-5-5",
+      "accessRouteId": "claude-subscription",
+      "nativeModelId": "claude-sonnet-5-5",
+      "efforts": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "offeringKey": "cl_sonnet",
+      "identityRelation": "published-label",
+      "routeCalibration": "not-established",
+      "availability": "descriptor-only"
+    },
+    "anthropic:claude-haiku-5-5|claude-subscription": {
+      "modelId": "anthropic:claude-haiku-5-5",
+      "accessRouteId": "claude-subscription",
+      "nativeModelId": "claude-haiku-5-5",
+      "efforts": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "offeringKey": "cl_haiku",
+      "identityRelation": "published-label",
+      "routeCalibration": "not-established",
+      "availability": "descriptor-only"
+    },
+    "xiaomi:mimo-v2.6-flash|nan": {
+      "modelId": "xiaomi:mimo-v2.6-flash",
+      "accessRouteId": "nan",
+      "nativeModelId": "mimo-v2.6-flash",
+      "efforts": [],
+      "offeringKey": "nan_mf",
+      "identityRelation": "candidate-alias",
+      "routeCalibration": "not-established",
+      "availability": "descriptor-only"
+    },
+    "qwen:qwen3.8-flash|nan": {
+      "modelId": "qwen:qwen3.8-flash",
+      "accessRouteId": "nan",
+      "nativeModelId": "qwen3.8-flash",
+      "efforts": [],
+      "offeringKey": "nan_qwen",
+      "identityRelation": "candidate-alias",
+      "routeCalibration": "not-established",
+      "availability": "descriptor-only"
+    },
+    "anthropic:claude-haiku-5-5|anthropic-api": {
+      "modelId": "anthropic:claude-haiku-5-5",
+      "accessRouteId": "anthropic-api",
+      "nativeModelId": "claude-haiku-5-5",
+      "efforts": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "offeringKey": "cl_haiku",
+      "identityRelation": "published-label",
+      "routeCalibration": "not-established",
+      "availability": "descriptor-only"
+    },
+    "anthropic:claude-sonnet-5-5|anthropic-api": {
+      "modelId": "anthropic:claude-sonnet-5-5",
+      "accessRouteId": "anthropic-api",
+      "nativeModelId": "claude-sonnet-5-5",
+      "efforts": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "offeringKey": "cl_sonnet",
+      "identityRelation": "published-label",
+      "routeCalibration": "not-established",
+      "availability": "descriptor-only"
+    },
+    "anthropic:claude-opus-5-5|anthropic-api": {
+      "modelId": "anthropic:claude-opus-5-5",
+      "accessRouteId": "anthropic-api",
+      "nativeModelId": "claude-opus-5-5",
+      "efforts": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "offeringKey": "cl_opus",
+      "identityRelation": "published-label",
+      "routeCalibration": "not-established",
+      "availability": "descriptor-only"
+    },
+    "anthropic:claude-fable-5-1|anthropic-api": {
+      "modelId": "anthropic:claude-fable-5-1",
+      "accessRouteId": "anthropic-api",
+      "nativeModelId": "claude-fable-5-1",
+      "efforts": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "offeringKey": "cl_fable",
+      "identityRelation": "published-label",
+      "routeCalibration": "not-established",
+      "availability": "descriptor-only"
+    }
+  },
+  "targets": {
+    "gentle-shell@4.0.0+pi@1.1.0": {
+      "harness": "gentle-shell",
+      "harnessVersion": "4.0.0",
+      "runtime": {
+        "name": "pi",
+        "version": "1.1.0"
+      },
+      "providers": {
+        "chatgpt-legacy": "openai-codex",
+        "chatgpt-siwc": "openai",
+        "openai-api": "openai",
+        "claude-subscription": "anthropic",
+        "opencode-go": "opencode-go",
+        "command-goat": "commandcode",
+        "nan": "nan",
+        "anthropic-api": "anthropic"
+      },
+      "credentialScope": "provider",
+      "supportsPerRoleCredentials": false
+    },
+    "omp@18.8.7": {
+      "harness": "omp",
+      "harnessVersion": "18.8.7",
+      "runtime": {
+        "name": "omp",
+        "version": "18.8.7"
+      },
+      "providers": {
+        "chatgpt-legacy": "openai-codex",
+        "openai-api": "openai",
+        "claude-subscription": "anthropic",
+        "opencode-go": "opencode-go",
+        "command-goat": "commandcode",
+        "nan": "nan",
+        "anthropic-api": "anthropic"
+      },
+      "credentialScope": "provider",
+      "supportsPerRoleCredentials": false,
+      "unsupportedRoutes": {
+        "chatgpt-siwc": "Not established for this pinned target; no substitution with legacy or paid API."
+      }
+    }
+  },
+  "sources": [
+    "https://github.com/earendil-works/pi/releases/tag/v0.99.0",
+    "https://github.com/earendil-works/pi/blob/v1.1.0/packages/coding-agent/docs/providers.md",
+    "https://developers.openai.com/siwc/token-sharing-open-source/models-and-inference",
+    "https://github.com/can1357/oh-my-pi/issues/13974"
+  ],
+  "limitations": [
+    "Authentication and entitlement were not exercised. Native selectors do not enforce billing identity.",
+    "Same provider namespace with different credential expectations is not representable as one native profile.",
+    "Metered access is a distinct resource, not implicitly granted by a ChatGPT subscription."
+  ]
+}

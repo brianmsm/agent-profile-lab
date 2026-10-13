@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "kind": "nan-custom-workload",
+  "policyId": "nan-static-workload-v1",
+  "maxSavedScenarios": 20,
+  "maxImportBytes": 65536,
+  "maxLabelLength": 64,
+  "maxDescriptionLength": 240,
+  "maxCallsPerMonth": 100000,
+  "maxTotalTokensPerCall": 2000000,
+  "note": "Editable workload assumptions are user-provided hypotheses, never actual provider usage; only apply after explicit validation."
+}
