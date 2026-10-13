@@ -11,3 +11,14 @@ Keep model evidence, provider access, harness capability, quota assumptions and 
 - Run the release verifier, relevant Python tests, TypeScript frontend tests, lint and build.
 
 Raw publisher data or account-specific materials must not enter the public repository without explicit rights and privacy review.
+
+## Safe maintenance and Git history
+
+Read [Safe maintenance](docs/SAFE_MAINTENANCE.md) before transferring code from
+another repository. Public commits must descend from the approved public
+baseline without importing private Git objects. Use linear public commits or
+squash a reviewed public-only branch; do not merge private ancestry.
+
+Run `python3 -B tools/test_public_boundary.py` and
+`python3 -B tools/audit_public_distribution.py --history` **before pushing**.
+Hosted CI is a second check, not a way to discover leaked data after upload.
