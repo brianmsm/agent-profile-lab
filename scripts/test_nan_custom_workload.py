@@ -16,8 +16,8 @@ class CustomWorkload(unittest.TestCase):
         return new_custom_workload('mixed',label,description,rows or self.rows)
     def test_matches_browser_fingerprint_fixture(self):
         x=self.new()
-        self.assertEqual(x['fingerprint'],'8b155d39d28f23f37ee76f5439be9810')
-        self.assertEqual(len(x['functionWorkload']),20)
+        self.assertEqual(x['fingerprint'],'84d518c6c36cdf82578ec168ce3e1b59')
+        self.assertEqual(len(x['functionWorkload']),21)
         self.assertEqual(x['functionWorkload'],self.rows)
     def test_source_is_never_mutated(self):
         before=deepcopy(self.rows)

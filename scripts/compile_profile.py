@@ -5,6 +5,7 @@ import argparse, json, os, sys, tempfile
 from pathlib import Path
 from access_catalog import ROOT, load_catalog, read_json
 from profile_compiler import compile_request, verify_native
+from preflight_profile import check_inputs
 
 def local_path(value: str) -> Path:
     path=Path(value)
@@ -47,13 +48,18 @@ def main():
     parser.add_argument('--overwrite',action='store_true')
     parser.add_argument('--verify-manifest',help='Verify a previously compiled manifest')
     parser.add_argument('--native',help='Native file paired with --verify-manifest')
+    parser.add_argument('--native-only',action='store_true',help='Historical forensic check only; does not certify current input hashes')
     args=parser.parse_args()
     if args.verify_manifest:
         if not args.native: parser.error('--verify-manifest requires --native')
         ok=verify_native(read_json(local_path(args.verify_manifest)),local_path(args.native).read_bytes())
         if not ok: raise ValueError('Native SHA-256 mismatch; do not use this pair')
-        print('Native SHA-256 verified. This does not verify credentials or runtime behavior.')
+        if not args.native_only:
+            state=check_inputs(read_json(local_path(args.verify_manifest)))
+            if not state['current']:raise ValueError('Historical/stale inputs: '+', '.join(state['staleInputs'])+'; retain the original pair and recompile separately')
+        print('Native SHA-256 verified; '+('HISTORICAL-ONLY: input currency not checked.' if args.native_only else 'input hashes match current sources.')+' Credentials and runtime behavior remain unverified.')
         return
+    if args.native_only:parser.error('--native-only requires --verify-manifest')
     if args.request:
         if args.target or args.policy!='matrix' or args.chatgpt_auth!='legacy' or args.complexity or args.high_impact:
             parser.error('Put all compilation choices inside --request; CLI overrides are not silently applied')

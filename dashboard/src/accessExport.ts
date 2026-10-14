@@ -1,3 +1,5 @@
+import {assessResolved} from './assuranceAnalysis'
+import contractData from '../../contracts/harnesses.json'
 import {selectionEvidence} from './selectionCandidates'
 import type { AccessResource, RouteReference, Snapshot } from './data'
 import type { Preset } from './presetStrategies'
@@ -56,7 +58,7 @@ export async function compileAccessBundle(snapshot: Snapshot, original: Preset, 
   const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(native.content))
   const sha256 = [...new Uint8Array(digest)].map(byte => byte.toString(16).padStart(2, '0')).join('')
   const roles = Object.fromEntries(Object.entries(preset.routes).map(([role, route]) => [role, {
-    ...resolveOrigin(route, preset.meta.targetId!), enabled: route.enabled, condition: route.condition, rationale: route.rationale,
+    ...resolveOrigin(route, preset.meta.targetId!), functionId: (contractData.harnesses as Record<string,{roles:Record<string,{functionId:string}>}>)[preset.meta.harness]?.roles[role]?.functionId, enabled: route.enabled, condition: route.condition, rationale: route.rationale,
     fallback: route.fallback ? resolveOrigin(route.fallback, preset.meta.targetId!) : null,
     accelerator: route.accelerator ? resolveOrigin(route.accelerator, preset.meta.targetId!) : null,
   }]))
@@ -73,6 +75,7 @@ export async function compileAccessBundle(snapshot: Snapshot, original: Preset, 
     nanStaticPlan:preset.nanStaticPlan??null,
     selectionReview:preset.selectionReview?{...preset.selectionReview,evidence:preset.selectionReview.evidenceRefs.map(id=>selectionEvidence[id])}:null,
     activityPlan: preset.activityPlan ?? null, domainContract, roles,
+    assurance: assessResolved(roles,preset.meta.harness,preset.meta.domain),
     nativeArtifact: { filename: native.filename, sha256, encoding: 'utf-8' },
     inputsSha256: snapshot.access!.inputSha256,
     validation: { structural: 'passed', credentialDispatch: 'not-enforced', environment: 'not-checked', entitlement: 'not-verified', modelEffortAcceptance: 'not-verified-on-target', performance: 'not-calibrated', inferencesSent: 0 },

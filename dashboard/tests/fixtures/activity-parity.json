@@ -11138,7 +11138,7 @@
           },
           {
             "role": "judge",
-            "functionId": "independent-review",
+            "functionId": "auxiliary-classification",
             "reason": "protected-function"
           },
           {
@@ -11590,7 +11590,7 @@
           },
           {
             "role": "judge",
-            "functionId": "independent-review",
+            "functionId": "auxiliary-classification",
             "reason": "high-impact"
           },
           {
@@ -12098,7 +12098,7 @@
           },
           {
             "role": "judge",
-            "functionId": "independent-review",
+            "functionId": "auxiliary-classification",
             "reason": "protected-function"
           },
           {
@@ -12555,7 +12555,7 @@
           },
           {
             "role": "judge",
-            "functionId": "independent-review",
+            "functionId": "auxiliary-classification",
             "reason": "high-impact"
           },
           {
@@ -13048,7 +13048,7 @@
           },
           {
             "role": "judge",
-            "functionId": "independent-review",
+            "functionId": "auxiliary-classification",
             "reason": "protected-function"
           },
           {
@@ -13510,7 +13510,7 @@
           },
           {
             "role": "judge",
-            "functionId": "independent-review",
+            "functionId": "auxiliary-classification",
             "reason": "high-impact"
           },
           {
@@ -14028,7 +14028,7 @@
           },
           {
             "role": "judge",
-            "functionId": "independent-review",
+            "functionId": "auxiliary-classification",
             "reason": "protected-function"
           },
           {
@@ -14480,7 +14480,7 @@
           },
           {
             "role": "judge",
-            "functionId": "independent-review",
+            "functionId": "auxiliary-classification",
             "reason": "high-impact"
           },
           {
@@ -14988,7 +14988,7 @@
           },
           {
             "role": "judge",
-            "functionId": "independent-review",
+            "functionId": "auxiliary-classification",
             "reason": "protected-function"
           },
           {
@@ -15445,7 +15445,7 @@
           },
           {
             "role": "judge",
-            "functionId": "independent-review",
+            "functionId": "auxiliary-classification",
             "reason": "high-impact"
           },
           {
@@ -15938,7 +15938,7 @@
           },
           {
             "role": "judge",
-            "functionId": "independent-review",
+            "functionId": "auxiliary-classification",
             "reason": "protected-function"
           },
           {
@@ -16400,7 +16400,7 @@
           },
           {
             "role": "judge",
-            "functionId": "independent-review",
+            "functionId": "auxiliary-classification",
             "reason": "high-impact"
           },
           {
@@ -16918,7 +16918,7 @@
           },
           {
             "role": "judge",
-            "functionId": "independent-review",
+            "functionId": "auxiliary-classification",
             "reason": "protected-function"
           },
           {
@@ -17370,7 +17370,7 @@
           },
           {
             "role": "judge",
-            "functionId": "independent-review",
+            "functionId": "auxiliary-classification",
             "reason": "high-impact"
           },
           {
@@ -17878,7 +17878,7 @@
           },
           {
             "role": "judge",
-            "functionId": "independent-review",
+            "functionId": "auxiliary-classification",
             "reason": "protected-function"
           },
           {
@@ -18335,7 +18335,7 @@
           },
           {
             "role": "judge",
-            "functionId": "independent-review",
+            "functionId": "auxiliary-classification",
             "reason": "high-impact"
           },
           {
@@ -18828,7 +18828,7 @@
           },
           {
             "role": "judge",
-            "functionId": "independent-review",
+            "functionId": "auxiliary-classification",
             "reason": "protected-function"
           },
           {
@@ -19290,7 +19290,7 @@
           },
           {
             "role": "judge",
-            "functionId": "independent-review",
+            "functionId": "auxiliary-classification",
             "reason": "high-impact"
           },
           {
@@ -19808,7 +19808,7 @@
           },
           {
             "role": "judge",
-            "functionId": "independent-review",
+            "functionId": "auxiliary-classification",
             "reason": "protected-function"
           },
           {
@@ -20260,7 +20260,7 @@
           },
           {
             "role": "judge",
-            "functionId": "independent-review",
+            "functionId": "auxiliary-classification",
             "reason": "high-impact"
           },
           {
@@ -20768,7 +20768,7 @@
           },
           {
             "role": "judge",
-            "functionId": "independent-review",
+            "functionId": "auxiliary-classification",
             "reason": "protected-function"
           },
           {
@@ -21225,7 +21225,7 @@
           },
           {
             "role": "judge",
-            "functionId": "independent-review",
+            "functionId": "auxiliary-classification",
             "reason": "high-impact"
           },
           {
@@ -21718,7 +21718,7 @@
           },
           {
             "role": "judge",
-            "functionId": "independent-review",
+            "functionId": "auxiliary-classification",
             "reason": "protected-function"
           },
           {
@@ -22180,7 +22180,7 @@
           },
           {
             "role": "judge",
-            "functionId": "independent-review",
+            "functionId": "auxiliary-classification",
             "reason": "high-impact"
           },
           {

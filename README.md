@@ -52,7 +52,7 @@ The 49,638 total source decision rows include 16,224 retired functional preceden
 - **Review of objective equality:** 116 pairs of different objectives have identical complete reference configurations; they are not presented as measured quality differences.
 - **Opt-in candidate strategies:** activity complexity, guarded worker/auxiliary delegation, alternative model recipes and hybrid provider planning.
 - **Independent NaN monthly allowances:** static proportional allocation and optional pure dynamic subtask planner.
-- **Workload customization:** edit all 20 canonical functions' monthly calls and total input/output tokens, with versioned import/export.
+- **Workload customization:** edit all 21 canonical functions' monthly calls and total input/output tokens, with versioned import/export.
 - **Native configuration exports and SHA-256-linked manifests:** integrity checks and source lineage, not digital signatures; no installation or credential handling.
 - **Research evidence:** a licensed numeric BFCL subset and link-only external source index including Artificial Analysis.
 
@@ -71,3 +71,7 @@ For the historical 39-commit research development chronology and the distinction
 Original author-owned code is licensed **MIT** (LICENSE). Separate upstream copyright and Apache-2.0 notices must be retained for the licensed BFCL subset and vendored reference parser. The MIT grant does **not** relicense benchmark results, third-party publications, account data or evaluation task contents. See THIRD_PARTY_NOTICES.md.
 
 **Status:** public MIT-licensed source, rights-scoped BFCL measurements and external-only references to other publishers. This is not a calibrated live agent service or an inference gateway.
+
+## Adversarial remediation
+
+[Remediation and operational limits](docs/ADVERSARIAL_REMEDIATION.md) documents the canonical label correction, separate classifier function, exact native-profile preservation, input/runtime preflight, explicit evidence transfer and conservative trial plans. The original CSV bytes remain in public Git history; current source labels are amended with a differential receipt. Model selections and numerical inclusion are unchanged.

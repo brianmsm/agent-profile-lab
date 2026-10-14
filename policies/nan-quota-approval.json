@@ -2,8 +2,15 @@
   "schemaVersion": 1,
   "policyId": "nan-2026-10-quality-gated-progress",
   "sources": {
-    "policies/nan-quota-balancing.json": "1133d4226ecbc57b053e3990afe39044fc47bc73405af5bc9d579461598473f1",
+    "policies/nan-quota-balancing.json": "0e06f9f25b6d4f226af58aebea2fc2dc58194e904971cd31356faa2f2dabbff3",
     "catalog/account-inventory.json": "1d07cec43121cbc477687fab7a91e17892e197e032604c1cea3ec4ac5fa4fd14"
   },
-  "scope": "Baseline account inventory and user-reviewed NaN eligibility. No runtime quality calibration, entitlement or automatic dispatcher installation."
+  "scope": "Baseline account inventory and user-reviewed NaN eligibility. No runtime quality calibration, entitlement or automatic dispatcher installation.",
+  "remediationReview": {
+    "id": "adversarial-remediation-20261014",
+    "scope": "Reviewed source label correction, classifier taxonomy, function-level analogy disclosure and offline assurance tests. Not model calibration or new numerical publication.",
+    "publicReferenceCommit": "4bbcf2e962ff2630a1c1c0064d7c74ba8ebba26a",
+    "metadataAmendmentSHA256": "31bf7718d64d8fd8c18b0f9436b29fa278e12081bb1a7611e2f7c0f4cce73063",
+    "inferenceCalls": 0
+  }
 }

@@ -48,7 +48,8 @@
     "architecture",
     "memory-maintenance",
     "semantic-integration",
-    "visual-inspection"
+    "visual-inspection",
+    "auxiliary-classification"
   ],
   "trialShareCapByObjective": {
     "economy": 0.35,

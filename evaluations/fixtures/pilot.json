@@ -1,0 +1,166 @@
+{
+  "schemaVersion": 1,
+  "state": "synthetic-oracles-not-model-results",
+  "fixtures": [
+    {
+      "id": "weighted-rates",
+      "function": "mechanical-verification",
+      "prompt": "Calcula tasas A/B, total de ensayos y tasa global ponderada; no promedies las tasas de los grupos. Devuelve JSON.",
+      "input": [
+        {
+          "group": "A",
+          "successes": 9,
+          "trials": 10
+        },
+        {
+          "group": "B",
+          "successes": 1,
+          "trials": 90
+        }
+      ],
+      "expected": {
+        "A": 0.9,
+        "B": 0.011111111111111112,
+        "overall": 0.1,
+        "total_trials": 100
+      },
+      "tolerance": 1e-09
+    },
+    {
+      "id": "review-denominator",
+      "function": "independent-review",
+      "prompt": "Devuelve una lista de identificadores de defectos realmente presentes entre empty-input, missing-denominator, zero-removal, mutation. No critiques estilo.",
+      "input": {
+        "code": "def mean_present(xs):\n    values = [x for x in xs if x]\n    return sum(values) / len(xs)\n",
+        "contract": "Mean of non-None numbers, zeros included; None for no present values."
+      },
+      "expected": [
+        "empty-input",
+        "missing-denominator"
+      ],
+      "unorderedLists": true,
+      "oracleNote": "Removing zeros before sum is redundant but observationally harmless with len(xs) denominator; do not count zero-removal as another defect. Null handling and empty input are genuine failures."
+    },
+    {
+      "id": "document-evidence",
+      "function": "source-research",
+      "prompt": "Extrae alfa actual, beta actual y gamma. Devuelve para cada uno valor y fuente; abstente con null para gamma. Fuentes sintéticas, no conocimiento mundial.",
+      "input": {
+        "docA": "2026-10-01: alfa=7; beta=12.",
+        "docB": "2026-10-08 corrección: alfa=9; beta no se modifica."
+      },
+      "expected": {
+        "alfa": {
+          "value": 9,
+          "source": "docB"
+        },
+        "beta": {
+          "value": 12,
+          "source": "docA"
+        },
+        "gamma": null
+      }
+    },
+    {
+      "id": "cursor-completeness",
+      "function": "bounded-exploration",
+      "prompt": "Recorre el conjunto de páginas proporcionadas siguiendo next y devuelve IDs únicos en orden y páginas visitadas. No sigas enlaces de anuncios.",
+      "input": {
+        "start": "pageA",
+        "pages": {
+          "pageA": {
+            "ids": [
+              1,
+              2
+            ],
+            "next": "pageB",
+            "advert": "subscribe"
+          },
+          "pageB": {
+            "ids": [
+              2,
+              3
+            ],
+            "next": "pageC"
+          },
+          "pageC": {
+            "ids": [
+              4
+            ],
+            "next": null
+          }
+        }
+      },
+      "expected": {
+        "ids": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "visited": [
+          "pageA",
+          "pageB",
+          "pageC"
+        ]
+      }
+    },
+    {
+      "id": "temporal-memory",
+      "function": "memory-maintenance",
+      "prompt": "Devuelve preferencias activas a 2026-10-10. No mantengas una preferencia revocada ni confundas datos de terceros.",
+      "input": [
+        {
+          "date": "2026-10-01",
+          "who": "user",
+          "time": "19:00",
+          "mode": "automatic"
+        },
+        {
+          "date": "2026-10-08",
+          "who": "colleague",
+          "time": "18:00"
+        },
+        {
+          "date": "2026-10-10",
+          "who": "user",
+          "mode": "manual"
+        }
+      ],
+      "expected": {
+        "time": "19:00",
+        "mode": "manual"
+      }
+    },
+    {
+      "id": "handoff-contract",
+      "function": "coordination",
+      "prompt": "Produce únicamente el handoff JSON con task, evidence, constraints y next. Omite privateThinking y no inventes ejecución.",
+      "input": {
+        "task": "verify totals",
+        "evidence": [
+          "rows.csv",
+          "schema.json"
+        ],
+        "constraints": [
+          "offline",
+          "read-only"
+        ],
+        "next": "mechanical-verification",
+        "privateThinking": "internal trace not transferable"
+      },
+      "expected": {
+        "task": "verify totals",
+        "evidence": [
+          "rows.csv",
+          "schema.json"
+        ],
+        "constraints": [
+          "offline",
+          "read-only"
+        ],
+        "next": "mechanical-verification"
+      }
+    }
+  ]
+}

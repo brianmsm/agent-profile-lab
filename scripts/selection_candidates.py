@@ -31,6 +31,12 @@ def load_review(root=ROOT):
         if set(recipe['domains'])&set(policy['excludedDomains']):raise ValueError('Excluded domain in recipe')
         if (set(recipe['objectives'])-{'economy','balanced','speed','best'} or set(recipe['complexities'])-{'bounded','standard','complex'}
             or set(recipe['domains'])-{'apps','web','data','research'}):raise ValueError('Unknown selection context')
+        mappings=recipe.get('functionEvidence', {})
+        if set(mappings)!=set(recipe['selections']):raise ValueError('Each selected function needs an explicit evidence transfer mapping')
+        for function, mapping in mappings.items():
+            if mapping.get('tier')!='E2-analogy' or mapping.get('routeCalibration')!='not-measured':raise ValueError('Unmeasured function cannot claim direct route calibration')
+            if not mapping.get('evidenceRefs') or not set(mapping['evidenceRefs'])<=set(recipe['evidenceRefs']):raise ValueError('Function evidence must resolve within the reviewed recipe')
+            if any(not isinstance(mapping.get(k),str) or len(mapping[k].strip())<20 for k in ('claim','transferLimit','acceptanceCriterion')):raise ValueError('Function transfer lacks a meaningful claim, limitation or acceptance criterion')
         refs=[evidence['observations'][k] for k in recipe['evidenceRefs']]
         if any(r['benchmark'] in evidence['exclusions']['metricLabels'] for r in refs):raise ValueError('Under-review metric cannot support selection')
         for key in recipe['offeringKeys']:
@@ -100,7 +106,7 @@ def derive_candidate(snapshot,profile_id,recipe_id,offering_key,activity,root=RO
         routes[role]={**deepcopy(r),'modelKey':offering_key,'effort':effort,'origin':deepcopy(origin),'fallback':{k:deepcopy(r[k]) for k in ('modelKey','effort','origin')},'condition':condition,'rationale':rationale}
         changes.append({'role':role,'functionId':function,'fromModelKey':r['modelKey'],'toModelKey':offering_key,'fromEffort':r['effort'],'toEffort':effort})
     if not changes:raise ValueError('No effective changes: already selected or no admissible function; not another configuration')
-    summary={'policyId':policy['id'],'recipeId':recipe_id,'label':recipe['label'],'offeringKey':offering_key,'admission':recipe['admission'],'complexity':activity['complexity'],'highImpact':False,'changes':changes,'evidenceRefs':recipe['evidenceRefs'],'evidenceSha256':approval['evidenceSha256'],'rationale':recipe['rationale'],'tradeoffs':recipe['tradeoffs'],'workload':recipe['workload'],'state':'candidate-not-calibrated'}
+    summary={'policyId':policy['id'],'recipeId':recipe_id,'label':recipe['label'],'offeringKey':offering_key,'admission':recipe['admission'],'complexity':activity['complexity'],'highImpact':False,'changes':changes,'evidenceRefs':recipe['evidenceRefs'],'evidenceSha256':approval['evidenceSha256'],'rationale':recipe['rationale'],'tradeoffs':recipe['tradeoffs'],'workload':recipe['workload'],'state':'candidate-not-calibrated','functionEvidence':deepcopy(recipe['functionEvidence'])}
     id=profile_id+'::review-'+recipe_id+'-'+offering_key+'-'+activity['complexity']
     coordinator=original.get('orchestrator',original.get('default'))
     return {'id':id,'kind':'reviewed-candidate','meta':deepcopy(meta),'sourceProfile':profile_id,'portfolio':meta['portfolio'],'routes':routes,'runtime':deepcopy(snapshot['runtimePolicies'][profile_id]),'coordinatorPool':snapshot['catalog'][coordinator['modelKey']]['pool'],'offloadPool':model['pool'],'limitations':policy['limitations']+recipe['tradeoffs'],'aliases':[id],'selectionReview':summary}

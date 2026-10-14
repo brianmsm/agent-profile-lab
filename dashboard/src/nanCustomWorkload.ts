@@ -30,7 +30,7 @@ export function nanWorkloadFingerprint(scenario:NanScenario,label:string,descrip
 export function validateNanCustomWorkload(value:unknown):NanCustomWorkload {
   if(!isRecord(value)||!identicalKeys(value,['schemaVersion','kind','policyId','sourceWorkloadSha256','baseScenario','label','description','functionWorkload','fingerprint'])
     ||value.schemaVersion!==rules.schemaVersion||value.kind!==rules.kind||value.policyId!==rules.policyId||value.sourceWorkloadSha256!==approval.inputSha256['policies/nan-static-workloads.json'])
-    throw new Error('El archivo no corresponde al contrato de escenarios personalizados de NaN.')
+    throw new Error('El archivo no corresponde a esta revisión de escenarios. Conserva los originales de 20 funciones y migra explícitamente con scripts/migrate_nan_workload.py.')
   const scenario=value.baseScenario
   if(typeof scenario!=='string'||!Object.hasOwn(scenarioCatalog.scenarios,scenario))throw new Error('Escenario base desconocido.')
   const label=value.label,description=value.description
@@ -73,4 +73,22 @@ export function customWorkloadEqualsBase(value:NanCustomWorkload):boolean {
 }
 export function totalAssumedTokens(rows:FunctionWorkload):number {
   return knownFunctions.reduce((sum,id)=>sum+rows[id].callsPerMonth*rows[id].totalTokensPerCall,0)
+}
+
+/** Legacy recovery never edits localStorage or applies a profile automatically. */
+export function migrateLegacyNanWorkload(value:unknown,acknowledge:boolean):NanCustomWorkload {
+  if(!acknowledge)throw new Error('Confirma la copia de la hipótesis anterior de revisión al nuevo clasificador.')
+  if(!isRecord(value)||!identicalKeys(value,['schemaVersion','kind','policyId','sourceWorkloadSha256','baseScenario','label','description','functionWorkload','fingerprint'])||value.sourceWorkloadSha256!=='702785699dceabdf8ef2028b411d2bb98251a749685f295d73a6946bc128ab87'||value.schemaVersion!==1||value.kind!==rules.kind||value.policyId!==rules.policyId)
+    throw new Error('No es la revisión histórica de 20 funciones admitida.')
+  const oldFunctions=knownFunctions.filter(id=>id!=='auxiliary-classification')
+  if(!isRecord(value.functionWorkload)||!identicalKeys(value.functionWorkload,oldFunctions))throw new Error('La migración no puede eliminar funciones desconocidas.')
+  const rows=structuredClone(value.functionWorkload) as FunctionWorkload
+  rows['auxiliary-classification']=structuredClone(rows['independent-review'])
+  const candidate=makeNanCustomWorkload(value.baseScenario as NanScenario,value.label as string,value.description as string,rows)
+  const raw=JSON.stringify([value.kind,value.policyId,value.sourceWorkloadSha256,value.baseScenario,value.label,value.description,
+    oldFunctions.map(id=>[id,rows[id].callsPerMonth,rows[id].totalTokensPerCall])])
+  let a=14695981039346656037n,b=7809847782465536322n;const mask=(1n<<64n)-1n
+  for(const byte of new TextEncoder().encode(raw)){a=((a^BigInt(byte))*1099511628211n)&mask;b=((b^BigInt(byte))*1099511628211n)&mask}
+  if(value.fingerprint!==a.toString(16).padStart(16,'0')+b.toString(16).padStart(16,'0'))throw new Error('Identificador histórico inconsistente.')
+  return candidate
 }

@@ -1,3 +1,4 @@
+import {presetAssurance} from './assuranceAnalysis'
 import { useCompleteSnapshot } from './snapshotResourceContext'
 import { useEffect, useRef, useState } from 'react'
 import { Download } from 'lucide-react'
@@ -71,7 +72,7 @@ export default function ProfileExport({ snapshot, preset, availability }: Props)
       const prepared = snapshot.access ? prepareAccessPreset(snapshot, preset, options) : null
       const analysis = presetAnalysis(complete, prepared?.preset ?? preset, availability)
       if (analysis.profile.access && prepared) analysis.profile.access.resources = prepared.resources
-      const content = { ...analysis, compilationIntent: prepared ? { targetId: preset.meta.targetId, mode, meteredAuthorization: prepared.authorization ?? null, credentialsEnforced: false } : null }
+      const content = { ...analysis, assurance: presetAssurance(complete,prepared?.preset ?? preset), compilationIntent: prepared ? { targetId: preset.meta.targetId, mode, meteredAuthorization: prepared.authorization ?? null, credentialsEnforced: false } : null }
       downloadFile(`perfil-${baseName}-analisis.json`, JSON.stringify(content, null, 2) + '\n', 'application/json;charset=utf-8')
       setNotice('Análisis exportado con el origen seleccionado. El coste mensual es el portfolio de referencia, no el gasto API ni una garantía de rendimiento.')
     } catch (error) { if(ticket===generation.current)setNotice(error instanceof Error ? error.message : 'No se pudo crear el análisis.') }

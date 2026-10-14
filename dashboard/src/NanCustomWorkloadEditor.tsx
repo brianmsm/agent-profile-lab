@@ -1,9 +1,13 @@
 import {useState} from 'react'
 import {Download,FileUp,RotateCcw,Save,SlidersHorizontal,Trash2} from 'lucide-react'
 import functions from '../../policies/functions.json'
-import {customWorkloadEqualsBase,customWorkloadRules,makeNanCustomWorkload,nanFunctionIds,sourceNanWorkload,totalAssumedTokens,validateNanCustomWorkload} from './nanCustomWorkload'
+import {customWorkloadEqualsBase,customWorkloadRules,makeNanCustomWorkload,nanFunctionIds,sourceNanWorkload,totalAssumedTokens,validateNanCustomWorkload,migrateLegacyNanWorkload} from './nanCustomWorkload'
 import type {NanCustomWorkload,NanScenario,FunctionWorkload} from './nanCustomWorkload'
-const STORAGE='agent-profile-lab.nan-custom-workloads.v1'
+const LEGACY_STORAGE='agent-profile-lab.nan-custom-workloads.v1'
+const STORAGE='agent-profile-lab.nan-custom-workloads.v2'
+function legacyStorage():unknown[]{
+ try{const raw=localStorage.getItem(LEGACY_STORAGE);if(!raw||raw.length>customWorkloadRules.maxImportBytes*customWorkloadRules.maxSavedScenarios)return [];const value=JSON.parse(raw);return Array.isArray(value)?value.slice(0,customWorkloadRules.maxSavedScenarios):[]}catch{return []}
+}
 const fmt=new Intl.NumberFormat('es-ES',{maximumFractionDigits:2})
 function safeStorage():NanCustomWorkload[]{
   try{
@@ -40,6 +44,9 @@ export default function NanCustomWorkloadEditor({baseScenario,applied,activeRole
   const [label,setLabel]=useState(applied?.label||'Mi carga personalizada')
   const [description,setDescription]=useState(applied?.description||'Hipótesis propia de llamadas mensuales y tokens totales por llamada.')
   const [saved,setSaved]=useState<NanCustomWorkload[]>(safeStorage)
+  const [legacy]=useState<unknown[]>(legacyStorage)
+  const [legacyIndex,setLegacyIndex]=useState(0)
+  const [migrationConsent,setMigrationConsent]=useState(false)
   const [onlyActive,setOnlyActive]=useState(true)
   const [expanded,setExpanded]=useState(Boolean(applied))
   const [feedback,setFeedback]=useState<{error:boolean;text:string}|null>(null)
@@ -60,7 +67,7 @@ export default function NanCustomWorkloadEditor({baseScenario,applied,activeRole
       const document=proposal()
       if(kind==='apply'){
         if(customWorkloadEqualsBase(document))throw new Error('Los contadores coinciden con el predefinido. No hace falta duplicar el perfil; usa Restablecer predefinido.')
-        onApply(document);setFeedback({error:false,text:'Escenario aplicado. El generador y las exportaciones usan ahora estos 20 supuestos.'})
+        onApply(document);setFeedback({error:false,text:`Escenario aplicado. El generador y las exportaciones usan ahora estos ${nanFunctionIds.length} supuestos.`})
       }
       if(kind==='download'){
         download(label,document);setFeedback({error:false,text:'Se ha descargado el escenario. No se ha aplicado una configuración ni se ha ejecutado ningún modelo.'})
@@ -126,6 +133,13 @@ export default function NanCustomWorkloadEditor({baseScenario,applied,activeRole
         <button type="button" className="secondary-button" onClick={()=>act('download')}><Download size={14}/> Exportar JSON</button>
         <button type="button" className="text-button" onClick={()=>{onClear();setFeedback({error:false,text:'Vuelves a los supuestos predefinidos. Las personalizaciones guardadas siguen disponibles.'})}}><RotateCcw size={14}/> Restablecer predefinido</button>
       </div>
+      {legacy.length>0&&<section className="trace-note" aria-label="Recuperar cargas históricas">
+        <h4>Escenarios de la revisión anterior conservados ({legacy.length})</h4>
+        <p>La versión actual separa el clasificador de la revisión. Los originales del navegador no se sobrescriben. La migración copia al clasificador la hipótesis de carga de revisión; no inventa mediciones.</p>
+        <label>Escenario histórico<select aria-label="Escenario histórico a recuperar" value={legacyIndex} onChange={e=>{setLegacyIndex(Number(e.target.value));setMigrationConsent(false)}}>{legacy.map((_,i)=><option key={i} value={i}>Escenario {i+1}</option>)}</select></label>
+        <label className="access-consent"><input type="checkbox" checked={migrationConsent} onChange={e=>setMigrationConsent(e.target.checked)}/>Acepto copiar esa hipótesis a la nueva función; revisaré los contadores antes de aplicar.</label>
+        <button type="button" className="secondary-button" disabled={!migrationConsent} onClick={()=>{try{const value=migrateLegacyNanWorkload(legacy[legacyIndex],migrationConsent);download('migrado-'+value.label,value);setFeedback({error:false,text:'Copia migrada descargada. El original sigue intacto y no se ha aplicado ningún perfil.'})}catch(error){setFeedback({error:true,text:error instanceof Error?error.message:'No se pudo recuperar.'})}}}>Descargar copia migrada</button>
+      </section>}
       <div className="nan-workload-saved">
         <label>Escenarios guardados localmente<select aria-label="Cargar escenario local" value={selected&&saved.some(x=>x.fingerprint===selected)?selected:''} onChange={e=>loadSaved(e.target.value)}>
           <option value="">Seleccionar para cargar…</option>{saved.map(x=><option key={x.fingerprint} value={x.fingerprint}>{x.label} · {x.baseScenario}</option>)}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "assurance-20261014-v1",
+  "evidenceTier": "E2-policy-or-transfer",
+  "routeCalibration": "not-measured",
+  "operationalReadiness": "configuration-only",
+  "runtimeEnforcement": "external-not-installed",
+  "reviewIndependence": "not-measured",
+  "fallbackDispatch": "not-installed",
+  "costAndLatency": "not-measured",
+  "nativeScope": "Primary model/effort map plus supported OMP advisor/concurrency fields. This is not a permission controller, scientific protocol or fallback scheduler.",
+  "requiredExternalControls": [
+    "scope-and-authorization",
+    "tool-permissions",
+    "secret-isolation",
+    "acceptance-oracle",
+    "human-review-for-impact",
+    "rollback-and-audit-log"
+  ],
+  "reviewFunctions": [
+    "independent-review",
+    "critical-review"
+  ],
+  "auxiliaryFunctions": [
+    "commit-preparation",
+    "status-reporting",
+    "memory-maintenance",
+    "bounded-exploration",
+    "auxiliary-classification"
+  ],
+  "flags": {
+    "shared-review-route": "Las revisiones configuradas comparten una ruta. Ni su número ni un cambio de proveedor acreditan errores independientes.",
+    "uniform-auxiliary-effort": "Auxiliares y coordinación tienen el mismo modelo y esfuerzo. Es una referencia por revisar, no una optimización demostrada por función.",
+    "maximum-effort-unmeasured": "Se solicita esfuerzo max sin medición de beneficio en este perfil. Comparar con alternativas antes de atribuir calidad o ahorro.",
+    "no-primary-image-route": "No hay un principal habilitado con visión declarada. La revisión visual requiere una vía externa o reserva capaz, verificada por separado.",
+    "no-image-route": "No se declara visión ni en principales habilitados ni en sus reservas. No presentar esta configuración como cobertura visual completa.",
+    "apps-derived-security": "La referencia de ciberseguridad hereda selecciones de Apps; su eficacia y controles operativos no están calibrados.",
+    "single-access-route": "Todos los principales habilitados usan una vía de acceso. Puede ser deliberado; no significa que la diversidad sea peor o mejor.",
+    "requested-effort-only": "El esfuerzo es un parámetro solicitado/admitido por catálogo, no una medida del razonamiento aplicado ni del coste real.",
+    "superseded-reserve": "Alguna reserva figura como sustituida en el catálogo. Esto no demuestra que esté retirada: verificar la disponibilidad real antes de usarla como recuperación."
+  }
+}

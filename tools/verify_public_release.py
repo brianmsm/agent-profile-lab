@@ -51,8 +51,21 @@ def verify():
                  evidence['publicProfileRoutesSHA256'],'Source reference routes differ from original private decisions')
     assert_count(canonical(snapshot['meta'])==evidence['originalProfileMetaSHA256']==
                  evidence['publicProfileMetaSHA256'],'Reference profile metadata differs from original source')
+    amendment=evidence.get('metadataAmendment',{})
+    assert_count(amendment.get('path')=='policies/source-metadata-amendment.json' and
+                 amendment.get('kind')=='descriptive-source-amendment',
+                 'A source metadata change requires a reviewed descriptive amendment')
+    amendment_path=ROOT/amendment['path']
+    assert_count(digest(amendment_path)==amendment.get('sha256'),'Metadata amendment receipt changed')
+    amendment_receipt=read(amendment_path)
+    assert_count(amendment_receipt['originalSourceManifestSHA256']==evidence['originalSourceManifestSHA256'],
+                 'Original source-manifest history must be preserved')
     assert_count(digest(ROOT/'data/assignment-shards/manifest.json')==evidence['sourceManifestSHA256']==
-                 evidence['originalSourceManifestSHA256'],'Original assignment shards manifest changed')
+                 amendment_receipt['currentSourceManifestSHA256'],'Amended source manifest differs from reviewed bytes')
+    from verify_source_amendment import verify_amendment
+    amendment_result=verify_amendment(ROOT)
+    assert_count(amendment_result['nonlabelFieldsPreserved'] and amendment_result['nativeFilesByteIdentical']==3744,
+                 'Source metadata amendment changed model selections or native outputs')
     decisions,_=load_decisions(ROOT)
     active,retired=partition_decisions(decisions,load_harnesses(ROOT))
     assert_count(len(decisions)==49638 and len(active)==33414 and len(retired)==16224,
@@ -151,7 +164,8 @@ def verify():
             'numericPublishedBFCL':3241,'externalNumericCellsNotRedistributed':69349,
             'reviewCitationsReferenceOnly':42,'AAmodelSourceLinks':853,'sourceRegistryLinks':322,
             'MIT':True,'ApacheAttribution':True,
-            'byteIdenticalSourceAssignments':True,'canonicalProfileRoutesPreserved':True,
+            'byteIdenticalSourceAssignments':False,'sourceMetadataAmended':True,
+            'originalNonlabelSourceFieldsPreserved':True,'canonicalProfileRoutesPreserved':True,
             'AAvaluesRedistributed':0,'rawCapturesRedistributed':0,
             'browserTransport':'verified-lossless-SHA256','inferencesSent':0,
             'githubPublicationPerformed':False}

@@ -3,37 +3,106 @@
   "id": "activity-allocation-1",
   "label": "Reparto por complejidad",
   "evidenceState": "policy-derived-not-calibrated",
-  "coordinatorPriority": ["OAI", "ANTHROPIC", "GO", "CC", "NAN"],
-  "excludedDomains": ["agent-use", "cybersecurity"],
-  "protectedFunctions": ["coordination", "architecture", "requirements", "independent-review", "critical-review"],
+  "coordinatorPriority": [
+    "OAI",
+    "ANTHROPIC",
+    "GO",
+    "CC",
+    "NAN"
+  ],
+  "excludedDomains": [
+    "agent-use",
+    "cybersecurity"
+  ],
+  "protectedFunctions": [
+    "coordination",
+    "architecture",
+    "requirements",
+    "independent-review",
+    "critical-review",
+    "auxiliary-classification"
+  ],
   "levels": {
     "bounded": {
       "label": "Acotada y verificable",
       "description": "Entradas conocidas, pasos definidos y resultado comprobable. Permite distribuir ejecución, exploración y comprobaciones mecánicas; la revisión independiente se conserva.",
-      "functions": ["bounded-exploration", "bounded-implementation", "bounded-remediation", "mechanical-verification", "commit-preparation", "status-reporting", "memory-maintenance"]
+      "functions": [
+        "bounded-exploration",
+        "bounded-implementation",
+        "bounded-remediation",
+        "mechanical-verification",
+        "commit-preparation",
+        "status-reporting",
+        "memory-maintenance"
+      ]
     },
     "standard": {
       "label": "Intermedia",
       "description": "Hay incertidumbre en el trabajo, pero se pueden separar subtareas con entradas y criterios de aceptación claros. Se conserva la coordinación, el diseño y la verificación final.",
-      "functions": ["bounded-exploration", "bounded-implementation", "status-reporting", "commit-preparation"]
+      "functions": [
+        "bounded-exploration",
+        "bounded-implementation",
+        "status-reporting",
+        "commit-preparation"
+      ]
     },
     "complex": {
       "label": "Abierta o compleja",
       "description": "Diseño, interpretación o decisiones todavía abiertas. Sólo se distribuyen búsqueda delimitada y estado; implementación, memoria y comprobaciones permanecen en la base del coordinador.",
-      "functions": ["bounded-exploration", "status-reporting"]
+      "functions": [
+        "bounded-exploration",
+        "status-reporting"
+      ]
     }
   },
   "preferredPools": {
-    "bounded-exploration": ["NAN", "GO", "CC", "ANTHROPIC"],
-    "bounded-implementation": ["GO", "CC", "ANTHROPIC"],
-    "bounded-remediation": ["GO", "CC", "ANTHROPIC"],
-    "mechanical-verification": ["ANTHROPIC", "GO", "CC"],
-    "commit-preparation": ["GO", "CC", "NAN", "ANTHROPIC"],
-    "status-reporting": ["NAN", "GO", "CC", "ANTHROPIC"],
-    "memory-maintenance": ["NAN", "GO", "CC", "ANTHROPIC"]
+    "bounded-exploration": [
+      "NAN",
+      "GO",
+      "CC",
+      "ANTHROPIC"
+    ],
+    "bounded-implementation": [
+      "GO",
+      "CC",
+      "ANTHROPIC"
+    ],
+    "bounded-remediation": [
+      "GO",
+      "CC",
+      "ANTHROPIC"
+    ],
+    "mechanical-verification": [
+      "ANTHROPIC",
+      "GO",
+      "CC"
+    ],
+    "commit-preparation": [
+      "GO",
+      "CC",
+      "NAN",
+      "ANTHROPIC"
+    ],
+    "status-reporting": [
+      "NAN",
+      "GO",
+      "CC",
+      "ANTHROPIC"
+    ],
+    "memory-maintenance": [
+      "NAN",
+      "GO",
+      "CC",
+      "ANTHROPIC"
+    ]
   },
   "complexPreferredPools": {
-    "bounded-exploration": ["GO", "CC", "ANTHROPIC", "NAN"]
+    "bounded-exploration": [
+      "GO",
+      "CC",
+      "ANTHROPIC",
+      "NAN"
+    ]
   },
   "conditions": {
     "bounded-exploration": "Sólo buscar, extraer y resumir fuentes delimitadas; no resolver decisiones abiertas.",

@@ -92,6 +92,10 @@ def main() -> None:
         precedents[key]['sourceProfiles'].append(row['profile_id'])
     with (DATA / 'profile-index.csv').open(encoding='utf-8-sig', newline='') as handle:
         reader = csv.DictReader(handle); index_fields = reader.fieldnames; index = list(reader)
+    from metadata_contracts import label_contract, validate_labels
+    labels = label_contract(ROOT)
+    validate_labels(rows, labels, 'source decisions')
+    validate_labels(index, labels, 'profile index')
     counts = Counter(row['profile_id'] for row in active)
     if len(index) != len(counts) or {row['profile_id'] for row in index} != set(counts):
         raise ValueError('Profile metadata disagrees with active decision groups')

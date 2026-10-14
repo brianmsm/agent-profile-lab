@@ -3,54 +3,180 @@
   "harnesses": {
     "gentle-shell": {
       "harnessVersion": "4.0.0",
-      "runtime": {"name": "pi", "version": "1.1.0"},
+      "runtime": {
+        "name": "pi",
+        "version": "1.1.0"
+      },
       "nativeFormat": "gentle-json-v1",
       "roles": {
-        "orchestrator": {"functionId": "coordination", "kind": "coordinator"},
-        "gentle-ai-explore": {"functionId": "bounded-exploration", "kind": "agent", "boundedOffload": true},
-        "gentle-ai-worker": {"functionId": "bounded-implementation", "kind": "agent"},
-        "gentle-ai-verify": {"functionId": "mechanical-verification", "kind": "agent"},
-        "jd-judge-a": {"functionId": "independent-review", "kind": "agent"},
-        "jd-judge-b": {"functionId": "independent-review", "kind": "agent"},
-        "jd-fix-agent": {"functionId": "bounded-remediation", "kind": "agent"},
-        "review-risk": {"functionId": "critical-review", "kind": "native-review"},
-        "review-readability": {"functionId": "independent-review", "kind": "native-review"},
-        "review-reliability": {"functionId": "critical-review", "kind": "native-review"},
-        "review-resilience": {"functionId": "critical-review", "kind": "native-review"},
-        "review-refuter": {"functionId": "critical-review", "kind": "native-review"},
-        "review-validator": {"functionId": "critical-review", "kind": "native-review"}
+        "orchestrator": {
+          "functionId": "coordination",
+          "kind": "coordinator"
+        },
+        "gentle-ai-explore": {
+          "functionId": "bounded-exploration",
+          "kind": "agent",
+          "boundedOffload": true
+        },
+        "gentle-ai-worker": {
+          "functionId": "bounded-implementation",
+          "kind": "agent"
+        },
+        "gentle-ai-verify": {
+          "functionId": "mechanical-verification",
+          "kind": "agent"
+        },
+        "jd-judge-a": {
+          "functionId": "independent-review",
+          "kind": "agent"
+        },
+        "jd-judge-b": {
+          "functionId": "independent-review",
+          "kind": "agent"
+        },
+        "jd-fix-agent": {
+          "functionId": "bounded-remediation",
+          "kind": "agent"
+        },
+        "review-risk": {
+          "functionId": "critical-review",
+          "kind": "native-review"
+        },
+        "review-readability": {
+          "functionId": "independent-review",
+          "kind": "native-review"
+        },
+        "review-reliability": {
+          "functionId": "critical-review",
+          "kind": "native-review"
+        },
+        "review-resilience": {
+          "functionId": "critical-review",
+          "kind": "native-review"
+        },
+        "review-refuter": {
+          "functionId": "critical-review",
+          "kind": "native-review"
+        },
+        "review-validator": {
+          "functionId": "critical-review",
+          "kind": "native-review"
+        }
       },
-      "retiredRolePrefixes": ["sdd-"],
-      "criticalRoles": ["review-risk", "review-reliability", "review-resilience", "review-refuter", "review-validator"],
-      "excludedRoles": [{"domain": "agent-use", "objectives": ["economy", "balanced", "speed"], "roles": ["jd-judge-a", "jd-judge-b"], "reason": "Baseline selection policy, not absence of JD capability."}],
-      "sources": ["https://github.com/Gentleman-Programming/gentle-shell/releases/tag/v4.0.0", "https://github.com/Gentleman-Programming/gentle-shell/blob/v4.0.0/lib/agent-assets.ts"],
-      "limitations": ["Profile slots do not activate ODD/JD/RDD or install agents.", "Runtime version is pinned separately from the harness. Unknown versions require a reviewed contract."]
+      "retiredRolePrefixes": [
+        "sdd-"
+      ],
+      "criticalRoles": [
+        "review-risk",
+        "review-reliability",
+        "review-resilience",
+        "review-refuter",
+        "review-validator"
+      ],
+      "excludedRoles": [
+        {
+          "domain": "agent-use",
+          "objectives": [
+            "economy",
+            "balanced",
+            "speed"
+          ],
+          "roles": [
+            "jd-judge-a",
+            "jd-judge-b"
+          ],
+          "reason": "Baseline selection policy, not absence of JD capability."
+        }
+      ],
+      "sources": [
+        "https://github.com/Gentleman-Programming/gentle-shell/releases/tag/v4.0.0",
+        "https://github.com/Gentleman-Programming/gentle-shell/blob/v4.0.0/lib/agent-assets.ts"
+      ],
+      "limitations": [
+        "Profile slots do not activate ODD/JD/RDD or install agents.",
+        "Runtime version is pinned separately from the harness. Unknown versions require a reviewed contract."
+      ]
     },
     "omp": {
       "harnessVersion": "18.8.7",
-      "runtime": {"name": "omp", "version": "18.8.7"},
+      "runtime": {
+        "name": "omp",
+        "version": "18.8.7"
+      },
       "nativeFormat": "omp-yaml",
       "roles": {
-        "default": {"functionId": "coordination", "kind": "model-role"},
-        "smol": {"functionId": "bounded-exploration", "kind": "model-role", "boundedOffload": true},
-        "slow": {"functionId": "independent-review", "kind": "model-role"},
-        "plan": {"functionId": "architecture", "kind": "model-role"},
-        "task": {"functionId": "bounded-implementation", "kind": "model-role"},
-        "commit": {"functionId": "commit-preparation", "kind": "model-role", "boundedOffload": true},
-        "vision": {"functionId": "visual-inspection", "kind": "model-role"},
-        "tiny": {"functionId": "status-reporting", "kind": "model-role", "boundedOffload": true},
-        "memory": {"functionId": "memory-maintenance", "kind": "model-role", "boundedOffload": true},
-        "advisor": {"functionId": "independent-review", "kind": "model-role"},
-        "advisor_deep": {"functionId": "independent-review", "kind": "model-role"},
-        "designer": {"functionId": "architecture", "kind": "custom-role"},
-        "data_designer": {"functionId": "architecture", "kind": "custom-role"},
-        "judge": {"functionId": "independent-review", "kind": "custom-role"}
+        "default": {
+          "functionId": "coordination",
+          "kind": "model-role"
+        },
+        "smol": {
+          "functionId": "bounded-exploration",
+          "kind": "model-role",
+          "boundedOffload": true
+        },
+        "slow": {
+          "functionId": "independent-review",
+          "kind": "model-role"
+        },
+        "plan": {
+          "functionId": "architecture",
+          "kind": "model-role"
+        },
+        "task": {
+          "functionId": "bounded-implementation",
+          "kind": "model-role"
+        },
+        "commit": {
+          "functionId": "commit-preparation",
+          "kind": "model-role",
+          "boundedOffload": true
+        },
+        "vision": {
+          "functionId": "visual-inspection",
+          "kind": "model-role"
+        },
+        "tiny": {
+          "functionId": "status-reporting",
+          "kind": "model-role",
+          "boundedOffload": true
+        },
+        "memory": {
+          "functionId": "memory-maintenance",
+          "kind": "model-role",
+          "boundedOffload": true
+        },
+        "advisor": {
+          "functionId": "independent-review",
+          "kind": "model-role"
+        },
+        "advisor_deep": {
+          "functionId": "independent-review",
+          "kind": "model-role"
+        },
+        "designer": {
+          "functionId": "architecture",
+          "kind": "custom-role"
+        },
+        "data_designer": {
+          "functionId": "architecture",
+          "kind": "custom-role"
+        },
+        "judge": {
+          "functionId": "auxiliary-classification",
+          "kind": "custom-role",
+          "semantics": "Project-defined classifier, not an installed independent reviewer."
+        }
       },
       "retiredRolePrefixes": [],
       "criticalRoles": [],
       "excludedRoles": [],
-      "sources": ["https://github.com/can1357/oh-my-pi/blob/v18.8.7/packages/coding-agent/src/config/model-settings.ts"],
-      "limitations": ["OMP accepts arbitrary modelRoles; designer, data_designer and judge are project-defined selectors, not installed subagents.", "Account selection, dispatch, effort overrides and entitlement require separate runtime checks."]
+      "sources": [
+        "https://github.com/can1357/oh-my-pi/blob/v18.8.7/packages/coding-agent/src/config/model-settings.ts"
+      ],
+      "limitations": [
+        "OMP accepts arbitrary modelRoles; designer, data_designer and judge are project-defined selectors, not installed subagents.",
+        "Account selection, dispatch, effort overrides and entitlement require separate runtime checks."
+      ]
     }
   }
 }

@@ -14,6 +14,7 @@ from dashboard_strategies import build_strategy_collections
 from generate_native_profiles import native_text
 from resource_economics import validate_funding
 from profile_semantics import require_visual_capability, require_distinct_reserves
+from profile_assurance import assess_resolved
 
 REF = re.compile(r'^[A-Za-z][A-Za-z0-9._-]{0,95}$')
 REQUEST_FIELDS = {'schemaVersion','targetId','baseProfile','selectionPolicy','name','resources',
@@ -260,7 +261,7 @@ def compile_request(request: dict, root: Path=ROOT) -> dict:
             'data/domain-objective-contracts.json','data/omp-runtime-policies.csv','scripts/profile_compiler.py',
             'scripts/access_catalog.py','scripts/dashboard_strategies.py','scripts/generate_native_profiles.py','scripts/profile_semantics.py',
             'scripts/harness_contracts.py','scripts/prepare_data.py','policies/functions.json',
-            'policies/activity-allocation.json','scripts/activity_allocation.py','catalog/account-inventory.json','catalog/pricing.json','catalog/resource-benefits.json','scripts/resource_economics.py']
+            'policies/activity-allocation.json','scripts/activity_allocation.py','catalog/account-inventory.json','catalog/pricing.json','catalog/resource-benefits.json','scripts/resource_economics.py','policies/assurance-contract.json','scripts/profile_assurance.py']
     domain_contract=json.loads((root/'data/domain-objective-contracts.json').read_text())['domains'][baseline['domain']]
     manifest={'format':'agent-profile-lab.compiled-profile','schemaVersion':1,
         'status':'candidate' if remap or overrides or policy!='matrix' else 'baseline-projection',
@@ -271,6 +272,7 @@ def compile_request(request: dict, root: Path=ROOT) -> dict:
         'referencePortfolioMeaning':'Decision source only; not an estimate of the current resource inventory cost.',
         'resources':list(resources.values()),'resourceEvidence':'user-declared' if supplied is not None else 'baseline-expected-not-inspected',
         'meteredAuthorization':authorization,'funding':funding,'domainContract':domain_contract,'roles':resolved,
+        'assurance':assess_resolved(resolved,baseline['harness'],baseline['domain'],catalog['offerings']),
         'nativeArtifact':{'filename':filename,'sha256':hashlib.sha256(text.encode()).hexdigest(),'encoding':'utf-8'},
         'inputsSha256':{p:hashlib.sha256((root/p).read_bytes()).hexdigest() for p in inputs},
         'validation':{'structural':'passed','credentialDispatch':'not-enforced',

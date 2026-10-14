@@ -102,6 +102,10 @@
         "memory-maintenance": {
           "callsPerMonth": 60,
           "totalTokensPerCall": 5000
+        },
+        "auxiliary-classification": {
+          "callsPerMonth": 15,
+          "totalTokensPerCall": 16000
         }
       }
     },
@@ -188,6 +192,10 @@
         "memory-maintenance": {
           "callsPerMonth": 60,
           "totalTokensPerCall": 5000
+        },
+        "auxiliary-classification": {
+          "callsPerMonth": 24,
+          "totalTokensPerCall": 20000
         }
       }
     },
@@ -274,8 +282,18 @@
         "memory-maintenance": {
           "callsPerMonth": 60,
           "totalTokensPerCall": 5000
+        },
+        "auxiliary-classification": {
+          "callsPerMonth": 35,
+          "totalTokensPerCall": 23500
         }
       }
     }
+  },
+  "taxonomyAmendment": {
+    "id": "adversarial-remediation-20261014",
+    "meaning": "A separate classifier function replaces the erroneous OMP judge review label. Its initial hypothetical workload copies the former review burden to avoid fabricating savings; edit explicitly for actual workload.",
+    "source": "R06-03 / R10 CR-03",
+    "measurement": false
   }
 }

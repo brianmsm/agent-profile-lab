@@ -15,7 +15,8 @@
     "independent-review",
     "critical-review",
     "visual-inspection",
-    "memory-maintenance"
+    "memory-maintenance",
+    "auxiliary-classification"
   ],
   "limitations": [
     "Candidatas revisadas con evidencia externa; no ganadoras calibradas en el harness.",
@@ -65,7 +66,45 @@
       ],
       "admission": "reviewed-external-evidence",
       "workload": "closed-subtasks",
-      "maxInputTokensForEconomicArgument": 100000
+      "maxInputTokensForEconomicArgument": 100000,
+      "functionEvidence": {
+        "bounded-exploration": {
+          "tier": "E2-analogy",
+          "claim": "Recuperar información delimitada",
+          "evidenceRefs": [
+            "observation-5f378b116c7c62f059c5e9a4",
+            "observation-2d3cf42225410791290f8698",
+            "observation-b72da6eb0747169f96dacc89"
+          ],
+          "transferLimit": "Las mediciones externas citadas no ensayan esta función en este perfil, esfuerzo, endpoint y harness. Justifican una candidata a comparar, no superioridad demostrada.",
+          "acceptanceCriterion": "Cobertura de fuentes y trazabilidad; omisiones y falsas atribuciones.",
+          "routeCalibration": "not-measured"
+        },
+        "status-reporting": {
+          "tier": "E2-analogy",
+          "claim": "Resumir estado de artefactos",
+          "evidenceRefs": [
+            "observation-5f378b116c7c62f059c5e9a4",
+            "observation-2d3cf42225410791290f8698",
+            "observation-b72da6eb0747169f96dacc89"
+          ],
+          "transferLimit": "Las mediciones externas citadas no ensayan esta función en este perfil, esfuerzo, endpoint y harness. Justifican una candidata a comparar, no superioridad demostrada.",
+          "acceptanceCriterion": "Estados exactos; no confundir terminado con correcto.",
+          "routeCalibration": "not-measured"
+        },
+        "commit-preparation": {
+          "tier": "E2-analogy",
+          "claim": "Preparar un resumen fiel del diff",
+          "evidenceRefs": [
+            "observation-5f378b116c7c62f059c5e9a4",
+            "observation-2d3cf42225410791290f8698",
+            "observation-b72da6eb0747169f96dacc89"
+          ],
+          "transferLimit": "Las mediciones externas citadas no ensayan esta función en este perfil, esfuerzo, endpoint y harness. Justifican una candidata a comparar, no superioridad demostrada.",
+          "acceptanceCriterion": "Cambios añadidos/borrados exactos; ninguna autorización de publicar.",
+          "routeCalibration": "not-measured"
+        }
+      }
     },
     {
       "id": "haiku-worker",
@@ -114,7 +153,93 @@
       ],
       "admission": "reviewed-external-evidence",
       "workload": "closed-subtasks",
-      "maxInputTokensForEconomicArgument": 100000
+      "maxInputTokensForEconomicArgument": 100000,
+      "functionEvidence": {
+        "bounded-exploration": {
+          "tier": "E2-analogy",
+          "claim": "Recuperar información delimitada",
+          "evidenceRefs": [
+            "observation-23edc00e2efd81a0c93ef4c4",
+            "observation-17e64ec1a59de7f4fc270b09",
+            "observation-01df812e336c20754e134a59",
+            "observation-65639e2ec12fcf4440870fed",
+            "observation-a0652eb281328385cfa2f348"
+          ],
+          "transferLimit": "Las mediciones externas citadas no ensayan esta función en este perfil, esfuerzo, endpoint y harness. Justifican una candidata a comparar, no superioridad demostrada.",
+          "acceptanceCriterion": "Cobertura de fuentes y trazabilidad; omisiones y falsas atribuciones.",
+          "routeCalibration": "not-measured"
+        },
+        "bounded-implementation": {
+          "tier": "E2-analogy",
+          "claim": "Implementar un contrato cerrado",
+          "evidenceRefs": [
+            "observation-23edc00e2efd81a0c93ef4c4",
+            "observation-17e64ec1a59de7f4fc270b09",
+            "observation-01df812e336c20754e134a59",
+            "observation-65639e2ec12fcf4440870fed",
+            "observation-a0652eb281328385cfa2f348"
+          ],
+          "transferLimit": "Las mediciones externas citadas no ensayan esta función en este perfil, esfuerzo, endpoint y harness. Justifican una candidata a comparar, no superioridad demostrada.",
+          "acceptanceCriterion": "Pruebas independientes y aceptación semántica de los requisitos.",
+          "routeCalibration": "not-measured"
+        },
+        "bounded-remediation": {
+          "tier": "E2-analogy",
+          "claim": "Corregir un defecto localizado",
+          "evidenceRefs": [
+            "observation-23edc00e2efd81a0c93ef4c4",
+            "observation-17e64ec1a59de7f4fc270b09",
+            "observation-01df812e336c20754e134a59",
+            "observation-65639e2ec12fcf4440870fed",
+            "observation-a0652eb281328385cfa2f348"
+          ],
+          "transferLimit": "Las mediciones externas citadas no ensayan esta función en este perfil, esfuerzo, endpoint y harness. Justifican una candidata a comparar, no superioridad demostrada.",
+          "acceptanceCriterion": "Reproducción previa, desaparición del defecto y no regresión.",
+          "routeCalibration": "not-measured"
+        },
+        "mechanical-verification": {
+          "tier": "E2-analogy",
+          "claim": "Ejecutar comprobaciones definidas",
+          "evidenceRefs": [
+            "observation-23edc00e2efd81a0c93ef4c4",
+            "observation-17e64ec1a59de7f4fc270b09",
+            "observation-01df812e336c20754e134a59",
+            "observation-65639e2ec12fcf4440870fed",
+            "observation-a0652eb281328385cfa2f348"
+          ],
+          "transferLimit": "Las mediciones externas citadas no ensayan esta función en este perfil, esfuerzo, endpoint y harness. Justifican una candidata a comparar, no superioridad demostrada.",
+          "acceptanceCriterion": "Reporte fiel de comandos/salidas; no equivale a validar el método.",
+          "routeCalibration": "not-measured"
+        },
+        "status-reporting": {
+          "tier": "E2-analogy",
+          "claim": "Resumir estado de artefactos",
+          "evidenceRefs": [
+            "observation-23edc00e2efd81a0c93ef4c4",
+            "observation-17e64ec1a59de7f4fc270b09",
+            "observation-01df812e336c20754e134a59",
+            "observation-65639e2ec12fcf4440870fed",
+            "observation-a0652eb281328385cfa2f348"
+          ],
+          "transferLimit": "Las mediciones externas citadas no ensayan esta función en este perfil, esfuerzo, endpoint y harness. Justifican una candidata a comparar, no superioridad demostrada.",
+          "acceptanceCriterion": "Estados exactos; no confundir terminado con correcto.",
+          "routeCalibration": "not-measured"
+        },
+        "commit-preparation": {
+          "tier": "E2-analogy",
+          "claim": "Preparar un resumen fiel del diff",
+          "evidenceRefs": [
+            "observation-23edc00e2efd81a0c93ef4c4",
+            "observation-17e64ec1a59de7f4fc270b09",
+            "observation-01df812e336c20754e134a59",
+            "observation-65639e2ec12fcf4440870fed",
+            "observation-a0652eb281328385cfa2f348"
+          ],
+          "transferLimit": "Las mediciones externas citadas no ensayan esta función en este perfil, esfuerzo, endpoint y harness. Justifican una candidata a comparar, no superioridad demostrada.",
+          "acceptanceCriterion": "Cambios añadidos/borrados exactos; ninguna autorización de publicar.",
+          "routeCalibration": "not-measured"
+        }
+      }
     },
     {
       "id": "haiku-worker-high",
@@ -152,7 +277,22 @@
       ],
       "admission": "reviewed-external-evidence",
       "workload": "closed-subtasks",
-      "maxInputTokensForEconomicArgument": 100000
+      "maxInputTokensForEconomicArgument": 100000,
+      "functionEvidence": {
+        "bounded-implementation": {
+          "tier": "E2-analogy",
+          "claim": "Implementar un contrato cerrado",
+          "evidenceRefs": [
+            "observation-17e64ec1a59de7f4fc270b09",
+            "observation-23edc00e2efd81a0c93ef4c4",
+            "observation-3e67e884349c0d35df3dd1e9",
+            "observation-01df812e336c20754e134a59"
+          ],
+          "transferLimit": "Las mediciones externas citadas no ensayan esta función en este perfil, esfuerzo, endpoint y harness. Justifican una candidata a comparar, no superioridad demostrada.",
+          "acceptanceCriterion": "Pruebas independientes y aceptación semántica de los requisitos.",
+          "routeCalibration": "not-measured"
+        }
+      }
     },
     {
       "id": "luna-small",
@@ -194,7 +334,45 @@
       ],
       "admission": "reviewed-external-evidence",
       "workload": "closed-subtasks",
-      "maxInputTokensForEconomicArgument": null
+      "maxInputTokensForEconomicArgument": null,
+      "functionEvidence": {
+        "bounded-exploration": {
+          "tier": "E2-analogy",
+          "claim": "Recuperar información delimitada",
+          "evidenceRefs": [
+            "observation-b72da6eb0747169f96dacc89",
+            "observation-6e02a3bc232e38513464b74c",
+            "observation-5f378b116c7c62f059c5e9a4"
+          ],
+          "transferLimit": "Las mediciones externas citadas no ensayan esta función en este perfil, esfuerzo, endpoint y harness. Justifican una candidata a comparar, no superioridad demostrada.",
+          "acceptanceCriterion": "Cobertura de fuentes y trazabilidad; omisiones y falsas atribuciones.",
+          "routeCalibration": "not-measured"
+        },
+        "status-reporting": {
+          "tier": "E2-analogy",
+          "claim": "Resumir estado de artefactos",
+          "evidenceRefs": [
+            "observation-b72da6eb0747169f96dacc89",
+            "observation-6e02a3bc232e38513464b74c",
+            "observation-5f378b116c7c62f059c5e9a4"
+          ],
+          "transferLimit": "Las mediciones externas citadas no ensayan esta función en este perfil, esfuerzo, endpoint y harness. Justifican una candidata a comparar, no superioridad demostrada.",
+          "acceptanceCriterion": "Estados exactos; no confundir terminado con correcto.",
+          "routeCalibration": "not-measured"
+        },
+        "commit-preparation": {
+          "tier": "E2-analogy",
+          "claim": "Preparar un resumen fiel del diff",
+          "evidenceRefs": [
+            "observation-b72da6eb0747169f96dacc89",
+            "observation-6e02a3bc232e38513464b74c",
+            "observation-5f378b116c7c62f059c5e9a4"
+          ],
+          "transferLimit": "Las mediciones externas citadas no ensayan esta función en este perfil, esfuerzo, endpoint y harness. Justifican una candidata a comparar, no superioridad demostrada.",
+          "acceptanceCriterion": "Cambios añadidos/borrados exactos; ninguna autorización de publicar.",
+          "routeCalibration": "not-measured"
+        }
+      }
     },
     {
       "id": "luna-worker",
@@ -232,7 +410,22 @@
       ],
       "admission": "reviewed-external-evidence",
       "workload": "closed-subtasks",
-      "maxInputTokensForEconomicArgument": null
+      "maxInputTokensForEconomicArgument": null,
+      "functionEvidence": {
+        "bounded-implementation": {
+          "tier": "E2-analogy",
+          "claim": "Implementar un contrato cerrado",
+          "evidenceRefs": [
+            "observation-a0652eb281328385cfa2f348",
+            "observation-23edc00e2efd81a0c93ef4c4",
+            "observation-1e106bfe30ddc29f74c06adf",
+            "observation-3e67e884349c0d35df3dd1e9"
+          ],
+          "transferLimit": "Las mediciones externas citadas no ensayan esta función en este perfil, esfuerzo, endpoint y harness. Justifican una candidata a comparar, no superioridad demostrada.",
+          "acceptanceCriterion": "Pruebas independientes y aceptación semántica de los requisitos.",
+          "routeCalibration": "not-measured"
+        }
+      }
     },
     {
       "id": "opus-worker",
@@ -274,7 +467,35 @@
       ],
       "admission": "reviewed-external-evidence",
       "workload": "closed-subtasks",
-      "maxInputTokensForEconomicArgument": null
+      "maxInputTokensForEconomicArgument": null,
+      "functionEvidence": {
+        "bounded-implementation": {
+          "tier": "E2-analogy",
+          "claim": "Implementar un contrato cerrado",
+          "evidenceRefs": [
+            "observation-adce85ee567d85eef1651099",
+            "observation-abf9590fcea66ac9699685ca",
+            "observation-0dac19e5f63038b712222178",
+            "observation-6186dc7d425a495cc206e3fd"
+          ],
+          "transferLimit": "Las mediciones externas citadas no ensayan esta función en este perfil, esfuerzo, endpoint y harness. Justifican una candidata a comparar, no superioridad demostrada.",
+          "acceptanceCriterion": "Pruebas independientes y aceptación semántica de los requisitos.",
+          "routeCalibration": "not-measured"
+        },
+        "bounded-remediation": {
+          "tier": "E2-analogy",
+          "claim": "Corregir un defecto localizado",
+          "evidenceRefs": [
+            "observation-adce85ee567d85eef1651099",
+            "observation-abf9590fcea66ac9699685ca",
+            "observation-0dac19e5f63038b712222178",
+            "observation-6186dc7d425a495cc206e3fd"
+          ],
+          "transferLimit": "Las mediciones externas citadas no ensayan esta función en este perfil, esfuerzo, endpoint y harness. Justifican una candidata a comparar, no superioridad demostrada.",
+          "acceptanceCriterion": "Reproducción previa, desaparición del defecto y no regresión.",
+          "routeCalibration": "not-measured"
+        }
+      }
     },
     {
       "id": "opus-scientific-worker",
@@ -310,7 +531,22 @@
       ],
       "admission": "reviewed-external-evidence",
       "workload": "closed-subtasks",
-      "maxInputTokensForEconomicArgument": null
+      "maxInputTokensForEconomicArgument": null,
+      "functionEvidence": {
+        "bounded-implementation": {
+          "tier": "E2-analogy",
+          "claim": "Implementar un contrato cerrado",
+          "evidenceRefs": [
+            "observation-b47a267415e4f65e210a8097",
+            "observation-8189c476834bf6c0b0338d69",
+            "observation-137bbaeb41ee6e22c835c20b",
+            "observation-abf9590fcea66ac9699685ca"
+          ],
+          "transferLimit": "Las mediciones externas citadas no ensayan esta función en este perfil, esfuerzo, endpoint y harness. Justifican una candidata a comparar, no superioridad demostrada.",
+          "acceptanceCriterion": "Pruebas independientes y aceptación semántica de los requisitos.",
+          "routeCalibration": "not-measured"
+        }
+      }
     },
     {
       "id": "sonnet-worker",
@@ -350,7 +586,31 @@
       ],
       "admission": "reviewed-external-evidence",
       "workload": "closed-subtasks",
-      "maxInputTokensForEconomicArgument": null
+      "maxInputTokensForEconomicArgument": null,
+      "functionEvidence": {
+        "bounded-implementation": {
+          "tier": "E2-analogy",
+          "claim": "Implementar un contrato cerrado",
+          "evidenceRefs": [
+            "observation-9a558f89b505bea3a02498ab",
+            "observation-300c155fe03a35114fae73ac"
+          ],
+          "transferLimit": "Las mediciones externas citadas no ensayan esta función en este perfil, esfuerzo, endpoint y harness. Justifican una candidata a comparar, no superioridad demostrada.",
+          "acceptanceCriterion": "Pruebas independientes y aceptación semántica de los requisitos.",
+          "routeCalibration": "not-measured"
+        },
+        "bounded-remediation": {
+          "tier": "E2-analogy",
+          "claim": "Corregir un defecto localizado",
+          "evidenceRefs": [
+            "observation-9a558f89b505bea3a02498ab",
+            "observation-300c155fe03a35114fae73ac"
+          ],
+          "transferLimit": "Las mediciones externas citadas no ensayan esta función en este perfil, esfuerzo, endpoint y harness. Justifican una candidata a comparar, no superioridad demostrada.",
+          "acceptanceCriterion": "Reproducción previa, desaparición del defecto y no regresión.",
+          "routeCalibration": "not-measured"
+        }
+      }
     },
     {
       "id": "glm-full-worker",
@@ -389,7 +649,22 @@
       ],
       "admission": "conditional-access-route",
       "workload": "closed-subtasks",
-      "maxInputTokensForEconomicArgument": null
+      "maxInputTokensForEconomicArgument": null,
+      "functionEvidence": {
+        "bounded-implementation": {
+          "tier": "E2-analogy",
+          "claim": "Implementar un contrato cerrado",
+          "evidenceRefs": [
+            "observation-f6618b50fb7d5bd87fd81154",
+            "observation-b48b35fb8972a06c0df06e11",
+            "observation-a6838967402b8fd5a74e7c29",
+            "observation-97fbe3d48c19bff068cbc146"
+          ],
+          "transferLimit": "Las mediciones externas citadas no ensayan esta función en este perfil, esfuerzo, endpoint y harness. Justifican una candidata a comparar, no superioridad demostrada.",
+          "acceptanceCriterion": "Pruebas independientes y aceptación semántica de los requisitos.",
+          "routeCalibration": "not-measured"
+        }
+      }
     },
     {
       "id": "kimi-context",
@@ -430,7 +705,21 @@
       ],
       "admission": "conditional-access-route",
       "workload": "long-context-source-extraction",
-      "maxInputTokensForEconomicArgument": null
+      "maxInputTokensForEconomicArgument": null,
+      "functionEvidence": {
+        "bounded-exploration": {
+          "tier": "E2-analogy",
+          "claim": "Recuperar información delimitada",
+          "evidenceRefs": [
+            "observation-de54c8fca71eb51e381d3fc0",
+            "observation-5c3a3b04d39d3ec118dacd90",
+            "observation-d12b9179330588532af4505a"
+          ],
+          "transferLimit": "Las mediciones externas citadas no ensayan esta función en este perfil, esfuerzo, endpoint y harness. Justifican una candidata a comparar, no superioridad demostrada.",
+          "acceptanceCriterion": "Cobertura de fuentes y trazabilidad; omisiones y falsas atribuciones.",
+          "routeCalibration": "not-measured"
+        }
+      }
     },
     {
       "id": "deepseek-worker",
@@ -467,7 +756,20 @@
       ],
       "admission": "conditional-access-route",
       "workload": "closed-subtasks",
-      "maxInputTokensForEconomicArgument": null
+      "maxInputTokensForEconomicArgument": null,
+      "functionEvidence": {
+        "bounded-implementation": {
+          "tier": "E2-analogy",
+          "claim": "Implementar un contrato cerrado",
+          "evidenceRefs": [
+            "observation-2218f85919e8320bd72e06ed",
+            "observation-50abdf0b7ec1333b87b4f3c9"
+          ],
+          "transferLimit": "Las mediciones externas citadas no ensayan esta función en este perfil, esfuerzo, endpoint y harness. Justifican una candidata a comparar, no superioridad demostrada.",
+          "acceptanceCriterion": "Pruebas independientes y aceptación semántica de los requisitos.",
+          "routeCalibration": "not-measured"
+        }
+      }
     },
     {
       "id": "mimo-nan-worker",
@@ -505,7 +807,31 @@
       ],
       "admission": "conditional-access-route",
       "workload": "closed-subtasks",
-      "maxInputTokensForEconomicArgument": null
+      "maxInputTokensForEconomicArgument": null,
+      "functionEvidence": {
+        "bounded-exploration": {
+          "tier": "E2-analogy",
+          "claim": "Recuperar información delimitada",
+          "evidenceRefs": [
+            "observation-e9760c35c57161a175c68a09",
+            "observation-ba09687cdc2c57bb4743dc51"
+          ],
+          "transferLimit": "Las mediciones externas citadas no ensayan esta función en este perfil, esfuerzo, endpoint y harness. Justifican una candidata a comparar, no superioridad demostrada.",
+          "acceptanceCriterion": "Cobertura de fuentes y trazabilidad; omisiones y falsas atribuciones.",
+          "routeCalibration": "not-measured"
+        },
+        "bounded-implementation": {
+          "tier": "E2-analogy",
+          "claim": "Implementar un contrato cerrado",
+          "evidenceRefs": [
+            "observation-e9760c35c57161a175c68a09",
+            "observation-ba09687cdc2c57bb4743dc51"
+          ],
+          "transferLimit": "Las mediciones externas citadas no ensayan esta función en este perfil, esfuerzo, endpoint y harness. Justifican una candidata a comparar, no superioridad demostrada.",
+          "acceptanceCriterion": "Pruebas independientes y aceptación semántica de los requisitos.",
+          "routeCalibration": "not-measured"
+        }
+      }
     },
     {
       "id": "glm-flash-worker",
@@ -544,8 +870,27 @@
       ],
       "admission": "conditional-access-route",
       "workload": "closed-subtasks",
-      "maxInputTokensForEconomicArgument": null
+      "maxInputTokensForEconomicArgument": null,
+      "functionEvidence": {
+        "bounded-implementation": {
+          "tier": "E2-analogy",
+          "claim": "Implementar un contrato cerrado",
+          "evidenceRefs": [
+            "observation-f6618b50fb7d5bd87fd81154",
+            "observation-b48b35fb8972a06c0df06e11",
+            "observation-a6838967402b8fd5a74e7c29",
+            "observation-97fbe3d48c19bff068cbc146"
+          ],
+          "transferLimit": "Las mediciones externas citadas no ensayan esta función en este perfil, esfuerzo, endpoint y harness. Justifican una candidata a comparar, no superioridad demostrada.",
+          "acceptanceCriterion": "Pruebas independientes y aceptación semántica de los requisitos.",
+          "routeCalibration": "not-measured"
+        }
+      }
     }
   ],
-  "handoffContract": "closed-subtask-with-explicit-handoff-and-acceptance"
+  "handoffContract": "closed-subtask-with-explicit-handoff-and-acceptance",
+  "methodologyAmendment": {
+    "id": "adversarial-remediation-20261014",
+    "meaning": "Every claimed function now has an explicit transfer statement and acceptance criterion. No new score, reranking or role selection is implied."
+  }
 }

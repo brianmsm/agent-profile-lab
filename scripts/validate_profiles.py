@@ -20,6 +20,9 @@ objective_contracts=domain_objective_contract.get('objectives',{})
 domains=set(domain_contracts)
 objectives=set(objective_contracts)
 index=list(csv.DictReader((ROOT/'data/profile-index.csv').open(encoding='utf-8-sig',newline='')))
+from metadata_contracts import label_contract, validate_labels
+validate_labels(rows, label_contract(ROOT), 'active assignments')
+validate_labels(index, label_contract(ROOT), 'profile index')
 profiles_json=json.load(open(ROOT/'data/profiles.json'))
 from harness_contracts import load_harnesses, roles_for, is_retired
 harness_contracts=load_harnesses()

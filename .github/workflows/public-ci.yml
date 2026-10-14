@@ -33,6 +33,10 @@ jobs:
           python3 -B tools/verify_public_release.py
           python3 -B scripts/review_objective_equivalences.py --verify
           python3 -B scripts/test_nan_quota_optimizer.py
+          python3 -B scripts/verify_source_amendment.py
+          python3 -B scripts/test_metadata_contracts.py
+          python3 -B scripts/test_adversarial_remediation.py
+          python3 -B scripts/test_adversarial_trial_plan.py
       - name: Synthetic public boundary regression tests
         run: python3 -B tools/test_public_boundary.py
       - name: Inspect public files and every new historical blob

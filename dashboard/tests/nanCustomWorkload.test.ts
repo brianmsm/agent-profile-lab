@@ -9,10 +9,10 @@ const make=(changes:Record<string,number>={})=>{
 describe('custom workload schema and exact fingerprint',()=>{
   test('fingerprint matches the independently produced Python fixture',()=>{
     const x=make()
-    expect(x.fingerprint).toBe('8b155d39d28f23f37ee76f5439be9810')
+    expect(x.fingerprint).toBe('84d518c6c36cdf82578ec168ce3e1b59')
     expect(x.functionWorkload).toEqual(sourceNanWorkload('mixed'))
     expect(customWorkloadEqualsBase(x)).toBe(true)
-    expect(nanFunctionIds).toHaveLength(20)
+    expect(nanFunctionIds).toHaveLength(21)
   })
   test('real changes alter identity and assumed totals; labels/descriptions are part of the version',()=>{
     const a=make(),b=make({'bounded-implementation':777})
@@ -74,7 +74,7 @@ describe('custom workload schema and exact fingerprint',()=>{
     for(const id of nanFunctionIds)rows[id].callsPerMonth=0
     const x=makeNanCustomWorkload('mixed','Sin trabajo','Cero hipotético',rows)
     expect(totalAssumedTokens(x.functionWorkload)).toBe(0)
-    expect(Object.keys(x.functionWorkload).length).toBe(20)
+    expect(Object.keys(x.functionWorkload).length).toBe(21)
   })
   test('JSON export/import is a complete, versioned, deterministic local workload',()=>{
     const x=make({'status-reporting':0,'bounded-implementation':19})

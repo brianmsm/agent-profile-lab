@@ -3,7 +3,7 @@
   "origin": "audit_profile_semantics.inspect_baselines",
   "method": "Exact source profile comparison; not a model ranking or experimental test.",
   "baselineProfiles": 2496,
-  "assignmentSourceSha256": "a650de533e2822d8ffffd41bb18fd9154238ec503d8e9301845860ef9e6ae914",
+  "assignmentSourceSha256": "ec68b171798194f3dcfadb884ddd2130326ee2214c1bfa8a579bbb27df3c0cb2",
   "comparisonFields": [
     "native-primary-and-effort",
     "inactive-routes",

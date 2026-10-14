@@ -157,7 +157,7 @@
   "originalProfileMetaSHA256": "983ab3b4cd51787fdd4519f3a32886b3dc7b550bcf24e07b06c3e03e6e6e5c18",
   "publicProfileMetaSHA256": "983ab3b4cd51787fdd4519f3a32886b3dc7b550bcf24e07b06c3e03e6e6e5c18",
   "sourcePolicySHA256": "1fd6679b211a29a04921e954f3a24ba25a50fe38b00bad0c44a96589e0e3881a",
-  "sourceManifestSHA256": "a650de533e2822d8ffffd41bb18fd9154238ec503d8e9301845860ef9e6ae914",
+  "sourceManifestSHA256": "ec68b171798194f3dcfadb884ddd2130326ee2214c1bfa8a579bbb27df3c0cb2",
   "originalSourceManifestSHA256": "a650de533e2822d8ffffd41bb18fd9154238ec503d8e9301845860ef9e6ae914",
   "thirdPartyCapturesRedistributed": 0,
   "providerCalls": 0,
@@ -166,5 +166,10 @@
   "remainingLegalUncertainty": "External-source redistribution rights vary; only approved allowlisted data included.",
   "releaseChannel": "github-public-repository",
   "releaseRepository": "https://github.com/brianmsm/agent-profile-lab",
-  "releaseApproval": "Repository owner explicitly authorized this rights-scoped source release, not the excluded original private Git objects."
+  "releaseApproval": "Repository owner explicitly authorized this rights-scoped source release, not the excluded original private Git objects.",
+  "metadataAmendment": {
+    "path": "policies/source-metadata-amendment.json",
+    "sha256": "31bf7718d64d8fd8c18b0f9436b29fa278e12081bb1a7611e2f7c0f4cce73063",
+    "kind": "descriptive-source-amendment"
+  }
 }
