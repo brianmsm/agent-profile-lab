@@ -28,7 +28,9 @@ COMPILATION_INPUTS=tuple(dict.fromkeys(['contracts/harnesses.json','policies/fun
             'data/domain-objective-contracts.json','data/omp-runtime-policies.csv','scripts/profile_compiler.py',
             'scripts/access_catalog.py','scripts/dashboard_strategies.py','scripts/generate_native_profiles.py','scripts/profile_semantics.py',
             'scripts/harness_contracts.py','scripts/prepare_data.py','policies/functions.json',
-            'policies/activity-allocation.json','scripts/activity_allocation.py','catalog/account-inventory.json','catalog/pricing.json','catalog/resource-benefits.json','scripts/resource_economics.py','policies/assurance-contract.json','scripts/profile_assurance.py']))
+            'policies/activity-allocation.json','scripts/activity_allocation.py','catalog/account-inventory.json','catalog/pricing.json','catalog/resource-benefits.json','scripts/resource_economics.py','policies/assurance-contract.json','scripts/profile_assurance.py',
+            'scripts/reviewed_policy_contract.py','scripts/reviewed_git_anchors.py',
+            'scripts/strict_data_formats.py','scripts/verify_source_amendment.py']))
 
 
 
@@ -147,6 +149,9 @@ def load_baseline(profile_id: str, policy: str, root: Path, catalog: dict, contr
 
 
 def compile_request(request: dict, root: Path=ROOT) -> dict:
+    # A coherent reissued manifest may reflect unreviewed local policy.
+    from reviewed_policy_contract import verify_reviewed_policy
+    verify_reviewed_policy(root)
     own_shape(request,REQUEST_FIELDS,'request',{'schemaVersion','targetId','baseProfile'})
     if type(request['schemaVersion']) is not int or request['schemaVersion']!=1: raise ValueError('Unsupported compiler request version')
     catalog=load_catalog(root); contracts=load_harnesses(root)

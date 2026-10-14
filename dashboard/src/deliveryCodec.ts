@@ -1,3 +1,4 @@
+import {parseStrictJSON} from './strictJSON'
 import type { RouteDetail, Snapshot } from './data'
 
 export const EVIDENCE_FIELDS = ['benchmarkRegistry','benchmarks','sourceCoverage','cybersecurityEvidence'] as const
@@ -54,5 +55,5 @@ export async function decodeDeliveryPart(bytes:ArrayBuffer,part:DeliveryPart):Pr
   if(bytes.byteLength!==part.bytes || hash!==part.sha256)throw new Error('Integridad del fragmento incorrecta. Recarga o regenera los datos; no se mezclan capturas.')
   const decoded=await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'))).arrayBuffer()
   if(decoded.byteLength!==part.decodedBytes)throw new Error('Longitud del fragmento descomprimido incorrecta.')
-  return JSON.parse(new TextDecoder().decode(decoded)) as unknown
+  return parseStrictJSON(new TextDecoder('utf-8',{fatal:true}).decode(decoded))
 }

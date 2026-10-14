@@ -79,3 +79,7 @@ Original author-owned code is licensed **MIT** (LICENSE). Separate upstream copy
 ## Targeted R3 verifier hardening
 
 [R3 source/manifest/publication checks](docs/ADVERSARIAL_R3.md) follow the original audit remediation. Baseline routing remains unchanged, and this is not empirical calibration.
+
+## R3b publication, source and policy safeguards
+
+See [the targeted R3b contract](docs/ADVERSARIAL_R3B.md). The structural corpus remains a reference, not an empirically calibrated deployment.

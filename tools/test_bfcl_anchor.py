@@ -12,6 +12,15 @@ class VerifiedBFCL(unittest.TestCase):
     def test_approved_original_3241(self):
         r=verify_approved_bfcl_rows(self.approved)
         self.assertEqual(r['count'],3241)
+    def test_ambiguous_json_duplicate_key_cannot_be_canonicalized(self):
+        from strict_data_formats import json_loads_strict
+        for malformed in (
+            '{"benchmarks":[{"value":9.99,"value":77.47}]}',
+            '{"measurements":[{"id":"synthetic","id":"approved"}]}',
+        ):
+            with self.assertRaisesRegex(ValueError,'Duplicate JSON key'):
+                json_loads_strict(malformed)
+
     def test_single_changed_numeric_value_and_new_self_hash_fail(self):
         forged=copy.deepcopy(self.approved)
         forged[0]['value']=forged[0]['value']-0.7747

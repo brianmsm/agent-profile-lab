@@ -10,6 +10,7 @@ import csv, gzip, hashlib, json, sys
 from collections import Counter
 from pathlib import Path
 from harness_contracts import load_harnesses, is_retired, roles_for
+from strict_data_formats import strict_csv_rows
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / 'data'
 SHARDS = DATA / 'assignment-shards'
@@ -33,11 +34,8 @@ def load_decisions(root: Path = ROOT) -> tuple[list[dict], list[str]]:
         entry = manifest['shards'][relative]
         if digest(path) != entry['sha256']:
             raise ValueError(f'Hash mismatch for {relative}; accept changes explicitly')
-        with path.open(encoding='utf-8-sig', newline='') as handle:
-            reader = csv.DictReader(handle)
-            if header is None: header = reader.fieldnames
-            if reader.fieldnames != header: raise ValueError(f'Field mismatch: {relative}')
-            records = list(reader)
+        records,fields=strict_csv_rows(path.read_bytes(),approved=header,label=relative)
+        if header is None:header=fields
         if len(records) != entry['rows']: raise ValueError(f'Row count changed: {relative}')
         for row in records:
             identity = row['profile_id'], row['role']
@@ -90,8 +88,7 @@ def main() -> None:
         if key not in precedents:
             precedents[key] = {'functionId': function, 'decision': decision, 'sourceProfiles': []}
         precedents[key]['sourceProfiles'].append(row['profile_id'])
-    with (DATA / 'profile-index.csv').open(encoding='utf-8-sig', newline='') as handle:
-        reader = csv.DictReader(handle); index_fields = reader.fieldnames; index = list(reader)
+    index,index_fields = strict_csv_rows((DATA/'profile-index.csv').read_bytes(),label='data/profile-index.csv')
     from metadata_contracts import label_contract, validate_labels
     labels = label_contract(ROOT)
     validate_labels(rows, labels, 'source decisions')

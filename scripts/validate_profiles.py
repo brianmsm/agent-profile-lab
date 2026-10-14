@@ -12,7 +12,8 @@ from security_gate_language import explicit_permission_contradiction
 
 ROOT=Path(__file__).resolve().parents[1]
 A=ROOT/'data/assignments.csv'
-rows=list(csv.DictReader(A.open(encoding='utf-8-sig',newline='')))
+from strict_data_formats import strict_csv_rows
+rows,_=strict_csv_rows(A.read_bytes(),label='data/assignments.csv')
 catalog=json.load(open(ROOT/'data/model-catalog.json')); bykey={m['key']:m for m in catalog}; bysel={m['selector']:m for m in catalog}
 ports={r['id']:r for r in csv.DictReader((ROOT/'data/portfolios.csv').open(encoding='utf-8-sig',newline=''))}
 domain_objective_contract=json.load(open(ROOT/'data/domain-objective-contracts.json',encoding='utf-8'))
@@ -20,7 +21,7 @@ domain_contracts=domain_objective_contract.get('domains',{})
 objective_contracts=domain_objective_contract.get('objectives',{})
 domains=set(domain_contracts)
 objectives=set(objective_contracts)
-index=list(csv.DictReader((ROOT/'data/profile-index.csv').open(encoding='utf-8-sig',newline='')))
+index,_=strict_csv_rows((ROOT/'data/profile-index.csv').read_bytes(),label='data/profile-index.csv')
 from metadata_contracts import label_contract, validate_labels
 validate_labels(rows, label_contract(ROOT), 'active assignments')
 validate_labels(index, label_contract(ROOT), 'profile index')

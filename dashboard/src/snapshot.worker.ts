@@ -1,3 +1,4 @@
+import {parseStrictJSON} from './strictJSON'
 import { validateSnapshot, parseSnapshot } from './snapshotIO'
 import { validateDeliveryManifest, unpackCore, mergeEvidence, decodeDeliveryPart } from './deliveryCodec'
 import type { DeliveryManifest, DeliveryPart } from './deliveryCodec'
@@ -19,7 +20,7 @@ channel.onmessage=async(event)=>{
       baseURL=new URL('.',url)
       const response=await fetch(url,{cache:'no-cache'})
       if(!response.ok)throw new Error(`Entrega no disponible: HTTP ${response.status}. Regenera los datos con check_project.py --rebuild.`)
-      manifest=validateDeliveryManifest(await response.json())
+      manifest=validateDeliveryManifest(parseStrictJSON(await response.text()))
       core=validateSnapshot(unpackCore(await readPart(manifest.parts.core)))
       channel.postMessage({id,ok:true,value:core})
     } else if(type==='complete') {

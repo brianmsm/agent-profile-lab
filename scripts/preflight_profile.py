@@ -12,6 +12,7 @@ from access_catalog import read_json
 from harness_contracts import roles_for
 from profile_compiler import COMPILATION_INPUTS, compile_request
 from verify_source_amendment import verify_amendment
+from reviewed_policy_contract import verify_reviewed_policy
 ROOT=Path(__file__).resolve().parents[1]
 SAFE_PREFIXES=('catalog/','contracts/','policies/','scripts/','dashboard/src/')
 SAFE_DATA={'data/assignment-shards/manifest.json','data/portfolios.csv','data/omp-runtime-policies.csv','data/domain-objective-contracts.json'}
@@ -75,6 +76,7 @@ def preflight(manifest: dict, content: bytes, runtime_version: str|None=None, ro
     native_ok=hashlib.sha256(content).hexdigest()==native['sha256']
     inputs=check_inputs(manifest,root)
     anchor_result=verify_amendment(root)  # immutable historic Git blobs; no self-issued origin claims
+    reviewed_policy=verify_reviewed_policy(root)
     harnesses=read_json(root/'contracts/harnesses.json')['harnesses']
     contract=harnesses.get(manifest.get('harness'))
     if contract is None:raise ValueError('Unknown harness')
@@ -105,7 +107,8 @@ def preflight(manifest: dict, content: bytes, runtime_version: str|None=None, ro
             # Return the failure class, not source text or potential credentials.
             reproduction_errors.append('independent-source-recompilation-refused:'+type(e).__name__)
     else:reproduction_errors.append('source-inputs-are-stale')
-    controls=read_json(root/'policies/assurance-contract.json')['requiredExternalControls']
+    from reviewed_policy_contract import CONTROL_IDS
+    controls=list(CONTROL_IDS)
     if not isinstance(controls,list) or len(controls)!=6 or len(set(controls))!=6:
         raise ValueError('External safety-control inventory is missing or inconsistent')
     ready=bool(native_ok and inputs['current'] and anchor_result['nonlabelFieldsPreserved'] and
@@ -119,6 +122,7 @@ def preflight(manifest: dict, content: bytes, runtime_version: str|None=None, ro
       'declaredRuntimeVersion':runtime_version,'runtimeVersionMatches':version_ok,
       'runtimeVersionEvidence':'user-declared-not-probed' if runtime_version else 'not-provided',
       'requestAuthenticity':'not-authenticated; self-declared request reproduced from trusted sources',
+      'policyReviewed':reviewed_policy['policyReviewedForCurrentStructure'],
       'readyForOperation':False,'controlsVerified':False,'providerCalls':0,
       'requiredNextChecks':[*controls,'actual-endpoint-identity-and-effort'],
       'meaning':'Reproducible native/manifest does not authenticate the requesting person, install controls, or prove model performance.'}

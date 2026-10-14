@@ -105,6 +105,39 @@ class PayloadTests(unittest.TestCase):
         data=b'sourceId,model,value\nBR-BFCL-DATA,example-model,77.47\n'
         self.assertIn('unreviewed-tabular-publisher-score',guard.inspect_payload('docs/invented-bfcl.csv',data))
 
+    def test_r3b_r3c_nested_string_alternate_scores_and_built_source(self):
+        negatives={
+            'json-nested':('docs/data.json',b'{"sourceId":"AA","results":[{"score":0.873}]}'),
+            'json-number-string':('docs/data.json',b'{"sourceId":"AA","value":"0.873"}'),
+            'json-accuracy':('docs/data.json',b'{"sourceId":"AA","accuracy":0.873}'),
+            'csv-percent':('docs/data.csv',b'sourceId,score\nAA,87.3%\n'),
+            'csv-local-decimal':('docs/data.csv',b'sourceId,score\nAA,"87,3"\n'),
+            'csv-score-pct':('docs/data.csv',b'sourceId,score_pct\nAA,87.3\n'),
+            'csv-semicolon':('docs/data.csv',b'sourceId;score\nAA;0.873\n'),
+            'html':('index.html',b'<script type="application/json">{"sourceId":"AA","score":0.873}</script>'),
+            'tsx':('dashboard/src/App.tsx',b"""return <div className="app-shell" data-r3-synthetic-score='{"sourceId":"AA","value":0.873}'>"""),
+            'js':('assets/index-synthetic.js',b'const x={sourceId:"AA",score:0.873};'),
+            'text':('docs/note.txt',b'Synthetic publisher sourceId=AA; score=0.873'),
+        }
+        for name,(path,data) in negatives.items():
+            with self.subTest(name):
+                self.assertTrue(guard.inspect_payload(path,data),name)
+        allowed={
+            'aggregate':('docs/count.json',b'{"sourceId":"AA","value":19,"unit":"reference-links","kind":"aggregate-count"}'),
+            'count-table':('docs/count.tsv',b'sourceId\tvalue\tunit\nAA\t19\treference-links\n'),
+            'local-mock':('tests/demo.csv',b'model,score\nsynthetic,1\n'),
+            'BFCL-licensed':('docs/bfcl.json',b'{"sourceId":"BR-BFCL-DATA","value":77.47}'),
+            'link-only':('docs/references.json',b'{"sourceId":"AA","value":null,"referenceOnly":true}'),
+        }
+        for name,(path,data) in allowed.items():
+            with self.subTest(name):
+                self.assertEqual(guard.inspect_payload(path,data),[],name)
+
+    def test_r3b_duplicate_json_keys_refused_before_canonicalization(self):
+        for text in (b'{"value":9.99,"value":77.47}',
+                     b'{"benchmarks":[{"measurement":{"id":"a","id":"b"}}]}'):
+            self.assertIn('invalid-json',guard.inspect_payload('docs/data.json',text))
+
     def test_numeric_aa(self):
         payload = json.dumps({"sourceId": "AA", "value": 0.123}).encode()
         self.assertIn("non-allowlisted-publisher-numeric-row", guard.inspect_payload("tests/demo.json", payload))

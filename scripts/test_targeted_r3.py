@@ -24,7 +24,7 @@ class TargetedR3(unittest.TestCase):
     result=preflight(bundle['manifest'],bundle['native']['content'].encode())
     self.assertTrue(result['artifactCurrent']);self.assertTrue(result['nativeSemanticsReproduced'])
     self.assertTrue(result['manifestSemanticsReproduced']);self.assertFalse(result['readyForOperation'])
-    self.assertEqual(result['sourceInputs']['checked'],25)
+    self.assertEqual(result['sourceInputs']['checked'],len(COMPILATION_INPUTS))
     self.assertEqual(result['sourceInputs']['transitiveShardsChecked'],12)
     self.assertEqual(len(result['requiredNextChecks']),7)
  def test_forged_selector_effort_resource_domain_condition_assurance_target_and_filename(self):
@@ -58,7 +58,7 @@ class TargetedR3(unittest.TestCase):
     self.assertFalse(result['artifactCurrent'])
  def test_every_compiler_input_is_mandatory(self):
   bundle=self.bundles[0];m=bundle['manifest']
-  self.assertEqual(len(COMPILATION_INPUTS),25)
+  self.assertGreaterEqual(len(COMPILATION_INPUTS),29)
   for key in COMPILATION_INPUTS:
    forged=copy.deepcopy(m);forged['inputsSha256'].pop(key)
    with self.subTest(key),self.assertRaisesRegex(ValueError,'Incomplete/unreviewed compiler dependencies'):

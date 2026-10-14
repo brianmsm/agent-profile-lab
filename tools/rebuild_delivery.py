@@ -8,10 +8,11 @@ import json,sys
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'scripts'))
 from dashboard_delivery import build_delivery
+from strict_data_formats import json_loads_strict
 
 def main():
     source=ROOT/'dashboard/public/data/snapshot.json'
-    full=json.loads(source.read_bytes())
+    full=json_loads_strict(source.read_bytes())
     if len(full['meta'])!=2496 or len(full['benchmarks'])!=3241:
         raise ValueError('Unexpected public release snapshot; refusing to build a substituted dataset')
     manifest=build_delivery(full,source)

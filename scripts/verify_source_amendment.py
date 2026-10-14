@@ -6,6 +6,7 @@ contains hashes, not private history or restricted benchmark values.
 """
 from __future__ import annotations
 import csv,hashlib,json,io
+from strict_data_formats import strict_csv_rows
 from reviewed_git_anchors import reviewed_anchor,reviewed_blob,git
 from pathlib import Path
 from metadata_contracts import label_contract,validate_labels
@@ -36,11 +37,12 @@ def verify_amendment(root=ROOT):
     for relative,record in receipt['sourceFiles'].items():
         p=root/relative
         if p.is_symlink() or not p.resolve().is_relative_to(root.resolve()):raise ValueError('Unsafe amended path')
-        with p.open(encoding='utf-8-sig',newline='') as f:rows=list(csv.DictReader(f))
         historical=reviewed_blob(root,anchor,relative)
+        historic_rows,historic_header=strict_csv_rows(historical,label='Historical '+relative)
+        rows,_=strict_csv_rows(p.read_bytes(),approved=historic_header,label=relative)
         if hashlib.sha256(historical).hexdigest()!=record.get('originalFileSHA256'):
             raise ValueError('Original source SHA differs from immutable Git blob: '+relative)
-        original_rows=list(csv.DictReader(io.StringIO(historical.decode('utf-8-sig'),newline='')))
+        original_rows=historic_rows
         if len(original_rows)!=len(rows) or normalized_digest(rows)!=normalized_digest(original_rows):
             raise ValueError('Non-descriptive source differences relative to reviewed Git anchor: '+relative)
         if record.get('originalNonlabelFieldsSHA256')!=normalized_digest(original_rows):

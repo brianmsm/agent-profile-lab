@@ -4356,7 +4356,7 @@
       "scripts/dashboard_access.py": "c66004947ec75bd8a201ab7f717295e723729b42a38f2077b005e5763d3b407e",
       "scripts/access_catalog.py": "3b80f7a27b2fd04eeecbb47f16de5c141e31a5b4b7a34625739ea560a27731da",
       "scripts/harness_contracts.py": "b26ff6186d9d2458f8a2a2a27cf98e0028b432c7baefdc67b0d2f6791447c98c",
-      "scripts/profile_compiler.py": "5f3a8bba1d490e4b61fe41343fd78b74fcdbdfd1247f8ed734ed167b2321f55a",
+      "scripts/profile_compiler.py": "cf19218a8035a5be8f43ec7a68924f54f38f7c9d961de4acfdcdfee994364ffe",
       "scripts/profile_semantics.py": "18ccb296a92ce6948962215187ba8a72659c7b43fbf536564acad91950765968",
       "scripts/dashboard_strategies.py": "cd7524f8d21ad55f5a4fa765c831a7b9cafc59570aaeec2bc38aee9b0157237c",
       "policies/nan-static-workloads.json": "649629c7eb4f52c54c2b5cae67d6a681945d2c47ad346e4abbbec340a64fb002",

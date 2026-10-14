@@ -1,3 +1,4 @@
+import {parseStrictJSON} from './strictJSON'
 import { validateBenchmarkRegistry } from './benchmarkValidation'
 import { validateAccessSnapshot } from './accessRouting'
 import { CYBER_RECONCILIATION_STATUSES, DOMAINS, OBJECTIVES } from './data'
@@ -673,7 +674,7 @@ export function validateSnapshot(input: unknown): Snapshot {
 export function parseSnapshot(text: string): Snapshot {
   let parsed: unknown
   try {
-    parsed = JSON.parse(text)
+    parsed = parseStrictJSON(text)
   } catch {
     throw new Error('El archivo no contiene JSON válido. Comprueba el archivo e inténtalo de nuevo.')
   }

@@ -54,6 +54,7 @@ jobs:
           test -s validation/exhaustive-validation.json
           python3 -B scripts/test_profile_compiler.py
           python3 -B scripts/test_targeted_r3.py
+          python3 -B scripts/test_r3b_contracts.py
           python3 -B scripts/test_r3_history_anchor.py
           python3 -B tools/verify_public_release.py
       - name: Generate compressed, content-addressed public delivery

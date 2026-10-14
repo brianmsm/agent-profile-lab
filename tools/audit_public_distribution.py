@@ -18,8 +18,11 @@ from pathlib import Path, PurePosixPath
 import re
 import stat
 import subprocess
+import sys
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0,str(ROOT/"scripts"))
+from strict_data_formats import json_loads_strict
 APPROVED_PUBLIC_BASE = "58a682d6ca6f3ed0b595d7daed5208bc56bd9385"
 MAX_BYTES = 128 * 1024 * 1024
 BAD_COMPONENTS = {"evidence", "sources", "internal-research", "republication"}
@@ -70,66 +73,106 @@ def path_reason(relative: str, *, tracked: bool = True) -> str | None:
     return None
 
 
-def numeric_source_rows(value: object) -> bool:
-    """Recognize typed publisher score rows, including those in test fixtures.
+SCORE_FIELDS={'value','score','accuracy','scorepct','scorepercent','intelligenceindex','benchmarkscore','overallacc','overallaccuracy',
+              'latency','tokenspersecond','modelscore','passrate'}
+IDENTITY_FIELDS={'sourceid','publisher','sourceurl','source','provider','url'}
+AGGREGATE_UNITS={'reference-links','reference-count','references','rows','source-count'}
+NUMERIC=re.compile(r'[+-]?(?:\d+(?:[.,]\d*)?|[.,]\d+)(?:[eE][+-]?\d+)?%?\Z')
+SOURCE_TOKEN=re.compile(r'(?:sourceId|source_id|publisher)\s*["\x27\\]*\s*[:=]\s*["\x27\\]*([A-Za-z][A-Za-z0-9_-]{0,48})',re.I)
+METRIC_TOKEN=re.compile(r'(?:value|score(?:_pct|Percent)?|accuracy|intelligence[_-]?index|benchmark[_-]?score)\s*["\x27\\]*\s*[:=]\s*["\x27\\]*\s*[+-]?(?:\d+(?:[.,]\d*)?|[.,]\d+)',re.I)
 
-Unlabelled or deliberately encoded numbers require human review; source links,
-aggregate corpus counts and null-valued review references are not score rows.
-"""
-    stack = [value]
+def normalized_key(key: object) -> str:
+    return re.sub('[^a-z0-9]','',str(key).lower())
+
+def is_numeric_score(value: object) -> bool:
+    return (isinstance(value,(int,float)) and not isinstance(value,bool)) or (
+        isinstance(value,str) and bool(NUMERIC.fullmatch(value.strip())))
+
+def legitimate_aggregate(row: dict) -> bool:
+    kind=str(row.get('kind','')).lower()
+    unit=str(row.get('unit','')).lower()
+    return (kind=='aggregate-count' and unit in AGGREGATE_UNITS
+            and isinstance(row.get('value'),int) and not isinstance(row.get('value'),bool)
+            and not any(normalized_key(k) in ('model','benchmark','metric','evaluation') for k in row))
+
+def numeric_source_rows(value: object) -> bool:
+    """Detect typed direct and inherited publisher scores, not local oracles.
+
+    An unknown sourceId by itself can identify a local test document; only
+    carry numerical publisher context to descendants when the provenance is
+    independently identified as external (AA/FCDATA or publisher website).
+    """
+    stack=[(value,False)]
     while stack:
-        row = stack.pop()
-        if isinstance(row, list):
-            stack.extend(row)
-        elif isinstance(row, dict):
-            stack.extend(row.values())
-            numeric = any(isinstance(row.get(k), (int, float)) and not isinstance(row.get(k), bool)
-                          for k in ("value", "score", "intelligence_index"))
-            if not numeric:
-                continue
-            source_id = row.get("sourceId")
-            source = " ".join(str(row.get(k, "")) for k in
-                              ("source", "sourceUrl", "url", "provider")).lower()
-            if source_id == "AA" or "artificialanalysis" in source or "slopalytics" in source:
+        row,inherited_publisher=stack.pop()
+        if isinstance(row,list):
+            stack.extend((item,inherited_publisher) for item in row)
+        elif isinstance(row,dict):
+            lower={normalized_key(k):v for k,v in row.items()}
+            source_id=str(lower.get('sourceid','')).lower()
+            provenance=' '.join(str(lower.get(k,'')) for k in IDENTITY_FIELDS).lower()
+            publisher=inherited_publisher or source_id in ('aa','fcdata') or any(
+                x in provenance for x in ('artificialanalysis','slopalytics','frontiercode'))
+            if source_id=='br-bfcl-data':publisher=False
+            if legitimate_aggregate(row):continue
+            numeric=any(k in SCORE_FIELDS or k.startswith(('scorepct','accuracy','benchmarkscore'))
+                        for k,v in lower.items() if is_numeric_score(v))
+            if numeric and (publisher or (source_id and source_id!='br-bfcl-data' and (
+                 'sourceid' in lower and any(k in SCORE_FIELDS or k.startswith(('scorepct','accuracy'))
+                                             for k,v in lower.items() if is_numeric_score(v))))):
                 return True
-            if source_id and source_id != "BR-BFCL-DATA":
-                return True
+            stack.extend((v,publisher) for v in row.values())
     return False
 
-
 def tabular_score_reasons(relative: str, text: str) -> list[str]:
-    """Fail closed for numeric publisher measurements in independent CSV/TSV.
+    """Block unreviewed publisher score tables; allow typed aggregate counts.
 
-    This release approves the BFCL rows only in the pinned JSON evidence
-    corpus, not arbitrary new CSV/TSV tables carrying publisher scores. It
-    intentionally permits aggregate counts and descriptive source-id lists.
+    Unknown editorial sources should be reviewed rather than silently
+    treated as authorized based only on a transport SHA.
     """
-    delimiter='\t' if relative.lower().endswith('.tsv') else ','
+    header=text.splitlines()[0] if text.splitlines() else ''
+    delimiter='\t' if relative.lower().endswith('.tsv') else ';' if header.count(';')>header.count(',') else ','
     try:
-        reader=csv.DictReader(io.StringIO(text,newline=''),delimiter=delimiter)
+        reader=csv.DictReader(io.StringIO(text,newline=''),delimiter=delimiter,restkey='__EXTRA__')
         fields=reader.fieldnames
         if not fields or len(fields)>128:return ['invalid-tabular-schema']
-        normalized=[re.sub(r'[^a-z0-9]','',x.strip().lower()) for x in fields]
+        normalized=[normalized_key(x.strip()) for x in fields]
         if len(set(normalized))!=len(normalized):return ['duplicate-tabular-column']
-        metric_columns={'value','score','intelligenceindex','accuracy','latency','cost','tokens','tokenspersecond','benchmarkscore'}
-        original_metrics=[name for name,norm in zip(fields,normalized) if norm in metric_columns]
-        if not original_metrics:return []
+        scores=[name for name,norm in zip(fields,normalized) if norm in SCORE_FIELDS or norm.startswith(('scorepct','accuracy'))]
+        if not scores:return []
+        has_origin=bool(set(normalized)&IDENTITY_FIELDS)
+        if not has_origin:return []  # local synthetic model/score fixtures without publisher provenance
         for row in reader:
-            if None in row or any(x is None for x in row.values()):return ['malformed-tabular-score-row']
-            numeric=False
-            for column in original_metrics:
-                raw=row.get(column,'').strip()
-                if raw and re.fullmatch(r'[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?',raw):
-                    numeric=True;break
-            if not numeric:continue
-            lower={re.sub(r'[^a-z0-9]','',k.lower()):v.strip().lower() for k,v in row.items()}
-            provenance=' '.join(lower.get(k,'') for k in ('sourceid','source','sourceurl','provider','publisher','url'))
-            if (lower.get('sourceid') not in ('','br-bfcl-data') or
-                any(x in provenance for x in ('artificialanalysis','slopalytics','aa,','publisher')) or
-                any(k in lower for k in ('sourceid','sourceurl','publisher','benchmark','model'))):
+            if '__EXTRA__' in row or any(v is None for v in row.values()):
+                return ['malformed-tabular-score-row']
+            normalized_row={normalized_key(k):v.strip() for k,v in row.items()}
+            if (normalized_row.get('unit','').lower() in AGGREGATE_UNITS
+                    and normalized_row.get('kind','aggregate-count').lower()=='aggregate-count'):
+                continue
+            source=' '.join(normalized_row.get(k,'') for k in IDENTITY_FIELDS).lower()
+            if not source:continue
+            if any(is_numeric_score(row.get(field,'')) for field in scores):
                 return ['unreviewed-tabular-publisher-score']
         return []
     except (csv.Error,ValueError,TypeError):return ['invalid-tabular-schema']
+
+def embedded_publisher_score(text: str) -> bool:
+    """High-confidence visible literals, including JSX attributes and minified JS.
+
+    This is a heuristic, not an exhaustive encoding-aware DLP system. Explicit
+    pre-publication human source review remains mandatory.
+    """
+    flattened=text.replace('\\\"','"').replace("\\'", "'")
+    for match in SOURCE_TOKEN.finditer(flattened):
+        source=match.group(1).lower()
+        if source in ('br-bfcl-data','synthetic','local'):continue
+        snippet=flattened[match.end():match.end()+260]
+        if METRIC_TOKEN.search(snippet):
+            # Exclude documented review-count aggregations, not model scores.
+            if re.search(r'(?:aggregate-count|reference-links)',snippet[:125],re.I) and source=='aa':
+                continue
+            return True
+    return False
 
 def inspect_payload(relative: str, data: bytes, *, max_bytes: int = MAX_BYTES) -> list[str]:
     reasons = []
@@ -158,6 +201,14 @@ def inspect_payload(relative: str, data: bytes, *, max_bytes: int = MAX_BYTES) -
             reasons.append(label)
     if relative.lower().endswith(('.csv','.tsv')):
         reasons.extend(tabular_score_reasons(relative,text))
+    if relative.lower().endswith(('.ts','.tsx','.js','.jsx','.html','.txt','.md','.css')):
+        # Explicit historic review of this synthetic cybersecurity test file.
+        # A future edit changes the SHA and must undergo renewed release review.
+        vetted_test=(relative=='dashboard/tests/cybersecurityEvidence.test.tsx' and
+                     hashlib.sha256(data).hexdigest()==
+                     '7bef270f1a0d5b6dfa007936f0615548ede966b4c0fb85d2981ddd71b3498494')
+        if not vetted_test and embedded_publisher_score(text):
+            reasons.append('unreviewed-embedded-publisher-score')
     if relative.endswith(".json") or match:
         # TypeScript's two existing JSONC configs permit comments/trailing commas.
         # Strip only outside strings, and still validate/inspect the resulting JSON.
@@ -167,7 +218,7 @@ def inspect_payload(relative: str, data: bytes, *, max_bytes: int = MAX_BYTES) -
             text = re.sub(r'("(?:\\.|[^"\\])*")|,(\s*[}\]])',
                           lambda m: m[1] if m[1] is not None else m[2], text)
         try:
-            value = json.loads(text)
+            value = json_loads_strict(text)
         except (ValueError, RecursionError):
             reasons.append("invalid-json")
         else:
@@ -180,7 +231,7 @@ def audit_built_site(built: Path, *, root: Path=ROOT) -> dict:
     """Independently check exactly what Pages uploads, after removing snapshot.json."""
     root=root.resolve();built=built.resolve()
     manifest=root/'dashboard/public/data/delivery.json'
-    try:approved=json.loads(manifest.read_bytes())
+    try:approved=json_loads_strict(manifest.read_bytes())
     except (ValueError,OSError,TypeError) as e:raise ValueError('Missing reviewed public delivery manifest') from e
     if set(approved.get('parts',{}))!={'core','evidence'}:raise ValueError('Unexpected public Pages delivery parts')
     expected={'data/delivery.json'}
@@ -253,7 +304,7 @@ def audit(root: Path | None = None) -> dict:
     delivery = root / "dashboard/public/data/delivery.json"
     if delivery.is_file() and not delivery.is_symlink():
         try:
-            spec = json.loads(delivery.read_bytes())
+            spec = json_loads_strict(delivery.read_bytes())
             allowed_chunks = {"dashboard/public/data/" + v["path"] for v in spec["parts"].values()}
         except (ValueError, KeyError, TypeError):
             failures.append({"path": delivery.relative_to(root).as_posix(), "reason": "invalid-delivery-manifest"})

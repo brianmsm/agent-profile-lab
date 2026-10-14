@@ -14,8 +14,9 @@ from dashboard_delivery import unpack_core
 from prepare_data import load_decisions,partition_decisions
 from harness_contracts import load_harnesses
 from reviewed_git_anchors import PUBLIC_BFCL_APPROVED,PUBLIC_BFCL_ROWS_SHA256,reviewed_anchor,reviewed_blob
+from strict_data_formats import json_loads_strict
 
-def read(path):return json.loads(path.read_bytes())
+def read(path):return json_loads_strict(path.read_bytes())
 def digest(path):return hashlib.sha256(path.read_bytes()).hexdigest()
 def canonical(value):
     return hashlib.sha256(json.dumps(value,sort_keys=True,ensure_ascii=False,separators=(',',':'),allow_nan=False).encode()).hexdigest()
@@ -29,7 +30,7 @@ def verify_approved_bfcl_rows(rows: list[dict],root: Path=ROOT) -> dict:
     """
     edition,anchor=reviewed_anchor(root)
     if edition!='public':raise ValueError('BFCL release anchor requires the public Git edition')
-    source=json.loads(reviewed_blob(root,PUBLIC_BFCL_APPROVED,'dashboard/public/data/snapshot.json'))
+    source=json_loads_strict(reviewed_blob(root,PUBLIC_BFCL_APPROVED,'dashboard/public/data/snapshot.json'))
     approved=source.get('benchmarks')
     if not isinstance(approved,list) or len(approved)!=3241:
         raise ValueError('Approved historical BFCL corpus missing or incomplete')
@@ -176,7 +177,7 @@ def verify():
                      'Compressed delivery content changed')
         raw=gzip.decompress(blob)
         assert_count(len(raw)==item['decodedBytes'],'Decompressed delivery size changed')
-        contents[name]=json.loads(raw)
+        contents[name]=json_loads_strict(raw)
     assert_count({**unpack_core(contents['core']),**contents['evidence']}==snapshot,
                  'Content-addressed public delivery is not lossless')
     return {'profileReferences':2496,'activeRoleAssignments':33414,
