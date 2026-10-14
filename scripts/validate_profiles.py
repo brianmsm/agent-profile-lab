@@ -398,7 +398,10 @@ for key,rs in sorted(groups.items()):
   'context_review':rs[0]['profile_context'],
   'status':'PASS' if not any(pid in str(i) for i in issues) else 'FAIL',
  })
-with (ROOT/'validation/profile-baselines.csv').open('w',encoding='utf-8-sig',newline='') as f:
+REPORT_DIR = ROOT/'validation'
+# A fresh clone does not contain ignored/generated report directories.
+REPORT_DIR.mkdir(parents=True,exist_ok=True)
+with (REPORT_DIR/'profile-baselines.csv').open('w',encoding='utf-8-sig',newline='') as f:
  w=csv.DictWriter(f,fieldnames=list(audit[0]) if audit else ['profile_id']);w.writeheader();w.writerows(audit)
 # Post-audit role variance across contract-defined objectives and domains.
 variance=[]
@@ -422,7 +425,7 @@ for h,rolelist in expected_roles.items():
    'objective_invariant_series':invariant,'objective_changed_series':changed_series,
    'compared_portfolio_domain_series':compared,'complete_series':complete,
   })
-with (ROOT/'validation/role-variance.csv').open('w',encoding='utf-8-sig',newline='') as f:
+with (REPORT_DIR/'role-variance.csv').open('w',encoding='utf-8-sig',newline='') as f:
  w=csv.DictWriter(f,fieldnames=list(variance[0]));w.writeheader();w.writerows(variance)
 
 input_paths=[
@@ -461,6 +464,6 @@ receipt={
   'Gentle parser and OMP startup/bootstrap checks are independent receipts and are not represented here.',
  ],
 }
-(ROOT/'validation/exhaustive-validation.json').write_text(json.dumps({'receipt':receipt,'checks':checks},ensure_ascii=False,indent=2)+'\n')
+(REPORT_DIR/'exhaustive-validation.json').write_text(json.dumps({'receipt':receipt,'checks':checks},ensure_ascii=False,indent=2)+'\n')
 print(json.dumps(receipt,ensure_ascii=False,indent=2))
 raise SystemExit(0 if not issues else 1)

@@ -53,7 +53,7 @@ The 49,638 total source decision rows include 16,224 retired functional preceden
 - **Opt-in candidate strategies:** activity complexity, guarded worker/auxiliary delegation, alternative model recipes and hybrid provider planning.
 - **Independent NaN monthly allowances:** static proportional allocation and optional pure dynamic subtask planner.
 - **Workload customization:** edit all 20 canonical functions' monthly calls and total input/output tokens, with versioned import/export.
-- **Native configuration exports and signed manifests:** structural validation and source lineage; no installation or credential handling.
+- **Native configuration exports and SHA-256-linked manifests:** integrity checks and source lineage, not digital signatures; no installation or credential handling.
 - **Research evidence:** a licensed numeric BFCL subset and link-only external source index including Artificial Analysis.
 
 ## Interpretation

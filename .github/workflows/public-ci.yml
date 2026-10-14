@@ -41,9 +41,12 @@ jobs:
         run: python3 -B tools/audit_public_distribution.py --history --head "$AUDIT_HEAD"
       - name: Reconstruct original profile decisions and validate native contracts
         run: |
-          mkdir -p validation
           python3 -B scripts/prepare_data.py
-          python3 -B scripts/validate_profiles.py > validation/public-structural-check.json
+          # No prior mkdir: the validator itself must create report directories in a clean clone.
+          python3 -B scripts/validate_profiles.py > /tmp/public-structural-check.json
+          test -s validation/profile-baselines.csv
+          test -s validation/role-variance.csv
+          test -s validation/exhaustive-validation.json
           python3 -B scripts/test_profile_compiler.py
           python3 -B tools/verify_public_release.py
       - name: Generate compressed, content-addressed public delivery
