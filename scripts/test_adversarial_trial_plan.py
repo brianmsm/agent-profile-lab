@@ -1,4 +1,5 @@
 import json,unittest
+from copy import deepcopy
 from pathlib import Path
 from build_adversarial_trial_plan import ROOT,trial_plan
 from score_calibration_response import score
@@ -11,6 +12,20 @@ class PlanTests(unittest.TestCase):
   self.assertEqual(a,b);self.assertGreater(len(a['rows']),0);self.assertEqual(a['modelCalls'],0)
   self.assertFalse(a['authorization']['spendApproved']);self.assertTrue(all(r['result'] is None and r['accepted'] is None for r in a['rows']))
   for key in {r['pairId'] for r in a['rows']}:self.assertEqual(sum(r['arm']=='baseline' for r in a['rows'] if r['pairId']==key),1)
+ def test_max_has_xhigh_neighbor_but_xhigh_requires_explicit_higher_arm(self):
+  snap=deepcopy(self.snapshot);pid=self.profile();role='commit'
+  ref=snap['routeDetails'][pid][role];model=snap['catalog'][ref['modelKey']]
+  ref['effort']='max';model['efforts']=['low','medium','high','xhigh','max']
+  max_plan=trial_plan(snap,pid,[role],2,19)
+  baseline={r['effort'] for r in max_plan['rows'] if r['arm']=='baseline'}
+  choices={r['effort'] for r in max_plan['rows']}
+  self.assertEqual(baseline,{'max'});self.assertIn('xhigh',choices);self.assertIn('high',choices)
+  ref['effort']='xhigh'
+  safe=trial_plan(snap,pid,[role],2,19)
+  self.assertNotIn('max',{r['effort'] for r in safe['rows']})
+  explicit=trial_plan(snap,pid,[role],2,19,allow_higher_effort=True)
+  self.assertIn('max',{r['effort'] for r in explicit['rows']})
+  self.assertFalse(explicit['authorization']['spendApproved'])
  def test_unknown_or_disabled_roles_not_silently_skipped(self):
   for ids in (['not-a-role'],['commit','commit'],['advisor']):
    with self.assertRaises(ValueError):trial_plan(self.snapshot,self.profile(),ids)

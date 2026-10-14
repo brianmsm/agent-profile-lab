@@ -8,6 +8,7 @@ Pair it with verify_public_release.py, review, and the private transfer allowlis
 from __future__ import annotations
 
 import argparse
+import csv
 import gzip
 import hashlib
 import io
@@ -96,6 +97,40 @@ aggregate corpus counts and null-valued review references are not score rows.
     return False
 
 
+def tabular_score_reasons(relative: str, text: str) -> list[str]:
+    """Fail closed for numeric publisher measurements in independent CSV/TSV.
+
+    This release approves the BFCL rows only in the pinned JSON evidence
+    corpus, not arbitrary new CSV/TSV tables carrying publisher scores. It
+    intentionally permits aggregate counts and descriptive source-id lists.
+    """
+    delimiter='\t' if relative.lower().endswith('.tsv') else ','
+    try:
+        reader=csv.DictReader(io.StringIO(text,newline=''),delimiter=delimiter)
+        fields=reader.fieldnames
+        if not fields or len(fields)>128:return ['invalid-tabular-schema']
+        normalized=[re.sub(r'[^a-z0-9]','',x.strip().lower()) for x in fields]
+        if len(set(normalized))!=len(normalized):return ['duplicate-tabular-column']
+        metric_columns={'value','score','intelligenceindex','accuracy','latency','cost','tokens','tokenspersecond','benchmarkscore'}
+        original_metrics=[name for name,norm in zip(fields,normalized) if norm in metric_columns]
+        if not original_metrics:return []
+        for row in reader:
+            if None in row or any(x is None for x in row.values()):return ['malformed-tabular-score-row']
+            numeric=False
+            for column in original_metrics:
+                raw=row.get(column,'').strip()
+                if raw and re.fullmatch(r'[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?',raw):
+                    numeric=True;break
+            if not numeric:continue
+            lower={re.sub(r'[^a-z0-9]','',k.lower()):v.strip().lower() for k,v in row.items()}
+            provenance=' '.join(lower.get(k,'') for k in ('sourceid','source','sourceurl','provider','publisher','url'))
+            if (lower.get('sourceid') not in ('','br-bfcl-data') or
+                any(x in provenance for x in ('artificialanalysis','slopalytics','aa,','publisher')) or
+                any(k in lower for k in ('sourceid','sourceurl','publisher','benchmark','model'))):
+                return ['unreviewed-tabular-publisher-score']
+        return []
+    except (csv.Error,ValueError,TypeError):return ['invalid-tabular-schema']
+
 def inspect_payload(relative: str, data: bytes, *, max_bytes: int = MAX_BYTES) -> list[str]:
     reasons = []
     if len(data) > max_bytes:
@@ -121,6 +156,8 @@ def inspect_payload(relative: str, data: bytes, *, max_bytes: int = MAX_BYTES) -
     for label, pattern in PATTERNS.items():
         if pattern.search(data):
             reasons.append(label)
+    if relative.lower().endswith(('.csv','.tsv')):
+        reasons.extend(tabular_score_reasons(relative,text))
     if relative.endswith(".json") or match:
         # TypeScript's two existing JSONC configs permit comments/trailing commas.
         # Strip only outside strings, and still validate/inspect the resulting JSON.
@@ -138,6 +175,45 @@ def inspect_payload(relative: str, data: bytes, *, max_bytes: int = MAX_BYTES) -
                 reasons.append("non-allowlisted-publisher-numeric-row")
     return reasons
 
+
+def audit_built_site(built: Path, *, root: Path=ROOT) -> dict:
+    """Independently check exactly what Pages uploads, after removing snapshot.json."""
+    root=root.resolve();built=built.resolve()
+    manifest=root/'dashboard/public/data/delivery.json'
+    try:approved=json.loads(manifest.read_bytes())
+    except (ValueError,OSError,TypeError) as e:raise ValueError('Missing reviewed public delivery manifest') from e
+    if set(approved.get('parts',{}))!={'core','evidence'}:raise ValueError('Unexpected public Pages delivery parts')
+    expected={'data/delivery.json'}
+    expected_chunks={}
+    for item in approved['parts'].values():
+        rel='data/'+item['path']
+        if not CHUNK.fullmatch('dashboard/public/'+rel):
+            raise ValueError('Unapproved content-addressed Pages fragment')
+        expected.add(rel);expected_chunks[rel]=root/'dashboard/public'/rel
+    observed=set()
+    if not built.is_dir():raise ValueError('Missing generated Pages artifact')
+    for item in built.rglob('*'):
+        relative=item.relative_to(built).as_posix()
+        if item.is_symlink():raise ValueError('Symlink in Pages artifact')
+        if item.is_dir():continue
+        if not item.is_file() or item.stat().st_size>MAX_BYTES:raise ValueError('Invalid Pages file size or type')
+        observed.add(relative)
+        if (relative not in expected and relative not in {'index.html','icons.svg','favicon.svg'}
+                and not (relative.startswith('assets/') and item.suffix in {'.js','.css'})):
+            raise ValueError('Unapproved Pages output file: '+relative)
+        if relative in expected_chunks:
+            if item.read_bytes()!=expected_chunks[relative].read_bytes():
+                raise ValueError('Pages chunk differs from reviewed public source: '+relative)
+            reasons=inspect_payload('dashboard/public/'+relative,item.read_bytes())
+        elif relative=='data/delivery.json':
+            if item.read_bytes()!=manifest.read_bytes():raise ValueError('Pages delivery manifest differs')
+            reasons=inspect_payload(relative,item.read_bytes())
+        else:
+            reasons=inspect_payload(relative,item.read_bytes())
+        if reasons:raise ValueError('Unapproved Pages content type/pattern in '+relative+': '+','.join(reasons))
+    if not expected.issubset(observed) or 'index.html' not in observed:
+        raise ValueError('Pages is missing approved content-addressed files or its entrypoint')
+    return {'pagesFilesScanned':len(observed),'approvedChunks':len(expected_chunks),'verifiedAgainstPublicSource':True}
 
 def tracked_paths(root: Path) -> set[str]:
     # Never inherit a parent private repository when auditing a staging directory.
@@ -263,11 +339,14 @@ def audit_history(root: Path | None = None, *, base: str = APPROVED_PUBLIC_BASE,
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--history", action="store_true", help="Also audit history from the fixed approved public baseline")
+    parser.add_argument("--built",type=Path,help="Inspect exact staged Pages dist; run after removal of unneeded raw snapshot.json")
     parser.add_argument("--head", default="HEAD", help="PR head or HEAD; does not change the approved baseline")
     args = parser.parse_args()
     result = audit()
     if args.history:
         result["history"] = audit_history(head=args.head)
+    if args.built:
+        result["pagesArtifact"] = audit_built_site(args.built)
     print(json.dumps(result, indent=2))
 
 

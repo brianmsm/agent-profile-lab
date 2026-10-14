@@ -7,6 +7,7 @@ from pathlib import Path
 from dashboard_cybersecurity import validate_evidence_boundary
 from access_catalog import load_catalog, compatibility_models
 from profile_semantics import EFFORT_ORDER
+from security_gate_language import explicit_permission_contradiction
 
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -46,7 +47,7 @@ def is_negated(text,term):
 def has_security_gate(value):
     text=normalize_text(value)
     required=('autoriz','alcance','activo','secret','proteg','aislad','reproduc','evid','remedi','regres','revision','human','impact','destruct','persist','real','document')
-    return (all(token in text for token in required) and is_negated(text,'destruct')
+    return (not explicit_permission_contradiction(value) and all(token in text for token in required) and is_negated(text,'destruct')
             and is_negated(text,'persist') and is_negated(text,'real'))
 
 def allowed_pools(portfolio):
@@ -139,14 +140,34 @@ for r in rows:
    contract_fail.append((effort_fld,r['profile_id'],r['role'],r[effort_fld],fm['allowed_efforts']))
 check('model_plan_effort_contracts',not contract_fail,json.dumps([tuple(str(x) for x in f) for f in contract_fail[:20]],ensure_ascii=False))
 
+# Derived rows are a projection of the hashed SOURCE shards, not an
+# independently editable replacement. The individual validator must detect
+# coherent alterations to CSV/JSON/GZip rather than relying on another CI step.
+from prepare_data import load_decisions,partition_decisions
+from source_projection_contract import validate_source_projection
+source_rows,_=partition_decisions(load_decisions(ROOT)[0],harness_contracts)
+try:
+ validate_source_projection(source_rows,rows)
+ projection_error=''
+except ValueError as e:projection_error=str(e)
+check('active_source_projection_exact',not projection_error,projection_error)
+
 # Required traceability fields and row JSON fields
 trace_fail=[]
 for r in rows:
  for fld in ['decision_id','role_judgment','profile_context','rationale','quality_gate','source_ids','source_urls','warnings','rule_ids']:
   if r.get(fld,'')=='': trace_fail.append((r['profile_id'],r['role'],fld))
  for fld in ['source_ids','source_urls','warnings','rule_ids']:
-  try: json.loads(r[fld])
-  except Exception as e: trace_fail.append((r['profile_id'],r['role'],fld,str(e)))
+  try:
+   value=json.loads(r[fld])
+   if not isinstance(value,list) or (fld!='warnings' and not value):
+    trace_fail.append((r['profile_id'],r['role'],fld,'expected-nonempty-list'))
+   elif any(not isinstance(v,str) or not v.strip() for v in value):
+    trace_fail.append((r['profile_id'],r['role'],fld,'non-string-or-empty-item'))
+   elif fld=='source_urls' and any(not (v.startswith('https://') or v.startswith('evidence/nan/'))
+                                   for v in value):
+    trace_fail.append((r['profile_id'],r['role'],fld,'unreviewed-provenance-locator'))
+  except (ValueError,TypeError) as e:trace_fail.append((r['profile_id'],r['role'],fld,type(e).__name__))
 check('traceability_fields',not trace_fail,json.dumps(trace_fail[:20],ensure_ascii=False))
 
 cyber_gate_bad=[]

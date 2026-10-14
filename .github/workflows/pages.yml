@@ -45,6 +45,8 @@ jobs:
         run: |
           python3 -B tools/audit_public_distribution.py --history
           python3 -B tools/verify_public_release.py
+          python3 -B tools/test_bfcl_anchor.py
+          python3 -B tools/test_public_boundary.py
           python3 -B tools/rebuild_delivery.py
           python3 -B tools/verify_public_release.py
       - name: Build for project Pages subpath
@@ -73,6 +75,8 @@ jobs:
           assert not any(part in p.parts for p in root.rglob("*") for part in ("internal-research", "validation", "evidence", "sources"))
           print("Public Pages: rights-scoped chunks and assets only")
           PY
+      - name: Inspect exact staged public Pages artifact
+        run: python3 -B tools/audit_public_distribution.py --built dashboard/dist
       - name: Upload public Pages files
         uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
 

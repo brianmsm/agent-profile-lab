@@ -33,6 +33,7 @@ jobs:
           python3 -B tools/verify_public_release.py
           python3 -B scripts/review_objective_equivalences.py --verify
           python3 -B scripts/test_nan_quota_optimizer.py
+          python3 -B tools/test_bfcl_anchor.py
           python3 -B scripts/verify_source_amendment.py
           python3 -B scripts/test_metadata_contracts.py
           python3 -B scripts/test_adversarial_remediation.py
@@ -52,6 +53,8 @@ jobs:
           test -s validation/role-variance.csv
           test -s validation/exhaustive-validation.json
           python3 -B scripts/test_profile_compiler.py
+          python3 -B scripts/test_targeted_r3.py
+          python3 -B scripts/test_r3_history_anchor.py
           python3 -B tools/verify_public_release.py
       - name: Generate compressed, content-addressed public delivery
         run: |

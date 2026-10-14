@@ -13,6 +13,7 @@ sys.path.insert(0,str(ROOT/'scripts'))
 from dashboard_delivery import unpack_core
 from prepare_data import load_decisions,partition_decisions
 from harness_contracts import load_harnesses
+from reviewed_git_anchors import PUBLIC_BFCL_APPROVED,PUBLIC_BFCL_ROWS_SHA256,reviewed_anchor,reviewed_blob
 
 def read(path):return json.loads(path.read_bytes())
 def digest(path):return hashlib.sha256(path.read_bytes()).hexdigest()
@@ -20,6 +21,24 @@ def canonical(value):
     return hashlib.sha256(json.dumps(value,sort_keys=True,ensure_ascii=False,separators=(',',':'),allow_nan=False).encode()).hexdigest()
 def assert_count(expr,msg):
     if not expr:raise ValueError(msg)
+
+def verify_approved_bfcl_rows(rows: list[dict],root: Path=ROOT) -> dict:
+    """Compare *values and identities* to the approved Git blob, not hashes reissued
+    with a substituted snapshot. This pins R2 contents until a separate data
+    review explicitly approves a new snapshot and trust root.
+    """
+    edition,anchor=reviewed_anchor(root)
+    if edition!='public':raise ValueError('BFCL release anchor requires the public Git edition')
+    source=json.loads(reviewed_blob(root,PUBLIC_BFCL_APPROVED,'dashboard/public/data/snapshot.json'))
+    approved=source.get('benchmarks')
+    if not isinstance(approved,list) or len(approved)!=3241:
+        raise ValueError('Approved historical BFCL corpus missing or incomplete')
+    canonical=lambda x:hashlib.sha256(json.dumps(x,sort_keys=True,ensure_ascii=False,separators=(',',':'),allow_nan=False).encode()).hexdigest()
+    expected=canonical(approved)
+    if expected!=PUBLIC_BFCL_ROWS_SHA256:raise ValueError('Pinned BFCL audit anchor differs from historic Git content')
+    if not isinstance(rows,list) or canonical(rows)!=expected:
+        raise ValueError('Public BFCL observation identities, values or metadata differ from independently approved Git corpus')
+    return {'count':len(rows),'canonicalSHA256':expected,'approvedCommit':PUBLIC_BFCL_APPROVED,'identity':'independent-Git-blob-comparison-not-editorial-authentication'}
 
 def verify():
     evidence=read(ROOT/'data/public-evidence/release-manifest.json')
@@ -102,6 +121,7 @@ def verify():
     for path,expected in approval['inputSha256'].items():
         assert_count(digest(ROOT/path)==expected,'Reviewed candidate input changed: '+path)
     included=snapshot['benchmarks']
+    approved_bfcl=verify_approved_bfcl_rows(included,ROOT)
     assert_count(len(included)==evidence['publicNumericCells']==3241,'Numeric cell inclusion changed')
     assert_count({r['sourceId'] for r in included}=={'BR-BFCL-DATA'},'Unapproved numerical publisher data present')
     for row in included:
@@ -161,7 +181,7 @@ def verify():
                  'Content-addressed public delivery is not lossless')
     return {'profileReferences':2496,'activeRoleAssignments':33414,
             'historicRetiredDecisions':16224,'storedBaselineStrategies':160,
-            'numericPublishedBFCL':3241,'externalNumericCellsNotRedistributed':69349,
+            'numericPublishedBFCL':3241,'bfclPinnedSHA256':approved_bfcl['canonicalSHA256'],'externalNumericCellsNotRedistributed':69349,
             'reviewCitationsReferenceOnly':42,'AAmodelSourceLinks':853,'sourceRegistryLinks':322,
             'MIT':True,'ApacheAttribution':True,
             'byteIdenticalSourceAssignments':False,'sourceMetadataAmended':True,

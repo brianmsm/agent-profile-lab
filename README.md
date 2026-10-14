@@ -75,3 +75,7 @@ Original author-owned code is licensed **MIT** (LICENSE). Separate upstream copy
 ## Adversarial remediation
 
 [Remediation and operational limits](docs/ADVERSARIAL_REMEDIATION.md) documents the canonical label correction, separate classifier function, exact native-profile preservation, input/runtime preflight, explicit evidence transfer and conservative trial plans. The original CSV bytes remain in public Git history; current source labels are amended with a differential receipt. Model selections and numerical inclusion are unchanged.
+
+## Targeted R3 verifier hardening
+
+[R3 source/manifest/publication checks](docs/ADVERSARIAL_R3.md) follow the original audit remediation. Baseline routing remains unchanged, and this is not empirical calibration.

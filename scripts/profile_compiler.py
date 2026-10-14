@@ -22,6 +22,15 @@ REQUEST_FIELDS = {'schemaVersion','targetId','baseProfile','selectionPolicy','na
 RESOURCE_FIELDS = {'id','accessRouteId','credentialRef','plan'}
 SELECTION_FIELDS = {'modelId','accessRouteId','resourceId','effort','reason','fallback','accelerator'}
 
+# Independent preflight reads the exact compiler dependency inventory. Keep one source of truth.
+COMPILATION_INPUTS=tuple(dict.fromkeys(['contracts/harnesses.json','policies/functions.json','catalog/models.json','catalog/offerings.json',
+            'catalog/access-routes.json','catalog/resource-plans.json','data/assignment-shards/manifest.json','data/portfolios.csv',
+            'data/domain-objective-contracts.json','data/omp-runtime-policies.csv','scripts/profile_compiler.py',
+            'scripts/access_catalog.py','scripts/dashboard_strategies.py','scripts/generate_native_profiles.py','scripts/profile_semantics.py',
+            'scripts/harness_contracts.py','scripts/prepare_data.py','policies/functions.json',
+            'policies/activity-allocation.json','scripts/activity_allocation.py','catalog/account-inventory.json','catalog/pricing.json','catalog/resource-benefits.json','scripts/resource_economics.py','policies/assurance-contract.json','scripts/profile_assurance.py']))
+
+
 
 def own_shape(value, allowed, label, required=()):
     if not isinstance(value,dict) or set(value)-set(allowed) or not set(required)<=set(value):
@@ -256,12 +265,7 @@ def compile_request(request: dict, root: Path=ROOT) -> dict:
             for role,item in resolved.items() if item['enabled'] or baseline['harness']=='omp'}
     text=native_text(name,baseline['harness'],config,baseline['runtimePolicy'])
     filename=name+('.export.json' if baseline['harness']=='gentle-shell' else '.yaml')
-    inputs=['contracts/harnesses.json','policies/functions.json','catalog/models.json','catalog/offerings.json',
-            'catalog/access-routes.json','catalog/resource-plans.json','data/assignment-shards/manifest.json','data/portfolios.csv',
-            'data/domain-objective-contracts.json','data/omp-runtime-policies.csv','scripts/profile_compiler.py',
-            'scripts/access_catalog.py','scripts/dashboard_strategies.py','scripts/generate_native_profiles.py','scripts/profile_semantics.py',
-            'scripts/harness_contracts.py','scripts/prepare_data.py','policies/functions.json',
-            'policies/activity-allocation.json','scripts/activity_allocation.py','catalog/account-inventory.json','catalog/pricing.json','catalog/resource-benefits.json','scripts/resource_economics.py','policies/assurance-contract.json','scripts/profile_assurance.py']
+    inputs=COMPILATION_INPUTS
     domain_contract=json.loads((root/'data/domain-objective-contracts.json').read_text())['domains'][baseline['domain']]
     manifest={'format':'agent-profile-lab.compiled-profile','schemaVersion':1,
         'status':'candidate' if remap or overrides or policy!='matrix' else 'baseline-projection',
@@ -273,6 +277,10 @@ def compile_request(request: dict, root: Path=ROOT) -> dict:
         'resources':list(resources.values()),'resourceEvidence':'user-declared' if supplied is not None else 'baseline-expected-not-inspected',
         'meteredAuthorization':authorization,'funding':funding,'domainContract':domain_contract,'roles':resolved,
         'assurance':assess_resolved(resolved,baseline['harness'],baseline['domain'],catalog['offerings']),
+        # An untrusted manifest is reproducible only when its declared request
+        # rebuilds the exact native bytes and full contract metadata. This is
+        # not a signature or authentication of user intent.
+        'compilationRequest':deepcopy(request),
         'nativeArtifact':{'filename':filename,'sha256':hashlib.sha256(text.encode()).hexdigest(),'encoding':'utf-8'},
         'inputsSha256':{p:hashlib.sha256((root/p).read_bytes()).hexdigest() for p in inputs},
         'validation':{'structural':'passed','credentialDispatch':'not-enforced',

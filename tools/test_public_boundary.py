@@ -29,6 +29,26 @@ def commit(root: Path, message: str) -> str:
 
 
 class PayloadTests(unittest.TestCase):
+    def test_pages_artifact_rejects_new_csv_even_after_successful_build(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root=Path(temp);built=root/'dashboard/dist';d=root/'dashboard/public/data';d.mkdir(parents=True)
+            parts={}
+            for name in ('core','evidence'):
+                payload=gzip.compress(b'{}',mtime=0);sha=hashlib.sha256(payload).hexdigest()
+                relative=f'chunks/{name}-{sha}.json.gz'
+                for target in (d/relative,built/'data'/relative):
+                    target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(payload)
+                parts[name]={'path':relative,'sha256':sha,'bytes':len(payload)}
+            manifest=json.dumps({'format':'apl.delivery','parts':parts}).encode()
+            (d/'delivery.json').write_bytes(manifest)
+            (built/'data/delivery.json').write_bytes(manifest)
+            (built/'index.html').write_text('<html><head></head><body>safe</body></html>')
+            self.assertTrue(guard.audit_built_site(built,root=root)['verifiedAgainstPublicSource'])
+            (built/'docs').mkdir()
+            (built/'docs/redteam-scores.csv').write_text('sourceId,model,value\nAA,local-synthetic,93.7\n')
+            with self.assertRaisesRegex(ValueError,'Unapproved Pages output file'):
+                guard.audit_built_site(built,root=root)
+
     def test_provider_key(self):
         value = b"sk" + b"-" + b"S" * 40
         self.assertIn("provider-api-secret", guard.inspect_payload("docs/demo.txt", value))
@@ -68,6 +88,22 @@ class PayloadTests(unittest.TestCase):
         data = json.dumps({"sourceId": "AA", "value": 0.123})[:-1].encode() + b",/* note */}"
         self.assertIn("non-allowlisted-publisher-numeric-row",
                       guard.inspect_payload("dashboard/tsconfig.app.json", data))
+
+    def test_numeric_publisher_score_csv_tsv_same_as_json(self):
+        for relative,raw in [('docs/redteam-aa-scores.csv',b'sourceId,model,value\nAA,synthetic-local-only,93.7\n'),
+                             ('docs/redteam-aa-scores.tsv',b'sourceId\tmodel\tvalue\nAA\tsynthetic-local-only\t93.7\n'),
+                             ('docs/redteam-other-scores.csv',b'sourceId,model,score\nUNKNOWN,local-example,0.3\n')]:
+            self.assertIn('unreviewed-tabular-publisher-score',guard.inspect_payload(relative,raw))
+        control=json.dumps({'sourceId':'AA','model':'synthetic-local-only','value':93.7}).encode()
+        self.assertIn('non-allowlisted-publisher-numeric-row',guard.inspect_payload('docs/demo.json',control))
+
+    def test_allowed_aggregate_table_without_publisher_scores(self):
+        data=b'domain,role_count,enabled\napps,424,13\nweb,424,13\n'
+        self.assertEqual(guard.inspect_payload('docs/aggregated-roles.csv',data),[])
+
+    def test_bfcl_score_in_new_unreviewed_csv_rejected(self):
+        data=b'sourceId,model,value\nBR-BFCL-DATA,example-model,77.47\n'
+        self.assertIn('unreviewed-tabular-publisher-score',guard.inspect_payload('docs/invented-bfcl.csv',data))
 
     def test_numeric_aa(self):
         payload = json.dumps({"sourceId": "AA", "value": 0.123}).encode()

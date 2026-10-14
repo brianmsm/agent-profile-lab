@@ -5,7 +5,7 @@ import argparse, json, os, sys, tempfile
 from pathlib import Path
 from access_catalog import ROOT, load_catalog, read_json
 from profile_compiler import compile_request, verify_native
-from preflight_profile import check_inputs
+from preflight_profile import preflight
 
 def local_path(value: str) -> Path:
     path=Path(value)
@@ -52,12 +52,18 @@ def main():
     args=parser.parse_args()
     if args.verify_manifest:
         if not args.native: parser.error('--verify-manifest requires --native')
-        ok=verify_native(read_json(local_path(args.verify_manifest)),local_path(args.native).read_bytes())
-        if not ok: raise ValueError('Native SHA-256 mismatch; do not use this pair')
-        if not args.native_only:
-            state=check_inputs(read_json(local_path(args.verify_manifest)))
-            if not state['current']:raise ValueError('Historical/stale inputs: '+', '.join(state['staleInputs'])+'; retain the original pair and recompile separately')
-        print('Native SHA-256 verified; '+('HISTORICAL-ONLY: input currency not checked.' if args.native_only else 'input hashes match current sources.')+' Credentials and runtime behavior remain unverified.')
+        manifest=read_json(local_path(args.verify_manifest))
+        native_file=local_path(args.native)
+        if manifest.get('nativeArtifact',{}).get('filename')!=native_file.name:
+            raise ValueError('Native filename differs from the reviewed manifest')
+        raw=native_file.read_bytes()
+        if not verify_native(manifest,raw):raise ValueError('Native SHA-256 mismatch; do not use this pair')
+        if args.native_only:
+            print('HISTORICAL-ONLY: native SHA matches this manifest. Source inputs, semantics and origin are not certified.')
+            return
+        state=preflight(manifest,raw,root=ROOT)
+        if not state['artifactCurrent']:raise ValueError('Manifest/native/source preflight not independently reproducible: '+', '.join(state['requestReproductionErrors']))
+        print('Current native and complete manifest reproducible from source and declared request. Not authenticated, executable or safe to deploy.')
         return
     if args.native_only:parser.error('--native-only requires --verify-manifest')
     if args.request:
