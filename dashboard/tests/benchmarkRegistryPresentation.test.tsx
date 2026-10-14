@@ -83,4 +83,13 @@ describe('benchmarks: edition boundary is not a research extraction gap', () => 
     const css=readFileSync(new URL('../src/index.css', import.meta.url),'utf8')
     expect(css).toMatch(/\.access-consent input\[type=checkbox\]\s*\{[^}]*width:\s*18px;[^}]*height:\s*18px;[^}]*min-height:\s*18px;/su)
   })
+
+  test('desktop selects use an in-page picker on supported browsers without changing native fallback', () => {
+    const css=readFileSync(new URL('../src/index.css', import.meta.url),'utf8')
+    expect(css).toContain('@media (hover: hover) and (pointer: fine)')
+    expect(css).toContain('@supports (appearance: base-select)')
+    expect(css).toMatch(/select:not\(\[multiple\]\):not\(\[size\]\)::picker\(select\)\s*\{[^}]*appearance:\s*base-select;/su)
+    expect(css).toMatch(/select:not\(\[multiple\]\):not\(\[size\]\) option:hover,[\s\S]*?option:checked\s*\{[^}]*background:\s*var\(--teal-soft\);/u)
+    expect(css).toContain('max-height: min(56vh, 420px)')
+  })
 })
