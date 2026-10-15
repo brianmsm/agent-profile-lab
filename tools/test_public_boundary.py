@@ -318,16 +318,54 @@ class HistoryTests(unittest.TestCase):
         with self.assertRaises(subprocess.CalledProcessError):
             guard.audit_history(self.root, base=self.base)
 
-    def test_merge_rejected(self):
+    def test_signed_tree_preserving_pr_merge_is_scanned(self):
         command(self.root, "checkout", "-qb", "side")
-        (self.root / "side.txt").write_text("synthetic")
-        commit(self.root, "side")
+        (self.root / "side.txt").write_text("Synthetic reviewed change")
+        commit(self.root, "reviewed PR commit")
         command(self.root, "checkout", "main")
-        (self.root / "main.txt").write_text("synthetic")
-        commit(self.root, "main")
-        command(self.root, "-c", "core.hooksPath=/dev/null", "merge", "--no-ff", "side", "-m", "synthetic merge")
-        with self.assertRaisesRegex(ValueError, "Nonlinear public history"):
-            guard.audit_history(self.root, base=self.base)
+        command(self.root, "-c", "core.hooksPath=/dev/null", "merge",
+                "--no-ff", "side", "-m", "reviewed PR merge")
+        result=guard.audit_history(self.root, base=self.base)
+        self.assertTrue(result["historyBoundaryPassed"])
+        self.assertEqual(result["reviewedContentPreservingMerges"],1)
+        self.assertEqual(result["newCommits"],2)
+        self.assertGreaterEqual(result["changedBlobsScanned"],1)
+
+    def test_pr_branch_added_then_deleted_secret_still_fails(self):
+        command(self.root, "checkout", "-qb", "side")
+        (self.root / "sensitive.txt").write_text("sk" + "-" + "S" * 40)
+        commit(self.root, "synthetic exposed blob")
+        (self.root / "sensitive.txt").unlink()
+        commit(self.root, "removed exposed blob")
+        command(self.root, "checkout", "main")
+        command(self.root, "-c", "core.hooksPath=/dev/null", "merge",
+                "--no-ff", "side", "-m", "merge reviewed branch")
+        with self.assertRaisesRegex(ValueError,"provider-api-secret"):
+            guard.audit_history(self.root,base=self.base)
+
+    def test_merge_resolution_with_unreviewed_tree_is_refused(self):
+        command(self.root, "checkout", "-qb", "side")
+        (self.root / "side.txt").write_text("Reviewed source")
+        commit(self.root, "side branch")
+        command(self.root, "checkout", "main")
+        (self.root / "main.txt").write_text("Unreviewed extra merge content")
+        commit(self.root, "base branch changed")
+        command(self.root, "-c", "core.hooksPath=/dev/null", "merge",
+                "--no-ff", "side", "-m", "merge resolution")
+        with self.assertRaisesRegex(ValueError,"Unreviewed merge resolution"):
+            guard.audit_history(self.root,base=self.base)
+
+    def test_merge_with_unrelated_history_is_refused(self):
+        command(self.root, "checkout", "--orphan", "other-root")
+        command(self.root, "rm", "-rf", ".")
+        (self.root / "other.txt").write_text("Foreign synthetic root")
+        commit(self.root, "synthetic unrelated root")
+        command(self.root, "checkout", "main")
+        command(self.root, "-c", "core.hooksPath=/dev/null", "merge",
+                "--allow-unrelated-histories", "--no-ff", "other-root",
+                "-m", "unrelated import")
+        with self.assertRaisesRegex(ValueError,"outside approved baseline|Unsupported public history root"):
+            guard.audit_history(self.root,base=self.base)
 
 
 if __name__ == "__main__":

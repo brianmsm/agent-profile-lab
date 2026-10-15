@@ -351,13 +351,37 @@ def audit_history(root: Path | None = None, *, base: str = APPROVED_PUBLIC_BASE,
     seen = set()
     scanned = 0
     failures = []
+    approved_merges = 0
     for revision in revisions:
-        parents = git(root, "rev-list", "--parents", "-n", "1", revision).decode().split()
-        if len(parents) != 2:
-            raise ValueError("Nonlinear public history after approved baseline; review required: " + revision)
-        changes = git(root, "diff-tree", "--no-commit-id", "--name-only", "-r", "-z",
-                      "--diff-filter=ACMT", "--no-renames", revision).split(b"\0")
-        for raw in changes:
+        commit_line = git(root, "rev-list", "--parents", "-n", "1", revision).decode().split()
+        if not commit_line or commit_line[0] != revision:
+            raise ValueError("Cannot resolve historical commit parentage")
+        parents = commit_line[1:]
+        if not 1 <= len(parents) <= 2:
+            raise ValueError("Unsupported public history root/octopus merge after baseline: " + revision)
+        for parent in parents:
+            try:
+                git(root, "merge-base", "--is-ancestor", base_sha, parent)
+            except subprocess.CalledProcessError as exc:
+                raise ValueError("Merged public branch contains history outside approved baseline: " + revision) from exc
+        if len(parents) == 2:
+            # Only content-preserving merges, as generated for the reviewed
+            # PR tree, are accepted. A conflict-resolution merge whose tree
+            # differs from the reviewed second parent needs separate approval.
+            merge_tree = git(root, "rev-parse", revision + "^{tree}")
+            reviewed_tree = git(root, "rev-parse", parents[1] + "^{tree}")
+            if merge_tree != reviewed_tree:
+                raise ValueError("Unreviewed merge resolution changed approved PR source tree: " + revision)
+            approved_merges += 1
+        # Scan every parent edge, not Git diff-tree's default empty output
+        # for merge commits. Every introduced blob remains audited, even
+        # when later deleted on the feature branch.
+        changes = set()
+        for parent in parents:
+            changed = git(root, "diff-tree", "--no-commit-id", "--name-only", "-r", "-z",
+                          "--diff-filter=ACMT", "--no-renames", parent, revision).split(b"\0")
+            changes.update(item for item in changed if item)
+        for raw in sorted(changes):
             if not raw:
                 continue
             relative = raw.decode()
@@ -380,7 +404,9 @@ def audit_history(root: Path | None = None, *, base: str = APPROVED_PUBLIC_BASE,
             scanned += 1
             failures.extend({"commit": revision, "path": relative, "reason": r} for r in reasons)
     report = {"historyBoundaryPassed": not failures, "approvedBaseline": base_sha,
-              "head": head_sha, "newCommits": len(revisions), "changedBlobsScanned": scanned,
+              "head": head_sha, "newCommits": len(revisions),
+              "reviewedContentPreservingMerges": approved_merges,
+              "changedBlobsScanned": scanned,
               "failures": failures, "scope": "All added/modified blobs in every commit after baseline, including later deletions."}
     if failures:
         raise ValueError(json.dumps(report, indent=2))
