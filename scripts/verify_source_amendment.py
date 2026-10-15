@@ -6,7 +6,7 @@ contains hashes, not private history or restricted benchmark values.
 """
 from __future__ import annotations
 import csv,hashlib,json,io
-from strict_data_formats import strict_csv_rows, json_loads_strict
+from strict_data_formats import strict_csv_rows, json_loads_strict, schema_version_is_one
 from reviewed_native_blobs import verify_native_blobs
 from reviewed_git_anchors import reviewed_anchor,reviewed_blob,git
 from pathlib import Path
@@ -22,10 +22,15 @@ def normalized_digest(rows):
     return hashlib.sha256(json.dumps(normalized_rows(rows),ensure_ascii=False,sort_keys=True,separators=(',',':')).encode()).hexdigest()
 def verify_amendment(root=ROOT):
     path=root/'policies/source-metadata-amendment.json';receipt=json_loads_strict(path.read_bytes())
-    if receipt.get('schemaVersion')!=1 or receipt.get('kind')!='descriptive-source-amendment':raise ValueError('Unknown amendment')
+    if not schema_version_is_one(receipt.get('schemaVersion')) or receipt.get('kind')!='descriptive-source-amendment':raise ValueError('Unknown amendment')
     expected={'data/profile-index.csv'}|{str(p.relative_to(root)) for p in (root/'data/assignment-shards').glob('*/*.csv')}
     if set(receipt['sourceFiles'])!=expected:raise ValueError('Amendment coverage differs from the complete source inventory')
     if sha(root/'data/assignment-shards/manifest.json')!=receipt['currentSourceManifestSHA256']:raise ValueError('Amended source manifest changed')
+    source_manifest=json_loads_strict((root/'data/assignment-shards/manifest.json').read_bytes())
+    if not schema_version_is_one(source_manifest.get('schemaVersion')) or not isinstance(source_manifest.get('shards'),dict):
+        raise ValueError('Ambiguous source-shard manifest schemaVersion or inventory')
+    if len(source_manifest['shards'])!=12 or source_manifest.get('totalRows')!=49638:
+        raise ValueError('Source-shard manifest coverage invalid')
     # Unlike self-issued digests, the original is fetched from a fixed historic
     # Git commit known by the verifier, not from a mutable receipt field.
     edition,anchor=reviewed_anchor(root)

@@ -75,6 +75,11 @@ export async function compileAccessBundle(snapshot: Snapshot, original: Preset, 
     nanStaticPlan:preset.nanStaticPlan??null,
     selectionReview:preset.selectionReview?{...preset.selectionReview,evidence:preset.selectionReview.evidenceRefs.map(id=>selectionEvidence[id])}:null,
     activityPlan: preset.activityPlan ?? null, domainContract, roles,
+    // Browser imports/exports are NOT independently approved by the offline
+    // normative policy gate. Do not claim a reviewed domain on their behalf.
+    policyReview: { assurancePolicyReviewed: false, domainReviewed: false,
+      reviewScope: 'browser-generated-not-independently-reviewed',
+      reviewedFields: [], operationalEnforcement: false },
     assurance: assessResolved(roles,preset.meta.harness,preset.meta.domain),
     nativeArtifact: { filename: native.filename, sha256, encoding: 'utf-8' },
     inputsSha256: snapshot.access!.inputSha256,

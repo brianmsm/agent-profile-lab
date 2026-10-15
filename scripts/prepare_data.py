@@ -10,7 +10,7 @@ import csv, gzip, hashlib, json, sys
 from collections import Counter
 from pathlib import Path
 from harness_contracts import load_harnesses, is_retired, roles_for
-from strict_data_formats import strict_csv_rows, json_loads_strict
+from strict_data_formats import strict_csv_rows, json_loads_strict, schema_version_is_one
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / 'data'
 SHARDS = DATA / 'assignment-shards'
@@ -21,7 +21,7 @@ def digest(path: Path) -> str:
 def load_decisions(root: Path = ROOT) -> tuple[list[dict], list[str]]:
     directory = root / 'data/assignment-shards'
     manifest = json_loads_strict((directory / 'manifest.json').read_bytes())
-    if manifest.get('schemaVersion') != 1 or not isinstance(manifest.get('shards'), dict):
+    if not schema_version_is_one(manifest.get('schemaVersion')) or not isinstance(manifest.get('shards'), dict):
         raise ValueError('Invalid decision-shard manifest')
     files = sorted(p.relative_to(directory).as_posix() for p in directory.rglob('*.csv'))
     if files != sorted(manifest['shards']):

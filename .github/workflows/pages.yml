@@ -47,6 +47,7 @@ jobs:
           python3 -B tools/verify_public_release.py
           python3 -B tools/test_bfcl_anchor.py
           python3 -B scripts/test_r3b_contracts.py
+          python3 -B scripts/test_r3d_git_integrity.py
           python3 -B tools/test_public_boundary.py
           python3 -B tools/rebuild_delivery.py
           python3 -B tools/verify_public_release.py

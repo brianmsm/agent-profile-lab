@@ -32,7 +32,8 @@ COMPILATION_INPUTS=tuple(dict.fromkeys(['contracts/harnesses.json','policies/fun
             'policies/activity-allocation.json','scripts/activity_allocation.py','catalog/account-inventory.json','catalog/pricing.json','catalog/resource-benefits.json','scripts/resource_economics.py','policies/assurance-contract.json','scripts/profile_assurance.py',
             'scripts/reviewed_policy_contract.py','scripts/reviewed_git_anchors.py',
             'scripts/strict_data_formats.py','scripts/verify_source_amendment.py',
-            'scripts/reviewed_native_blobs.py','scripts/metadata_contracts.py']))
+            'scripts/reviewed_native_blobs.py','scripts/metadata_contracts.py',
+            'scripts/git_object_integrity.py']))
 
 
 
@@ -153,7 +154,7 @@ def load_baseline(profile_id: str, policy: str, root: Path, catalog: dict, contr
 def compile_request(request: dict, root: Path=ROOT) -> dict:
     # A coherent reissued manifest may reflect unreviewed local policy.
     from reviewed_policy_contract import verify_reviewed_policy
-    verify_reviewed_policy(root)
+    reviewed_policy=verify_reviewed_policy(root)
     own_shape(request,REQUEST_FIELDS,'request',{'schemaVersion','targetId','baseProfile'})
     if type(request['schemaVersion']) is not int or request['schemaVersion']!=1: raise ValueError('Unsupported compiler request version')
     catalog=load_catalog(root); contracts=load_harnesses(root)
@@ -283,6 +284,13 @@ def compile_request(request: dict, root: Path=ROOT) -> dict:
         'referencePortfolioMeaning':'Decision source only; not an estimate of the current resource inventory cost.',
         'resources':list(resources.values()),'resourceEvidence':'user-declared' if supplied is not None else 'baseline-expected-not-inspected',
         'meteredAuthorization':authorization,'funding':funding,'domainContract':domain_contract,'roles':resolved,
+        'policyReview':{
+            'assurancePolicyReviewed':reviewed_policy['policyReviewedForCurrentStructure'],
+            'domainReviewed':baseline['domain']=='cybersecurity',
+            'reviewScope':reviewed_policy['reviewScope'],
+            'reviewedFields':reviewed_policy['reviewedFields'],
+            'operationalEnforcement':False},
+
         'assurance':assess_resolved(resolved,baseline['harness'],baseline['domain'],catalog['offerings']),
         # An untrusted manifest is reproducible only when its declared request
         # rebuilds the exact native bytes and full contract metadata. This is
