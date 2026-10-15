@@ -28,7 +28,7 @@ STATES={
 }
 # Public policy history is independent of the private edition.
 PUBLIC_POLICY_COMMIT='691bfc8c6088371b83de223ff4b437da98827327'
-PRIVATE_POLICY_COMMIT='' # public edition must never require private history
+PRIVATE_POLICY_COMMIT='a62b14ec32ad9a1695e783bc13762c5c07a80144'
 
 def verify_reviewed_policy(root: Path) -> dict:
     root=root.resolve()
@@ -63,6 +63,12 @@ def verify_reviewed_policy(root: Path) -> dict:
         raise ValueError('Reviewed cybersecurity domain does not match fixed Git source')
     return {'policyReviewedForCurrentStructure':True,
         'reviewedFields':['all cybersecurity domain normative fields','assurance policy full bytes'],
+        'reviewScope':{
+            'assurancePolicy':'full-exact-reviewed-bytes',
+            'domainContracts':{'cybersecurity':sorted(domains['domains']['cybersecurity'])},
+            'otherDomains':'not-reviewed-by-this-attestation',
+            'operationalEnforcement':False,
+        },
         'approvedGitCommit':pin,
         'policyEnforcedAtRuntime':False,
         'identityAuthenticated':False,

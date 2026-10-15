@@ -13,7 +13,7 @@ from harness_contracts import roles_for
 from profile_compiler import COMPILATION_INPUTS, compile_request
 from verify_source_amendment import verify_amendment
 from reviewed_policy_contract import verify_reviewed_policy
-from strict_data_formats import json_loads_strict
+from strict_data_formats import json_loads_strict, schema_version_is_one
 ROOT=Path(__file__).resolve().parents[1]
 SAFE_PREFIXES=('catalog/','contracts/','policies/','scripts/','dashboard/src/')
 SAFE_DATA={'data/assignment-shards/manifest.json','data/portfolios.csv','data/omp-runtime-policies.csv','data/domain-objective-contracts.json'}
@@ -46,7 +46,7 @@ def check_inputs(manifest: dict, root: Path=ROOT) -> dict:
     try:
         leaves=json_loads_strict(manifest_path.read_bytes())
     except (ValueError,OSError) as e:raise ValueError('Invalid transitive shard inventory') from e
-    if leaves.get('schemaVersion')!=1 or not isinstance(leaves.get('shards'),dict):
+    if not schema_version_is_one(leaves.get('schemaVersion')) or not isinstance(leaves.get('shards'),dict):
         raise ValueError('Invalid source-shard index')
     base=root/'data/assignment-shards'
     actual={p.relative_to(base).as_posix() for p in base.glob('*/*.csv')}
@@ -67,7 +67,7 @@ def check_inputs(manifest: dict, root: Path=ROOT) -> dict:
         'staleInputs':sorted(stale),'staleShards':sorted(shard_stale)}
 
 def preflight(manifest: dict, content: bytes, runtime_version: str|None=None, root: Path=ROOT) -> dict:
-    if not isinstance(manifest,dict) or manifest.get('format')!='agent-profile-lab.compiled-profile' or manifest.get('schemaVersion')!=1:
+    if not isinstance(manifest,dict) or manifest.get('format')!='agent-profile-lab.compiled-profile' or not schema_version_is_one(manifest.get('schemaVersion')):
         raise ValueError('Unknown compiled manifest format')
     native=manifest.get('nativeArtifact',{})
     if not isinstance(native,dict) or not re.fullmatch('[0-9a-f]{64}',native.get('sha256','')):
@@ -123,7 +123,10 @@ def preflight(manifest: dict, content: bytes, runtime_version: str|None=None, ro
       'declaredRuntimeVersion':runtime_version,'runtimeVersionMatches':version_ok,
       'runtimeVersionEvidence':'user-declared-not-probed' if runtime_version else 'not-provided',
       'requestAuthenticity':'not-authenticated; self-declared request reproduced from trusted sources',
-      'policyReviewed':reviewed_policy['policyReviewedForCurrentStructure'],
+      'policyReviewed':bool(reviewed_policy['policyReviewedForCurrentStructure'] and manifest.get('domain')=='cybersecurity'),
+      'assurancePolicyReviewed':reviewed_policy['policyReviewedForCurrentStructure'],
+      'policyReviewedScope':reviewed_policy['reviewScope'],
+      'policyReviewedFields':reviewed_policy['reviewedFields'],
       'readyForOperation':False,'controlsVerified':False,'providerCalls':0,
       'requiredNextChecks':[*controls,'actual-endpoint-identity-and-effort'],
       'meaning':'Reproducible native/manifest does not authenticate the requesting person, install controls, or prove model performance.'}

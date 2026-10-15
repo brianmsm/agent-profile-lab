@@ -87,3 +87,7 @@ See [the targeted R3b contract](docs/ADVERSARIAL_R3B.md). The structural corpus 
 ## R3c independent release controls
 
 Read [R3c review and signed artifact scope](docs/ADVERSARIAL_R3C.md). This is not a model-quality or operational safety certificate.
+
+## R3d immutable Git review and exact signed release scope
+
+See [R3d release controls](docs/ADVERSARIAL_R3D.md); this does not certify agent runtime safety or model performance.

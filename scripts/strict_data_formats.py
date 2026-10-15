@@ -1,6 +1,6 @@
 """Lossless structural checks before JSON/CSV are interpreted as trusted evidence."""
 from __future__ import annotations
-import csv,io,json
+import csv,io,json,math
 
 def _pairs_unique(pairs):
     out={}
@@ -9,8 +9,18 @@ def _pairs_unique(pairs):
         out[key]=value
     return out
 
+def _finite_float(raw: str) -> float:
+    number=float(raw)
+    if not math.isfinite(number):
+        raise ValueError('Nonfinite JSON number: '+raw)
+    return number
+
+def schema_version_is_one(value) -> bool:
+    # JSON Schema numeric integers include 1.0, but bool is not a number.
+    return type(value) in (int,float) and math.isfinite(value) and value==1
+
 def json_loads_strict(blob: str|bytes):
-    return json.loads(blob,object_pairs_hook=_pairs_unique,
+    return json.loads(blob,parse_float=_finite_float,object_pairs_hook=_pairs_unique,
         parse_constant=lambda value: (_ for _ in ()).throw(ValueError('Nonfinite JSON number: '+value)))
 
 def json_load_strict(path):
