@@ -5,12 +5,14 @@ migration; missing/wrong labels in a future input fail before projection.
 """
 from __future__ import annotations
 import csv, json
+from strict_data_formats import json_loads_strict
 from pathlib import Path
+from strict_data_formats import json_loads_strict
 ROOT = Path(__file__).resolve().parents[1]
 LABEL_FIELDS = ('domain_label', 'objective_label', 'portfolio_label')
 
 def label_contract(root: Path = ROOT) -> dict:
-    c = json.loads((root/'data/domain-objective-contracts.json').read_bytes())
+    c = json_loads_strict((root/'data/domain-objective-contracts.json').read_bytes())
     with (root/'data/portfolios.csv').open(encoding='utf-8-sig',newline='') as f:
         p=list(csv.DictReader(f))
     return {'domain_label': {k:v['label'] for k,v in c['domains'].items()},

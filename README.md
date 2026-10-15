@@ -83,3 +83,7 @@ Original author-owned code is licensed **MIT** (LICENSE). Separate upstream copy
 ## R3b publication, source and policy safeguards
 
 See [the targeted R3b contract](docs/ADVERSARIAL_R3B.md). The structural corpus remains a reference, not an empirically calibrated deployment.
+
+## R3c independent release controls
+
+Read [R3c review and signed artifact scope](docs/ADVERSARIAL_R3C.md). This is not a model-quality or operational safety certificate.

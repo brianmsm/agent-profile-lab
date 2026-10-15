@@ -58,7 +58,7 @@ class TargetedR3(unittest.TestCase):
     self.assertFalse(result['artifactCurrent'])
  def test_every_compiler_input_is_mandatory(self):
   bundle=self.bundles[0];m=bundle['manifest']
-  self.assertGreaterEqual(len(COMPILATION_INPUTS),29)
+  self.assertGreaterEqual(len(COMPILATION_INPUTS),31)
   for key in COMPILATION_INPUTS:
    forged=copy.deepcopy(m);forged['inputsSha256'].pop(key)
    with self.subTest(key),self.assertRaisesRegex(ValueError,'Incomplete/unreviewed compiler dependencies'):

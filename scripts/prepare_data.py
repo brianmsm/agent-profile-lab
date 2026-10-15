@@ -10,7 +10,7 @@ import csv, gzip, hashlib, json, sys
 from collections import Counter
 from pathlib import Path
 from harness_contracts import load_harnesses, is_retired, roles_for
-from strict_data_formats import strict_csv_rows
+from strict_data_formats import strict_csv_rows, json_loads_strict
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / 'data'
 SHARDS = DATA / 'assignment-shards'
@@ -20,7 +20,7 @@ def digest(path: Path) -> str:
 
 def load_decisions(root: Path = ROOT) -> tuple[list[dict], list[str]]:
     directory = root / 'data/assignment-shards'
-    manifest = json.loads((directory / 'manifest.json').read_text())
+    manifest = json_loads_strict((directory / 'manifest.json').read_bytes())
     if manifest.get('schemaVersion') != 1 or not isinstance(manifest.get('shards'), dict):
         raise ValueError('Invalid decision-shard manifest')
     files = sorted(p.relative_to(directory).as_posix() for p in directory.rglob('*.csv'))
@@ -71,11 +71,11 @@ def main() -> None:
     rows, header = load_decisions()
     contracts = load_harnesses()
     active, retired = partition_decisions(rows, contracts)
-    domain_contracts=json.loads((ROOT/'data/domain-objective-contracts.json').read_text())['domains']
+    domain_contracts=json_loads_strict((ROOT/'data/domain-objective-contracts.json').read_bytes())['domains']
     for row in active:
         if domain_contracts[row['domain']]['gate'] not in row['quality_gate']:
             raise ValueError(f"{row['profile_id']}/{row['role']}: quality gate belongs to another domain or is incomplete")
-    functions = json.loads((ROOT / 'policies/functions.json').read_text())['functions']
+    functions = json_loads_strict((ROOT / 'policies/functions.json').read_bytes())['functions']
     retired_map = {v['retiredNativeRole']: key for key, v in functions.items() if 'retiredNativeRole' in v}
     precedents = {}
     fields = ['domain','objective','model_key','thinking','fallback_model','fallback_thinking',

@@ -10,6 +10,7 @@ from pathlib import Path
 from access_catalog import ROOT, load_catalog, compatibility_models, target_for, resolve_binding
 from harness_contracts import load_harnesses, roles_for
 from prepare_data import load_decisions, partition_decisions
+from strict_data_formats import json_loads_strict
 from dashboard_strategies import build_strategy_collections
 from generate_native_profiles import native_text
 from resource_economics import validate_funding
@@ -30,7 +31,8 @@ COMPILATION_INPUTS=tuple(dict.fromkeys(['contracts/harnesses.json','policies/fun
             'scripts/harness_contracts.py','scripts/prepare_data.py','policies/functions.json',
             'policies/activity-allocation.json','scripts/activity_allocation.py','catalog/account-inventory.json','catalog/pricing.json','catalog/resource-benefits.json','scripts/resource_economics.py','policies/assurance-contract.json','scripts/profile_assurance.py',
             'scripts/reviewed_policy_contract.py','scripts/reviewed_git_anchors.py',
-            'scripts/strict_data_formats.py','scripts/verify_source_amendment.py']))
+            'scripts/strict_data_formats.py','scripts/verify_source_amendment.py',
+            'scripts/reviewed_native_blobs.py','scripts/metadata_contracts.py']))
 
 
 
@@ -271,7 +273,7 @@ def compile_request(request: dict, root: Path=ROOT) -> dict:
     text=native_text(name,baseline['harness'],config,baseline['runtimePolicy'])
     filename=name+('.export.json' if baseline['harness']=='gentle-shell' else '.yaml')
     inputs=COMPILATION_INPUTS
-    domain_contract=json.loads((root/'data/domain-objective-contracts.json').read_text())['domains'][baseline['domain']]
+    domain_contract=json_loads_strict((root/'data/domain-objective-contracts.json').read_bytes())['domains'][baseline['domain']]
     manifest={'format':'agent-profile-lab.compiled-profile','schemaVersion':1,
         'status':'candidate' if remap or overrides or policy!='matrix' else 'baseline-projection',
         'targetId':request['targetId'],'harness':target['harness'],'harnessVersion':target['harnessVersion'],

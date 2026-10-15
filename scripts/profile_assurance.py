@@ -2,8 +2,9 @@
 from __future__ import annotations
 import json
 from pathlib import Path
+from strict_data_formats import json_loads_strict
 ROOT=Path(__file__).resolve().parents[1]
-POLICY=json.loads((ROOT/'policies/assurance-contract.json').read_bytes())
+POLICY=json_loads_strict((ROOT/'policies/assurance-contract.json').read_bytes())
 def resource_key(r):return tuple(r.get(k) for k in ('accessRouteId','resourceId','credentialRef','plan'))
 def route_key(r):return (r['selector'],r['effort'],*resource_key(r))
 def fallback_kind(primary, fallback):

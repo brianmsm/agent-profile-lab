@@ -62,5 +62,5 @@ def build_delivery(snapshot, source_path: Path):
 if __name__ == '__main__':
     root = Path(__file__).resolve().parents[1]
     source = root/'dashboard/public/data/snapshot.json'
-    result = build_delivery(json.loads(source.read_bytes()), source)
+    result = build_delivery(json_loads_strict(source.read_bytes()), source)
     print(json.dumps(result, indent=2))

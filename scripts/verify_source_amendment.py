@@ -6,7 +6,8 @@ contains hashes, not private history or restricted benchmark values.
 """
 from __future__ import annotations
 import csv,hashlib,json,io
-from strict_data_formats import strict_csv_rows
+from strict_data_formats import strict_csv_rows, json_loads_strict
+from reviewed_native_blobs import verify_native_blobs
 from reviewed_git_anchors import reviewed_anchor,reviewed_blob,git
 from pathlib import Path
 from metadata_contracts import label_contract,validate_labels
@@ -20,7 +21,7 @@ def normalized_rows(rows):
 def normalized_digest(rows):
     return hashlib.sha256(json.dumps(normalized_rows(rows),ensure_ascii=False,sort_keys=True,separators=(',',':')).encode()).hexdigest()
 def verify_amendment(root=ROOT):
-    path=root/'policies/source-metadata-amendment.json';receipt=json.loads(path.read_bytes())
+    path=root/'policies/source-metadata-amendment.json';receipt=json_loads_strict(path.read_bytes())
     if receipt.get('schemaVersion')!=1 or receipt.get('kind')!='descriptive-source-amendment':raise ValueError('Unknown amendment')
     expected={'data/profile-index.csv'}|{str(p.relative_to(root)) for p in (root/'data/assignment-shards').glob('*/*.csv')}
     if set(receipt['sourceFiles'])!=expected:raise ValueError('Amendment coverage differs from the complete source inventory')
@@ -53,12 +54,16 @@ def verify_amendment(root=ROOT):
     if count!=52134:raise ValueError('Source rows lost or added')
     expected_native={str(p.relative_to(root)) for folder in ['profiles/gentle-shell','profiles/omp','profiles/gentle-shell-variants/critical-review'] for p in (root/folder).glob('*') if p.is_file()}
     if set(receipt['nativeFileSHA256'])!=expected_native or len(expected_native)!=3744:raise ValueError('Native inventory changed')
-    # An attacker cannot reissue hashes of modified native profiles and claim
-    # historical preservation: Git itself records the reviewed original tree.
+    # Explicitly compare every file to a Git archive of the approved tree:
+    # Git diff/ls-files --dirty rely on the mutable index and can be fooled
+    # by skip-worktree or assume-unchanged flags.
+    direct=verify_native_blobs(root,anchor)
     for relative,value in receipt['nativeFileSHA256'].items():
-        if sha(root/relative)!=value:raise ValueError('Original native configuration changed: '+relative)
-    for folder in ('profiles/gentle-shell','profiles/omp','profiles/gentle-shell-variants/critical-review'):
-        if git(root,'diff','--name-only',anchor,'--',folder).strip():
-            raise ValueError('Native worktree differs from immutable historic reference: '+folder)
-    return {'metadataValid':True,'sourceRowsPreserved':count,'nativeFilesByteIdentical':len(expected_native),'nonlabelFieldsPreserved':True,'modelCalls':0,'historicalAnchor':anchor,'historicalProof':'git-blob-source-comparison-not-digital-signature'}
+        if sha(root/relative)!=value:
+            raise ValueError('Original native configuration changed: '+relative)
+    return {'metadataValid':True,'sourceRowsPreserved':count,
+       'nativeFilesByteIdentical':direct['nativeFilesComparedDirectlyToGitBlobs'],
+       'nativeHistoryReadWithoutGitIndex':True,
+       'nonlabelFieldsPreserved':True,'modelCalls':0,'historicalAnchor':anchor,
+       'historicalProof':'direct-git-blob-worktree-comparison-not-digital-signature'}
 if __name__=='__main__':print(json.dumps(verify_amendment(),indent=2))

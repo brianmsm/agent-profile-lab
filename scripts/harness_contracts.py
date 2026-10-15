@@ -1,14 +1,16 @@
 """Versioned native-role contracts and portable responsibility criteria."""
 from __future__ import annotations
 import json
+from strict_data_formats import json_loads_strict
 from pathlib import Path
+from strict_data_formats import json_loads_strict
 ROOT = Path(__file__).resolve().parents[1]
 
 def load_harnesses(root: Path = ROOT) -> dict:
-    data = json.loads((root / 'contracts/harnesses.json').read_text())
+    data = json_loads_strict((root / 'contracts/harnesses.json').read_bytes())
     if data.get('schemaVersion') != 1:
         raise ValueError('Unsupported harness contract schema')
-    functions = json.loads((root / 'policies/functions.json').read_text())['functions']
+    functions = json_loads_strict((root / 'policies/functions.json').read_bytes())['functions']
     for harness, contract in data['harnesses'].items():
         if not contract['roles'] or any(role['functionId'] not in functions for role in contract['roles'].values()):
             raise ValueError(f'{harness}: unknown functional role')

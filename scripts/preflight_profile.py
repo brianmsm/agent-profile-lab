@@ -13,6 +13,7 @@ from harness_contracts import roles_for
 from profile_compiler import COMPILATION_INPUTS, compile_request
 from verify_source_amendment import verify_amendment
 from reviewed_policy_contract import verify_reviewed_policy
+from strict_data_formats import json_loads_strict
 ROOT=Path(__file__).resolve().parents[1]
 SAFE_PREFIXES=('catalog/','contracts/','policies/','scripts/','dashboard/src/')
 SAFE_DATA={'data/assignment-shards/manifest.json','data/portfolios.csv','data/omp-runtime-policies.csv','data/domain-objective-contracts.json'}
@@ -43,7 +44,7 @@ def check_inputs(manifest: dict, root: Path=ROOT) -> dict:
     shard_stale=[];checked_shards=0
     manifest_path=source_path(root,'data/assignment-shards/manifest.json')
     try:
-        leaves=json.loads(manifest_path.read_bytes())
+        leaves=json_loads_strict(manifest_path.read_bytes())
     except (ValueError,OSError) as e:raise ValueError('Invalid transitive shard inventory') from e
     if leaves.get('schemaVersion')!=1 or not isinstance(leaves.get('shards'),dict):
         raise ValueError('Invalid source-shard index')

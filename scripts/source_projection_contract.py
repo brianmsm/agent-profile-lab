@@ -1,6 +1,7 @@
 """Typed source-to-projection identity checks for standalone structural validators."""
 from __future__ import annotations
 import json
+from strict_data_formats import json_loads_strict
 
 def validate_source_projection(source_rows: list[dict], projection_rows: list[dict]) -> None:
     if not isinstance(source_rows,list) or not isinstance(projection_rows,list) or source_rows!=projection_rows:
@@ -9,7 +10,7 @@ def validate_source_projection(source_rows: list[dict], projection_rows: list[di
         for field in ('source_ids','source_urls','warnings','rule_ids'):
             raw=row.get(field)
             if not isinstance(raw,str):raise ValueError(field+': expected serialized JSON list')
-            try:items=json.loads(raw)
+            try:items=json_loads_strict(raw)
             except (TypeError,ValueError) as e:raise ValueError(field+': invalid JSON') from e
             if not isinstance(items,list) or (field!='warnings' and not items) or any(
                 not isinstance(item,str) or not item.strip() for item in items):

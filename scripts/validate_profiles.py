@@ -12,11 +12,11 @@ from security_gate_language import explicit_permission_contradiction
 
 ROOT=Path(__file__).resolve().parents[1]
 A=ROOT/'data/assignments.csv'
-from strict_data_formats import strict_csv_rows
+from strict_data_formats import strict_csv_rows, json_loads_strict
 rows,_=strict_csv_rows(A.read_bytes(),label='data/assignments.csv')
 catalog=json.load(open(ROOT/'data/model-catalog.json')); bykey={m['key']:m for m in catalog}; bysel={m['selector']:m for m in catalog}
 ports={r['id']:r for r in csv.DictReader((ROOT/'data/portfolios.csv').open(encoding='utf-8-sig',newline=''))}
-domain_objective_contract=json.load(open(ROOT/'data/domain-objective-contracts.json',encoding='utf-8'))
+domain_objective_contract=json_loads_strict((ROOT/'data/domain-objective-contracts.json').read_bytes())
 domain_contracts=domain_objective_contract.get('domains',{})
 objective_contracts=domain_objective_contract.get('objectives',{})
 domains=set(domain_contracts)
@@ -160,7 +160,7 @@ for r in rows:
   if r.get(fld,'')=='': trace_fail.append((r['profile_id'],r['role'],fld))
  for fld in ['source_ids','source_urls','warnings','rule_ids']:
   try:
-   value=json.loads(r[fld])
+   value=json_loads_strict(r[fld])
    if not isinstance(value,list) or (fld!='warnings' and not value):
     trace_fail.append((r['profile_id'],r['role'],fld,'expected-nonempty-list'))
    elif any(not isinstance(v,str) or not v.strip() for v in value):
@@ -203,7 +203,7 @@ check('cybersecurity_apps_route_equivalence',not cyber_route_bad,str(cyber_route
 
 
 # JSON and gzip equivalence with CSV
-json_rows=json.load(open(ROOT/'data/assignments.json'))
+json_rows=json_loads_strict((ROOT/'data/assignments.json').read_bytes())
 check('assignments_json_exact',json_rows==rows,f'json={len(json_rows)} csv={len(rows)}')
 with gzip.open(ROOT/'data/assignments.csv.gz','rb') as f: gz=f.read()
 check('assignments_gzip_exact',gz==A.read_bytes(),f'gzip_bytes={len(gz)} csv_bytes={A.stat().st_size}')

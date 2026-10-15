@@ -4355,8 +4355,8 @@
       "contracts/harnesses.json": "ccd482118499da376384e4d0217b8f1440293fdff6a8eda5f4ec2f539b3c5572",
       "scripts/dashboard_access.py": "c66004947ec75bd8a201ab7f717295e723729b42a38f2077b005e5763d3b407e",
       "scripts/access_catalog.py": "3b80f7a27b2fd04eeecbb47f16de5c141e31a5b4b7a34625739ea560a27731da",
-      "scripts/harness_contracts.py": "b26ff6186d9d2458f8a2a2a27cf98e0028b432c7baefdc67b0d2f6791447c98c",
-      "scripts/profile_compiler.py": "cf19218a8035a5be8f43ec7a68924f54f38f7c9d961de4acfdcdfee994364ffe",
+      "scripts/harness_contracts.py": "912c5328e0ee535c990ede8854062c9bca001b73c7fc28fcf4c27590b7b765a7",
+      "scripts/profile_compiler.py": "aab384d92a430cdbdaa1519d7edbdbbf67dff22f815471053cfddaf691ef2573",
       "scripts/profile_semantics.py": "18ccb296a92ce6948962215187ba8a72659c7b43fbf536564acad91950765968",
       "scripts/dashboard_strategies.py": "cd7524f8d21ad55f5a4fa765c831a7b9cafc59570aaeec2bc38aee9b0157237c",
       "policies/nan-static-workloads.json": "649629c7eb4f52c54c2b5cae67d6a681945d2c47ad346e4abbbec340a64fb002",
@@ -4385,7 +4385,7 @@
       "data/portfolios.csv": "dbeece2e0ed53bb3941aa90847efe14f2e1af29e43c0fcd778200e3836c064aa",
       "data/omp-runtime-policies.csv": "53b76b889ccab97e3a099ef554812196b1290b8e39ddff8ad3e9d6eb45218964",
       "policies/assurance-contract.json": "d4be83503a6d198617f48e34198abbf4f9d024f1bfb714c5f56b913f6b1be2ed",
-      "scripts/profile_assurance.py": "914762a4d86b3fd59e4b031ffc7c8438fe60478b0cc41db935628fe66b8b0d1e",
+      "scripts/profile_assurance.py": "c86ea944ef5eb5f1f843b02010aa25730ab69546ee6593bf51b41fbd3f850b6d",
       "dashboard/src/assuranceAnalysis.ts": "74ecd69d36ee4a5e38f9171cb1cd84f2132ea9c296ad8764af44add28dc77c74"
     }
   },
