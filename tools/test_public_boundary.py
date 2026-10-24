@@ -31,7 +31,12 @@ def commit(root: Path, message: str) -> str:
 class PayloadTests(unittest.TestCase):
     def test_pages_artifact_rejects_new_csv_even_after_successful_build(self):
         with tempfile.TemporaryDirectory() as temp:
-            root=Path(temp);built=root/'dashboard/dist';d=root/'dashboard/public/data';d.mkdir(parents=True)
+            root=Path(temp)
+            # Real standalone synthetic Git metadata, not a linked worktree.
+            command(root,'init','-q','-b','main')
+            (root/'README.md').write_text('Synthetic Pages test root\n')
+            commit(root,'synthetic Pages baseline')
+            built=root/'dashboard/dist';d=root/'dashboard/public/data';d.mkdir(parents=True)
             parts={}
             for name in ('core','evidence'):
                 payload=gzip.compress(b'{}',mtime=0);sha=hashlib.sha256(payload).hexdigest()
@@ -44,10 +49,132 @@ class PayloadTests(unittest.TestCase):
             (built/'data/delivery.json').write_bytes(manifest)
             (built/'index.html').write_text('<html><head></head><body>safe</body></html>')
             self.assertTrue(guard.audit_built_site(built,root=root)['verifiedAgainstPublicSource'])
+            svg=(b'<svg><metadata>{"source'+b'Id":"AA","score":82.1}'
+                 b'</metadata></svg>')
+            (built/'icons.svg').write_bytes(svg)
+            with self.assertRaisesRegex(ValueError,'unreviewed-embedded-publisher-score'):
+                guard.audit_built_site(built,root=root)
+            (built/'icons.svg').unlink()
+            (built/'assets').mkdir()
+            converted_js=(b'const x={source'+b'Id:"AA",score:Number("82.1")};')
+            (built/'assets/counterexample.js').write_bytes(converted_js)
+            with self.assertRaisesRegex(ValueError,'unreviewed-embedded-publisher-score'):
+                guard.audit_built_site(built,root=root)
+            (built/'assets/counterexample.js').unlink()
+            self.assertTrue(guard.audit_built_site(built,root=root)['verifiedAgainstPublicSource'])
+            # The built site is an independent output surface. Test both
+            # JSX-to-JS number expression and SVG/XML metadata variants.
+            (built/'favicon.svg').write_bytes(
+                b'<svg data-source="AA" data-score="82.1"></svg>')
+            with self.assertRaisesRegex(ValueError,'unreviewed-embedded-publisher-score'):
+                guard.audit_built_site(built,root=root)
+            (built/'favicon.svg').unlink()
+            (built/'assets/r3f-score.js').write_bytes(
+                b'const a={source'+b'Id:"AA",score:globalThis.Number("82.1")};')
+            with self.assertRaisesRegex(ValueError,'unreviewed-embedded-publisher-score'):
+                guard.audit_built_site(built,root=root)
+            (built/'assets/r3f-score.js').unlink()
             (built/'docs').mkdir()
             (built/'docs/redteam-scores.csv').write_text('sourceId,model,value\nAA,local-synthetic,93.7\n')
             with self.assertRaisesRegex(ValueError,'Unapproved Pages output file'):
                 guard.audit_built_site(built,root=root)
+
+    def test_static_numeric_coercions_are_prohibited_not_review(self):
+        from publisher_semantics import js_classify
+        source=b'source'+b'Id'
+        for expr in (b'globalThis.Number("82.1")',b'+("82.1")'):
+            data=b'const row={'+source+b':"AA",score:'+expr+b'};'
+            with self.subTest(expression=expr):
+                self.assertEqual(js_classify(data.decode()),'PROHIBITED')
+                self.assertIn('unreviewed-embedded-publisher-score',
+                              guard.inspect_payload('assets/probe.js',data))
+        self.assertEqual(js_classify('const row={sourceId:"local",score:+("82.1")};'),
+                         'LEGITIMATE')
+        self.assertEqual(js_classify('const row={sourceId:"AA",score:globalThis.Number(runtime)};'),
+                         'REVIEW')
+
+    def test_review_authority_does_not_replace_dlp_classification(self):
+        from publisher_semantics import js_classify
+        from independent_review_gate import enforce, gate
+        source=b'const row={sourceId:"AA",score:runtimeValue};'
+        reasons=guard.inspect_payload('assets/ambiguous.js',source)
+        self.assertEqual(js_classify(source.decode()),'REVIEW')
+        self.assertTrue(reasons)
+        self.assertTrue(all(r.startswith('indeterminate-') or r.startswith('opaque-')
+                            for r in reasons),reasons)
+        # Explicit synthetic test roots are supported only by the low-level
+        # test API; no production roster or private signing key is used.
+        with tempfile.TemporaryDirectory() as temp:
+            root=Path(temp)
+            with self.assertRaisesRegex(ValueError,
+                    'Missing independent exact-byte review decision'):
+                enforce('a'*40,'pages-public','assets/ambiguous.js',source,
+                        reasons=reasons,trust_file=root/'trust.json',
+                        decisions_dir=root/'reviews',
+                        allow_synthetic_test_roots=True)
+        # Release code still calls the immutable production barrier. No
+        # synthetic roots are accepted through the public gate API.
+        with self.assertRaises(ValueError):
+            gate(reasons,'a'*40,'pages-public','assets/ambiguous.js',source)
+
+    def test_publisher_number_wrapper_in_jsx_and_svg(self):
+        # Derived only from the R3d auditors' SYNTHETIC counterexamples.
+        cases=(
+            ("dashboard/src/example.tsx",
+             b'const test={source'+b'Id:"AA",score:'+b'Number("82.1")};'),
+            ("dashboard/dist/assets/example.js",
+             b"const x={source"+b"Id:'AA',score:"+b"parseFloat('82.1')};"),
+            ("dashboard/public/icons.svg",
+             b'<svg><metadata>{"sourceId":"AA","score":82.1}</metadata></svg>'),
+        )
+        for name,data in cases:
+            with self.subTest(name):
+                self.assertIn("unreviewed-embedded-publisher-score",
+                              guard.inspect_payload(name,data))
+        # Existing local fixture, typed publisher-authorized value and
+        # legitimate review-count aggregate must not be treated as forbidden.
+        self.assertNotIn("unreviewed-embedded-publisher-score",
+                          guard.inspect_payload("docs/count.txt",
+                          b'const count={sourceId:"AA",value:19,unit:"reference-links",kind:"aggregate-count"};'))
+        self.assertNotIn("unreviewed-embedded-publisher-score",
+                          guard.inspect_payload("tests/local-example.ts",
+                          b'const fixture={sourceId:"synthetic",score:Number("82.1")};'))
+
+    def test_r3f_jsx_global_unary_and_xml_publisher_encodings(self):
+        # Construct these bytes dynamically so this TEST'S source code does
+        # not itself contain publisher data mistaken for a new public leak.
+        source=b'source'+b'Id'
+        rows=(
+            ("dashboard/src/probe.tsx",
+             b'<Row '+source+b'="AA" score={Number("82.1")} />'),
+            ("dashboard/src/probe.tsx",
+             b'<Row '+source+b'="AA" score={globalThis.Number("82.1")} />'),
+            ("assets/main.js",
+             b'const x={'+source+b':"AA",score:globalThis.Number("82.1")};'),
+            ("assets/main.js",
+             b'const x={'+source+b':"AA",score:+("82.1")};'),
+            ("assets/main.js",
+             b'const x={'+source+b':"AA",score:n};const n=Number("82.1");'),
+            ("favicon.svg",
+             b'<svg><metadata '+source+b'="AA" score="82.1"/></svg>'),
+            ("favicon.svg",
+             b'<svg><metadata><'+source+b'>AA</'+source+
+                 b'><score>82.1</score></metadata></svg>'),
+            ("favicon.svg",
+             b'<svg><metadata data-source="AA" data-score="82.1"/></svg>'),
+            ("icons.xml",
+             b'<xml><metadata data-source="AA" data-score="82.1"/></xml>'),
+        )
+        for relative,payload in rows:
+            with self.subTest(relative=relative,payloadSHA256=hashlib.sha256(payload).hexdigest()):
+                self.assertIn("unreviewed-embedded-publisher-score",
+                              guard.inspect_payload(relative,payload))
+        self.assertFalse(guard.inspect_payload(
+            "docs/aggregate.js",b'const x={'+source+
+            b':"AA",kind:"aggregate-count",unit:"reference-links",value:19};'))
+        self.assertFalse(guard.inspect_payload(
+            "dashboard/src/local.tsx",
+            b'const x={'+source+b':"synthetic",score:Number("82.1")};'))
 
     def test_provider_key(self):
         value = b"sk" + b"-" + b"S" * 40
@@ -103,7 +230,8 @@ class PayloadTests(unittest.TestCase):
 
     def test_bfcl_score_in_new_unreviewed_csv_rejected(self):
         data=b'sourceId,model,value\nBR-BFCL-DATA,example-model,77.47\n'
-        self.assertIn('unreviewed-tabular-publisher-score',guard.inspect_payload('docs/invented-bfcl.csv',data))
+        self.assertEqual(guard.inspect_payload('docs/invented-bfcl.csv',data),
+                         ['indeterminate-bfcl-source-label-requires-independent-review'])
 
     def test_r3b_r3c_nested_string_alternate_scores_and_built_source(self):
         negatives={
@@ -288,6 +416,39 @@ class HistoryTests(unittest.TestCase):
         commit(self.root, "safe change")
         self.assertEqual(guard.audit_history(self.root, base=self.base)["newCommits"], 1)
 
+    def test_historical_number_wrapper_rejected(self):
+        payload=b'const v={source'+b'Id:"AA",score:Number("82.1")};'
+        (self.root/'publisher.tsx').write_bytes(payload)
+        commit(self.root,"synthetic disallowed inline publisher measurement")
+        with self.assertRaisesRegex(ValueError,"unreviewed-embedded-publisher-score"):
+            guard.audit_history(self.root,base=self.base)
+
+    def test_historical_svg_publisher_metadata_rejected(self):
+        payload=b'<svg><metadata>{"source'+b'Id":"AA","score":82.1}</metadata></svg>'
+        (self.root/'icons.svg').write_bytes(payload)
+        commit(self.root,"synthetic disallowed svg editorial statistic")
+        with self.assertRaisesRegex(ValueError,"unreviewed-embedded-publisher-score"):
+            guard.audit_history(self.root,base=self.base)
+
+    def test_r3f_added_then_deleted_jsx_editorial_score_still_rejected(self):
+        marker=b'source'+b'Id'
+        path=self.root/"synthetic.jsx"
+        path.write_bytes(b'<Row '+marker+b'="AA" score={globalThis.Number("82.1")} />')
+        commit(self.root,"synthetic publisher JSX encoded measurement")
+        path.unlink()
+        commit(self.root,"synthetic publisher JSX removed")
+        with self.assertRaisesRegex(ValueError,"unreviewed-embedded-publisher-score"):
+            guard.audit_history(self.root,base=self.base)
+
+    def test_r3f_added_then_deleted_xml_editorial_score_still_rejected(self):
+        path=self.root/"synthetic.svg"
+        path.write_bytes(b'<svg data-source="AA" data-score="82.1"></svg>')
+        commit(self.root,"synthetic publisher XML measurement")
+        path.unlink()
+        commit(self.root,"synthetic publisher XML removed")
+        with self.assertRaisesRegex(ValueError,"unreviewed-embedded-publisher-score"):
+            guard.audit_history(self.root,base=self.base)
+
     def test_added_then_deleted_secret(self):
         (self.root / "demo.txt").write_text("sk" + "-" + "S" * 40)
         commit(self.root, "synthetic leak")
@@ -308,14 +469,14 @@ class HistoryTests(unittest.TestCase):
     def test_history_symlink(self):
         (self.root / "link").symlink_to("README.md")
         commit(self.root, "symlink")
-        with self.assertRaisesRegex(ValueError, "nonregular-git-object"):
+        with self.assertRaisesRegex(ValueError, "nonregular-git-object|symbolic links/submodules unsupported"):
             guard.audit_history(self.root, base=self.base)
 
     def test_unrelated_base(self):
         command(self.root, "checkout", "--orphan", "other")
         (self.root / "README.md").write_text("Unrelated synthetic baseline")
         commit(self.root, "orphan")
-        with self.assertRaises(subprocess.CalledProcessError):
+        with self.assertRaises((subprocess.CalledProcessError,ValueError)):
             guard.audit_history(self.root, base=self.base)
 
     def test_signed_tree_preserving_pr_merge_is_scanned(self):
@@ -366,6 +527,99 @@ class HistoryTests(unittest.TestCase):
                 "-m", "unrelated import")
         with self.assertRaisesRegex(ValueError,"outside approved baseline|Unsupported public history root"):
             guard.audit_history(self.root,base=self.base)
+
+
+class ReleaseInventoryTests(unittest.TestCase):
+    """Focused preflight risks, no production signing or hosted interactions."""
+
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.root = Path(self.tmp.name) / "public"
+        self.root.mkdir()
+        command(self.root, "init", "-q", "-b", "main")
+        (self.root / "README.md").write_text("Synthetic public root\n")
+        self.base = commit(self.root, "approved synthetic baseline")
+
+    def test_history_includes_added_then_deleted_bytes_not_only_head_diff(self):
+        (self.root / "docs").mkdir()
+        (self.root / "docs/transient.md").write_text("Synthetic old value, removed in next commit\n")
+        first = commit(self.root, "add review material")
+        (self.root / "docs/transient.md").unlink()
+        second = commit(self.root, "delete review material")
+        self.assertFalse(command(self.root, "diff", "--name-only", self.base, second))
+        result = guard.candidate_object_inventory(self.root, self.base,
+                                                   approved_base=self.base)
+        versions = [x for x in result["historicalChangedFileVersions"]
+                    if x["path"] == "docs/transient.md"]
+        self.assertEqual({v["action"] for v in versions}, {"A", "D"})
+        self.assertFalse(versions[0]["presentAtCandidateHEAD"])
+        self.assertTrue(any(x.get("sha256") == hashlib.sha256(
+            b"Synthetic old value, removed in next commit\n").hexdigest()
+            for x in versions))
+        self.assertEqual(result["newCommits"], [first, second])
+        self.assertTrue(any(x["type"] == "blob" for x in result["newReachableGitObjects"]))
+        self.assertFalse(result["signatureOrPermissionIssued"])
+
+    def test_no_new_objects_at_identical_head(self):
+        result = guard.candidate_object_inventory(self.root, self.base,
+                                                   approved_base=self.base)
+        self.assertEqual(result["newCommits"], [])
+        self.assertEqual(result["newReachableGitObjects"], [])
+        self.assertEqual(result["historicalChangedFileVersions"], [])
+
+    def test_private_path_and_token_blocked_even_if_later_deleted(self):
+        target = self.root / "internal-research" / "secrets.txt"
+        target.parent.mkdir()
+        target.write_text("Synthetic private document only\n")
+        commit(self.root, "synthetic forbidden temporary addition")
+        target.unlink()
+        commit(self.root, "synthetic forbidden deletion")
+        with self.assertRaisesRegex(ValueError, "private-source-archive-present"):
+            guard.candidate_object_inventory(self.root, self.base, approved_base=self.base)
+
+    def test_secret_in_commit_history_blocked(self):
+        (self.root / "docs").mkdir()
+        (self.root / "docs" / "unsafe.txt").write_text("ghp_" + "X" * 32 + "\n")
+        commit(self.root, "temporary synthetic token")
+        (self.root / "docs" / "unsafe.txt").unlink()
+        commit(self.root, "remove synthetic token")
+        with self.assertRaisesRegex(ValueError, "github-access-token"):
+            guard.candidate_object_inventory(self.root, self.base, approved_base=self.base)
+
+    def test_release_inventory_refuses_uncommitted_or_other_head(self):
+        guard.require_clean_candidate(self.root, "HEAD")
+        (self.root / "README.md").write_text("dirty nonpublished worktree\n")
+        with self.assertRaisesRegex(ValueError, "clean committed public checkout"):
+            guard.require_clean_candidate(self.root, "HEAD")
+        (self.root / "README.md").write_text("Synthetic public root\n")
+        (self.root / "docs").mkdir()
+        (self.root / "docs" / "new.md").write_text("new legitimate commit\n")
+        commit(self.root, "new commit after baseline")
+        with self.assertRaisesRegex(ValueError, "checked-out HEAD"):
+            guard.require_clean_candidate(self.root, self.base)
+
+    def test_exact_pages_flags_changes_and_untrusted_reference(self):
+        old = Path(self.tmp.name) / "baseline"
+        new = Path(self.tmp.name) / "candidate"
+        for site in (old, new):
+            (site / "assets").mkdir(parents=True)
+            (site / "index.html").write_text("<html><head></head><body></body></html>\n")
+            (site / "assets" / "app.js").write_text("const ok=true;\n")
+        digest = guard.site_inventory_digest(guard.exact_site_inventory(old))
+        result = guard.compare_exact_pages(new, old, historic_digest=digest)
+        self.assertTrue(result["byteIdenticalToHistorical"])
+        (new / "assets" / "app.js").write_text("const ok=false;\n")
+        (new / "assets" / "extra.js").write_text("const extra=true;\n")
+        (new / "index.html").unlink()
+        result = guard.compare_exact_pages(new, old, historic_digest=digest)
+        self.assertEqual({x["change"] for x in result["changedAssetsRequireExactReview"]},
+                         {"MODIFIED", "ADDED", "REMOVED"})
+        with self.assertRaisesRegex(ValueError, "reference differs"):
+            guard.compare_exact_pages(new, old, historic_digest="0" * 64)
+        (new / "assets" / "leak.js").symlink_to(old / "assets" / "app.js")
+        with self.assertRaisesRegex(ValueError, "Symlink"):
+            guard.compare_exact_pages(new, old, historic_digest=digest)
 
 
 if __name__ == "__main__":

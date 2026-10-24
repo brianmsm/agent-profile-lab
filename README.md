@@ -91,3 +91,11 @@ Read [R3c review and signed artifact scope](docs/ADVERSARIAL_R3C.md). This is no
 ## R3d immutable Git review and exact signed release scope
 
 See [R3d release controls](docs/ADVERSARIAL_R3D.md); this does not certify agent runtime safety or model performance.
+
+## R3e local release-boundary remediation (not yet published)
+
+See [R3e trust-boundary scope](docs/ADVERSARIAL_R3E.md). These source changes are pending independent review and are not a production release.
+
+**R3f local-only follow-up:** see [R3f trust-boundary corrections](docs/ADVERSARIAL_R3F.md). No signing or deployment is implied.
+
+**R3g local-only follow-up:** see [trust boundaries](docs/ADVERSARIAL_R3G.md). This candidate is not signed or published.

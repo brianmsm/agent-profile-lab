@@ -42,6 +42,14 @@ def verify_amendment(root=ROOT):
     labels=label_contract(root);count=0
     for relative,record in receipt['sourceFiles'].items():
         p=root/relative
+        # A directory alias with identical file bytes is still not the
+        # original standalone CSV source topology.
+        relative_parts=Path(relative).parts
+        ancestor=root
+        for part in relative_parts[:-1]:
+            ancestor=ancestor/part
+            if ancestor.is_symlink() or not ancestor.is_dir():
+                raise ValueError('Unsafe amended CSV ancestor symlink: '+relative)
         if p.is_symlink() or not p.resolve().is_relative_to(root.resolve()):raise ValueError('Unsafe amended path')
         historical=reviewed_blob(root,anchor,relative)
         historic_rows,historic_header=strict_csv_rows(historical,label='Historical '+relative)
