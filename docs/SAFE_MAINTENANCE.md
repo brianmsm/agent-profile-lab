@@ -1,82 +1,62 @@
-# Safe public maintenance
+# Safe maintenance — current single-maintainer workflow
 
-The public and private repositories already exist. They have independent Git
-histories. Routine maintenance preserves public ancestry; it never creates a
-replacement repository, imports private commits, or changes data rights.
+The two repositories have **independent histories**. Only reviewed, explicitly
+mapped code/documentation changes may transfer from the private repository.
+Never push the private history, copy full directories, or widen the scientific
+or rights-scoped public dataset through routine sync.
 
-## Code changes are not evidence releases
+**Canonical operational procedure:** the private checkout's
+`republication/SAFE_SYNC.md`. Earlier R3b–R3j adversarial instructions and the
+initial new-repository checklist are retained as history, not required work on
+every ordinary change. There is no automatic publication authorization.
 
-The private maintainer has a narrow, explicit path allowlist and a two-phase
-patch planner. It reads committed UTF-8 code/documentation, pins both repository
-HEADs and the policy, records before/after SHA-256 values, and retains private
-old-file backups. Planning and verification do not modify the public checkout.
-The maintainer reviews and separately applies the exact patch before committing.
-
-There is no automatic commit, push, merge, cherry-pick, installation, provider
-inference, or subscription spending. A hash is a checksum, **not a digital
-signature or an independent authorization**. Approvals require a trusted review.
-
-Profiles, assignment shards, snapshots, source-rights policies, licenses, account
-inventories, raw captures, and bundles are outside this maintenance channel.
-Their modification requires a separate explicit review and reproducibility
-checks. Missing external source values remain null/not redistributed, never zero.
-The existing reference configurations are not recomputed against public data.
-
-## Checks before publication
-
-In the independent public checkout, inspect `git status`, the exact diff, and
-both fetch and push URLs of `origin`. Then run:
+## Local public preflight, after a reviewed commit and before ANY public push
 
 ```sh
-python3 -B tools/test_public_boundary.py
-python3 -B tools/audit_public_distribution.py
+python3 -B tools/audit_public_distribution.py --release-inventory > /path/to/private/ignored/review.json
 python3 -B tools/verify_public_release.py
-python3 -B scripts/test_profile_compiler.py
-python3 -B scripts/test_nan_quota_optimizer.py
-python3 -B scripts/review_objective_equivalences.py --verify
+python3 -B tools/test_public_boundary.py
+python3 -B tools/test_bfcl_anchor.py
+python3 -B scripts/test_r3b_contracts.py
+git diff --check
+git status --short --branch
+cd dashboard && bun install --frozen-lockfile && bun run test && bun run lint && bun run build
 ```
 
-Run frontend tests, lint and build for the exact candidate. After making the
-reviewed local commits, but **before pushing**, run:
+The inventory uses a **live read-only** `ls-remote` of the public `main` and
+refuses unknown/divergent ancestry. Examine `releaseInventory.newReachableGitObjects`
+and every `historicalChangedFileVersions` record, including paths deleted later
+in Git history. Every changed version is review-required; a scanner passing
+means neither semantic JS exhaustiveness nor third-party redistribution rights.
+The live main comparison does not enumerate every other possible public ref.
+If the network is unavailable, this step does **not** pass offline.
+
+For each *exact* built Pages distribution, run:
 
 ```sh
-python3 -B tools/audit_public_distribution.py --history
-git diff --check
-git status -sb
+python3 -B tools/audit_public_distribution.py --built /path/to/new/dist \
+  --compare-pages-to /path/to/private/verified/R3j/historical/pages/public
+# Repeat for reference, with its OWN historical 17-file Pages directory.
 ```
 
-The history check requires the approved public baseline
-`58a682d6ca6f3ed0b595d7daed5208bc56bd9385` as an ancestor. It inspects every
-added/modified blob after that baseline, including a file later deleted.
-Private merges, unrelated histories, symbolic links, tracked runtime artifacts,
-Git bundles, unreviewed archives, likely secrets, and recognized non-allowlisted
-publisher score rows fail the checks. Use linear commits or squash reviewed
-public-only branches; merging private Git history is not supported.
+The comparison pins the 17+17 historical byte inventories: changed, added or
+removed assets require explicit source/content/rights review. Unchanged hashes
+prove only identical bytes, not legal clearance. The public repository must
+still pass `tools/audit_public_distribution.py --history` and
+`tools/verify_public_release.py` in CI. Never include raw snapshot.json in Pages.
 
-Compressed dashboard chunks are decoded with a size cap, checked against their
-content-addressed filenames, and scanned as JSON. Only chunks referenced by the
-delivery manifest are accepted. The independent release verifier checks the
-lossless reconstruction and preserves profile, assignment and evidence contracts.
+### What blocks publication
 
-CI uses read-only repository permissions and full **public** history for the
-history check. On pull requests it checks the contributor head, not GitHub's
-synthetic merge commit. Checks also run on the checked-out candidate tree.
+Any changed or historically added byte not reviewed, suspected secret/private
+path or prohibited data, unproven redistribution permission, failed science or
+frontend check, unexpected Git ancestry/remote, or changed Pages content without
+review. The **existing externally installed Ed25519 exact-HEAD/Pages authority**
+and separate signed human rights gate still apply: absent permission means **STOP**.
+A real owner decision to replace that authority would require a separate
+migration; no change is active. Passing checks never grants a push or merge.
 
-## Limits and recovery
-
-These controls are not exhaustive secret detection, proof of dataset licensing,
-or evidence of empirical agent superiority. Unlabelled, encoded, or cleverly
-reformatted publisher numbers still require human review. The original nine
-public commits are the pre-existing reviewed baseline, not newly re-audited by
-the incremental history scanner. The current tree is checked independently.
-
-Hosted CI runs after upload. It does not prevent the first disclosure from an
-unsafe push; local preflight is mandatory. Branch protections are a separate
-repository setting, not enabled by these scripts. Avoid concurrency: re-run plan
-verification immediately before applying and recheck the exact diff before push.
-
-Keep old-file backups and review receipts privately. For an uncommitted patch,
-review `git apply --reverse --check` before any deliberate reversal. For a
-published code regression, use a new public revert commit; do not force-push or
-copy a private bundle. Reverting leaked data does not remove it from history:
-stop publication and handle the incident separately.
+Routine CI covers the data, BFCL, provenance, Git/DLP boundary, frontend and
+actual Pages bytes. Historical deep SHA/JS red-team suites remain available by
+manual workflow dispatch, not as a regular development cycle. A solo maintainer
+may inspect changes with AI assistance but must not claim institutional
+independence or legal review performed by the model.

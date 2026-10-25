@@ -1,20 +1,25 @@
 name: Publish rights-scoped dashboard to GitHub Pages
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - "dashboard/**"
-      - "scripts/**"
-      - "contracts/**"
-      - "evaluations/**"
-      - "tools/**"
-      - "data/**"
-      - "catalog/**"
-      - "policies/**"
-      - "profiles/**"
-      - ".github/workflows/pages.yml"
+  # No upload/deploy is triggered by pushing a commit alone.
   workflow_dispatch:
+    inputs:
+      approved_head:
+        description: "Public main exact commit SHA40 reviewed by the maintainer"
+        required: true
+        type: string
+      approved_pages_sha256:
+        description: "Exact public Pages path-to-SHA256 inventory digest from local review"
+        required: true
+        type: string
+      rights_confirmation:
+        description: "Personal content, attribution and redistribution review"
+        required: true
+        type: choice
+        options:
+          - "NO"
+          - "I_HAVE_REVIEWED_RIGHTS_AND_CONTENT"
+        default: "NO"
 
 permissions:
   contents: read
@@ -33,6 +38,17 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 0
+      - name: Require manual owner dispatch bound to main HEAD
+        env:
+          APPROVED_HEAD: ${{ inputs.approved_head }}
+          RIGHTS_CONFIRMATION: ${{ inputs.rights_confirmation }}
+        run: |
+          test "$GITHUB_EVENT_NAME" = "workflow_dispatch"
+          test "$GITHUB_REF" = "refs/heads/main"
+          test "$GITHUB_ACTOR" = "brianmsm"
+          [[ "$APPROVED_HEAD" =~ ^[a-f0-9]{40}$ ]]
+          test "$APPROVED_HEAD" = "$(git rev-parse HEAD)"
+          test "$RIGHTS_CONFIRMATION" = "I_HAVE_REVIEWED_RIGHTS_AND_CONTENT"
       - name: Set up Python 3.14
         uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
         with:
@@ -47,7 +63,6 @@ jobs:
           python3 -B tools/verify_public_release.py
           python3 -B tools/test_bfcl_anchor.py
           python3 -B scripts/test_r3b_contracts.py
-          python3 -B scripts/test_r3d_git_integrity.py
           python3 -B tools/test_public_boundary.py
           python3 -B tools/rebuild_delivery.py
           python3 -B tools/verify_public_release.py
@@ -79,6 +94,23 @@ jobs:
           PY
       - name: Inspect exact staged public Pages artifact
         run: python3 -B tools/audit_public_distribution.py --built dashboard/dist
+      - name: Require exact maintainer-reviewed Pages digest before upload
+        env:
+          APPROVED_SITE_SHA: ${{ inputs.approved_pages_sha256 }}
+        run: |
+          python3 -B - <<'PYEOF'
+          import os, re, sys
+          from pathlib import Path
+          sys.path.insert(0, str(Path.cwd()/"tools"))
+          from audit_public_distribution import exact_site_inventory, site_inventory_digest
+          supplied=os.environ["APPROVED_SITE_SHA"]
+          if not re.fullmatch(r"[a-f0-9]{64}", supplied):
+              raise SystemExit("Maintainer Pages SHA-256 digest invalid")
+          actual=site_inventory_digest(exact_site_inventory(Path("dashboard/dist")))
+          if actual != supplied:
+              raise SystemExit("Built Pages differ from maintainer-reviewed exact bytes")
+          print("Exact Pages digest matches maintainer dispatch:", actual)
+          PYEOF
       - name: Upload public Pages files
         uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
 

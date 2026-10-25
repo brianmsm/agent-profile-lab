@@ -57,6 +57,11 @@ def check_inputs(manifest: dict, root: Path=ROOT) -> dict:
             raise ValueError('Invalid source-shard SHA-256')
         if name not in actual:raise ValueError('Unknown source shard')
         path=base/name
+        ancestor=base
+        for part in Path(name).parts[:-1]:
+            ancestor=ancestor/part
+            if ancestor.is_symlink() or not ancestor.is_dir():
+                raise ValueError('Unsafe transitive shard ancestor: '+name)
         if path.is_symlink() or not path.resolve().is_relative_to(base.resolve()):
             raise ValueError('Unsafe transitive shard path')
         checked_shards+=1
@@ -66,9 +71,35 @@ def check_inputs(manifest: dict, root: Path=ROOT) -> dict:
         'expectedInputs':len(expected),'transitiveShardsChecked':checked_shards,
         'staleInputs':sorted(stale),'staleShards':sorted(shard_stale)}
 
+
+def stable_source_fingerprint(root:Path) -> dict[str,str]:
+    # Capture a complete repeatable source-set identity, including the
+    # profile-index.csv NOT present in the compiler's transitive hash list.
+    # This detects changes during the preflight but is NOT a filesystem lock:
+    # a hostile writer after the final read remains outside its guarantee.
+    files=set(COMPILATION_INPUTS)
+    files.update(('data/profile-index.csv','policies/source-metadata-amendment.json'))
+    folder=root/'data/assignment-shards'
+    files.update(str(p.relative_to(root)) for p in folder.glob('*/*.csv'))
+    if len([p for p in files if p.startswith('data/assignment-shards/') and p.endswith('.csv')])!=12:
+        raise ValueError('Source snapshot is missing required historical CSV shards')
+    result={}
+    for relative in sorted(files):
+        path=root/relative
+        parent=root
+        for part in Path(relative).parts[:-1]:
+            parent=parent/part
+            if parent.is_symlink() or not parent.is_dir():
+                raise ValueError('Source snapshot contains ancestor alias: '+relative)
+        if path.is_symlink() or not path.is_file():
+            raise ValueError('Source snapshot has unsafe file: '+relative)
+        result[relative]=hashlib.sha256(path.read_bytes()).hexdigest()
+    return result
+
 def preflight(manifest: dict, content: bytes, runtime_version: str|None=None, root: Path=ROOT) -> dict:
     if not isinstance(manifest,dict) or manifest.get('format')!='agent-profile-lab.compiled-profile' or not schema_version_is_one(manifest.get('schemaVersion')):
         raise ValueError('Unknown compiled manifest format')
+    baseline_fingerprint=stable_source_fingerprint(root)
     native=manifest.get('nativeArtifact',{})
     if not isinstance(native,dict) or not re.fullmatch('[0-9a-f]{64}',native.get('sha256','')):
         raise ValueError('Missing native SHA-256')
@@ -112,9 +143,15 @@ def preflight(manifest: dict, content: bytes, runtime_version: str|None=None, ro
     controls=list(CONTROL_IDS)
     if not isinstance(controls,list) or len(controls)!=6 or len(set(controls))!=6:
         raise ValueError('External safety-control inventory is missing or inconsistent')
+    final_fingerprint=stable_source_fingerprint(root)
+    if final_fingerprint!=baseline_fingerprint:
+        raise ValueError('Source changed during preflight; refuse stale artifactCurrent')
     ready=bool(native_ok and inputs['current'] and anchor_result['nonlabelFieldsPreserved'] and
         contract_ok and roles_ok and native_semantic and manifest_semantic and version_ok is not False)
-    return {'schemaVersion':1,'artifactCurrent':ready,'nativeHashMatches':native_ok,
+    return {'schemaVersion':1,'artifactCurrent':ready,
+      'sourceStableDuringPreflight':True,
+      'sourceStabilityScope':'read-digest-before-and-after; not a lock against later writers',
+      'nativeHashMatches':native_ok,
       'nativeSemanticsReproduced':native_semantic,'manifestSemanticsReproduced':manifest_semantic,
       'requestReproductionErrors':reproduction_errors,'sourceInputs':inputs,
       'historicalSourceAnchor':anchor_result['historicalAnchor'],
