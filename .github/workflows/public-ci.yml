@@ -20,6 +20,21 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 0
+      # actions/checkout runs "git sparse-checkout disable" on hosted Git,
+      # leaving .git/config.worktree even after worktreeConfig is unset.
+      # Validate its exact harmless contents before deleting this transient
+      # checkout artifact; do NOT weaken Git metadata verification itself.
+      - name: Remove verified checkout-only worktree config
+        run: |
+          python3 - <<'PYEOF'
+          from pathlib import Path
+          p = Path(".git/config.worktree")
+          if p.exists() or p.is_symlink():
+              expected = b"[core]\n\tsparseCheckout = false\n\tsparseCheckoutCone = false\n[index]\n\tsparse = false\n"
+              if p.is_symlink() or not p.is_file() or p.read_bytes() != expected:
+                  raise SystemExit("Unexpected Git worktree metadata: refusing unsafe checkout")
+              p.unlink()
+          PYEOF
       - name: Python 3.14
         uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
         with:
