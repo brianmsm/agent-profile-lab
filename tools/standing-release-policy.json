@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "id": "apl-standing-public-release-subscriptions-20261110",
+  "status": "source-rights-policy-scoped",
+  "rightsBasis": "Original project-owned MIT code and authorial explanation; historical supplier plan names/price facts as citations and URLs, not source pages or score tables.",
+  "reviewedPublicBase": "60744bae87696ae2aa01eeba1a4bad68a720399f",
+  "verifiedPublicFeatureCommit": "59e02f081b0b8b7884df5c924e8bcb392d621990",
+  "originalPublicLicense": "MIT",
+  "authorizedHistoricalChanges": {
+    "dashboard/src/Profiles.tsx": "b65c0155ddc22066529c05f756dc31cf31a877f9cb1de5902dbad04fb48c2eba",
+    "dashboard/src/PublicSubscriptionAddons.tsx": "03ea385d855f235e643d92e393706d6da0deffbad953f51a2ffd3ccec21c6a59",
+    "dashboard/src/publicSupplementPlan.ts": "bbcd2bda47ab3fafed310b04ebbd5a158de1c4c74def6b4f7e58cc25100d700e",
+    "dashboard/tests/publicSubscriptionAddons.test.tsx": "0d8a2c1310df7b4421c53a00b31f7e0c181b1153e967ec13c57c219756209884",
+    "docs/SUBSCRIPTION_RESOURCES.md": "72ca6d8f927b8412f51baa9255b15a590ad00f2d4dfff1776a5ba8f9929d684f"
+  },
+  "controlledReleaseInfrastructure": [
+    ".github/workflows/pages.yml",
+    "tools/standing_release_gate.py",
+    "tools/standing-release-policy.json",
+    "tools/test_standing_release_gate.py",
+    "docs/STANDING_RELEASE_SCOPE.md",
+    "docs/SAFE_MAINTENANCE.md"
+  ],
+  "expectedPagesInventorySHA256": {
+    "public": "fa145ae8dd74c3962c17a337e824019501c8d20d0ac816ffa50daee0796ef510",
+    "reference": "ac902e1661e957ea85b165596630c4d7835dce567593a65806be51f6ef7831f7"
+  },
+  "rightsRules": {
+    "allowOriginalProjectSource": true,
+    "allowShortPlanFactsAndProviderLinks": true,
+    "permitBFCLNumericOnlyUnderExistingRightsPolicy": true,
+    "denyThirdPartyRawCaptures": true,
+    "denyThirdPartyPublisherScores": true,
+    "denyPrivateResearchAndAccountData": true,
+    "denyNewRoleAssignmentsOrDataChanges": true,
+    "denyAutomaticRightsExtensionToNewPaths": true,
+    "verifyHumanRightsClaim": false
+  },
+  "publicationBoundary": "Only exact authorized source versions plus dedicated release infrastructure may be introduced after reviewed base. Re-run source/DLP/history tests. Assets must match both pinned Pages inventories. Any additional content requires a new documented policy revision and tests.",
+  "humanRightsReviewed": false,
+  "origin": "User-delegated standing policy check, not a statement of independent legal clearance",
+  "remotePushRequiresValidPolicyCheck": true,
+  "authorizedInfrastructureSHA256": {
+    ".github/workflows/pages.yml": "0d61448b33fc1df5f4f4d6227915ef444bc208adeecfec7fe469b8077036fd47",
+    "tools/standing_release_gate.py": "221dbce0ceff19bedec1aefa0294fdca34c2a0f212a3d0a4d260ed189fc75227",
+    "tools/test_standing_release_gate.py": "364dbb9deae3614b4caa4540d972255734a8dd094c8fcbc5db68a6f6f6fad15f",
+    "docs/STANDING_RELEASE_SCOPE.md": "21c99eaf43425ca4516d9e434b4758725f8d08ae9a4928a675dc45f4cbda707c",
+    "docs/SAFE_MAINTENANCE.md": "969276374759393a2a37a872e65995454e5797eab7ea304cf83ae022c12dc285"
+  },
+  "authorizedInfrastructureHistoricalSHA256": {
+    "tools/standing_release_gate.py": [
+      "8af5c9eb5e7a07bde5bfba68a4e1aa782f10230ff4f4ca498eec42858ccc7763",
+      "5bd4c2b4140b6881daf9880ebe48d13ceea13b1d70bebffdd26cfda38ac91404"
+    ],
+    "tools/test_standing_release_gate.py": [
+      "ab9011de62d8a79ecb7f0021479247512bcce70d3a7623a47cab666055c12940"
+    ],
+    ".github/workflows/pages.yml": [
+      "43d0fcd5679aa83e1865e4bbc75d9b411440826152ad46a97a1091a11600b6b7"
+    ]
+  }
+}

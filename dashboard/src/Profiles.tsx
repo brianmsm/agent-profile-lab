@@ -1,4 +1,5 @@
 import ProfileAssurance from './ProfileAssurance'
+import PublicSubscriptionAddons from './PublicSubscriptionAddons'
 import objectiveLedger from '../../policies/objective-equivalence-ledger.json'
 import NanCustomWorkloadEditor from './NanCustomWorkloadEditor'
 import harnessContracts from '../../contracts/harnesses.json'
@@ -125,6 +126,7 @@ export default function Profiles({snapshot,filters:inputFilters,onFilters}:Props
         <div className="resource-extras"><span className="control-label">Otros recursos disponibles · marcar una API no autoriza gasto</span><div className="resource-extra-options">{([['api','OpenAI API'],['anthropicApi','Claude API'],['nan','NaN']] as const).map(([key,label])=><label key={key} className={`subscription-option ${filters.subscriptions?.[key]?'selected':''}`}><input type="checkbox" checked={filters.subscriptions?.[key]??false} onChange={e=>chooseExtra(key,e.target.checked)}/><span>{label}</span></label>)}</div></div>
       </div>
       <div className="subscription-summary preset-inventory-summary"><div role="status"><span className="control-label">{audit?'Inventario exacto de referencia':'Tus recursos disponibles'}</span><strong>{filters.subscriptions?selectionLabels.join(' + ')||'Sin suscripciones':'Explorando todas las referencias'}</strong><p>{!filters.subscriptions?'Selecciona tus recursos para habilitar estrategias de colaboración.':inventoryCosts.length?`Coste mensual registrado del inventario completo: ${inventoryCosts.join(' / ')}.`:'No hay coste mensual registrado para este inventario exacto.'}</p><span className="footnote">USD y EUR separados. Las suscripciones ya disponibles no se suman como coste por tarea; API, créditos y consumo se gestionan por separado.</span></div></div>
+      <PublicSubscriptionAddons/>
       {filters.subscriptions?.nan&&<div className="nan-balance-disclosure"><button type="button" className="nan-balance-toggle" aria-expanded={nanBalanceOpen} onClick={()=>setNanBalanceOpen(v=>!v)}><span>NaN · equilibrar cuotas por modelo</span><span>{nanBalanceOpen?'Ocultar simulador':'Abrir simulador y política de despacho'}</span></button>{nanBalanceOpen&&<Suspense fallback={<p role="status">Cargando planificador NaN…</p>}><NaNQuotaPlanner domain={filters.domain} snapshot={snapshot}/></Suspense>}</div>}
       <div className="filter-grid primary-filters">
         <label>¿En qué trabajas?<select aria-label="Dominio de perfiles" value={filters.domain} onChange={e=>changeFilter('domain',e.target.value)}><option value="">Todos los dominios</option>{Object.entries(DOMAINS).map(([id,label])=><option key={id} value={id}>{label}</option>)}</select></label>
