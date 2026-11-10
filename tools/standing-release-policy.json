@@ -41,18 +41,22 @@
   "origin": "User-delegated standing policy check, not a statement of independent legal clearance",
   "remotePushRequiresValidPolicyCheck": true,
   "authorizedInfrastructureSHA256": {
-    ".github/workflows/pages.yml": "43d0fcd5679aa83e1865e4bbc75d9b411440826152ad46a97a1091a11600b6b7",
-    "tools/standing_release_gate.py": "5bd4c2b4140b6881daf9880ebe48d13ceea13b1d70bebffdd26cfda38ac91404",
+    ".github/workflows/pages.yml": "0d61448b33fc1df5f4f4d6227915ef444bc208adeecfec7fe469b8077036fd47",
+    "tools/standing_release_gate.py": "221dbce0ceff19bedec1aefa0294fdca34c2a0f212a3d0a4d260ed189fc75227",
     "tools/test_standing_release_gate.py": "364dbb9deae3614b4caa4540d972255734a8dd094c8fcbc5db68a6f6f6fad15f",
     "docs/STANDING_RELEASE_SCOPE.md": "21c99eaf43425ca4516d9e434b4758725f8d08ae9a4928a675dc45f4cbda707c",
     "docs/SAFE_MAINTENANCE.md": "969276374759393a2a37a872e65995454e5797eab7ea304cf83ae022c12dc285"
   },
   "authorizedInfrastructureHistoricalSHA256": {
     "tools/standing_release_gate.py": [
-      "8af5c9eb5e7a07bde5bfba68a4e1aa782f10230ff4f4ca498eec42858ccc7763"
+      "8af5c9eb5e7a07bde5bfba68a4e1aa782f10230ff4f4ca498eec42858ccc7763",
+      "5bd4c2b4140b6881daf9880ebe48d13ceea13b1d70bebffdd26cfda38ac91404"
     ],
     "tools/test_standing_release_gate.py": [
       "ab9011de62d8a79ecb7f0021479247512bcce70d3a7623a47cab666055c12940"
+    ],
+    ".github/workflows/pages.yml": [
+      "43d0fcd5679aa83e1865e4bbc75d9b411440826152ad46a97a1091a11600b6b7"
     ]
   }
 }

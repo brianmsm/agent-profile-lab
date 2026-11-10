@@ -26,6 +26,20 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 0
+      # actions/checkout may leave a harmless sparse-checkout worktree config
+      # in hosted Git. Match exact known bytes and reject all other metadata.
+      # Do not weaken the historical Git object validator.
+      - name: Remove verified checkout-only worktree config
+        run: |
+          python3 - <<'PYEOF'
+          from pathlib import Path
+          p = Path(".git/config.worktree")
+          if p.exists() or p.is_symlink():
+              expected = b"[core]\n\tsparseCheckout = false\n\tsparseCheckoutCone = false\n[index]\n\tsparse = false\n"
+              if p.is_symlink() or not p.is_file() or p.read_bytes() != expected:
+                  raise SystemExit("Unexpected Git worktree metadata: refusing unsafe checkout")
+              p.unlink()
+          PYEOF
       - name: Require exact approved public HEAD (no personal attestation)
         env:
           APPROVED_HEAD: ${{ inputs.approved_head }}
