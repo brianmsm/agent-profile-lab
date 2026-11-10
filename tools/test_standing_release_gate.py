@@ -111,6 +111,21 @@ class StandingReleaseGateTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError,"Unreviewed conflict resolution"):
                 gate.historical_versions(root,base,poisoned)
 
+    def test_required_public_ci_infrastructure_is_exact_and_full_suite(self):
+        policy=gate.policy_at()
+        path=".github/workflows/public-ci.yml"
+        self.assertIn(path, gate.GATE_PATHS)
+        workflow=(gate.ROOT/path).read_bytes()
+        self.assertEqual(hashlib.sha256(workflow).hexdigest(),
+                         policy["authorizedInfrastructureSHA256"][path])
+        content=workflow.decode()
+        self.assertIn("bun test --timeout 30000 tests",content)
+        self.assertNotIn("bun run test\n",content)
+        self.assertIn("tools/audit_public_distribution.py --history",content)
+        self.assertIn("tools/test_public_boundary.py",content)
+        self.assertIn("bun run lint",content)
+        self.assertIn("bun run build",content)
+
     def test_site_inventory_cannot_be_replaced_by_arbitrary_build(self):
         from unittest.mock import patch
         pol=gate.policy_at()

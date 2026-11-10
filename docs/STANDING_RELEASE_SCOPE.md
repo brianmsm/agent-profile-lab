@@ -8,8 +8,9 @@ someone performed a new independent legal review.
 The public release remains limited to:
 - Five exact author-owned source/documentation versions listed by SHA-256
   in `tools/standing-release-policy.json`.
-- The minimal project-owned release tooling needed to check that policy,
-  inspect Git history and reproduce both Pages artifacts.
+- The minimal project-owned release tooling, including the required public
+  CI workflow, needed to check that policy, inspect Git history and reproduce
+  both Pages artifacts.
 - Existing, unchanged numerical BFCL V4 values under the Apache-2.0 basis
   already recorded in `policies/public-evidence-redistribution.json`.
 - Short factual names/prices of published plans, with links to original

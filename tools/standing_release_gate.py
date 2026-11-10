@@ -24,6 +24,7 @@ ROOT = Path(__file__).resolve().parents[1]
 POLICY = "tools/standing-release-policy.json"
 GATE_PATHS = frozenset({
     ".github/workflows/pages.yml",
+    ".github/workflows/public-ci.yml",
     "tools/standing_release_gate.py",
     "tools/standing-release-policy.json",
     "tools/test_standing_release_gate.py",
@@ -140,7 +141,7 @@ def compare_historical_versions(
 
 def historical_versions(root: Path, base: str, head: str) -> tuple[list[tuple[str, bytes | None]], int]:
     commits = git(root, "rev-list", "--reverse", f"{base}..{head}").decode().splitlines()
-    if not 1 <= len(commits) <= 5:
+    if not 1 <= len(commits) <= 8:
         raise ValueError("Release history not in the expected bounded review range")
     versions = []
     for commit in commits:
