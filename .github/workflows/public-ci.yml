@@ -94,7 +94,9 @@ jobs:
       - name: TypeScript tests and lint
         working-directory: dashboard
         run: |
-          bun run test
+          # Python/TypeScript integration cases may exceed Bun's 5s default on hosted runners.
+          # Preserve the full test suite and only expand the per-test timeout.
+          bun test --timeout 30000 tests
           bun run lint
       - name: Build and independently validate the typed snapshot
         working-directory: dashboard

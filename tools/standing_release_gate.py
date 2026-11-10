@@ -24,6 +24,7 @@ ROOT = Path(__file__).resolve().parents[1]
 POLICY = "tools/standing-release-policy.json"
 GATE_PATHS = frozenset({
     ".github/workflows/pages.yml",
+    ".github/workflows/public-ci.yml",
     "tools/standing_release_gate.py",
     "tools/standing-release-policy.json",
     "tools/test_standing_release_gate.py",
