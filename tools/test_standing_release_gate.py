@@ -63,6 +63,54 @@ class StandingReleaseGateTests(unittest.TestCase):
                 bad=copy.deepcopy(raw);change(bad)
                 with self.assertRaises(ValueError):fixture(bad)
 
+    def test_older_exact_infrastructure_versions_are_explicitly_grandfathered(self):
+        policy=gate.policy_at()
+        pinned={**policy["authorizedHistoricalChanges"],
+                **policy["authorizedInfrastructureSHA256"]}
+        older=policy["authorizedInfrastructureHistoricalSHA256"]
+        path="tools/standing_release_gate.py"
+        self.assertIn(path,older)
+        old=older[path][0]
+        from unittest.mock import patch
+        with patch.object(gate,"digest",return_value=old):
+            gate.compare_historical_versions(pinned,[(path,b"previous reviewed gate")],
+                                             {gate.POLICY},older)
+        with self.assertRaisesRegex(ValueError,"no standing rights coverage"):
+            gate.compare_historical_versions(pinned,[(path,b"unreviewed changed gate")],
+                                             {gate.POLICY},older)
+
+    def test_content_preserving_pr_merge_only(self):
+        import subprocess
+        def git_at(root, *args):
+            p = subprocess.run(["git","-C",str(root),*args],check=True,
+                               capture_output=True,text=True)
+            return p.stdout.strip()
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder)
+            git_at(root,"init","-b","main")
+            git_at(root,"config","user.name","Synthetic release test")
+            git_at(root,"config","user.email","synthetic@invalid.example")
+            (root/"base.txt").write_text("baseline\\n")
+            git_at(root,"add","base.txt");git_at(root,"commit","-m","baseline")
+            base=git_at(root,"rev-parse","HEAD")
+            git_at(root,"checkout","-b","feature")
+            (root/"change.txt").write_text("reviewed source\\n")
+            git_at(root,"add","change.txt");git_at(root,"commit","-m","reviewed feature")
+            git_at(root,"checkout","main")
+            git_at(root,"merge","--no-ff","--no-edit","feature")
+            valid=git_at(root,"rev-parse","HEAD")
+            versions,count=gate.historical_versions(root,base,valid)
+            self.assertEqual(count,2)
+            self.assertEqual(len(versions),2)
+            # A maintainer changing the merge tree without changing its
+            # second-parent identity must fail rather than inherit approval.
+            (root/"change.txt").write_text("unreviewed conflict resolution\\n")
+            git_at(root,"add","change.txt")
+            git_at(root,"commit","--amend","--no-edit")
+            poisoned=git_at(root,"rev-parse","HEAD")
+            with self.assertRaisesRegex(ValueError,"Unreviewed conflict resolution"):
+                gate.historical_versions(root,base,poisoned)
+
     def test_site_inventory_cannot_be_replaced_by_arbitrary_build(self):
         from unittest.mock import patch
         pol=gate.policy_at()

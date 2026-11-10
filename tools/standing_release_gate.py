@@ -72,6 +72,7 @@ def policy_at(root: Path = ROOT) -> dict:
         "reviewedPublicBase", "verifiedPublicFeatureCommit",
         "originalPublicLicense", "authorizedHistoricalChanges",
         "controlledReleaseInfrastructure", "authorizedInfrastructureSHA256",
+        "authorizedInfrastructureHistoricalSHA256",
         "expectedPagesInventorySHA256",
         "rightsRules", "publicationBoundary", "humanRightsReviewed", "origin",
         "remotePushRequiresValidPolicyCheck",
@@ -92,6 +93,14 @@ def policy_at(root: Path = ROOT) -> dict:
                for v in {**policy["authorizedHistoricalChanges"],
                          **policy["authorizedInfrastructureSHA256"]}.values()):
         raise ValueError("Invalid exact source/control hashes")
+    older=policy["authorizedInfrastructureHistoricalSHA256"]
+    if (not isinstance(older,dict) or set(older)-set(policy["authorizedInfrastructureSHA256"])
+        or any(not isinstance(versions,list) or not versions or
+               len(versions)!=len(set(versions)) or
+               any(not isinstance(v,str) or not SHA.fullmatch(v) or
+                   v == policy["authorizedInfrastructureSHA256"][name] for v in versions)
+               for name,versions in older.items())):
+        raise ValueError("Unknown or malformed older reviewed infrastructure hashes")
     if set(policy["expectedPagesInventorySHA256"]) != {"public", "reference"}:
         raise ValueError("Missing expected Pages site digest")
     if not all(isinstance(v, str) and SHA.fullmatch(v)
@@ -112,7 +121,8 @@ def policy_at(root: Path = ROOT) -> dict:
 
 
 def compare_historical_versions(
-    path_to_sha: dict[str, str], seen_versions: list[tuple[str, bytes | None]], infra: set[str]
+    path_to_sha: dict[str, str], seen_versions: list[tuple[str, bytes | None]],
+    infra: set[str], older: dict[str, list[str]] | None = None,
 ) -> None:
     allowed = set(path_to_sha) | infra
     for path, data in seen_versions:
@@ -120,7 +130,9 @@ def compare_historical_versions(
             raise ValueError("Unreviewed new public Git path: " + str(path))
         if data is None:
             raise ValueError("Deletion of a reviewed source/control path is not permitted: " + path)
-        if path in path_to_sha and digest(data) != path_to_sha[path]:
+        if path in path_to_sha and digest(data) not in {
+            path_to_sha[path], *(older or {}).get(path, []),
+        }:
             raise ValueError("Changed source has no standing rights coverage: " + path)
         if path in infra and (not data or len(data) > 4_194_304 or b"\0" in data):
             raise ValueError("Invalid release infrastructure content")
@@ -128,13 +140,21 @@ def compare_historical_versions(
 
 def historical_versions(root: Path, base: str, head: str) -> tuple[list[tuple[str, bytes | None]], int]:
     commits = git(root, "rev-list", "--reverse", f"{base}..{head}").decode().splitlines()
-    if not 1 <= len(commits) <= 3:
+    if not 1 <= len(commits) <= 4:
         raise ValueError("Release history not in the expected bounded review range")
     versions = []
     for commit in commits:
         parents = git(root, "rev-list", "--parents", "-n", "1", commit).decode().split()
-        if len(parents) != 2 or parents[0] != commit:
-            raise ValueError("Unexpected merge or ancestry in standing release range")
+        if parents[0] != commit or len(parents) not in (2, 3):
+            raise ValueError("Unexpected ancestry in standing release range")
+        if len(parents) == 3:
+            # A GitHub PR merge is acceptable only when its tree matches
+            # the reviewed PR parent byte for byte. Conflict-resolution
+            # merges and octopus merges remain outside the standing scope.
+            merged_tree = git(root, "rev-parse", commit + "^{tree}")
+            reviewed_tree = git(root, "rev-parse", parents[2] + "^{tree}")
+            if merged_tree != reviewed_tree:
+                raise ValueError("Unreviewed conflict resolution in merge commit")
         parent = parents[1]
         names = git(root, "diff-tree", "-r", "-z", "--no-renames", "--name-only",
                     parent, commit).split(b"\0")
@@ -171,7 +191,9 @@ def verify_source(root: Path = ROOT, expected_head: str | None = None) -> dict:
     git(root, "merge-base", "--is-ancestor", FEATURE, head)
     version_list, count = historical_versions(root, BASE, head)
     pinned={**pol["authorizedHistoricalChanges"], **pol["authorizedInfrastructureSHA256"]}
-    compare_historical_versions(pinned, version_list, {POLICY})
+    compare_historical_versions(
+        pinned, version_list, {POLICY},
+        pol["authorizedInfrastructureHistoricalSHA256"])
     for path, h in pinned.items():
         if digest(git(root, "show", f"{head}:{path}")) != h:
             raise ValueError("Source SHA changed after previous review: " + path)
