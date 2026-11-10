@@ -1,62 +1,57 @@
-# Safe maintenance — current single-maintainer workflow
+# Public maintenance: standing rights scope (single maintainer)
 
-The two repositories have **independent histories**. Only reviewed, explicitly
-mapped code/documentation changes may transfer from the private repository.
-Never push the private history, copy full directories, or widen the scientific
-or rights-scoped public dataset through routine sync.
+The public and internal repositories have **independent Git histories**.
+Publication uses only the public checkout. Never mirror the internal
+repository, copy raw provider captures, include account information, or
+upload `snapshot.json` to Pages.
 
-**Canonical operational procedure:** the private checkout's
-`republication/SAFE_SYNC.md`. Earlier R3b–R3j adversarial instructions and the
-initial new-repository checklist are retained as history, not required work on
-every ordinary change. There is no automatic publication authorization.
+## No repetitive human rights acknowledgement for this narrow release
 
-## Local public preflight, after a reviewed commit and before ANY public push
+For the already reviewed, project-owned subscription supplement, the
+rights and distribution boundaries are expressed as **exact machine checks**:
 
-```sh
-python3 -B tools/audit_public_distribution.py --release-inventory > /path/to/private/ignored/review.json
-python3 -B tools/verify_public_release.py
-python3 -B tools/test_public_boundary.py
-python3 -B tools/test_bfcl_anchor.py
-python3 -B scripts/test_r3b_contracts.py
-git diff --check
-git status --short --branch
-cd dashboard && bun install --frozen-lockfile && bun run test && bun run lint && bun run build
-```
+- `tools/standing-release-policy.json`: immutable baseline and five exact
+  SHA-256 source versions, limited first-party release infrastructure,
+  existing BFCL data license boundary, and both exact Pages digests.
+- `tools/standing_release_gate.py`: checks all changed versions since the
+  reviewed baseline and **fails closed** if a file, mode, digest, Git history,
+  source-rights scope or Pages asset differs.
+- `tools/audit_public_distribution.py` and `tools/verify_public_release.py`:
+  independently inspect history, private-data patterns and public evidence.
 
-The inventory uses a **live read-only** `ls-remote` of the public `main` and
-refuses unknown/divergent ancestry. Examine `releaseInventory.newReachableGitObjects`
-and every `historicalChangedFileVersions` record, including paths deleted later
-in Git history. Every changed version is review-required; a scanner passing
-means neither semantic JS exhaustiveness nor third-party redistribution rights.
-The live main comparison does not enumerate every other possible public ref.
-If the network is unavailable, this step does **not** pass offline.
+The user delegated routine maintenance for material **already within the
+standing rights policy**. Thus neither a local interactive TTY attestation
+nor the misleading string `I_HAVE_REVIEWED_RIGHTS_AND_CONTENT` is part of
+this release pathway.
 
-For each *exact* built Pages distribution, run:
+The gate does **not** claim that a human reviewed these exact bytes again,
+that an AI is a lawyer, or that source-unknown third-party material is
+licensed. The original prior owner-attestation path remains available for
+exceptional releases *outside* the standing policy, but it is not required
+for this exact covered update.
 
-```sh
-python3 -B tools/audit_public_distribution.py --built /path/to/new/dist \
-  --compare-pages-to /path/to/private/verified/R3j/historical/pages/public
-# Repeat for reference, with its OWN historical 17-file Pages directory.
-```
+### Publication sequence
 
-The comparison pins the 17+17 historical byte inventories: changed, added or
-removed assets require explicit source/content/rights review. Unchanged hashes
-prove only identical bytes, not legal clearance. The public repository must
-still pass `tools/audit_public_distribution.py --history` and
-`tools/verify_public_release.py` in CI. Never include raw snapshot.json in Pages.
+1. Confirm the remote public `main` still equals the expected ancestor
+   before pushing. No force push, history mirroring or unreviewed merges.
+2. Run the standing gate against the full public Git tree, then
+   `audit_public_distribution.py --history`, source/BFCL checks, frontend
+   test, lint and production build.
+3. Build exact Pages in the private frozen staging system and check
+   `--site public` and `--site reference` against the policy-pinned
+   SHA-256 inventories (17 files each, including only two allowed chunks).
+4. Release operations may be delegated to the maintainer. Push only the
+   independent **public** repository. Pages use owner-authenticated
+   `workflow_dispatch` with the exact public HEAD, and each workflow
+   repeats the source-policy and built-artifact checks before upload.
+5. Source code, a Pages build, or a repository HEAD not covered by this
+   standing policy is a **BLOCK**, not an invitation to bypass a warning.
 
-### What blocks publication
+No workflow deploys automatically from every push. A delegated maintainer
+may invoke the workflows without making a false assertion that the owner
+personally performed a new rights inspection.
 
-Any changed or historically added byte not reviewed, suspected secret/private
-path or prohibited data, unproven redistribution permission, failed science or
-frontend check, unexpected Git ancestry/remote, or changed Pages content without
-review. The **existing externally installed Ed25519 exact-HEAD/Pages authority**
-and separate signed human rights gate still apply: absent permission means **STOP**.
-A real owner decision to replace that authority would require a separate
-migration; no change is active. Passing checks never grants a push or merge.
-
-Routine CI covers the data, BFCL, provenance, Git/DLP boundary, frontend and
-actual Pages bytes. Historical deep SHA/JS red-team suites remain available by
-manual workflow dispatch, not as a regular development cycle. A solo maintainer
-may inspect changes with AI assistance but must not claim institutional
-independence or legal review performed by the model.
+Future new third-party scores, captures, documents, models, licenses or
+unknown code must first receive separately documented provenance/rights
+decisions and a new explicit policy revision. No wildcard approval is
+inferred from the present release.
