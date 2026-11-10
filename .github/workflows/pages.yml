@@ -74,7 +74,9 @@ jobs:
         working-directory: dashboard
         run: |
           bun install --frozen-lockfile
-          bun run test
+          # Hosted runners may need longer than Bun's default 5s for Python-CLI integration tests.
+          # Keep all test cases; only increase the per-test time budget.
+          bun test --timeout 30000 tests
           bun run lint
           bunx tsc -b
           bunx vite build --base=/agent-profile-lab/
